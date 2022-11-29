@@ -172,7 +172,7 @@ Otherwise, you will need to reserve an environment for the lab. You can obtain o
     
     - If using **Firefox** browser, select **"Open link in new private window"** from the context menu. 
 
-      ![](./images/media/chrome-incognito.png)
+      ![](./images/media/firefox-private.png)
 
     b. Click on the **"vnc.html"** link to open the lab environment through the **noVNC** interface. 
 

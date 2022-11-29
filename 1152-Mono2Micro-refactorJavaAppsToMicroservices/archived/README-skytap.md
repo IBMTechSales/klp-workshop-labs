@@ -172,102 +172,66 @@ end-to-end process.
     ![](./images/media/image7.png)
 
 
-## 4 Accessing the lab environment
+## 4 The lab environment
 
-If you are doing this lab as part of an instructor led workshop (virtual or face to face), an environment has already been provisioned for you. The instructor will provide the details for accessing the lab environment.
+One (1) Linux VM has been provided for this lab.
 
-Otherwise, you will need to reserve an environment for the lab. You can obtain one here. Follow the on-screen instructions for the “**Reserve now**” option.
-
-<https://techzone.ibm.com/my/reservations/create/60da2c20e2cb7a001f656575>
-
-
-1.  Access the lab environment from your web browser. 
-    
-    A Published Service is configured to provide access to the **Workstation** VM through the noVNC interface for the lab environment.
-
-    a.  When the environment is provisioned, right-mouse click on the **Published Service** link and open the URL in a new private or incognito browser window, as described below:  
-    
-    - If using **Google Chrome** browser, select **"Open link in incognito window"** from the context menu. 
-
-      ![](./images/media/chrome-incognito.png)
-    
-    - If using **Firefox** browser, select **"Open link in new private window"** from the context menu. 
-
-      ![](./images/media/firefox-private.png)
-
-    b. Click on the **"vnc.html"** link to open the lab environment through the **noVNC** interface. 
-
-      ![](./images/media/vnc-link.png)
-
+  ![](./images/media/image9.png)
  
-    c. Click the **Connect** button 
-    
-      ![](./images/media/vnc-connect.png)
-
-    d. Enter the password as:  **passw0rd**. Then click the **Send Credentials** button to access the lab environment. 
-
-    > Note: That is a numeric zero in passw0rd  
-
-      ![](./images/media/vnc-password.png)
-
-	
-2.  Once you access the **Student VM** through the published service, you will see the Desktop, which contains all the programs that you will be using (browsers, terminal, etc.)
-
-    The login credentials for the **Workstation”** VM is:
- 
-     - User ID: **ibmdemo**
-
-     - Password: **passw0rd**
-	 
-	 <br>
- 
-     ![student vm screen](./images/media/image13.png)
-	 
-	 <br>
-
-     The Ubuntu Liux **Workstation** VM has the following software installed:
+  - The **Workstation** VM has the following software installed:
   
     - Docker 19.03.13
     - Git 2.24.1
     - Maven 3.6.3java
     - OpenJDK 1.8.0
 
+
+  - The **Workstation** is a Linux VM
+
+  - The login credentials for the **Workstation** VM are:
+
+    - User ID: **ibmdemo**
+ 
+    -  Password: **passw0rd (That is a numeric zero in passw0rd)**
+ 
+    **Note:** Use the Password above in the **Workstation** VM Terminal for ***sudo*** in the Lab
+
+
+###  4.1 **Login to the Workstation VM and Get Started**
+
+1.  If the VM is **<span class="underline">not</span>** already started,
+    start it by clicking the **Play** button.
+
+    ![](./images/media/image10.png)
+
+2.  After the VM is started, click the **Workstation** VM icon to access
+    it.
+
+    ![](./images/media/image11.png)
+
+3.  Login with **ibmdemo** ID.
+
+    a. Click on the “**ibmdemo**” icon on the Ubuntu screen.
+
+    ![](./images/media/image12.png)
+
+    b. When prompted for the password for “**ibmdemo**” user, enter   "**passw0rd**” as the password
+
+    Password: **passw0rd** (lowercase with a zero instead of the o)
+ 
+    ![](./images/media/image13.png)
+
     <br/>
 
+###  4.2 **Resize the Skytap lab environment window to fit to size**
 
-## Tips for working the in lab environment     
+From the Skytap menu bar, click on the “**Fit to Size**”
+![](./images/media/image14.png) icon. This will enlarge the viewing area
+to fit the size of your browser window.
 
-1.  You can use your Browsers **zoom in** and **zoom out** options to resize the virtual desktop to fit your screen.
+![](./images/media/image15.png)
 
-    The examples below are using Firefox and Chrome browsers. 
-
-    - Firefox example: 
-    
-    ![fit to window](./images/media/zoom.png)
-
-    - Chrome example: 
-      
-     ![fit to window](./images/media/zoom-chrome.png)
-
-
-2.  You can copy / paste text from the lab guide into the lab environment using the clipboard in the noVNC viewer. 
-   
-    a. Copy the text from the lab guide that you want to paste into the lab environment
-    
-    b. Click the **Clipboard** icon and **paste** the text into the noVNC clipboard
-
-    ![fit to window](./images/media/paste.png)
-    
-    c. Paste the tect into the VM, such as to a terminal window, browser window, etc. 
-
-    d. Click on the **clipboard** icon agian to close the clipboard
-
-    > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. In this case you might try again, or paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
-
-3. An alternative to using the noVNC Copy / Paste option, you may considr openeing the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide wihout having to use the noVNC clipboard. 
-
-
-    <br>
+<br/>
 
 
 # **PART 1 Introduction to the Application and resources used for this lab**
