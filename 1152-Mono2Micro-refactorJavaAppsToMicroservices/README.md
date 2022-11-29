@@ -181,6 +181,18 @@ Otherwise, you will need to reserve an environment for the lab. You can obtain o
 <https://techzone.ibm.com/my/reservations/create/60da2c20e2cb7a001f656575>
 
 
+
+The lab environment contains one (1) Linux VM, named **Workstation**.
+
+  ![](./images/media/workstation.png)
+ 
+  The Ubuntu Linux **Workstation** VM has the following software installed:
+  
+  - Docker 19.03.13
+  - Git 2.24.1
+  - Maven 3.6.3java
+  - OpenJDK 1.8.0
+
 1.  Access the lab environment from your web browser. 
     
     A Published Service is configured to provide access to the **Workstation** VM through the noVNC interface for the lab environment.
@@ -210,31 +222,26 @@ Otherwise, you will need to reserve an environment for the lab. You can obtain o
 
       ![](./images/media/vnc-password.png)
 
+
+2. Login with **ibmdemo** ID.
+    
+    a.  Click on the “**ibmdemo**” icon on the Ubuntu screen.
+
+      ![](./images/media/image12.png)
+
+    b. When prompted for the password for “**ibmdemo**” user, enter
+    “**passw0rd**” as the password:
+
+    Password: **passw0rd** (lowercase with a zero instead of the o)
+ 
+      ![](./images/media/image13.png)
 	
-2.  Once you access the **Student VM** through the published service, you will see the Desktop, which contains all the programs that you will be using (browsers, terminal, etc.)
-
-    The login credentials for the **Workstation”** VM is:
- 
-     - User ID: **ibmdemo**
-
-     - Password: **passw0rd**
-	 
-	 <br>
- 
-     ![student vm screen](./images/media/image13.png)
-	 
-	 <br>
-
-     The Ubuntu Liux **Workstation** VM has the following software installed:
-  
-    - Docker 19.03.13
-    - Git 2.24.1
-    - Maven 3.6.3java
-    - OpenJDK 1.8.0
-
     <br/>
 
+2.  Once you access the **Student VM** through the published service, you will see the Desktop, which contains all the programs that you will be using (browsers, terminal, etc.)
 
+    <br/>    
+	     
 ## Tips for working the in lab environment     
 
 1.  You can use your Browsers **zoom in** and **zoom out** options to resize the virtual desktop to fit your screen.

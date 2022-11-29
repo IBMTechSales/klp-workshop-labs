@@ -58,109 +58,51 @@ ACME application has several modules, and you are using TA to evaluate the appli
 
 You know that it is extremely challenging to get a good estimate of the effort required. You want to use Transformation Advisor with its common code discovery and workspace view to get a practical and realistic estimate of the effort based on the analysis and insights gained from TA. Then report back to the development team to craft a modernization plan for your ACME enterprise application.
 
-  <br/>
 
-## Accessing the lab environment
+## Accessing and starting the environment
 
 If you are doing this lab as part of an instructor led workshop (virtual or face to face), an environment has already been provisioned for you. The instructor will provide the details for accessing the lab environment.
 
 Otherwise, you will need to reserve an environment for the lab. You can obtain one here. Follow the on-screen instructions for the “**Reserve now**” option.
 
-<https://techzone.ibm.com/my/reservations/create/60da2c20e2cb7a001f656575>
+<https://techzone.ibm.com/my/reservations/create/6127f5c66c03be001ef63c48>
 
- The lab environment contains one (1) Linux VM, named **Workstation**.
+<table>
+<tbody>
+<tr class="odd">
+<td><img src="./images/media/image2.png" style="width:0.960417in;height:0.60417in" alt="sign-info" /></td>
+<td><p><strong>TIP:</strong></p>
+<p>If you need additional details, the step-by-step instructions for reserving an environment can be found in <strong>APPENDIX 1</strong> of this lab guide.</p></td>
+</tr>
+</tbody>
+</table>
 
-  ![](./images/media/workstation.png)
-    
-  The Ubuntu Linux **Workstation** VM has the following software installed for the lab:
-  
-   - Transformation Advisor (TA) has already been installed on the
-    Workstation VM. TA local runs in Docker containers.
+1. When the demo environment is provisioned, use the provided username and password to access and start the environment. You should see the following screen:
 
-  <br/> 
+    ![](./images/media/image3a.png)
 
-1.  Access the lab environment from your web browser. 
-    
-    A Published Service is configured to provide access to the **Workstation** VM through the noVNC interface for the lab environment.
+2.  If the environment is **NOT** already started, go ahead, and **start** the environment by clicking on the **Play** button. It takes about 2 - 5 minutes for the environment to start and stabilize.
 
-    a.  When the environment is provisioned, right-mouse click on the **Published Service** link and open the URL in a new private or incognito browser window, as described below:  
-    
-    - If using **Google Chrome** browser, select **"Open link in incognito window"** from the context menu. 
+    ![Graphical user interface, application Description automatically generated](./images/media/image4.png)
 
-      ![](./images/media/chrome-incognito.png)
-    
-    - If using **Firefox** browser, select **"Open link in new private window"** from the context menu. 
+3.  Click the screen representing the **Workstation** VM
 
-      ![](./images/media/firefox-private.png)
+    ![Graphical user interface, application Description automatically generated](./images/media/image3.png)
 
-    b. Click on the **"vnc.html"** link to open the lab environment through the **noVNC** interface. 
+4.  Once you log in to the Student VM you will see the Desktop, which contains all the programs that you will be using (browsers, terminal, etc.)
 
-      ![](./images/media/vnc-link.png)
+    > The login credentials for the **Workstation** image are:
+    > 
+    > User ID: **ibmdemo** 
+    > 
+    > Password: **passw0rd (numeric zero in passw0rd)**   
+    > 
+    ![Graphical user interface Description automatically generated with low confidence](./images/media/image6.png)
 
- 
-    c. Click the **Connect** button 
-    
-      ![](./images/media/vnc-connect.png)
+5.  You can resize the virtual desktop with the **Fit to window** button, located at the top of the Skytap environment window.
 
-    d. Enter the password as:  **passw0rd**. Then click the **Send Credentials** button to access the lab environment. 
+    ![Graphical user interface Description automatically generated](./images/media/image7.png)
 
-    > Note: That is a numeric zero in passw0rd  
-
-      ![](./images/media/vnc-password.png)
-
-2. Login with **ibmdemo** ID.
-    
-    a.  Click on the “**ibmdemo**” icon on the Ubuntu screen.
-
-      ![](./images/media/a-ibmdemo-screen.png)
-
-    b. When prompted for the password for “**ibmdemo**” user, enter
-    “**passw0rd**” as the password:
-
-    Password: **passw0rd** (lowercase with a zero instead of the o)
- 
-      ![](./images/media/a-login-screen.png)
-
-    <br/>
-	
-3.  Once you access the **Student VM** through the published service, you will see the Desktop, which contains all the programs that you will be using (browsers, terminal, etc.)
-
-  <br/>
-
-
-## Tips for working the in lab environment     
-
-1.  You can use your Browsers **zoom in** and **zoom out** options to resize the virtual desktop to fit your screen.
-
-    The examples below are using Firefox and Chrome browsers. 
-
-    - Firefox example: 
-    
-    ![fit to window](./images/media/zoom.png)
-
-    - Chrome example: 
-      
-     ![fit to window](./images/media/zoom-chrome.png)
-
-
-2.  You can copy / paste text from the lab guide into the lab environment using the clipboard in the noVNC viewer. 
-   
-    a. Copy the text from the lab guide that you want to paste into the lab environment
-    
-    b. Click the **Clipboard** icon and **paste** the text into the noVNC clipboard
-
-    ![fit to window](./images/media/paste.png)
-    
-    c. Paste the tect into the VM, such as to a terminal window, browser window, etc. 
-
-    d. Click on the **clipboard** icon agian to close the clipboard
-
-    > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. In this case you might try again, or paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
-
-3. An alternative to using the noVNC Copy / Paste option, you may considr openeing the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide wihout having to use the noVNC clipboard. 
-
-
-  <br>
 
 
 # Part 1: Load WebSphere Application Server Data to TA
