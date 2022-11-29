@@ -2,7 +2,7 @@
 
 ![banner](./images/media/image1.jpeg)
 
-**Last updated:** November 2022
+**Last updated:** August 2022
 
 **Duration:** 60 mins
 
@@ -152,107 +152,79 @@ At the end of this lab, you will learn how WSA can automatically:
   - analyze the PD info and produce a report which can be exported and
     share with app development teams or app vendors
 
+<span id="_Toc107577962" class="anchor"></span>**Accessing and starting
+the environment**
 
-## Accessing the environment
+If you are doing this lab as part of an instructor led workshop (virtual
+or face to face), an environment has already been provisioned for you.
+The instructor will provide the details for accessing the lab
+environment.
 
-If you are doing this lab as part of an instructor led workshop (virtual or face to face), an environment has already been provisioned for you. The instructor will provide the details for accessing the lab environment.
+Otherwise, you will need to reserve an environment for the lab. You can
+obtain one here. Follow the on-screen instructions for the “**Reserve
+now**” option.
 
-Otherwise, you will need to reserve an environment for the lab. You can obtain one here. Follow the on-screen instructions for the “**Reserve now**” option.
+> <https://techzone.ibm.com/my/reservations/create/60da2c20e2cb7a001f656575>
 
-<https://techzone.ibm.com/my/reservations/create/60da2c20e2cb7a001f656575>
+<table>
+<tbody>
+<tr class="odd">
+<td><img src="./images/media/image3.png" style="width:0.60417in;height:0.60417in" alt="sign-info" /></td>
+<td><p><strong>TIP:</strong></p>
+<p>If you need additional details, the step-by-step instructions for reserving an environment can be found in <strong>APPENDIX 1</strong> of this lab guide.</p></td>
+</tr>
+</tbody>
+</table>
 
+1. When the demo environment is provisioned, use the provided
+   username and password to access and start the environment. You
+   should see the following screen:
 
-1.  Access the lab environment from your web browser. 
-    
-    a.  When the demo environment is provisioned, right-mouse click on the **Published Service** link and open the URL in a new private or incognito browser window, as described below:  
-    
-    - If using **Google Chrome** browser, select **"Open link in incognito window"** from the context menu. 
+   ![Graphical user interface, application Description automatically
+ generated](./images/media/image4.png)
 
-      ![](./images/media/chrome-incognito.png)
-    
-    - If using **Firefox** browser, select **"Open link in new private window"** from the context menu. 
+WebSphere Automation is pre-installed in the OCP cluster hosted on the
+VMs.
 
-      ![](./images/media/chrome-incognito.png)
+2.  If the environment is **NOT** already started, go ahead, and
+    **Start** the environment by clicking on the **Play** button. It
+    takes about 10-15 minutes for the environment to start and
+    stabilize.
 
-    b. Click on the **"vnc.html"** link to open the lab environment through the **noVNC** interface. 
-
-      ![](./images/media/vnc-link.png)
-
+    ![](./images/media/image5.png)
  
-    c. Click the **Connect** button 
-    
-      ![](./images/media/vnc-connect.png)
-
-    d. Enter the password as:  **passw0rd**. Then click the **Send Credentials** button to access the lab environment. 
-
-    > Note: That is a numeric zero in passw0rd  
-
-      ![](./images/media/vnc-password.png)
-
-
-    IBM WebSphere Automation is pre-installed in the OCP cluster hosted on the VMs.
-	 
-	 <br>
-	 
-
-2. The Published Service provides access to the **STUDENT** VM through the noVNC interface for the lab environment. 
-
-    All the WebSphere **images** and **iFixes** required for the lab are pre-installed on the VM:
-
-    - /opt/IBM/WebSphere/Liberty20009/
-
-    - /opt/IBM/WebSphere/AppServer9057/
-
-    <br>
-
-	
-3.  Once you log in to the Student VM you will see the Desktop, which contains all the programs that you will be using (browsers, terminal, etc.)
-
-    The login credentials for the **STUDENT”** image is:
+    You will be working on the **STUDENT** VM only.
  
-     - User ID: **ibmuser**
+    All the WebSphere images required for the lab are pre-installed:
 
-     - Password: **engageibm**
-	 
-	 <br>
- 
-     ![student vm screen](./images/media/image8.png)
-	 
-	 <br>
+    - /opt/IBM/WebSphere/Liberty200012/
 
-## Tips for working the in lab environment     
-
-1.  You can use your Browsers **zoom in** and **zoom out** options to resize the virtual desktop to fit your screen.
-
-    The examples below are using Firefox and Chrome browsers. 
-
-    - Firefox example: 
-    
-    ![fit to window](./images/media/zoom.png)
-
-    - Chrome example: 
-      
-     ![fit to window](./images/media/zoom-chrome.png)
+    - /opt/IBM/WebSphere/AppServer9056/
 
 
-2.  You can copy / paste text from the lab guide into the lab environment using the clipboard in the noVNC viewer. 
-   
-    a. Copy the text from the lab guide that you want to paste into the lab environment
-    
-    b. Click the **Clipboard** icon and **paste** the text into the noVNC clipboard
 
-    ![fit to window](./images/media/paste.png)
-    
-    c. Paste the tect into the VM, such as to a terminal window, browser window, etc. 
+3.  Click the screen representing the **STUDENT** VM
 
-    d. Click on the **clipboard** icon agian to close the clipboard
+    ![student vm](./images/media/image6.png)
 
-    > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. In this case you might try again, or paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
+4.  Once you log in to the Student VM you will see the Desktop, which
+     contains all the programs that you will be using (browsers,
+     terminal, etc.)
 
-3. An alternative to using the noVNC Copy / Paste option, you may considr openeing the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide wihout having to use the noVNC clipboard. 
+    The login credentials for the **STUDENT** image is:
+      > 
+      > User ID: **ibmuser**
+      > 
+      > Password: **engageibm\!** 
 
 
-    <br>
+    ![student vm screen](./images/media/image7.png)
+
+5.  You can resize the virtual desktop with the **Fit to window**
+     button, located at the top of the Skytap environment window.
+
+    ![fit to window](./images/media/image8.png)
+
 
 
 # **Part 1: Register WAS/Liberty Servers with WSA**
@@ -620,11 +592,6 @@ following steps walk you through the integration process.
     In order for WebSphere Automation to be able to collect data for you WAS instances, you need to create a SSH key for their communications.
 
     
-    |         |           |  
-    | ------------- |:-------------|
-    | ![](./images/media/alert-icon.png?cropResize=100,100)   | <strong>PLEASE READ!</strong> <br> If you completed Lab1-CVE using this same environment, you already setup the ssh key, so SKIP this **Step 3** and contiue to the next part of the lab, Configure Instana for memory leak alert. |
-
-        
     a. Issue command to create a new SSH key with passphrase. In the lab the passphrase used is: **passw0rd**
 
         ssh-keygen -f ~/.ssh/wsa
@@ -663,13 +630,15 @@ generated](./images/media/image31-a.png)
         oc create configmap wsa-ansible-known-hosts \
           --from-file=known_hosts=/home/ibmuser/wsa_known_hosts
 
-    f. Test connection
+
+4. Test the ssh connection from IBM WebSphere Automation to the WAS environment, using the following commands: 
 
         MANAGER_POD=$(oc get pod -l app.kubernetes.io/component=runbook-manager -o name | head -n 1)
- 
+
         oc rsh $MANAGER_POD runcli testConnection student.demo.ibmdte.net linux
- 
-     The output is looking like:
+
+
+    The output is looking like:
 
     <table>
     <tbody>
@@ -681,8 +650,24 @@ generated](./images/media/image31-a.png)
     <p>To see the job logs run: oc logs --tail=100 -l job-name=test-connection-1646851568775</p></td>
     </tr>
     </tbody>
-    </table>
+    </table>        
 
+    a. Run the `oc log` command that is outputted from the "**oc rsh**" command
+
+       **Example:**   
+       oc logs --tail=100 -l job-name=test-connection-######        
+
+    ![](./images/media/image94.png)
+
+    b. A successful connection should look similar to this output: 
+
+    ![](./images/media/image95.png)
+
+    ![](./images/media/image95-cont.png)
+
+
+
+   
 
 
 
