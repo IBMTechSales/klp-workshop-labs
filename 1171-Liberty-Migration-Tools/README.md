@@ -1,4 +1,4 @@
-# Liberty - Migration Toolkit**
+# Liberty - Migration Toolkit
 
 **Software Analyzer and Binary Scanner**
 
