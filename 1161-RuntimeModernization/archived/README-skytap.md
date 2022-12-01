@@ -5,15 +5,10 @@
 - [Runtime Modernization](#runtime-modernization)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
-  - [Accessing the environment](#accessing-the-environment)
-  - [Tips for working the in lab environment](#tips-for-working-the-in-lab-environment)
+  - [Login to the VM](#login-to-the-vm)
   - [Analysis (Hands-on)](#analysis-hands-on)
     - [Clone the GitHub repo for this workshop](#clone-the-github-repo-for-this-workshop)
     - [Use TA to facilitate your runtime modernization](#use-ta-to-facilitate-your-runtime-modernization)
-  - [Build (Hands-on)](#build-hands-on)
-  - [Modernize with MicroProfile (for reading only)](#modernize-with-microprofile-for-reading-only)
-    - [Determine application's availability (for reading only)](#determine-applications-availability-for-reading-only)
-    - [Adding metrics to application (for reading only)](#adding-metrics-to-application-for-reading-only)
   - [Liberty server configuration (for reading only)](#liberty-server-configuration-for-reading-only)
   - [Build image (Hands-on)](#build-image-hands-on)
   - [Deploy (Hands-on)](#deploy-hands-on)
@@ -52,100 +47,27 @@ Click [here](extras/application.md) to get to know the application, including it
 
 <a name="Login_VM"> </a>
 
-## Accessing the environment
-
-If you are doing this lab as part of an instructor led workshop (virtual or face to face), an environment has already been provisioned for you. The instructor will provide the details for accessing the lab environment.
-
-Otherwise, you will need to reserve an environment for the lab. You can obtain one here. Follow the on-screen instructions for the “**Reserve now**” option.
-
-<https://techzone.ibm.com/my/reservations/create/6387aa80eb61a800183d69d3>
-
-The lab environment contains six (6) Linux VMs. 
-
-![](./extras/images/env-list.png)
-
- A Published Service is configured to provide access to the **Desktop** VM through the noVNC interface for the lab environment.
-
-<br/>
-
-1.  Access the lab environment from your web browser. 
-     
-    a.  When the demo environment is provisioned, right-mouse click on the **Published Service** link and open the URL in a new private or incognito browser window, as described below:  
-    
-    - If using **Google Chrome** browser, select **"Open link in incognito window"** from the context menu. 
-
-      ![](./extras/images/chrome-incognito.png)
-    
-    - If using **Firefox** browser, select **"Open link in new private window"** from the context menu. 
-
-      ![](./extras/images/firefox-private.png)
-
-    b. Click on the **"vnc.html"** link to open the lab environment through the **noVNC** interface. 
-
-      ![](./extras/images/vnc-link.png)
-
+## Login to the VM
+1. If the VM is not already started, start it by clicking the Play button.
  
-    c. Click the **Connect** button 
-    
-      ![](./extras/images/vnc-connect.png)
-
-    d. Enter the password as:  **passw0rd**. Then click the **Send Credentials** button to access the lab environment. 
-
-    > Note: That is a numeric zero in passw0rd  
-
-      ![](./extras/images/vnc-password.png)
-
-	 
-	 <br>
-	 
-2.  Login to the desktop VM using the credetials below: 
-
-    The login credentials for the **Desktop”** VM is:
- 
-     - User ID: **ibmuser**
-
-     - Password: **engageibm**
-	 
-	 <br>
- 
-     ![student vm screen](./extras/images/loginvm3.png)
-	 
-	 <br>
-
-## Tips for working the in lab environment     
-
-1.  You can use your Browsers **zoom in** and **zoom out** options to resize the virtual desktop to fit your screen.
-
-    The examples below are using Firefox and Chrome browsers. 
-
-    - Firefox example: 
-    
-    ![fit to window](./extras/images/zoom.png)
-
-    - Chrome example: 
-      
-     ![fit to window](./extras/images/zoom-chrome.png)
-
-
-2.  You can copy / paste text from the lab guide into the lab environment using the clipboard in the noVNC viewer. 
+    ![start VM](extras/images/loginvm1.png)
    
-    a. Copy the text from the lab guide that you want to paste into the lab environment
-    
-    b. Click the **Clipboard** icon and **paste** the text into the noVNC clipboard
+2. After the VM is started, click the **desktop** VM to access it.
+   
+    ![desktop VM](extras/images/loginvm2.png)
+   
+3. Login with **ibmuser** ID.
+   
+    * Click on the **ibmuser** icon on the screen.
+    * When prompted for the password for **ibmuser**, enter "**engageibm**" as the password: 
+     
+    ![login VM](extras/images/loginvm3.png)
+     
+	<br/> 
+	 
+4. Resize the Skytap environment window for a larger viewing area while doing the lab. From the Skytap menu bar, click on the "**Fit to Size**" icon. This will enlarge the viewing area to fit the size of your browser window. 
 
-    ![fit to window](./extras/images/paste.png)
-    
-    c. Paste the tect into the VM, such as to a terminal window, browser window, etc. 
-
-    d. Click on the **clipboard** icon agian to close the clipboard
-
-    > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. In this case you might try again, or paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
-
-3. An alternative to using the noVNC Copy / Paste option, you may considr openeing the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide wihout having to use the noVNC clipboard. 
-
-
-    <br>
-
+   ![fit to size icon](extras/images/loginvm4.png)
 
 <a name="analysis"></a>
 ## Analysis (Hands-on)
