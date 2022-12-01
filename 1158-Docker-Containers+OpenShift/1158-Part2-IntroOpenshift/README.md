@@ -11,6 +11,7 @@ In this lab, we will introduce you to the basics of container Orchestration usin
 - For background on basic Openshift concepts, read [Openshift Concepts for WebSphere Administrators](https://github.com/IBM/openshift-workshop-was/blob/master/OpenshiftConcepts.md)
 
 <a name="Login_VM"> </a>
+
 ## Accessing the environment
 
 If you are doing this lab as part of an instructor led workshop (virtual or face to face), an environment has already been provisioned for you. The instructor will provide the details for accessing the lab environment.
@@ -71,7 +72,7 @@ The lab environment contains six (6) Linux VMs.
 	 
 	 <br>
 
-## Tips for working the in lab environment     
+## Tips for working in the lab environment     
 
 1.  You can use your Browsers **zoom in** and **zoom out** options to resize the virtual desktop to fit your screen.
 
@@ -94,13 +95,13 @@ The lab environment contains six (6) Linux VMs.
 
     ![fit to window](./images/paste.png)
     
-    c. Paste the tect into the VM, such as to a terminal window, browser window, etc. 
+    c. Paste the text into the VM, such as to a terminal window, browser window, etc. 
 
-    d. Click on the **clipboard** icon agian to close the clipboard
+    d. Click on the **clipboard** icon again to close the clipboard
 
     > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. In this case you might try again, or paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
 
-3. An alternative to using the noVNC Copy / Paste option, you may considr openeing the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide wihout having to use the noVNC clipboard. 
+3. An alternative to using the noVNC Copy / Paste option, you may consider opening the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide without having to use the noVNC clipboard. 
 
 
     <br>
