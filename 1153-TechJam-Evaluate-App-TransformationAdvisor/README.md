@@ -59,41 +59,96 @@ lab:
   - Familiarity with basic Linux commands
 
 
-## 4. The Lab Environment
+## 4. Accessing the lab environment
 
-An App Mod Lab environment has been provided for this lab. It contains six VMs. 
+The lab environment contains six (6) Linux VMs. 
 
-![](./images/media/image2.png)
+![](./images/media/env-list.png)
 
-  - The Red Hat OpenShift Container Platform (OCP) v4.6, is installed in
-    6 VMs with 3 master nodes / compute nodes (the master nodes are
-    serving as computer nodes as well).
+ A Published Service is configured to provide access to the **Desktop** VM through the noVNC interface for the lab environment.
+
+<br/>
+
+1.  Access the lab environment from your web browser. 
     
-      - master1 VM
+    a.  When the environment is provisioned, right-mouse click on the **Published Service** link and open the URL in a new private or incognito browser window, as described below:  
     
-      - master2 VM
+    - If using **Google Chrome** browser, select **"Open link in incognito window"** from the context menu. 
+
+      ![](./images/media/chrome-incognito.png)
     
-      - master3 VM,
+    - If using **Firefox** browser, select **"Open link in new private window"** from the context menu. 
+
+      ![](./images/media/firefox-private.png)
+
+    b. Click on the **"vnc.html"** link to open the lab environment through the **noVNC** interface. 
+
+      ![](./images/media/vnc-link.png)
+
+ 
+    c. Click the **Connect** button 
     
-      - dns VM
+    ![](./images/media/vnc-connect.png)
+
+    d. Enter the password as:  **passw0rd**. Then click the **Send Credentials** button to access the lab environment. 
+
+    > Note: That is a numeric zero in passw0rd  
+
+    ![](./images/media/vnc-password.png)
+
+2. Login with ibmuser ID.
+
+    - Click on the **ibmuser** icon on the Ubuntu screen.
+
+    - When prompted for the password for ibmuser, enter **engageibm** as the password.
     
-      - nfs VM
+    ![](./images/media/image5.png)
+
+    <br/>
+	
+
+## Tips for working in the lab environment     
+
+1.  You can use your Browsers **zoom in** and **zoom out** options to resize the virtual desktop to fit your screen.
+
+    The examples below are using Firefox and Chrome browsers. 
+
+    - Firefox example: 
+    
+    ![fit to window](./images/media/zoom.png)
+
+    - Chrome example: 
       
- -  **Note:** The 3 master nodes are also serving as compute nodes in the lab environment 
+     ![fit to window](./images/media/zoom-chrome.png)
 
-  - The **desktop VM** is the VM you will use to access and work with
-    OpenShift (OCP) cluster in this lab.
 
-  - The login credentials for the **desktop VM** are:
-    -  User ID: **ibmuser** 
-    -  Password: **engageibm**
+2.  You can copy / paste text from the lab guide into the lab environment using the clipboard in the noVNC viewer. 
+   
+    a. Copy the text from the lab guide that you want to paste into the lab environment
+    
+    b. Click the **Clipboard** icon and **paste** the text into the noVNC clipboard
+
+    ![fit to window](./images/media/paste.png)
+    
+    c. Paste the text into the VM, such as to a terminal window, browser window, etc. 
+
+    d. Click on the **clipboard** icon again to close the clipboard
+
+    > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. In this case you might try again, or paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
+
+3. An alternative to using the noVNC Copy / Paste option, you may consider opening the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide without having to use the noVNC clipboard. 
+
+
+    <br>
 
 ## 5. Lab Tasks
 
 In this lab, you access WebSphere Application Server to review the
-deployment of the JEE applications. Then you are going to use
+deployment of the JEE applications. Then you are going to the
 Transformation Advisor to identify a good candidate application for
-moving to WebSphere Liberty runing in containers. To identify which Java EE programming models are on the server, you could run the Transformation Advisor Data Collector tool against the server.
+moving to cloud. To identify which Java EE programming models are on the
+server, you could run the Transformation Advisor Data Collector tool
+against the server.
 
 The Transformation Advisor creates an inventory of the content and
 structure of each application and learn about problems that might occur
@@ -113,56 +168,18 @@ Here are the activities involved in this process:
     identify the right candidate application for a rapid and
     cost-effective migration to cloud
 
+
 ## 6. Execute Lab Tasks
 
 ### 6.1 Log in to the desktop VM and Get Started
 
-1.  If the VMs are not already started, start them by clicking the play
-    button for the whole group.
-
-    ![](./images/media/image3.png)
- 
-    <br/>
-
-2.  After the VMs are started, click the **desktop VM** icon to access
-    it.
-
-    ![](./images/media/image4.png)
-     
-    The Desktop Linux Desktop is displayed. You execute all the lab tasks
-    on this desktop VM.
-
-    <br/>
-
-3.  Login with **ibmuser** ID.
-    
-      - Click on the **ibmuser** icon on the screen.
-    
-      - When prompted for the password for **ibmuser**, enter
-        "**engageibm**" as the password:
-
-      <br/>
-
-    ![login VM](./images/media/image5.png)
-
-    <br/>
-
-4.  Resize the Skytap environment window for a larger viewing area while
-    doing the lab. From the Skytap menu bar, click on the "**Fit to
-    Size**" icon. This will enlarge the viewing area to fit the size of
-    your browser window.
-
-    ![fit to size icon](./images/media/image6.png)
-
-    <br/>
-
-5.  Open a terminal window by clicking its icon from the Desktop.
+1.  Open a terminal window by clicking its icon from the Desktop.
 
     ![terminal icon](./images/media/image7.png)
 
     <br/>
 
-6.  If you have not yet cloned the GitHub repo that contains the lab artifacts, in a previous lab, run the following command on your terminal. Otherwise, you can skip this step.
+2.  If you have not yet cloned the GitHub repo that contains the lab artifacts, in a previous lab, run the following command on your terminal. Otherwise, you can skip this step.
 
     a. In the terminal window, run the following command to clone the GitHub repository for this workshop.
  
@@ -176,7 +193,7 @@ Here are the activities involved in this process:
 	
 	<br/>
 
-7.  The lab materials are downloaded to the
+3.  The lab materials are downloaded to the
     **/home/ibmuser/openshift-workshop-was** directory.
 
 
