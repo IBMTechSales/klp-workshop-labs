@@ -174,7 +174,7 @@ Otherwise, you will need to reserve an environment for the lab. You can obtain o
 
     d. Click on the **clipboard** icon again to close the clipboard
 
-     > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. 
+    > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. 
     
     > In this case you might try again, or open another Terminal Window and try again, or  paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
 
