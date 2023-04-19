@@ -76,8 +76,6 @@ The lab environment contains six (6) Linux VMs.
 
 A `Published Service` is configured to provide access to the **Desktop** VM through the noVNC interface for the lab environment.
 
-<br/>
-
 1.  Access the lab environment from your web browser. 
     
     a. When the demo environment is provisioned, click on the **environment tile** to open its details view. 
