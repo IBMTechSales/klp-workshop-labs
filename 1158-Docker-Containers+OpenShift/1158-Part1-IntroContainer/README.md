@@ -8,7 +8,7 @@
   - [Prerequisites](#prerequisites)
   - [What is a Container](#what-is-a-container)
   - [Accessing the environment](#accessing-the-environment)
-  - [Tips for working the in lab environment](#tips-for-working-the-in-lab-environment)
+  - [Tips for working in the lab environment](#tips-for-working-in-the-lab-environment)
   - [Check your environment and clone the workshop GitHub project](#check-your-environment-and-clone-the-workshop-github-project)
   - [Run a pre-built image](#run-a-pre-built-image)
   - [Build and Run Your Own Image](#build-and-run-your-own-image)
@@ -66,32 +66,27 @@ The lab environment contains six (6) Linux VMs.
 
 ![](./images/env-list.png)
 
- A Published Service is configured to provide access to the **Desktop** VM through the noVNC interface for the lab environment.
 
 <br/>
 
 1.  Access the lab environment from your web browser. 
      
-    a.  When the demo environment is provisioned, right-mouse click on the **Published Service** link and open the URL in a new private or incognito browser window, as described below:  
+    A `Published Service` is configured to provide access to the **Workstation** VM through the noVNC interface for the lab environment.
     
-    - If using **Google Chrome** browser, select **"Open link in incognito window"** from the context menu. 
+    a. When the demo environment is provisioned, click on the **environment tile** to open its details view. 
 
-      ![](./images/chrome-incognito.png)
+    b. Click on the **Published Service** link which will display a **Directory listing**  
     
-    - If using **Firefox** browser, select **"Open link in new private window"** from the context menu. 
-
-      ![](./images/firefox-private.png)
-
-    b. Click on the **"vnc.html"** link to open the lab environment through the **noVNC** interface. 
-
-      ![](./images/vnc-link.png)
-
- 
-    c. Click the **Connect** button 
+    c. Click on the **"vnc.html"** link to open the lab environment through the **noVNC** interface. 
+    
+    ![](./images/vnc-link.png)
+    
+    d. Click the **Connect** button 
     
       ![](./images/vnc-connect.png)
 
-    d. Enter the password as:  **passw0rd**. Then click the **Send Credentials** button to access the lab environment. 
+
+    e. Enter the password as:  **passw0rd**. Then click the **Send Credentials** button to access the lab environment. 
 
     > Note: That is a numeric zero in passw0rd  
 
@@ -116,17 +111,15 @@ The lab environment contains six (6) Linux VMs.
 
 ## Tips for working in the lab environment     
 
-1.  You can use your Browsers **zoom in** and **zoom out** options to resize the virtual desktop to fit your screen.
+1. You can resize the viewable area using the **noVNC Settings** options to resize the virtual desktop to fit your screen.
 
-    The examples below are using Firefox and Chrome browsers. 
+    a. From the environemnt VM, click on the **twisty** on the noNC control pane to open the menu.  
 
-    - Firefox example: 
-    
-    ![fit to window](./images/zoom.png)
+    ![fit to window](./images/z-twisty.png)
 
-    - Chrome example: 
+    b. To increase the visible area, click on `Settings > Scaling Mode` and set the value to `Remote Resizing`
       
-     ![fit to window](./images/zoom-chrome.png)
+     ![fit to window](./images/z-remote-resize.png)
 
 
 2.  You can copy / paste text from the lab guide into the lab environment using the clipboard in the noVNC viewer. 
@@ -141,7 +134,10 @@ The lab environment contains six (6) Linux VMs.
 
     d. Click on the **clipboard** icon again to close the clipboard
 
-    > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. In this case you might try again, or paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
+    > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. 
+    
+    > In this case you might try again, or open another Terminal Window and try again, or  paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
+
 
 3. An alternative to using the noVNC Copy / Paste option, you may consider opening the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide without having to use the noVNC clipboard. 
 
