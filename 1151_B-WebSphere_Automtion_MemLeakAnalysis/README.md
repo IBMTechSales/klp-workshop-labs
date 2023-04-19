@@ -159,31 +159,25 @@ If you are doing this lab as part of an instructor led workshop (virtual or face
 
 Otherwise, you will need to reserve an environment for the lab. You can obtain one here. Follow the on-screen instructions for the “**Reserve now**” option.
 
-<https://techzone.ibm.com/my/reservations/create/60da2c20e2cb7a001f656575>
+<https://techzone.ibm.com/my/reservations/create/63867b6a4cd2a3001961ea2c>
 
 
 1.  Access the lab environment from your web browser. 
     
-    a.  When the demo environment is provisioned, right-mouse click on the **Published Service** link and open the URL in a new private or incognito browser window, as described below:  
+    a. When the demo environment is provisioned, click on the **environment tile** to open its details view. 
+
+    b. Click on the **Published Service** link which will display a **Directory listing**  
     
-    - If using **Google Chrome** browser, select **"Open link in incognito window"** from the context menu. 
-
-      ![](./images/media/chrome-incognito.png)
-    
-    - If using **Firefox** browser, select **"Open link in new private window"** from the context menu. 
-
-      ![](./images/media/firefox-private.png)
-
-    b. Click on the **"vnc.html"** link to open the lab environment through the **noVNC** interface. 
+    c. Click on the **"vnc.html"** link to open the lab environment through the **noVNC** interface. 
 
       ![](./images/media/vnc-link.png)
 
  
-    c. Click the **Connect** button 
+    d. Click the **Connect** button 
     
       ![](./images/media/vnc-connect.png)
 
-    d. Enter the password as:  **passw0rd**. Then click the **Send Credentials** button to access the lab environment. 
+    e. Enter the password as:  **passw0rd**. Then click the **Send Credentials** button to access the lab environment. 
 
     > Note: That is a numeric zero in passw0rd  
 
@@ -216,23 +210,21 @@ Otherwise, you will need to reserve an environment for the lab. You can obtain o
 	 
 	 <br>
  
-     ![student vm screen](./images/media/image8.png)
+     ![student vm screen](./images/media/image7.png)
 	 
 	 <br>
 
 ## Tips for working in the lab environment     
 
-1.  You can use your Browsers **zoom in** and **zoom out** options to resize the virtual desktop to fit your screen.
+1.  You can resize the viewable area using the **noVNC Settings** options to resize the virtual desktop to fit your screen.
 
-    The examples below are using Firefox and Chrome browsers. 
+    a. From the environemnt VM, click on the **twisty** on the noNC control pane to open the menu.  
 
-    - Firefox example: 
-    
-    ![fit to window](./images/media/zoom.png)
+    ![fit to window](./images/media/z-twisty.png)
 
-    - Chrome example: 
+    b. To increase the visible area, click on `Settings > Scaling Mode` and set the value to `Remote Resizing`
       
-     ![fit to window](./images/media/zoom-chrome.png)
+     ![fit to window](./images/media/z-remote-resize.png)
 
 
 2.  You can copy / paste text from the lab guide into the lab environment using the clipboard in the noVNC viewer. 
@@ -247,7 +239,9 @@ Otherwise, you will need to reserve an environment for the lab. You can obtain o
 
     d. Click on the **clipboard** icon again to close the clipboard
 
-    > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. In this case you might try again, or paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
+    > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. 
+    
+    > In this case you might try again, or open another Terminal Window and try again, or  paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
 
 3. An alternative to using the noVNC Copy / Paste option, you may consider opening the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide without having to use the noVNC clipboard. 
 
