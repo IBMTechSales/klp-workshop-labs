@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1"
+	 id="Layer_1" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1570 860"
+	 style="enable-background:new 0 0 1570 860;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	.st1{fill:none;stroke:#000000;}
+	.st2{fill:none;}
+	.st3{font-family:'Verdana';}
+	.st4{font-size:12.8917px;}
+	.st5{fill-rule:evenodd;clip-rule:evenodd;fill:#0F62FE;}
+	.st6{fill:#FFFFFF;}
+	.st7{fill:#8D8D8D;}
+	.st8{fill:#C5C5C5;}
+	.st9{fill:#161616;}
+	.st10{font-size:11.05px;}
+	.st11{fill:none;stroke:#C5C5C5;stroke-width:2;stroke-dasharray:8;}
+	.st12{font-size:14.7333px;}
+</style>
+<sodipodi:namedview  bordercolor="#666666" borderopacity="1" gridtolerance="10" guidetolerance="10" id="namedview137" inkscape:current-layer="Layer_1" inkscape:cx="861" inkscape:cy="445.5" inkscape:deskcolor="#d1d1d1" inkscape:pagecheckerboard="0" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:showpageshadow="2" inkscape:window-height="991" inkscape:window-maximized="1" inkscape:window-width="1920" inkscape:window-x="-9" inkscape:window-y="-9" inkscape:zoom="1" objecttolerance="10" pagecolor="#ffffff" showgrid="false">
+	</sodipodi:namedview>
+<rect id="rect4" class="st0" width="1570" height="860"/>
+<path id="Background" inkscape:connector-curvature="0" class="st1" d="M307.6,107.2v28.5H48v-28.5H307.6z"/>
+<g id="Spacer" transform="translate(184)">
+	<rect id="spacer" x="47.5" y="106.8" class="st2" width="64" height="29.5"/>
+</g>
+<text id="text9" transform="matrix(1.086 0 0 1 61.501 125.0615)" class="st3 st4">(File) Application code</text>
+<rect id="Background_00000121966965386578966430000017893035289840060806_" x="677" y="189.7" class="st1" width="328" height="29.5"/>
+<g id="Spacer_00000173140109940427173410000012977655283348043143_" transform="translate(184)">
+	<rect id="spacer_00000003823382334550769770000013488185398918268838_" x="757" y="189.7" class="st2" width="64" height="29.5"/>
+</g>
+<text id="text15" transform="matrix(1.086 0 0 1 693 208.0615)" class="st3 st4">(File) Code information JSON</text>
+<rect id="Background_00000074424616861295142270000007995908740667261624_" x="1143" y="440.1" class="st1" width="422.3" height="29.5"/>
+<g id="Spacer_00000127766672903575507940000002000802829179330725_" transform="translate(252)">
+	<rect id="spacer_00000054234252907371661230000003227258271825521281_" x="1163" y="440.1" class="st2" width="64" height="29.5"/>
+</g>
+<text id="text21" transform="matrix(1.086 0 0 1 1156.0605 458.4609)" class="st3 st4">(File) Generated starter code for partitions</text>
+<rect id="Background_00000095296636076345505380000001003098363669708939_" x="311" y="359.1" class="st1" width="366" height="29.5"/>
+<g id="Spacer_00000033336885591684046890000013881686082414445239_" transform="translate(184)">
+	<rect id="spacer_00000176002766091804625940000017556514966874532756_" x="375" y="359.1" class="st2" width="64" height="29.5"/>
+</g>
+<text id="text27" transform="matrix(1.086 0 0 1 325.001 377.4609)" class="st3 st4">(File) Context JSON + trace logs</text>
+<rect id="Background_00000046316117039678570800000005559966198319330443_" x="383" y="521.2" class="st1" width="312" height="29.5"/>
+<g id="Spacer_00000168104035826117525920000002938585785131486886_" transform="translate(184)">
+	<rect id="spacer_00000106840481352596215010000013735017543813528247_" x="431" y="521.2" class="st2" width="64" height="29.5"/>
+</g>
+<text id="text33" transform="matrix(1.086 0 0 1 396 539.5615)" class="st3 st4">(File) Reports</text>
+<rect id="Background_00000168822831044709367340000013864745506712121747_" x="383" y="558" class="st1" width="408.1" height="29.5"/>
+<g id="Spacer_00000112597653451216476920000012548351093032625577_" transform="translate(252)">
+	<rect id="spacer_00000127007965905905041420000009776957110914828707_" x="431" y="558" class="st2" width="64" height="29.5"/>
+</g>
+<text id="text39" transform="matrix(1.086 0 0 1 397.1621 576.3613)" class="st3 st4">(File) Partition and code information files</text>
+<rect id="Background_00000152983232172902209730000010073864771071900300_" x="383" y="594.8" class="st1" width="312" height="29.5"/>
+<g id="Spacer_00000034086597151998354010000006407931370175781791_" transform="translate(184)">
+	<rect id="spacer_00000123429658621483958170000012733769553154485424_" x="431" y="594.8" class="st2" width="78" height="29.5"/>
+</g>
+<text id="text45" transform="matrix(1.086 0 0 1 398.3242 613.1611)" class="st3 st4">(File) Partitions graph JSON</text>
+<polygon id="Background_00000023973810996186737380000010628522653789420962_" class="st5" points="563,226.5 166,226.5 166,182.3 
+	563,182.3 "/>
+<g id="Spacer_00000046315111635595556010000007744916089869612440_" transform="translate(204)">
+	<rect id="spacer_00000015347747947640418720000012394584702263356817_" x="295" y="182.3" class="st2" width="64" height="44.2"/>
+</g>
+<text id="text51" transform="matrix(1.086 0 0 1 179.9854 208.0117)" class="st6 st3 st4">(Action) Run code analysis</text>
+<text id="text54" transform="matrix(1.086 0 0 1 445 497.1904)" class="st3 st4">mono2micro-aipl</text>
+<polygon id="Background_00000026138493617560158760000015984068208848805554_" class="st5" points="805,314.9 38.6,314.9 
+	38.6,270.7 805,270.7 "/>
+<g id="Spacer_00000183952647392627875210000012112842883777526921_" transform="translate(350)">
+	<rect id="spacer_00000041287735797685591250000014285656433858180744_" x="295" y="270.7" class="st2" width="64" height="44.2"/>
+</g>
+<text id="text59" transform="matrix(1.086 0 0 1 52.6631 296.4116)" class="st6 st3 st4">(Action) Run use cases with binary instrumenter and use case recorder</text>
+<polygon id="Background_00000168839157041470930930000005125254570685577136_" class="st5" points="563,477 166,477 166,432.8 
+	563,432.8 "/>
+<g id="Spacer_00000090982521649689764070000003207023934998686349_" transform="translate(204)">
+	<rect id="spacer_00000080907221328776657530000004465080569530487183_" x="295" y="432.8" class="st2" width="64" height="44.2"/>
+</g>
+<text id="text65" transform="matrix(1.086 0 0 1 182.3096 458.5117)" class="st6 st3 st4">(Action) Run AI analysis</text>
+<polygon id="Background_00000058589682626284276870000016295776650834241921_" class="st5" points="1084,477 695,477 695,432.8 
+	1084,432.8 "/>
+<g id="Spacer_00000006671156783699136000000007210550195422757252_" transform="translate(204)">
+	<rect id="spacer_00000153692081397903625260000002407837956970642871_" x="1053" y="432.8" class="st2" width="64" height="44.2"/>
+</g>
+<text id="text71" transform="matrix(1.086 0 0 1 713 458.5117)" class="st6 st3 st4">(Action) Run code generation</text>
+<text id="text74" transform="matrix(1.086 0 0 1 457 732.9238)" class="st3 st4">mono2micro-ui</text>
+<polygon id="Background_00000068656827357114750370000004974187235992116608_" class="st5" points="564,712.7 165,712.7 165,668.5 
+	564,668.5 "/>
+<g id="Spacer_00000137110462292533788410000006900746462028299189_" transform="translate(204)">
+	<rect id="spacer_00000034077970024256061790000015951257988225461146_" x="296" y="668.5" class="st2" width="64" height="44.2"/>
+</g>
+<text id="text79" transform="matrix(1.086 0 0 1 182.3096 694.2109)" class="st6 st3 st4">(Action) View results in workbench</text>
+<polygon id="Background_00000088813316067476130960000010256677147930866068_" class="st5" points="1043,712.7 612,712.7 612,668.5 
+	1043,668.5 "/>
+<g id="Spacer_00000008846621242707931860000016116752542877442960_" transform="translate(204)">
+	<rect id="spacer_00000102524917376837911760000003883255531460625304_" x="612" y="668.5" class="st2" width="64" height="44.2"/>
+</g>
+<text id="text85" transform="matrix(1.086 0 0 1 628 694.2109)" class="st6 st3 st4">(Action) Refine results in workbench</text>
+<rect id="Background_00000152955200091468250120000002022525259438242698_" x="164.1" y="750.7" class="st1" width="426.9" height="29.5"/>
+<g id="Spacer_00000070826276848822687280000004504563602573835965_" transform="translate(252)">
+	<rect id="spacer_00000096025807198722627950000008290578033555595952_" x="296" y="756.9" class="st2" width="64" height="29.5"/>
+</g>
+<text id="text91" transform="matrix(1.086 0 0 1 179.1475 769.0615)" class="st3 st4">(File) Updated partitions graph JSON</text>
+<text id="text94" transform="matrix(1.086 0 0 1 912 495.3486)" class="st3 st4">mono2micro-cardinal</text>
+<path id="Path-2" inkscape:connector-curvature="0" class="st7" d="M196.3,656.5l-7,12.9l-7-12.9h6V477.9h2v178.6H196.3z"/>
+<path id="Path-2-Copy" inkscape:connector-curvature="0" class="st7" d="M196.3,420.6l-7,12.9l-7-12.9h6v-105h2v105H196.3z"/>
+<path id="Path-2-Copy-2" inkscape:connector-curvature="0" class="st7" d="M196.3,258.5l-7,12.9l-7-12.9h6v-31.3h2v31.3H196.3z"/>
+<path id="Path-2-Copy-2_00000116233210277094255030000005703122301922625722_" inkscape:connector-curvature="0" class="st7" d="
+	M598,684.1l14,6.4l-14,6.4v-5.5h-34v-1.8h34V684.1z"/>
+<path id="Path-2-Copy-2_00000008851290035323326260000014308739851188360345_" inkscape:connector-curvature="0" class="st7" d="
+	M1396,702.2l14,4.1l-14,4.1v-3.6h-34v-1.2h34V702.2z"/>
+<path id="Path-2-Copy-6" inkscape:connector-curvature="0" class="st8" d="M1394.3,755.1l14,6.4l-14,6.4v-5.5h-2v-1.8h2V755.1z
+	 M1368.3,760.6v1.8h-8v-1.8H1368.3z M1384.3,760.6v1.8h-8v-1.8H1384.3z"/>
+<rect id="Rectangle" x="1181.7" y="694.6" class="st5" width="24" height="22.1"/>
+<rect id="Rectangle-Copy" x="1181.4" y="748.3" class="st1" width="24" height="20.4"/>
+<text id="text104" transform="matrix(1.086 0 0 1 1163.4043 730.8379)" class="st9 st3 st10">User action</text>
+<text id="text106" transform="matrix(1.086 0 0 1 1183.4248 788.166)" class="st9 st3 st10">File</text>
+<text id="text108" transform="matrix(1.086 0 0 1 1358.5898 731.3662)" class="st9 st3 st10">Next step</text>
+<text id="text110" transform="matrix(1.086 0 0 1 1357.2998 786.333)" class="st9 st3 st10">File used</text>
+<path id="Path-2_00000022547918662803691630000017370602667717990053_" inkscape:connector-curvature="0" class="st8" d="M65,143.6
+	v-7.4h-2l0,0v7.4H65z M65,158.4V151h-2l0,0v7.4H65z M65,173.1v-7.4h-2v7.4H65z M63.2,187.9l2-0.3c-0.1-0.8-0.2-1.7-0.2-2.6l0,0v-4.6
+	h-2v4.6C63,186.1,63.1,187,63.2,187.9L63.2,187.9z M71.9,200.8l1.2-1.5c-2.1-1.4-3.9-3.1-5.2-5.1l0,0l-1.7,0.9
+	C67.6,197.4,69.6,199.3,71.9,200.8L71.9,200.8z M87.8,204.4v-1.8H84c-1.4,0-2.7-0.1-4-0.4l0,0l-0.4,1.8c1.4,0.3,2.9,0.5,4.4,0.5l0,0
+	L87.8,204.4z M103.8,204.4v-1.8h-8v1.8H103.8z"/>
+<path id="Path-2_00000150102695594002958340000016833884513159194526_" inkscape:connector-curvature="0" class="st8" d="
+	M1077,432.8l7-12.9h-14L1077,432.8z M319,122.4h-8v-1.8l0,0h8V122.4z M335,122.4h-8v-1.8h8V122.4z M351,122.4h-8v-1.8h8V122.4z
+	 M367,122.4h-8v-1.8h8V122.4z M383,122.4h-8v-1.8h8V122.4z M399,122.4h-8v-1.8h8V122.4z M415,122.4h-8v-1.8h8V122.4z M431,122.4h-8
+	v-1.8h8V122.4z M447,122.4h-8v-1.8h8V122.4z M463,122.4h-8v-1.8h8V122.4z M479,122.4h-8v-1.8h8V122.4z M495,122.4h-8v-1.8h8V122.4z
+	 M511,122.4h-8v-1.8h8V122.4z M527,122.4h-8v-1.8h8V122.4z M543,122.4h-8v-1.8h8V122.4z M559,122.4h-8v-1.8h8V122.4z M575,122.4h-8
+	v-1.8h8V122.4z M591,122.4h-8v-1.8h8V122.4z M607,122.4h-8v-1.8h8V122.4z M623,122.4h-8v-1.8h8V122.4z M639,122.4h-8v-1.8h8V122.4z
+	 M655,122.4h-8v-1.8h8V122.4z M671,122.4h-8v-1.8h8V122.4z M687,122.4h-8v-1.8h8V122.4z M703,122.4h-8v-1.8h8V122.4z M719,122.4h-8
+	v-1.8h8V122.4z M735,122.4h-8v-1.8h8V122.4z M751,122.4h-8v-1.8h8V122.4z M767,122.4h-8v-1.8h8V122.4z M783,122.4h-8v-1.8h8V122.4z
+	 M799,122.4h-8v-1.8h8V122.4z M815,122.4h-8v-1.8h8V122.4z M831,122.4h-8v-1.8h8V122.4z M847,122.4h-8v-1.8h8V122.4z M863,122.4h-8
+	v-1.8h8V122.4z M879,122.4h-8v-1.8h8V122.4z M895,122.4h-8v-1.8h8V122.4z M911,122.4h-8v-1.8h8V122.4z M927,122.4h-8v-1.8h8V122.4z
+	 M943,122.4h-8v-1.8h8V122.4z M959,122.4h-8v-1.8h8V122.4z M975,122.4h-8v-1.8h8V122.4z M991,122.4h-8v-1.8h8V122.4z M1007,122.4h-8
+	v-1.8h8V122.4z M1023,122.4h-8v-1.8h8V122.4z M1039,122.4h-8v-1.8h8V122.4z M1055,122.4h-8v-1.8h8V122.4z M1070.6,125.2l-1.3,1.4
+	c-1.9-1.6-4.2-2.7-6.7-3.4l0,0l0.6-1.7C1065.9,122.3,1068.4,123.5,1070.6,125.2z M1078,138.6l-2,0.1c-0.2-2.4-0.8-4.7-2-6.7l0,0
+	l1.8-0.8C1077,133.5,1077.8,136.1,1078,138.6z M1078,153.6h-2v-7.4h2V153.6z M1078,168.3h-2v-7.4h2V168.3z M1078,183h-2v-7.4h2V183z
+	 M1078,197.8h-2v-7.4h2V197.8z M1078,212.5h-2v-7.4h2V212.5z M1078,227.2h-2v-7.4h2V227.2z M1078,242h-2v-7.4h2V242z M1078,256.7h-2
+	v-7.4h2V256.7z M1078,271.4h-2V264h2V271.4z M1078,286.2h-2v-7.4h2V286.2z M1078,300.9h-2v-7.4h2V300.9z M1078,315.6h-2v-7.4h2
+	V315.6z M1078,330.4h-2V323h2V330.4z M1078,345.1h-2v-7.4h2V345.1z M1078,359.8h-2v-7.4h2V359.8z M1078,374.6h-2v-7.4h2V374.6z
+	 M1078,389.3h-2v-7.4h2V389.3z M1078,404h-2v-7.4h2V404z M1078,418.8h-2v-7.4h2V418.8z"/>
+<path id="Path-2_00000122701599151103263450000002910982028421445766_" inkscape:connector-curvature="0" class="st8" d="M1077,477
+	l7,12.9h-14L1077,477z M803,571.8h-8v1.8h8V571.8z M819,571.8h-8v1.8h8V571.8z M835,571.8h-8v1.8h8V571.8z M851,571.8h-8v1.8h8
+	V571.8z M867,571.8h-8v1.8h8V571.8z M883,571.8h-8v1.8h8V571.8z M899,571.8h-8v1.8h8V571.8z M915,571.8h-8v1.8h8V571.8z M931,571.8
+	h-8v1.8h8V571.8z M947,571.8h-8v1.8h8V571.8z M963,571.8h-8v1.8h8V571.8z M979,571.8h-8v1.8h8V571.8z M995,571.8h-8v1.8h8V571.8z
+	 M1011,571.8h-8v1.8h8V571.8z M1027,571.8h-8v1.8h8V571.8z M1043,571.8h-8v1.8h8V571.8z M1059.1,573.6l-0.2-1.8
+	c-0.6,0.1-1.3,0.1-1.9,0.1l0,0h-6v1.8h6C1057.7,573.6,1058.4,573.6,1059.1,573.6z M1073.5,566.3l-1.6-1.1c-1.6,1.8-3.6,3.4-5.8,4.5
+	l0,0l1,1.7C1069.6,570.1,1071.8,568.3,1073.5,566.3L1073.5,566.3z M1078,551.7h-2v2.7c0,1.6-0.2,3-0.7,4.5l0,0l1.9,0.5
+	c0.5-1.7,0.7-3.3,0.7-5l0,0L1078,551.7z M1078,537h-2v7.4h2V537z M1078,522.3h-2v7.4h2V522.3z M1078,507.5h-2v7.4h2V507.5z
+	 M1078,492.8h-2v7.4h2V492.8z"/>
+<path id="Path-2_00000056405474106140575060000011816276515031116450_" inkscape:connector-curvature="0" class="st8" d="
+	M622.5,716.8v-7.4h2v7.4H622.5z M622.5,731.6v-7.4h2v7.4H622.5z M622.5,746.3v-7.4h2v7.4H622.5z M623.8,761.3l-1.9-0.6
+	c0.4-0.9,0.6-1.9,0.6-2.9v-0.4v-3.7h2v3.7C624.5,758.7,624.3,760,623.8,761.3L623.8,761.3z M613.5,774.9l-14-6.4l14-6.4v5.4
+	c1.2-0.2,2.4-0.6,3.5-1.2l0.3-0.2l1.1,1.6c-1.5,0.8-3.2,1.5-4.9,1.7L613.5,774.9z"/>
+<path id="Path-2_00000064337557820975347520000017416791016614758583_" inkscape:connector-curvature="0" class="st8" d="M162,452.5
+	l-14-6.4V459L162,452.5z M116,509.7v7.4h-2l0,0v-7.4L116,509.7z M116,495v7.4h-2l0,0V495H116z M116,480.3v7.4h-2v-7.4H116z
+	 M114.9,465.4l1.9,0.6c-0.5,1.7-0.8,3.3-0.8,5.1l0,0v2h-2V471C114,469,114.3,467.1,114.9,465.4z M125.4,453.7l0.9,1.7
+	c-2.3,1.1-4.3,2.6-5.9,4.4l0,0l-1.5-1.2C120.7,456.5,122.9,454.9,125.4,453.7z M141.6,451.5v1.8H135c-0.4,0-0.9,0-1.3,0l0,0
+	l-0.1-1.8c0.5,0,1-0.1,1.5-0.1l0,0L141.6,451.5z"/>
+<path id="Path-2_00000024710145502317937790000008391074005459660416_" inkscape:connector-curvature="0" class="st11" d="
+	M162.1,761.5c0,0-9,0-20,0h-7c-11,0-20-8.2-20-18.4V516.6"/>
+<path id="Path-2_00000070092516521824465670000006857837399333377467_" inkscape:connector-curvature="0" class="st8" d="M376,609.6
+	l-14,6.4v-12.9L376,609.6z M345,484.3V477h-2l0,0v7.4h2V484.3z M345,499.1v-7.4h-2v7.4H345z M345,513.8v-7.4h-2v7.4H345z M345,528.5
+	v-7.4h-2v7.4H345z M345,543.3v-7.4h-2v7.4H345z M345,558v-7.4h-2v7.4H345z M345,572.7v-7.4h-2v7.4H345z M345,587.5v-7.4h-2v7.4H345z
+	 M345.1,602.4l1.8-0.9c-1.2-2-1.8-4.2-1.8-6.6l0,0l0,0h-2C343,597.5,343.7,600.1,345.1,602.4z M358.9,610.5l0.1-1.8
+	c-2.5-0.2-5-0.9-7.1-2.1l0,0l-1.1,1.6C353.2,609.5,356,610.3,358.9,610.5z"/>
+<path id="Path-2_00000069362657800643367320000012601917411641383307_" inkscape:connector-curvature="0" class="st8" d="M345,484.3
+	V477h-2v7.4h2V484.3z M345,499.1v-7.4h-2v7.4H345z M345,513.8v-7.4h-2v7.4H345z M345,528.5v-7.4h-2v7.4H345z M345,543.3v-7.4h-2v7.4
+	H345z M345,558v-7.4h-2v7.4H345z M350.8,571.2l1.1-1.6c-2-1.2-3.7-2.8-4.9-4.7l-0.2-0.4l-1.8,0.9
+	C346.5,567.8,348.4,569.8,350.8,571.2z M362,579.2l14-6.4l-14-6.4v5.5h-2h-0.5l0,0H359l-0.1,1.8h0.5l0,0h0.5h2v5.5L362,579.2z"/>
+<path id="Path-2_00000068667455873036888650000016360471215444356772_" inkscape:connector-curvature="0" class="st8" d="M805,292.8
+	l14,6.4v-12.9L805,292.8z M852,226.5v-7.4h2l0,0v7.4H852z M852,241.2v-7.4h2l0,0v7.4H852z M852,256v-7.4h2v7.4H852z M852,270.7v-7.4
+	h2v7.4H852z M850.3,285.3l-1.6-1c1.4-1.9,2.5-4.1,3-6.4l0,0l2,0.4C853,280.8,851.9,283.2,850.3,285.3z M836.5,293.4l-0.3-1.8
+	c2.5-0.4,4.9-1.3,7.1-2.5l0,0l1.1,1.6C841.9,292.1,839.3,293,836.5,293.4L836.5,293.4z M820.2,293.7v-1.8h8v1.8H820.2z M820.2,293.7
+	v-1.8h8v1.8H820.2z"/>
+<path id="Path-2_00000003082646244327808220000014244370375383718032_" inkscape:connector-curvature="0" class="st8" d="M376,535.9
+	l-14,6.4v-12.9L376,535.9z M345,484.3V477h-2l0,0v7.4L345,484.3L345,484.3z M345,499.1v-7.4h-2l0,0v7.4H345z M345,513.8v-7.4h-2v7.4
+	H345z M345.1,528.7l1.8-0.9c-1.2-2-1.8-4.3-1.8-6.6l0,0h-2C343,523.8,343.7,526.4,345.1,528.7z M358.9,536.8l0.1-1.8
+	c-2.5-0.2-5-0.9-7.1-2.1l0,0l-1.1,1.6C353.2,535.8,356,536.6,358.9,536.8z"/>
+<path id="Path-2_00000180349626083027521150000016384732664765623958_" inkscape:connector-curvature="0" class="st8" d="M535,432.8
+	l-7-12.9h14L535,432.8z M548,411.6h8v-1.8l0,0h-8V411.6z M534.4,417.5l1.9,0.5c0.7-2.2,2.2-4.1,4.3-5.2l0,0l-1-1.6
+	C537.1,412.6,535.2,414.8,534.4,417.5L534.4,417.5z"/>
+<path id="Path-2_00000031169125715461081100000010679038427152049594_" inkscape:connector-curvature="0" class="st8" d="M350,346.2
+	l-7,12.9l-7-12.9h6v-1.8h2v1.8H350z M344,322.3h-2v-7.4h2V322.3z M344,337h-2v-7.4h2V337z"/>
+<path id="Path-2_00000098901564627782921320000015132500099987328698_" inkscape:connector-curvature="0" class="st8" d="
+	M1121.2,447.5l14,6.4l-14,6.4v-5.5h-2V453h2V447.5z M1095.2,453v1.8h-8V453H1095.2z M1111.2,453v1.8h-8V453H1111.2z"/>
+<path id="Path-2-Copy-4" inkscape:connector-curvature="0" class="st8" d="M350,419.9l-7,12.9l-7-12.9h6V418h2v1.8h6V419.9z
+	 M344,395.9h-2v-7.4h2V395.9z M344,410.7h-2v-7.4h2V410.7z"/>
+<path id="Path-2-Copy-3" inkscape:connector-curvature="0" class="st8" d="M438,655.6l-7,12.9l-7-12.9h6v-1.8h2v1.8H438z M432,631.7
+	h-2v-7.4h2V631.7z M432,646.4h-2V639h2V646.4z"/>
+<path id="Path-2-Copy-3_00000032610182386587490730000007297037054906826112_" inkscape:connector-curvature="0" class="st8" d="
+	M656.2,197.3l14,6.4l-14,6.4v-5.5h-4v-1.8h4V197.3z M571,203.5v1.8h-8v-1.8H571z M587,203.5v1.8h-8v-1.8H587z M603,203.5v1.8h-8
+	v-1.8H603z M619,203.5v1.8h-8v-1.8H619z M635,203.5v1.8h-8v-1.8H635z M651,203.5v1.8h-8v-1.8H651z"/>
+<path id="Path-2_00000041295857929004472690000011372645602848844429_" inkscape:connector-curvature="0" class="st11" d="
+	M853,219.1c0,0,0,8.3,0,18.4v154.7c0,10.1-9,18.4-20,18.4H549"/>
+<text id="text131" transform="matrix(1.086 0 0 1 48.001 93.8667)" class="st9 st3 st12">Start</text>
+<text id="text133" transform="matrix(1.086 0 0 1 1482.8857 488.6973)" class="st9 st3 st12">End</text>
+<path id="Path-2_00000170260568005449931030000001429015066778813837_" inkscape:connector-curvature="0" class="st8" d="M147,197
+	l14,6.4l-14,6.4v-5.5h-2v-1.8h2V197z M121,202.6v1.8h-8v-1.8H121z M137,202.6v1.8h-8v-1.8H137z"/>
+<path id="Path-2-Copy_00000123412094181797927550000000325432537668371642_" inkscape:connector-curvature="0" class="st7" d="
+	M677,449.3l14,6.4l-14,6.4v-5.5H563v-1.8h114V449.3z"/>
+</svg>
