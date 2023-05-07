@@ -430,12 +430,20 @@ command line tool.
 
         cd /home/ibmdemo/Mono2Micro-CLI
 
-2.  Run the Mono2Micro CLI version and help commands:
+2.  Run the Mono2Micro CLI version commands:
 
         ./mono2micro -v
+        
+    command output:     
+    
         mono2micro-cli version: 23.0.04.0
 
+3.  Run the Mono2Micro CLI help command:
+  
         ./mono2micro -h
+
+    command output: 
+
         Mono2Micro: AI driven transformation of Java monoliths to microservices for WebSphere Liberty
         Usage: mono2micro [-hvz] COMMAND
         -h, --help      Display help information
@@ -454,10 +462,13 @@ command line tool.
         Run 'mono2micro COMMAND --help' for more information on a command.
 
 
-3.  Check the install possibilities by using the help option within
+4.  Check the install possibilities by using the help option within
     install command:
 
         ./mono2micro install -h
+ 
+     command output: 
+ 
         Install Mono2Micro components and images
         Usage: mono2micro install [options]
         Options:
@@ -480,12 +491,12 @@ command line tool.
         -z, --verbose                            Enable verbose mode
 
 
-4.  Run the Mono2Micro **install command,** selecting Docker as the
+5.  Run the Mono2Micro **install command,** selecting Docker as the
     container engine:
 
         ./mono2micro install -c docker
 
-5.  You need to choose option “**2**” for trial to proceed:
+6.  You need to choose option “**2**” for trial to proceed:
 
     <table>
     <tbody>
@@ -500,13 +511,13 @@ command line tool.
     </tbody>
     </table>
 
-6.  The license will be presented, and you need to accept it. Type “**1**” to proceed:
+7.  The license will be presented, and you need to accept it. Type “**1**” to proceed:
 
     |                                                           |
     | --------------------------------------------------------- |
     | Do you accept the license? Enter 1 for Yes or 2 for No: 1 |
 
-7.  The **next steps** message will be displayed when the Mono2Micro-CLI
+8.  The **next steps** message will be displayed when the Mono2Micro-CLI
     is successfully installed:
 
         License used: IBM Mono2Micro 23.0.04 trial (L-CQBY-93TJUZ)
@@ -518,15 +529,25 @@ command line tool.
         Next steps: Analyze your Java application source code with the "mono2micro analyze" or "mono2micro instrument" commands
 
 
-8.  Now Mono2Micro is successfully installed. As a result of the
+9.  Now Mono2Micro is successfully installed. As a result of the
     installation, two new files were created under the user home
     directory. Use the commands below to check the content of the files:
 
+    a. view the license key
+
         cat ~/.mono2micro_license
+        
+    command output:     
+        
         accept_license_flag = true
         license_key = L-CQBY-93TJUZ
 
+    b. view the configuration
+
         cat ~/.mono2micro_config
+    
+    command output: 
+
         update_check_last = 2023-04-14
         license_type = 2
         container_engine = docker
@@ -567,12 +588,14 @@ Let’s begin with the build of the .ear file and then the static data collectio
 
     ![](./images/media/image27.png)
 
-2.  Return to Mono2Micro folder and run the code analyzer with help option to verify the possibilities
-    available:
+2.  Return to Mono2Micro folder and run the code analyzer with help option to verify the possibilities available:
 
         cd /home/ibmdemo/Mono2Micro-CLI
 
         ./mono2micro analyze -h
+        
+    command output:     
+        
         Analyze the monolith application source code or binary code
         Usage: mono2micro analyze [options] (-a=<file> | -s=<dir>)
         Options:
@@ -607,7 +630,9 @@ Let’s begin with the build of the .ear file and then the static data collectio
         -z, --verbose                            Enable verbose mode
 
 
-    The following options are exclusively used to control the Java packages to be analyzed with the binary analyzer. None of the options persist because the analyzer does not save any list or user preference. Thus, you must specify the wanted options for each execution. For the options, specify a comma-separated list with no empty spaces, for example:
+    The following options are exclusively used to control the Java packages to be analyzed with the binary analyzer. None of the options persist because the analyzer does not save any list or user preference. Thus, you must specify the wanted options for each execution. For the options, specify a comma-separated list with no empty spaces; 
+    
+    For example:
 
     ```
     com.test.app,org.xyz.lib,edu.abc
@@ -659,6 +684,9 @@ Let’s begin with the build of the .ear file and then the static data collectio
 5.  Review the output from the binary code analyzer:
 
         ls -g DefaultApplication-mono2micro
+
+    command output:
+
         -rw-r--r--  1 staff    199 17 Apr 13:53 instrumenter-config.json
         -rw-r--r--  1 staff    193 17 Apr 13:53 recommender-config.properties
         -rw-r--r--  1 staff   1449 17 Apr 13:53 refTable.json
@@ -745,6 +773,7 @@ You will configure the Liberty server to load the Binary instrumenter (minerva-a
 
     The **jvm.options** file in Liberty is used to set Java Virtual Machine arguments. For Mono2micro, you need to configure the Java agent for the binary instrumenter
 
+    
     b.  Edit the **jvm.options** to point to the files under monolith-mono2micro folder and the binary instrumenter (minerva-agent.jar) under Mono2Micro-CLI/instrumenter folder.
 
     Copy / Paste the following content into the jvm.options file:
@@ -831,6 +860,9 @@ running that scenario on the monolith.
     b.  Check the possible options to run the use case recorder
 
         ./mono2micro usecase -h
+
+    command output: 
+
         Capture use case context (names and times) while running them on the instrumented application
         Usage: mono2micro usecase [options]
         Options:
@@ -854,7 +886,7 @@ running that scenario on the monolith.
 
     a. In the web browser, go to **http://localhost:9080/**
 
-    b. From the **use case recorder**, provide the label named **snoop** and press **ENTER**. 
+    b. From the **use case recorder**, provide the label named **`snoop`** and press **ENTER**. 
     
     This starts the **use case recorder** stopwatch for the snoop test case.
 
@@ -878,7 +910,7 @@ running that scenario on the monolith.
 
     e. When finished, click on the Browsers “**back**” button ![](./images/media/image35.png) to return to the applications main   > HTML page.
 
-    f.  In the **use case recorder**, enter **9**, to stop the stopwatch for the test case
+    f.  In the **use case recorder**, enter **`9`**, to stop the stopwatch for the test case
 
         A filename is not specified. Creating a default file: "context_1681760275797.json".
         Enter <Label> to start recording current context or enter 1 to exit.
@@ -896,7 +928,7 @@ running that scenario on the monolith.
 
     Running the Hit Count test case requires the same basic step as Snoop, but has a few more options to test in the application:
 
-    a.  In the **use case recorder**, provide the label named **hitcount** which will start the stopwatch for the snoop test case.
+    a.  In the **use case recorder**, provide the label named **`hitcount`** which will start the stopwatch for the snoop test case.
 
         A filename is not specified. Creating a default file: "context_1681760275797.json".
         Enter <Label> to start recording current context or enter 1 to exit.
@@ -937,7 +969,7 @@ running that scenario on the monolith.
     e.  You can run **HitCount** multiple times, choosing different
     “**Transaction Type**” options.
 
-    f. In the **use case recorder**, enter **9**, to stop the **use case recorder** stopwatch for the test case
+    f. In the **use case recorder**, enter **`9`**, to stop the **use case recorder** stopwatch for the test case
 
     The **use case recorder** has now captured the START and STOP timestamps for the use cases, which corresponds to the timestamps  recorded in the Liberty log file from the  instrumented version of the DefaultApplication.
  
@@ -958,7 +990,7 @@ running that scenario on the monolith.
         Enter <Label> to start recording current context or enter 1 to exit.
 
 
-    g.  In the **use case recorder**, enter **1**, to quit
+    g.  In the **use case recorder**, enter **`1`**, to quit
 
         A filename is not specified. Creating a default file: "context_1681760275797.json".
         Enter <Label> to start recording current context or enter 1 to exit.
@@ -1126,6 +1158,9 @@ The **/home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/** directo
   - **config.ini** Optional file to configure various parameters for the analysis tool. If one doesn’t exist, AI engine generates one for you with default values.
  
         ls -R /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data
+
+    command output: 
+
         contexts logs     tables
 
         /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/contexts:
@@ -1152,6 +1187,9 @@ generate partition recommendations.
 2.  Check the options available to run the AI engine:
 
         ./mono2micro recommend -h
+    
+    command output: 
+    
         Run the AI engine on collected application data to recommend partitions for the monolith
         Usage: mono2micro recommend [options] -d=<dir>
         Options:
@@ -1212,6 +1250,9 @@ generated by loading the **final\_graph.json** in the workbench UI.
     workbench UI:
 
         ./mono2micro workbench -h
+    
+    command output: 
+
         Run the workbench UI to view and customize the AI recommended partitions
         Usage: mono2micro workbench [options]
         Options:
@@ -1236,7 +1277,7 @@ generated by loading the **final\_graph.json** in the workbench UI.
     a.  From the UI, click the “**Drop or Add File**” link
     
     b.  From the “**File Upload**” dialog window, navigate to the
-        following **final\_graph.json** file
+        following **`final_graph.json`** file
 
     > Home \> ibmdemo \> m2m-ws-sample \> defaultapplication \>  mono2micro-analysis \> oriole \> final\_graph.json
 
@@ -1244,7 +1285,7 @@ generated by loading the **final\_graph.json** in the workbench UI.
 
     ![](./images/media/image51.png)
 
-    d.  From the UI, click the “**Maybe Later**” button to SKIP the tour, and proceed to the results
+    d.  From the UI, click the “**`Maybe Later`**” button to SKIP the tour, and proceed to the results
 
     ![](./images/media/image52.png)
 
@@ -1498,7 +1539,7 @@ Lets get started\!
  
      All you will do now is copy the final_graph.json file to this folder location where it will be discovered by the AI engine.
 
-    a.  Run the following commands to copy the file, change to the target directory, and list the files and ensure the **custom_graph.json** has been copied to the desired directory
+    a.  Run the following commands to copy the file, change to the target directory, and list the files and ensure the **`custom_graph.json`** has been copied to the desired directory
 
         cp /home/ibmdemo/Downloads/final_graph.json /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/custom_graph.json
 
@@ -1524,7 +1565,7 @@ Lets get started\!
             *** Modify the config.ini as described and illustrated below.
 
 
-    a.   Modify the value for the “***UserModifiedGraph***” property to **custom_graph.json**
+    a.   Modify the value for the “**`UserModifiedGraph`**” property to **`custom_graph.json`**
 
     b.  **Save** and **Close** the config.ini file
 
@@ -1729,6 +1770,9 @@ referenced in the code generator command for proper execution:
         cd /home/ibmdemo/Mono2Micro-CLI
 
         ./mono2micro transform -h
+
+    command output: 
+
         Generate starter code to implement and run the partitions as microservices
         Usage: mono2micro transform [options] -p=<dir> -s=<dir>
         Options:
@@ -2029,9 +2073,10 @@ functionality in each partition.
 
         ./moveResourcesToPartitions.sh
 
-            When prompted for a password, enter: passw0rd
 
-            Note: That is a numeric zero in passw0rd
+    a. If prompted for a password, enter: `passw0rd`
+
+        Note: That is a numeric zero in passw0rd
 
 4.  Use a graphical **File Explorer** ![](./images/media/image89.png) or
     **Terminal** window to see the non-Java files now in each of the
@@ -2130,9 +2175,10 @@ Server in separate Docker containers.
 
         ./refactorPartitions.sh
 
-            If prompted for a password, enter: passw0rd
+        
+    a. If prompted for a password, enter: `passw0rd`
 
-            Note: That is a numeric zero in passw0rd
+        Note: That is a numeric zero in passw0rd
 
     ![](./images/media/image90.png)
  
