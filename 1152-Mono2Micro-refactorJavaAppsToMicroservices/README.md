@@ -1317,7 +1317,7 @@ The Default Application contains two major Java components in the  application.
 
 In addition to the Java components, the application also contains  HTML, JSP, and other web resources.
  
-The goal of this lab is to split the Default Application monolith into separate microservices, such that the (Front-end) Web components run  as a microservice, and the (back-end) EJB and  data layer run as a separate microservice.
+The goal of this lab is to split the Default Application monolith into separate microservices, such that the (front-end) Web components run  as a microservice, and the (back-end) EJB and  data layer run as a separate microservice.
  
 In this exercise, we will ensure that the Web components(Servlets,
  HTML, JSP, etc) will be in the (front-end) web partition, and the (back-end) HitCount’s increment action Java / EJB components run in a separate partition.
@@ -1381,7 +1381,7 @@ In this exercise, we will ensure that the Web components(Servlets,
     class that was observed in the “snoop” test case
 
     - **Utility** contains one class (Increment) which was identified by
-    Mono2Micro as potential utility class.
+    Mono2Micro as a potential utility class.
 
     - As you can see, there are **no lines** between these partitions,
     indicating that there is no partition to partition
