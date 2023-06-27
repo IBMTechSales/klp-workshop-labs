@@ -540,7 +540,7 @@ command line tool.
     command output:     
         
         accept_license_flag = true
-        license_key = L-CQBY-93TJUZ
+        license_key = L-KNAV-6S5BZN
 
     b. view the configuration
 
@@ -548,7 +548,7 @@ command line tool.
     
     command output: 
 
-        update_check_last = 2023-04-14
+        update_check_last = 2023-06-27
         license_type = 2
         container_engine = docker
         update_check_frequency = 30
@@ -1345,15 +1345,15 @@ In this exercise, we will ensure that the Web components(Servlets,
  
     ![](./images/media/image55.png)
 
-    Note that by using “Table” mode the classes can have labels. When the AI engine recognizes a class as a “Utility” class, it automatically displays on the Workbench UI the “Utility” label on the “Table” mode. A Utility class defines a set of methods that perform common tasks.
+    Note that by using “Table” mode the classes can have labels. When the AI engine recognizes a class as a “Utility” class, it automatically displays on the Workbench UI the “Utility” label on the “Table” mode and places it on a "Utility" group. A Utility class defines a set of methods that perform common tasks. Utility classes mostly have incoming method calls from other classes in the application. They might also have, or alternatively have, mostly static member fields and methods, and various other characteristics.
 
 2.  If you explored other views, return to the “**Business Logic”** view in “**Graph**” Mode
 
     ![Graphical user interface, diagram, application, Teams Description automatically generated](./images/media/image53_b.png)
 
-    It is important to notice that the same class labeled as “Utility” on the “Table” mode appears in “Graph” mode as diamond-shaped inside a specific group called "Utility". Utility classes mostly have incoming method calls from other classes in the application. They might also have, or alternatively have, mostly static member fields and methods, and various other characteristics that the AI engine determines are likely utilitarian.
+    It is important to notice that the same class labeled as “Utility” on the “Table” mode appears in “Graph” mode as diamond-shaped inside a specific group called "Utility".
 
-3.  From the Business Logic view, notice that there are two
+3.  From the Business Logic view, notice that there are three
     **partitions** created. It could be cases where one special partition for
     “**Unobserved**” classes is created as well.
 
@@ -1366,7 +1366,7 @@ In this exercise, we will ensure that the Web components(Servlets,
     incomplete set of test cases for adequate code coverage.
 
 
-4.  Explore the Java classes in partition0 and partition1
+4.  Explore the Java classes in partition0, partition1, and Utility partition
     
     a.  **Double-click** on each of the **partition**s to display the
         number of Java classes in each partition
@@ -1376,10 +1376,6 @@ In this exercise, we will ensure that the Web components(Servlets,
     - **Partiton0** contains three classes (HitCount, IncrementAction, 
     and IncrementSSB) which the classes that were identified
     as part of the “**hitcount”** use case from our test cases.
-    
-     <<< TODO: decide if keep it or not - Within partition0, you can see that mono2micro observed
-        intra-partition communication, as indicated by the lines between
-        the classes**.** >>>
 
     - **Partiton1** contains one class (SnoopServlet) which is the only
     class that was observed in the “snoop” test case
@@ -1390,9 +1386,9 @@ In this exercise, we will ensure that the Web components(Servlets,
     - As you can see, there are **no lines** between these partitions,
     indicating that there is no partition to partition
     (inter-partitioning) communication observed between the classes in
-    partition 0 and partition1.
+    partition0, partition1, and Utility partition.
     
-      - This is because the initial partition recommendations placed all the classes that communicate in the **hitcount** use case into a single partition.
+      - This is because the initial partition recommendations placed all the classes that communicate in the **hitcount** use case into a single partition. Also, by default the inter-partitioning communication to **Utility** partition is disabled.
 
 
     The initial partitioning recommendations are a starting point and generated taking into consideration based on the business logic and natural seams that were discovered during the analysis.
@@ -1417,7 +1413,7 @@ the Java servlet classes which are referred to by the html file.
 The goal of this lab is to split the Default Application monolith into
 separate microservices such that:
 
-  - The **(Front-end**) Web components run as a microservice
+  - The **(front-end**) Web components run as a microservice
 
   - The (**back-end**) EJB and data layer run as a separate microservice
 
@@ -1437,11 +1433,13 @@ generated](./images/media/image58.png)
 Tweaking the business logic recommendations is straight forward using
 the UI, and includes these basic steps, which you will do next:
 
+-  **Move Increment (Entity) class to the partition0**. All three classes in **partition0** depend on **Increment** and **SnoopServlet** does not depend on **Increment**.
+
 -  **Rename partition1 to web**. This is not required but illustrates
     the capability to create partitions with names that make sense. This
     is useful during the code generation phase.
 
--  **Move HitCount Servlet (Service Entry) class to the web partition**. All the Servlets and other front-end components should     be here.
+-  **Move HitCount Servlet (Service Entry) class to the web partition**. All the Servlets and other front-end components should be here.
 
 
 
@@ -1472,11 +1470,21 @@ the UI, and includes these basic steps, which you will do next:
 
 3. Move the **Increment** (Entity) class to the "**partition0**" partition
 
-    Since just one class was identified as "**Utility**", it can be moved to another partition for the simplicity of the current example. In real-world large Java applications, multiple classes can be part of the "**Utility**" partition. In this case, you may package any application classes in "**Utility**" as a utility .jar file and then place it in all other partitions that depend on those utility classes.
+    a. Click on **Increment** class from **Utility** partition
+
+    ![](./images/media/image62_a.png)
+
+    Note that all three classes in **partition0** have arrows pointing to **Increment** in **Utility** partition. This means that those classes depend on **Increment**. Similarly, we can conclude that **SnoopServlet** does not depend on **Increment** because there are no arrows between them. 
+    
+    Thus, we can simplify the graph by moving **Increment** from **Utility** to **partition0**. However, in real-world large Java applications, multiple classes can be part of the "**Utility**" partition. In that case, you may package any application classes in "**Utility**" as a utility .jar file and then place it in all other partitions that depend on those utility classes.
  
-    a.  Drag and Drop the **Increment** class from **Utility** partition to the **partition0** partition. 
+    b.  Drag and Drop the **Increment** class from **Utility** partition to the **partition0** partition. 
 
     ![](./images/media/image62_b.png)
+
+    c. The **Increment** class is now located in the **partition0**.
+
+    ![](./images/media/image62_c.png)
 
 4.  Rename “partition1” to “web”
     
