@@ -1474,9 +1474,9 @@ the UI, and includes these basic steps, which you will do next:
 
     ![](./images/media/image62_a.png)
 
-    Note that all three classes in **partition0** have arrows pointing to **Increment** in **Utility** partition. This means that those classes depend on **Increment**. Similarly, we can conclude that **SnoopServlet** does not depend on **Increment** because there are no arrows between them. 
+    Note that all three classes in **partition0** have arrows pointing to **Increment** in **Utility** partition. This means that those classes depend on **Increment**. Similarly, we can conclude that **partition1** does not depend on **Increment** because there are no arrows between them. 
     
-    Thus, we can simplify the graph by moving **Increment** from **Utility** to **partition0**. However, in real-world large Java applications, multiple classes can be part of the "**Utility**" partition. In that case, you may package any application classes in "**Utility**" as a utility .jar file and then place it in all other partitions that depend on those utility classes.
+    Thus, we can simplify the partitioning by moving **Increment** from **Utility** to **partition0**. However, in real-world large Java applications, multiple classes can be part of the "**Utility**" partition and other partitions could depend on them. In that case, you may package any application classes in "**Utility**" as a utility .jar file and then place it in all other partitions that depend on those utility classes.
  
     b.  Drag and Drop the **Increment** class from **Utility** partition to the **partition0** partition. 
 
