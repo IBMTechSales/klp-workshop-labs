@@ -770,7 +770,7 @@ Now that you have applied the PH42762 iFix, let's examine the updated security p
 <details>
   <summary>Click to expand: Lab 2 - Detect and trigger investigation of Application Memory Leak with IBM WebSphere Automation</summary>
 
-## 5.0 Detect and Address Application Memory Leak with IBM WebSphere Automation
+## 5.0 Detect and Address Application Memory Leak with IBM WebSphere Automation and Instana
 
 In this lab, you are going to use a traditional WebSphere Application
 Server and a Liberty Server registered with WSA and monitored by Instana
