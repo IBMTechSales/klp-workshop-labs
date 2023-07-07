@@ -582,7 +582,7 @@ Let’s begin with the build of the .ear file and then the static data collectio
 
         cd /home/ibmdemo/m2m-ws-sample/defaultapplication/monolith
 
-        mvn clean install
+        mvn -DskipTests=true clean install
 
     Maven should have successfully built the application and generated the  binary artifacts (EAR, WAR), and placed them in the Liberty Server “apps” folder.
 
