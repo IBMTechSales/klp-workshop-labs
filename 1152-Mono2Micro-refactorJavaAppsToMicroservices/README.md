@@ -436,7 +436,7 @@ command line tool.
         
     command output:     
     
-        mono2micro-cli version: 23.0.04.0
+        mono2micro-cli version: 23.0.06.0
 
 3.  Run the Mono2Micro CLI help command:
   
@@ -477,16 +477,16 @@ command line tool.
         -h, --help                               Display help information
         -l, --license=<1|2|3|4>                  Accept license:
                                                 1. IBM WebSphere Hybrid Edition 5.1 (L-AMIK-C92MN6)
-                                                2. IBM Mono2Micro 23.0.04 trial (L-CQBY-93TJUZ)
-                                                3. IBM WebSphere Application Server for z/OS V9.0.5.14 (L-VNYU-W694VR)
+                                                2. IBM Mono2Micro 23.0.06 trial (L-KNAV-6S5BZN)
+                                                3. IBM WebSphere Application Server for z/OS V9.0.5.15 (L-QJFA-M33W3S)
                                                 4. IBM WebSphere Application Server for z/OS V8.5.5.23 (L-LRGS-5TV3HE)
         -r, --repo=<string>                      Set a custom repository prefix to pull Mono2Micro images from.
                                                 If this is not specified or if it is set to "default" then the images will 
                                                     be pulled from the product repositories.
         -v, --license-view=<1|2|3|4>             View license:
                                                 1. IBM WebSphere Hybrid Edition 5.1 (L-AMIK-C92MN6)
-                                                2. IBM Mono2Micro 23.0.04 trial (L-CQBY-93TJUZ)
-                                                3. IBM WebSphere Application Server for z/OS V9.0.5.14 (L-VNYU-W694VR)
+                                                2. IBM Mono2Micro 23.0.06 trial (L-KNAV-6S5BZN)
+                                                3. IBM WebSphere Application Server for z/OS V9.0.5.15 (L-QJFA-M33W3S)
                                                 4. IBM WebSphere Application Server for z/OS V8.5.5.23 (L-LRGS-5TV3HE)
         -z, --verbose                            Enable verbose mode
 
@@ -503,8 +503,8 @@ command line tool.
     <tr class="odd">
     <td><p>License not accepted. Choose from the following options:</p>
     <p>1. IBM WebSphere Hybrid Edition 5.1 (L-AMIK-C92MN6)</p>
-    <p>2. IBM Mono2Micro 23.0.04 trial (L-CQBY-93TJUZ)</p>
-    <p>3. IBM WebSphere Application Server for z/OS V9.0.5.14 (L-VNYU-W694VR)</p>
+    <p>2. IBM Mono2Micro 23.0.06 trial (L-KNAV-6S5BZN)</p>
+    <p>3. IBM WebSphere Application Server for z/OS V9.0.5.15 (L-QJFA-M33W3S)</p>
     <p>4. IBM WebSphere Application Server for z/OS V8.5.5.23 (L-LRGS-5TV3HE)</p>
     <p>Select [1/2/3/4]: 2</p></td>
     </tr>
@@ -520,7 +520,7 @@ command line tool.
 8.  The **next steps** message will be displayed when the Mono2Micro-CLI
     is successfully installed:
 
-        License used: IBM Mono2Micro 23.0.04 trial (L-CQBY-93TJUZ)
+        License used: IBM Mono2Micro 23.0.06 trial (L-KNAV-6S5BZN)
         Container engine used: Docker
         Completed downloading all Mono2Micro images
 
@@ -540,7 +540,7 @@ command line tool.
     command output:     
         
         accept_license_flag = true
-        license_key = L-CQBY-93TJUZ
+        license_key = L-KNAV-6S5BZN
 
     b. view the configuration
 
@@ -548,7 +548,7 @@ command line tool.
     
     command output: 
 
-        update_check_last = 2023-04-14
+        update_check_last = 2023-06-27
         license_type = 2
         container_engine = docker
         update_check_frequency = 30
@@ -1189,16 +1189,17 @@ generate partition recommendations.
         ./mono2micro recommend -h
     
     command output: 
-    
+
         Run the AI engine on collected application data to recommend partitions for the monolith
         Usage: mono2micro recommend [options] -d=<dir>
         Options:
-        -d, --data-dir=<dir>   Specify directory containing the application 
-                                data files, subdirectories, and optional config.ini
-        -h, --help             Display help information
-        -s, --status           Show the last stage that the AI engine was run 
-                                to completion for this application
-        -z, --verbose          Enable verbose mode
+        -d, --data-dir=<dir>            Specify directory containing the application data files, subdirectories, and optional config.ini
+            --exclude-utility-classes   Exclude utility classes from consideration for AI analysis and recommendation of partitions. All other
+                                            application classes will be considered for placement in recommended partitions by Mono2Micro, and the utility
+                                            classes will be placed in a special group which can be packaged as a utility jar.
+        -h, --help                      Display help information
+        -s, --status                    Show the last stage that the AI engine was run to completion for this application
+        -z, --verbose                   Enable verbose mode
 
 
 3.  Run the AI engine using the following command:
@@ -1316,7 +1317,7 @@ The Default Application contains two major Java components in the  application.
 
 In addition to the Java components, the application also contains  HTML, JSP, and other web resources.
  
-The goal of this lab is to split the Default Application monolith into separate microservices, such that the (Front-end) Web components run  as a microservice, and the (back-end) EJB and  data layer run as a separate microservice.
+The goal of this lab is to split the Default Application monolith into separate microservices, such that the (front-end) Web components run  as a microservice, and the (back-end) EJB and  data layer run as a separate microservice.
  
 In this exercise, we will ensure that the Web components(Servlets,
  HTML, JSP, etc) will be in the (front-end) web partition, and the (back-end) HitCount’s increment action Java / EJB components run in a separate partition.
@@ -1344,15 +1345,15 @@ In this exercise, we will ensure that the Web components(Servlets,
  
     ![](./images/media/image55.png)
 
-    Note that by using “Table” mode the classes can have labels. When the AI engine recognizes a class as a “Utility” class, it automatically displays on the Workbench UI the “Utility” label on the “Table” mode. A Utility class defines a set of methods that perform common tasks.
+    Note that by using “Table” mode the classes can have labels. When the AI engine recognizes a class as a “Utility” class, it automatically displays on the Workbench UI the “Utility” label on the “Table” mode and places it on a "Utility" group. A Utility class defines a set of methods that perform common tasks. Utility classes mostly have incoming method calls from other classes in the application. They might also have, or alternatively have, mostly static member fields and methods, and various other characteristics.
 
 2.  If you explored other views, return to the “**Business Logic”** view in “**Graph**” Mode
 
     ![Graphical user interface, diagram, application, Teams Description automatically generated](./images/media/image53_b.png)
 
-    It is important to notice that the same class labeled as “Utility” on the “Table” mode appears in “Graph” mode as diamond-shaped.
+    It is important to notice that the same class labeled as “Utility” on the “Table” mode appears in “Graph” mode as diamond-shaped inside a specific group called "Utility".
 
-3.  From the Business Logic view, notice that there are two
+3.  From the Business Logic view, notice that there are three
     **partitions** created. It could be cases where one special partition for
     “**Unobserved**” classes is created as well.
 
@@ -1365,30 +1366,29 @@ In this exercise, we will ensure that the Web components(Servlets,
     incomplete set of test cases for adequate code coverage.
 
 
-4.  Explore the Java classes in partition0 and partition1
+4.  Explore the Java classes in partition0, partition1, and Utility partition
     
     a.  **Double-click** on each of the **partition**s to display the
         number of Java classes in each partition
 
     ![Graphical user interface, application Description automatically  generated](./images/media/image56.png)
 
-    - **Partiton0** contains four classes (HitCount, IncrementAction,
-    Increment and IncrementSSB) which the classes that were identified
+    - **Partiton0** contains three classes (HitCount, IncrementAction, 
+    and IncrementSSB) which the classes that were identified
     as part of the “**hitcount”** use case from our test cases.
-    
-      - Within partition0, you can see that mono2micro observed
-        intra-partition communication, as indicated by the lines between
-        the classes**.**
 
     - **Partiton1** contains one class (SnoopServlet) which is the only
     class that was observed in the “snoop” test case
 
+    - **Utility** contains one class (Increment) which was identified by
+    Mono2Micro as a potential utility class.
+
     - As you can see, there are **no lines** between these partitions,
     indicating that there is no partition to partition
     (inter-partitioning) communication observed between the classes in
-    partition 0 and partition1.
+    partition0, partition1, and Utility partition.
     
-      - This is because the initial partition recommendations placed all the classes that communicate in the **hitcount** use case into a single partition.
+      - This is because the initial partition recommendations placed all the classes that communicate in the **hitcount** use case into a single partition. Also, by default the inter-partitioning communication to **Utility** partition is disabled.
 
 
     The initial partitioning recommendations are a starting point and generated taking into consideration based on the business logic and natural seams that were discovered during the analysis.
@@ -1413,7 +1413,7 @@ the Java servlet classes which are referred to by the html file.
 The goal of this lab is to split the Default Application monolith into
 separate microservices such that:
 
-  - The **(Front-end**) Web components run as a microservice
+  - The **(front-end**) Web components run as a microservice
 
   - The (**back-end**) EJB and data layer run as a separate microservice
 
@@ -1433,11 +1433,13 @@ generated](./images/media/image58.png)
 Tweaking the business logic recommendations is straight forward using
 the UI, and includes these basic steps, which you will do next:
 
+-  **Move Increment (Entity) class to the partition0**. All three classes in **partition0** depend on **Increment** and **SnoopServlet** does not depend on **Increment**.
+
 -  **Rename partition1 to web**. This is not required but illustrates
     the capability to create partitions with names that make sense. This
     is useful during the code generation phase.
 
--  **Move HitCount Servlet (Service Entry) class to the web partition**. All the Servlets and other front-end components should     be here.
+-  **Move HitCount Servlet (Service Entry) class to the web partition**. All the Servlets and other front-end components should be here.
 
 
 
@@ -1466,7 +1468,25 @@ the UI, and includes these basic steps, which you will do next:
 
     ![Graphical user interface, diagram Description automatically  generated](./images/media/image62.png)
 
-3.  Rename “partition1” to “web”
+3. Move the **Increment** (Entity) class to the "**partition0**" partition
+
+    a. Click on **Increment** class from **Utility** partition
+
+    ![](./images/media/image62_a.png)
+
+    Note that all three classes in **partition0** have arrows pointing to **Increment** in **Utility** partition. This means that those classes depend on **Increment**. Similarly, we can conclude that **partition1** does not depend on **Increment** because there are no arrows between them. 
+    
+    Thus, we can simplify the partitioning by moving **Increment** from **Utility** to **partition0**. However, in real-world large Java applications, multiple classes can be part of the "**Utility**" partition and other partitions could depend on them. In that case, you may package any application classes in "**Utility**" as a utility .jar file and then place it in all other partitions that depend on those utility classes.
+ 
+    b.  Drag and Drop the **Increment** class from **Utility** partition to the **partition0** partition. 
+
+    ![](./images/media/image62_b.png)
+
+    c. The **Increment** class is now located in the **partition0**.
+
+    ![](./images/media/image62_c.png)
+
+4.  Rename “partition1” to “web”
     
     a.  Click on **partition1** that includes the SnoopServlet class and
         then on the “**Details**” button
@@ -1489,7 +1509,7 @@ the UI, and includes these basic steps, which you will do next:
 
     ![Graphical user interface, text, application, chat or text message  Description automatically generated](./images/media/image68.png)
 
-4.  Move the **HitCount** (Service Entry) class to the “**web**”
+5.  Move the **HitCount** (Service Entry) class to the “**web**”
     partition
     
     a.  Drag and Drop the **HitCount** class from **partition0** to the
@@ -1501,7 +1521,7 @@ the UI, and includes these basic steps, which you will do next:
 
     ![Diagram Description automatically  generated](./images/media/image58_b.png)
 
-5.  Click on the “**Save partitions**” button to save the updated custom
+6.  Click on the “**Save partitions**” button to save the updated custom
     view. The customized **final\_graph.json** file is saved to the
     **“/home/ibmdemo/Downloads”** folder.
 
