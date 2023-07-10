@@ -1650,14 +1650,9 @@ Lets get started\!
     The Cardinal-Report provides a deep analysis of all the  inter-partition invocations, the types of all the non-primitive  parameters passed to partitions during their invocations, and oreign class references within a partition.
  
      Classes are foreign to a partition if they are defined in another  partition.
+
+     ![](./images/media/image75-a.png)
  
-    ![](./images/media/image75.png) ![](./images/media/image76.png)
- 
-    ![](./images/media/image77.png)
- 
-    ![](./images/media/image78.png)
- 
-    ![](./images/media/image79.png)
 
 3.  Review the **partition0** Partition
     
