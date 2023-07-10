@@ -1223,20 +1223,20 @@ generate partition recommendations.
 
     - **Cardinal-Report**.html is a detailed report of all the application partitions, their member classes, outward facing classes, etc
  
-          /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-output/Cardinal-Report.html
+          /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-output/**Cardinal-Report.html**
  
     - **Oriole-Report.html** is a summary report of all the application
  partitions and their associated business use cases
  
-          /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-output/Oriole-Report.html
+          /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-output/**Oriole-Report.html**
  
     - **final_graph.json** is the full set of application partition  recommendations (natural seams and business logic) and associated  details, viewable in the Mono2Micro UI
  
-          /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-output/oriole/final_graph.json
+          /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-output/oriole/**final\_graph.json**
  
     - **cardinal/\*** is a folder that contains a complete set of input files (based on the partitioning) for the next and last stage of the Mono2Micro pipeline, running the code generator
  
-          /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-output/cardinal/*
+          /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-output/cardinal/\*
 
 5.  Continue to the next section. You will explore the generated reports later in the lab.
 
