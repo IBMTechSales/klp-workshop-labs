@@ -14,7 +14,7 @@
 The following prerequisites must be completed prior to beginning this
 lab if running the lab using your own environment. Refer to **Appendix
 C** if you want to run the lab using your own environment, as it details
-the minimal changes to the lab instructions.
+the minimal changes to the lab instructions. 
 
   - 3 GB free storage for the Mono2Micro Docker images and containerized
     microservices
@@ -1846,7 +1846,7 @@ summary and details of the Java source files that were generated.
  
     In this case, the **cardinal-codegen** folder and **associated  reports** are generated here:
  
-    > /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-user-modified/cardinal
+    > /home/ibmdemo/m2m-ws-sample/defaultapplication/mono2micro-analysis-custom/cardinal/cardinal-codegen
 
     a.  Open the CardinalFileSummary.txt file using an available editor
 
