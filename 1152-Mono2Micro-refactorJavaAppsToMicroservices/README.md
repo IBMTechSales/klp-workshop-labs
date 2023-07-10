@@ -1569,7 +1569,7 @@ Lets get started\!
 
     ![](./images/media/image71.png)
 
-2.  From the same folder as the **custom-graph.json** file**,** modify
+2.  From the same folder as the **custom-graph.json** file, modify
     the permissions for **config.ini** so that we have write permissions
 
         sudo chmod 777 ./config.ini
