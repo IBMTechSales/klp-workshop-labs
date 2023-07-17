@@ -39,11 +39,11 @@ You can deploy it virtually anywhere through containers that are supported by Re
 
 1. Log in to the Student VM. You see the Desktop, which contains all the programs that you use (browsers, terminal) in this session.
 
-The login credentials for the STUDENT image are:
->
->    User ID: ibmuser
->
->    Password: engageibm
+    The login credentials for the STUDENT image are:
+    >
+    >    User ID: ibmuser
+    >
+    >    Password: engageibm
 
    ![](./lab1-media/media/image8.png)
 
