@@ -38,7 +38,7 @@ Deploy virtually anywhere through containers supported by Red Hat® OpenShift® 
 ## 1.0 Setup IBM WebSphere Automation in the lab environment 
 
 
-1. Login to the Student VM, if not already logged in. You will see the Desktop, which contains all the programs that you will be using (browsers, terminal, etc.)
+1. Log in to the Student VM, if not already logged in. You will see the Desktop, which contains all the programs that you will be using (browsers, terminal, etc.)
 
 The login credentials for the STUDENT” image is:
 
@@ -275,38 +275,38 @@ Before you register WebSphere servers with WebSphere Automation, you should conf
 
 **Great\!** Your email is configured to receive event notifications.
 
-In the next section, you will register servers to WebSphere Automation.
+In the next section, you register servers to WebSphere Automation.
 
 <br>
 
 
 ## 3.0 Register WebSphere Application Server with IBM WebSphere Automation 
 
-In this lab, you will run a Linux `shell script` to automatically register a WebSphere Application Server to IBM WebSphere Automation. 
+In this section, you run a Linux shell script to automatically register a WebSphere Application Server to IBM WebSphere Automation. 
 
-The Linux shell script obtains the necessary information as described below. Then the script runs a `wsadmin` script to register the WebSphere application server.  
+The Linux shell script obtains the necessary information as described below. Then, the script runs a `wsadmin` script to register the WebSphere Application Server.  
 
-WebSphere Application Servers and WebSphere Liberty servers are added to WebSphere Automation by registering them with the **usage metering** service.
+WebSphere Application Servers and WebSphere Liberty servers are added to WebSphere Automation by registering them with the *usage metering* service.
 
-To register your application servers with the usage metering service, the following usage metering details is required. The script you will run gathers this information. 
+To register your application servers with the usage metering service, it requires the following usage metering details. The script you  run gathers this information. 
 
   - **URL**: The URL of the usage metering service in WebSphere Automation. This service registers WebSphere Application Server and Liberty servers with WebSphere Automation so that you can track security vulnerabilities.
 
-  - **API Key**: The token used to authenticate the WebSphere Application Server and Liberty servers during the registration process.
+  - **API Key**: The token that is used to authenticate the WebSphere Application Server and Liberty servers during the registration process.
 
-  - **Usage metering certificate**: The certificate that contains the public key. This key allows a `WebSphere Liberty` server that is registering with WebSphere Automation to do an SSL handshake with the metering service.
+  - **Usage metering certificate**: The certificate that contains the public key. This key allows a WebSphere Liberty server that is registering with WebSphere Automation to do an SSL handshake with the metering service.
 
-In this section, run the `register-was-server.sh` script to register a WebSphere Application Server, version 9.0.5.7. 
+In this section, you run the `register-was-server.sh` script to register a WebSphere Application Server, version 9.0.5.7. 
 
 
-1.  Return to the desktop and open a new **terminal** window.
+1.  Minimize the browser window and open a new terminal window.
 
     ![open terminal](./lab1-media/media/image20.png)
 	
 	
-2. Run the `register-was-servr.sh` script to register the WebSphere server with IBM WebSphere Automation
+2. Run the `register-was-server.sh` script to register the WebSphere server with IBM WebSphere Automation
 
-    a. Change directory to the location of the script
+    a. Change directory to the location of the script:
         
         cd /home/ibmuser/WAS-Automation-LabFiles/lab1-CVE
 
@@ -316,7 +316,7 @@ In this section, run the `register-was-server.sh` script to register a WebSphere
 
     ![](./lab1-media/media/4310-register-server.png)
         
-    Once the script completes, you should see the message indicating that the WebSphere server was successfully registered. 
+    Once the script completes, you see the message indicating that the WebSphere server was successfully registered. 
 
    ![](./lab1-media/media/4310-server-registered-message.png)
 
@@ -326,35 +326,33 @@ In this section, run the `register-was-server.sh` script to register a WebSphere
 
 3. View the newly registered WebSphere server in WebSphere Automation Dashboard
 
-    a. Go back to the browser
-    
-    b. Go to the browser tab where the WebSphere Automation dashboard is displayed. 
+    a. Open the browser and go to the tab where the WebSphere Automation dashboard is displayed. 
 
     > Note: the URL is: https://cpd-websphere-automation.apps.demo.ibmdte.net/websphereauto/security
     
-    c. Navigate to the WebSphere Automation's `Security -> Servers dashboard`, and confirm that the tWAS v9.0.5.7 server was registered in IBM Automation.
+    c. Go to the WebSphere Automation **Security -> Servers** dashboard, and confirm that the tWAS v9.0.5.7 server is registered in IBM Automation.
 
-    > Note: It may take 15 - 30 seconds for the server to be displayed in the WebSphere Automation UI.
+    > Note: It might take 15 - 30 seconds for the server to be displayed in the WebSphere Automation UI.
 
 
     ![](./lab1-media/media/image28.png)
 
 
  
-4.  Check your email. A mail notification was sent showing new vulnerabilities for the registered application server.
+4.  Check your email. A mail notification is sent that shows new vulnerabilities for the registered application server.
 
     ![](./lab1-media/media/image29.png)
 
 	|         |           |  
     | ------------- |:-------------|
-    | ![](./lab1-media/media/image4.png?cropResize=100,100)   | <strong>Information:</strong> <br>In the email message, there will be a link that would redirect to the console to show more details on the vulnerability. However, Because of network restrictions in the lab environment, this link will not work. 
+    | ![](./lab1-media/media/image4.png?cropResize=100,100)   | <strong>Information:</strong> <br>In the email message, there is a link that redirects to the console to show more details about the vulnerability. However, due to network restrictions in the lab environment, this link does not work. 
 
     <br>
 
 
 
 <details>
-  <summary>Click to expand: Lab 1 - Proactive CVE protection for WebSphere with IBM WebSphere Automation</summary>
+  <summary>Click to expand: Section 4 - Proactive CVE protection for WebSphere with IBM WebSphere Automation</summary>
   
 ## 4.0 Proactive CVE protection for WebSphere Application Server 
 
