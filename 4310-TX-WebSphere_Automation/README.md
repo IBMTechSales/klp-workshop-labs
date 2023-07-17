@@ -14,89 +14,87 @@ Need support?
 
 ## Introduction to IBM WebSphere Automation
 
-[<span class="underline">IBM WebSphere Automation</span>](https://www.ibm.com/cloud/websphere-automation) is focused on delivering value into existing WebSphere Application Server (WAS) environments, helping administrators reduce the cost, effort, and risk of addressing common vulnerabilities, automating tasks, and remediating capacity incidents.
+[<span class="underline">IBM WebSphere Automation</span>](https://www.ibm.com/cloud/websphere-automation) focuses on delivering value to existing WebSphere Application Server (WAS) environments by helping administrators reduce the cost, effort and risk of addressing common vulnerabilities, automating tasks and remediating capacity incidents.
 
 It removes manual toil so that your team can spend more time innovating while minimizing the cost of extending the life and maximizing the ROI of your WebSphere investments.
 
-In conversations with customers, the same three concerns come up repeatedly. Organizations need to keep their IT estate secure and compliant, resilient to disruption and running optimally while reducing costs and maximizing ROI.
+In conversations with customers, the same three concerns repeatedly come up. Organizations must keep their IT estate secure, compliant amd resilient to disruption, they must keep it running optimally, and they must reduce costs and maximize ROI.
 
-WebSphere Automation helps organizations gain visibility, operational efficiencies, and cost savings quickly by extending the life of WebSphere investments and giving teams time back to focus on unlocking new value and fixing the imbalance of pure maintenance versus innovation tasks.
+WebSphere Automation helps organizations gain visibility, operational efficiencies, and cost savings quickly by extending the life of WebSphere investments and giving teams time to focus on unlocking new value and fixing the imbalance of pure maintenance versus innovation tasks. It provides the following benefits:
 
   - WebSphere operators and administrators save time and embrace DevSecOps by implementing patches more efficiently on virtual and container environments to keep operations compliant and secure.
 
-  - Enhance remediation capabilities with insights and recommendations to improve the speed and depth of understanding of outages and anomalies as they occur.
+  - Enhanced remediation capabilities with insights and recommendations improve the speed and depth of understanding outages and anomalies as they occur.
 
-  - Augment the operational experience with access to simplified and consolidated information that enables teams to act.
+  - Augmented operational experience with access to simplified and consolidated information that enables teams to act.
 
-With WebSphere Automation, security, business efficiency and resiliency become standard. IBM can meet you wherever you are in your optimization and automation journeys to help you quickly deliver value and increase ROI, all while laying a solid automation foundation to support future growth.
+With WebSphere Automation, security, business efficiency and resilience become standard. IBM can meet you wherever you are in your optimization and automation journeys to help you quickly deliver value and increase ROI, while laying a solid automation foundation to support future growth.
 
-IBM WebSphere Automation is a stand-alone product that runs on RedHat OpenShift. Entitlement to RedHat OpenShift is included with IBM WebSphere Automation but must be installed separately. As part of IBM Automation platform, IBM WebSphere Automation includes containerized components and common software services on top of a common automation layer, to manage WebSphere’s incidents, hybrid applications, and cost with complete observability, governance, and compliance.
+IBM WebSphere Automation is a stand-alone product that runs on Red Hat OpenShift. Entitlement to Red Hat OpenShift is included with IBM WebSphere Automation but must be installed separately. As part of IBM Automation platform, WebSphere Automation includes containerized components and common software services on top of a common automation layer, to manage WebSphere incidents, hybrid applications, and cost with complete observability, governance, and compliance.
+
+You can deploy it virtually anywhere through containers that are supported by Red Hat® OpenShift® software, on IBM Cloud®, on essentially any existing infrastructure on-premises, or through private and public clouds. Use only the capabilities you need with a fully modular approach that is designed to be easy to consume.
+
+## 1.0 Set up IBM WebSphere Automation in the lab environment 
 
 
-Deploy virtually anywhere through containers supported by Red Hat® OpenShift® software, on IBM Cloud®, on essentially any existing infrastructure on-premises, or through private and public clouds. Use only the capabilities you need with a fully modular approach that’s designed to be easy to consume.
+1. Log in to the Student VM. You see the Desktop, which contains all the programs that you use (browsers, terminal) in this session.
 
-## 1.0 Setup IBM WebSphere Automation in the lab environment 
+The login credentials for the STUDENT image are:
+>
+>    User ID: ibmuser
 
-
-1. Login to the Student VM, if not already logged in. You will see the Desktop, which contains all the programs that you will be using (browsers, terminal, etc.)
-
-The login credentials for the STUDENT” image is:
-
-    User ID: ibmuser
-
-    Password: engageibm
+>    Password: engageibm
 
    ![](./lab1-media/media/image8.png)
 
-2. Clone the GitHub repo to download the lab artifacts and Linux shell scripts used in the lab. Then set "execute" permissions for the scripts. 
+2. Clone the GitHub repo to download the lab artifacts and Linux shell scripts that are used in the lab. Then, set execute permissions for the scripts. 
 
-    a. Open a Terminal window on the VM, and ensure you are in the home directory of the user “ibmuser”
+    a. Open a Terminal window on the VM, and ensure that you are in the home directory of the user, ibmuser:
 
         cd /home/ibmuser
 
-
-    b. From the terminal window, run the following command to clone the repo:
+    b. From the Terminal window, run the following command to clone the repo:
 
         git clone https://github.com/IBMTechSales/WAS-Automation-LabFiles.git
 
     ![](./lab1-media/media/clonerepo.png)
 
-    c.  Navigate to the cloned repo directory for this lab
+    c.  Navigate to the cloned repo directory for this lab:
 
         cd /home/ibmuser/WAS-Automation-LabFiles/lab1-CVE
 
-    d. Add execute permission to the shell scripts
+    d. Add execute permission to the shell scripts:
 
         chmod 755 *.sh
 
 
 ### 1.1 Overview - Configuring WebSphere Automation
 
-The Fix Deployment capability of WebSphere Automation delivers automation that determines which APARs and interim fixes resolve a specific vulnerability, and enables one-click download and deploy of fixes. This capability augments the existing automated vulnerability assessment and fix history tracking.
+The Fix Deployment capability of WebSphere Automation delivers determines which APARs and interim fixes resolve a specific vulnerability, and enables one-click download and deploy of fixes. This capability augments the existing automated vulnerability assessment and fix history tracking.
 
 To apply security fixes from managed servers, both WebSphere Automation and the WebSphere servers must be properly configured to communicate by using SSH. 
 
 The following configuration tasks must be completed to use the Fix Deployment features in IBM WebSphere Automation.  
 
-You will run a Linux `shell script`, which automates the setup process. The script performs the following tasks:
+You run a Linux shell script, which automates the setup process. The script performs the following tasks:
 
-  - Create the **ssh key**
+  - Create the `ssh key`
   - Copy the key over to the WAS server to be monitored
-  - Create the **wsa-ansible** secret that contains the key
-  - Create the **known_hosts** file
-  - Create the **wsa-secure-fixcentral-creds** secret that contains the IBM ID credentials to access IBM Fix Central
+  - Create the `wsa-ansible` secret that contains the key
+  - Create the `known_hosts` file
+  - Create the `wsa-secure-fixcentral-creds` secret that contains the IBM ID credentials to access IBM Fix Central
 
-First, you need to verify that IBM WebSphere Automation is in the "Ready" state. 
+First, you must verify that IBM WebSphere Automation is in the "Ready" state. 
 
 ### 1.2 Ensure WebSphere Automation is "Ready" for use 
 
-1. Login to OpenShift CLI
+1. Log in to Red Hat OpenShift CLI:
 
-    a. Open a new Terminal window in the VM
+    a. Open a new Terminal window in the VM.
   
-    b.  Type `oc login -u ibmadmin -p engageibm` to login to OpenShift. 
+    b. Type `oc login -u ibmadmin -p engageibm` to log in to Red Hat OpenShift. 
     
-    Use the following credentials to login: 
+    Use the following credentials to log in: 
     > 
     > username: ibmadmin
 
@@ -106,14 +104,14 @@ First, you need to verify that IBM WebSphere Automation is in the "Ready" state.
 
      <br/>
 
-2.  Type `oc project websphere-automation` to ensure you are working in the **websphere-automation** project
+2.  Type `oc project websphere-automation` to ensure that you are working in the **websphere-automation** project
 
     ![](./lab1-media/media/image71.png)
 
 
-3. Type `oc get wsa` to verify that IBM WebSphere Automation is READY in your environment. 
+3. Type `oc get wsa` to verify that IBM WebSphere Automation ready in your environment. 
 
-   **Note:** The output must state that the WSA resource is **ready** before you can continue with the lab.  
+   **Note:** The output must indicate that the WSA resource **READY** state is **True** before you can continue with the lab.  
 
     ![](./lab1-media/media/image72.png)
 
@@ -127,15 +125,17 @@ In this section, you run a shell script that performs the setup steps noted abov
 
         cd /home/ibmuser/WAS-Automation-LabFiles/lab1-CVE
 
-2. Run the shell script to configure WebSphere Automation
+2. Type `sudo yum install sshpass` to install the sshpass tool. This allows commands in the script to be executed without having to enter passwords. When prompted, enter `y` to complete the installation.
+  
+4. Run the shell script to configure WebSphere Automation:
 
         ./wsa-setup.sh
 
     The script runs without any user interaction.  
 
-3. When the script completes, verify the "Test-Connection" Ansible playbook ran successfully, as illustrated in the console output. 
+5. When the script completes, verify that the **test-connection** Ansible playbook ran successfully, as illustrated in the console output. 
 
-    You should see the message `TEST PASSED`, which indicates that WebSphere automation is properly configured. 
+    You should see the message **TEST PASSED**, which indicates that WebSphere automation is properly configured. 
 
     ![](./lab1-media/media/v51-004.png)
 
@@ -149,7 +149,7 @@ In this section, you run a shell script that performs the setup steps noted abov
 
     Then, RE-RUN the script again. 
 
-    Note: you can also run the "oc logs --tail ..." command that is shown on the console output, which is the entire log output from the ansible test-connection playbook. That log may provide additional insights into the error. </p>
+    Note: you can also run the `oc logs --tail` command that is shown in the console output, which displays the entire log output from the ansible playbook. That log might provide additional insights into the error. </p>
     </td> 
     </tr>
     </tbody>
@@ -158,7 +158,7 @@ In this section, you run a shell script that performs the setup steps noted abov
 
 **You have now completed the WebSphere Automation setup procedures**
 
-If the wsa-setup.sh script completed with **TEST_PASSED**, you can proceed with the lab.
+If the `wsa-setup.sh` script completed with **TEST_PASSED**, you can proceed with the lab.
 
 <br/>
 
@@ -299,7 +299,7 @@ To register your application servers with the usage metering service, the follow
 In this section, run the `register-was-server.sh` script to register a WebSphere Application Server, version 9.0.5.7. 
 
 
-1.  Return to the desktop and open a new **terminal** window.
+1.  Return to the desktop and open a new **Terminal** window.
 
     ![open terminal](./lab1-media/media/image20.png)
 	
@@ -824,13 +824,13 @@ workstation and start it.
 
 In this lab, you wil install a Linux agent in the `student` VM, where the WebSphere Application Server used in this lab is installed.  
 
-Using the Instana UI, you can select options for installing the agent, such as the `agent mode`, `agent runtime`, and `installation mode`. Doing so, produces a curl command that you run from a terminal window, to install the Linux agent. 
+Using the Instana UI, you can select options for installing the agent, such as the `agent mode`, `agent runtime`, and `installation mode`. Doing so, produces a curl command that you run from a Terminal window, to install the Linux agent. 
 
 In this lab, we have provided a simple Linux shell script that installs the Linux agent and configures a `WebSphere` infrastructure zone for monitoring WebSphere Application Server. 
 
 1.  Install the Instana Linux agent on the Student VM
 
-    a.  Open a new terminal window
+    a.  Open a new Terminal window.
     
     b. Run the following script to install the instana agent
 
@@ -906,7 +906,7 @@ In this lab, you will run a simple Linux shell script that configures and valida
 
 1. Configure the secure ssh connection between Instana server and the Linux Student VM
 
-    a. Return to the terminal window in the Student vm
+    a. Return to the Terminal window in the Student VM.
 
     b. Run the following script that configures the secure ssh connection and restarts the Instana server.
 
