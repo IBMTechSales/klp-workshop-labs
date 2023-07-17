@@ -35,6 +35,7 @@ IBM WebSphere Automation is a stand-alone product that runs on RedHat OpenShift.
 
 Deploy virtually anywhere through containers supported by Red Hat® OpenShift® software, on IBM Cloud®, on essentially any existing infrastructure on-premises, or through private and public clouds. Use only the capabilities you need with a fully modular approach that’s designed to be easy to consume.
 
+
 ## 1.0 Setup IBM WebSphere Automation in the lab environment 
 
 
