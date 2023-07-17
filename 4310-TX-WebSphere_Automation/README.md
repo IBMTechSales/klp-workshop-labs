@@ -178,14 +178,13 @@ For this lab, WebSphere Automation is pre-installed on an OpenShift cluster. You
 	
 	<br>
 
-2.  On the login page, select the **OpenShift authentication** as the    authentication type.
+2.  On the login page, select the **OpenShift authentication** as the authentication type.
 
-    **Note:** If using Firefox, enlarge the browser window until you see the graphics, as illustrated below. 
+    **Note:** Enlarge the browser window until you see the graphics, as illustrated below. 
 
      ![openshift authentication](./lab1-media/media/image11.png)
  
-     **Note:** If necessary, accept all the warnings and certificates.  Depending on your browser, you might have to scroll down to permit
- access.
+    **Note:** If necessary, accept all the browser security warnings and certificates. In Firefox, click **Advanced**, and then scroll down and click **Accept the risk and continue**. 
 
     <br>
 	
@@ -201,7 +200,7 @@ For this lab, WebSphere Automation is pre-installed on an OpenShift cluster. You
 
     <br/>
 
-     If the **"IBM Cloudpak | Administration"** page appears, navigate to the **IBM Automation page** using the sub-steps below. Otherwise continue with the next step, as you should already be at the **IBM Automation** page.  
+     If a Welcome pop-up window appears, click the upper right corner of the pop-up window to dismiss it. You should see **IBM Automation** in the upper left corner of the page. If instead, you see the **"IBM Cloudpak | Administration"** page, go to the **IBM Automation** page by using these steps:  
 
     ![cloudpack](./lab1-media/media/x-ibm-cloudpak.png)
 
@@ -219,25 +218,25 @@ For this lab, WebSphere Automation is pre-installed on an OpenShift cluster. You
 
     <br>
 	
-6.  View the Application Runtimes that have been registered with IBM Automation
+6.  View the Application Runtimes that are registered with IBM Automation.
 
-    a. Click on the**Navigation Menu** icon located at the upper left corner of the page
+    a. Click the menu icon in the upper left corner of the page.
 
       ![notification config](./lab1-media/media/image15.png)
 
-    b. Click **Operate**, and then click **Application runtimes**.
+    b. Click **Operate**, and then select **Application runtimes**.
   
-    Application Runtimes represent the Traditional WebSphere and WebSphere Liberty servers that have been registered with IBM Automation
+    Application Runtimes represent the Traditional WebSphere and WebSphere Liberty servers that are registered with IBM Automation.
 
       ![notification config](./lab1-media/media/image16.png)
 
       <br/>
 
-7. The **Application runtimes – Security** page appears. There should be no data since there not any WebSphere / Liberty servers registered yet.
+7. The **Application runtimes – Security** page appears. There is no data displayed because no WebSphere or Liberty servers are registered yet.
 
     |         |           |  
     | ------------- |:-------------|
-    | ![](./lab1-media/media/image47.png?cropResize=50,50)   | <strong>IMPORTANT:</strong> <br><br> If any of the labels on the page don't display properly, refresh the browser window using the web browser refresh icon.  <br><br> For example: The label for the **Fix management** tab may display as **!Fix management!** the first time. Refreshing the browser window will result in the labels being displayed correctly.  <br><br> Note: This is only a one-time action. 
+    | ![](./lab1-media/media/image47.png?cropResize=50,50)   | <strong>IMPORTANT:</strong> <br><br> If any of the labels on the page do nt display properly, refresh the browser window by using the web browser refresh icon.  <br><br> For example: The label for the **Fix management** tab might display as **!Fix management!** the first time. Refreshing the browser window results in the labels displaying correctly.  <br><br> Note: This is only a one-time action. 
 
      ![App runtime](./lab1-media/media/image17.png)
 
@@ -246,18 +245,18 @@ For this lab, WebSphere Automation is pre-installed on an OpenShift cluster. You
 
 ###  2.1 Receiving security & event notifications via email
 
-Before you register WebSphere servers with WebSphere Automation, you should configure email address(s) to receive notifications when: 
+Before you register WebSphere servers with WebSphere Automation, you can configure email addresses to receive notifications when: 
 
-  - New vulnerabilities are discovered in WebSphere servers that are registered with IBM WebSphere Automation.
+  - New vulnerabilities are discovered in WebSphere servers that are registered with IBM WebSphere Automation
   - iFixes or Fixpacks are installed or uninstalled
   - Instana observability detects memory issues and WebSphere Automation triggers a diagnosis of the event
 
 
-1.  Add your email address as a receiver of event notifications 
+1.  Add your email address as a receiver of event notifications.
     
     a. Select the **Notifications** menu item from the navigation list.
     
-    b. Click on the **Email addresses** tab, to add your email address where notifications of new CVEs will be delivered
+    b. Click the **Email addresses** tab to add the email address where notifications of new CVEs are delivered.
 
     ![notification config](./lab1-media/media/image18.png)
 	
@@ -265,17 +264,17 @@ Before you register WebSphere servers with WebSphere Automation, you should conf
 	
 2.  The Email server configuration is pre-configured for this lab. You only need to add your personal email to receive notifications.
     
-    a. Click the **Add** button
+    a. Click **Add**.
     
-    b. Enter your **email address**
+    b. Enter your email address.
     
-    c. Click **Save**
+    c. Click **Save**.
 
     ![notification email](./lab1-media/media/image19.png)
 
 **Great\!** Your email is configured to receive event notifications.
 
-In the next section, you will register servers to WebSphere Automation.
+In the next section, you register servers to WebSphere Automation.
 
 <br>
 
