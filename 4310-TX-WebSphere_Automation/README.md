@@ -36,17 +36,13 @@ You can deploy it virtually anywhere through containers that are supported by Re
 
 ## 1.0 Set up IBM WebSphere Automation in the lab environment 
 
-<<<<<<< HEAD
-
-## 1.0 Setup IBM WebSphere Automation in the lab environment 
-=======
->>>>>>> 5202d8fc109c23dcfabe6ea9088703d8c4d683ce
 
 1. Log in to the Student VM. You see the Desktop, which contains all the programs that you use (browsers, terminal) in this session.
 
 The login credentials for the STUDENT image are:
 >
 >    User ID: ibmuser
+>
 >    Password: engageibm
 
    ![](./lab1-media/media/image8.png)
