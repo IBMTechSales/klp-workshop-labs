@@ -14,90 +14,91 @@ Need support?
 
 ## Introduction to IBM WebSphere Automation
 
-[<span class="underline">IBM WebSphere Automation</span>](https://www.ibm.com/cloud/websphere-automation) is focused on delivering value into existing WebSphere Application Server (WAS) environments, helping administrators reduce the cost, effort, and risk of addressing common vulnerabilities, automating tasks, and remediating capacity incidents.
+[<span class="underline">IBM WebSphere Automation</span>](https://www.ibm.com/cloud/websphere-automation) focuses on delivering value to existing WebSphere Application Server (WAS) environments by helping administrators reduce the cost, effort and risk of addressing common vulnerabilities, automating tasks and remediating capacity incidents.
 
 It removes manual toil so that your team can spend more time innovating while minimizing the cost of extending the life and maximizing the ROI of your WebSphere investments.
 
-In conversations with customers, the same three concerns come up repeatedly. Organizations need to keep their IT estate secure and compliant, resilient to disruption and running optimally while reducing costs and maximizing ROI.
+In conversations with customers, the same three concerns repeatedly come up. Organizations must keep their IT estate secure, compliant amd resilient to disruption, they must keep it running optimally, and they must reduce costs and maximize ROI.
 
-WebSphere Automation helps organizations gain visibility, operational efficiencies, and cost savings quickly by extending the life of WebSphere investments and giving teams time back to focus on unlocking new value and fixing the imbalance of pure maintenance versus innovation tasks.
+WebSphere Automation helps organizations gain visibility, operational efficiencies, and cost savings quickly by extending the life of WebSphere investments and giving teams time to focus on unlocking new value and fixing the imbalance of pure maintenance versus innovation tasks. It provides the following benefits:
 
   - WebSphere operators and administrators save time and embrace DevSecOps by implementing patches more efficiently on virtual and container environments to keep operations compliant and secure.
 
-  - Enhance remediation capabilities with insights and recommendations to improve the speed and depth of understanding of outages and anomalies as they occur.
+  - Enhanced remediation capabilities with insights and recommendations improve the speed and depth of understanding outages and anomalies as they occur.
 
-  - Augment the operational experience with access to simplified and consolidated information that enables teams to act.
+  - Augmented operational experience with access to simplified and consolidated information that enables teams to act.
 
-With WebSphere Automation, security, business efficiency and resiliency become standard. IBM can meet you wherever you are in your optimization and automation journeys to help you quickly deliver value and increase ROI, all while laying a solid automation foundation to support future growth.
+With WebSphere Automation, security, business efficiency and resilience become standard. IBM can meet you wherever you are in your optimization and automation journeys to help you quickly deliver value and increase ROI, while laying a solid automation foundation to support future growth.
 
-IBM WebSphere Automation is a stand-alone product that runs on RedHat OpenShift. Entitlement to RedHat OpenShift is included with IBM WebSphere Automation but must be installed separately. As part of IBM Automation platform, IBM WebSphere Automation includes containerized components and common software services on top of a common automation layer, to manage WebSphere’s incidents, hybrid applications, and cost with complete observability, governance, and compliance.
+IBM WebSphere Automation is a stand-alone product that runs on Red Hat OpenShift. Entitlement to Red Hat OpenShift is included with IBM WebSphere Automation but must be installed separately. As part of IBM Automation platform, WebSphere Automation includes containerized components and common software services on top of a common automation layer, to manage WebSphere incidents, hybrid applications, and cost with complete observability, governance, and compliance.
 
+You can deploy it virtually anywhere through containers that are supported by Red Hat® OpenShift® software, on IBM Cloud®, on essentially any existing infrastructure on-premises, or through private and public clouds. Use only the capabilities you need with a fully modular approach that is designed to be easy to consume.
 
-Deploy virtually anywhere through containers supported by Red Hat® OpenShift® software, on IBM Cloud®, on essentially any existing infrastructure on-premises, or through private and public clouds. Use only the capabilities you need with a fully modular approach that’s designed to be easy to consume.
+## 1.0 Set up IBM WebSphere Automation in the lab environment 
 
+<<<<<<< HEAD
 
 ## 1.0 Setup IBM WebSphere Automation in the lab environment 
+=======
+>>>>>>> 5202d8fc109c23dcfabe6ea9088703d8c4d683ce
 
+1. Log in to the Student VM. You see the Desktop, which contains all the programs that you use (browsers, terminal) in this session.
 
-1. Login to the Student VM, if not already logged in. You will see the Desktop, which contains all the programs that you will be using (browsers, terminal, etc.)
-
-The login credentials for the STUDENT” image is:
-
-    User ID: ibmuser
-
-    Password: engageibm
+The login credentials for the STUDENT image are:
+>
+>    User ID: ibmuser
+>    Password: engageibm
 
    ![](./lab1-media/media/image8.png)
 
-2. Clone the GitHub repo to download the lab artifacts and Linux shell scripts used in the lab. Then set "execute" permissions for the scripts. 
+2. Clone the GitHub repo to download the lab artifacts and Linux shell scripts that are used in the lab. Then, set execute permissions for the scripts. 
 
-    a. Open a Terminal window on the VM, and ensure you are in the home directory of the user “ibmuser”
+    a. Open a Terminal window on the VM, and ensure that you are in the home directory of the user, ibmuser:
 
         cd /home/ibmuser
 
-
-    b. From the terminal window, run the following command to clone the repo:
+    b. From the Terminal window, run the following command to clone the repo:
 
         git clone https://github.com/IBMTechSales/WAS-Automation-LabFiles.git
 
     ![](./lab1-media/media/clonerepo.png)
 
-    c.  Navigate to the cloned repo directory for this lab
+    c.  Navigate to the cloned repo directory for this lab:
 
         cd /home/ibmuser/WAS-Automation-LabFiles/lab1-CVE
 
-    d. Add execute permission to the shell scripts
+    d. Add execute permission to the shell scripts:
 
         chmod 755 *.sh
 
 
 ### 1.1 Overview - Configuring WebSphere Automation
 
-The Fix Deployment capability of WebSphere Automation delivers automation that determines which APARs and interim fixes resolve a specific vulnerability, and enables one-click download and deploy of fixes. This capability augments the existing automated vulnerability assessment and fix history tracking.
+The Fix Deployment capability of WebSphere Automation delivers determines which APARs and interim fixes resolve a specific vulnerability, and enables one-click download and deploy of fixes. This capability augments the existing automated vulnerability assessment and fix history tracking.
 
 To apply security fixes from managed servers, both WebSphere Automation and the WebSphere servers must be properly configured to communicate by using SSH. 
 
 The following configuration tasks must be completed to use the Fix Deployment features in IBM WebSphere Automation.  
 
-You will run a Linux `shell script`, which automates the setup process. The script performs the following tasks:
+You run a Linux shell script, which automates the setup process. The script performs the following tasks:
 
-  - Create the **ssh key**
+  - Create the `ssh key`
   - Copy the key over to the WAS server to be monitored
-  - Create the **wsa-ansible** secret that contains the key
-  - Create the **known_hosts** file
-  - Create the **wsa-secure-fixcentral-creds** secret that contains the IBM ID credentials to access IBM Fix Central
+  - Create the `wsa-ansible` secret that contains the key
+  - Create the `known_hosts` file
+  - Create the `wsa-secure-fixcentral-creds` secret that contains the IBM ID credentials to access IBM Fix Central
 
-First, you need to verify that IBM WebSphere Automation is in the "Ready" state. 
+First, you must verify that IBM WebSphere Automation is in the "Ready" state. 
 
 ### 1.2 Ensure WebSphere Automation is "Ready" for use 
 
-1. Login to OpenShift CLI
+1. Log in to Red Hat OpenShift CLI:
 
-    a. Open a new Terminal window in the VM
+    a. Open a new Terminal window in the VM.
   
-    b.  Type `oc login -u ibmadmin -p engageibm` to login to OpenShift. 
+    b. Type `oc login -u ibmadmin -p engageibm` to log in to Red Hat OpenShift. 
     
-    Use the following credentials to login: 
+    Use the following credentials to log in: 
     > 
     > username: ibmadmin
 
@@ -107,14 +108,14 @@ First, you need to verify that IBM WebSphere Automation is in the "Ready" state.
 
      <br/>
 
-2.  Type `oc project websphere-automation` to ensure you are working in the **websphere-automation** project
+2.  Type `oc project websphere-automation` to ensure that you are working in the **websphere-automation** project
 
     ![](./lab1-media/media/image71.png)
 
 
-3. Type `oc get wsa` to verify that IBM WebSphere Automation is READY in your environment. 
+3. Type `oc get wsa` to verify that IBM WebSphere Automation ready in your environment. 
 
-   **Note:** The output must state that the WSA resource is **ready** before you can continue with the lab.  
+   **Note:** The output must indicate that the WSA resource **READY** state is **True** before you can continue with the lab.  
 
     ![](./lab1-media/media/image72.png)
 
@@ -128,15 +129,17 @@ In this section, you run a shell script that performs the setup steps noted abov
 
         cd /home/ibmuser/WAS-Automation-LabFiles/lab1-CVE
 
-2. Run the shell script to configure WebSphere Automation
+2. Type `sudo yum install sshpass` to install the sshpass tool. This allows commands in the script to be executed without having to enter passwords. When prompted, enter `y` to complete the installation.
+  
+4. Run the shell script to configure WebSphere Automation:
 
         ./wsa-setup.sh
 
     The script runs without any user interaction.  
 
-3. When the script completes, verify the "Test-Connection" Ansible playbook ran successfully, as illustrated in the console output. 
+5. When the script completes, verify that the **test-connection** Ansible playbook ran successfully, as illustrated in the console output. 
 
-    You should see the message `TEST PASSED`, which indicates that WebSphere automation is properly configured. 
+    You should see the message **TEST PASSED**, which indicates that WebSphere automation is properly configured. 
 
     ![](./lab1-media/media/v51-004.png)
 
@@ -150,7 +153,7 @@ In this section, you run a shell script that performs the setup steps noted abov
 
     Then, RE-RUN the script again. 
 
-    Note: you can also run the "oc logs --tail ..." command that is shown on the console output, which is the entire log output from the ansible test-connection playbook. That log may provide additional insights into the error. </p>
+    Note: you can also run the `oc logs --tail` command that is shown in the console output, which displays the entire log output from the ansible playbook. That log might provide additional insights into the error. </p>
     </td> 
     </tr>
     </tbody>
@@ -159,7 +162,7 @@ In this section, you run a shell script that performs the setup steps noted abov
 
 **You have now completed the WebSphere Automation setup procedures**
 
-If the wsa-setup.sh script completed with **TEST_PASSED**, you can proceed with the lab.
+If the `wsa-setup.sh` script completed with **TEST_PASSED**, you can proceed with the lab.
 
 <br/>
 
@@ -179,14 +182,13 @@ For this lab, WebSphere Automation is pre-installed on an OpenShift cluster. You
 	
 	<br>
 
-2.  On the login page, select the **OpenShift authentication** as the    authentication type.
+2.  On the login page, select the **OpenShift authentication** as the authentication type.
 
-    **Note:** If using Firefox, enlarge the browser window until you see the graphics, as illustrated below. 
+    **Note:** Enlarge the browser window until you see the graphics, as illustrated below. 
 
      ![openshift authentication](./lab1-media/media/image11.png)
  
-     **Note:** If necessary, accept all the warnings and certificates.  Depending on your browser, you might have to scroll down to permit
- access.
+    **Note:** If necessary, accept all the browser security warnings and certificates. In Firefox, click **Advanced**, and then scroll down and click **Accept the risk and continue**. 
 
     <br>
 	
@@ -202,7 +204,7 @@ For this lab, WebSphere Automation is pre-installed on an OpenShift cluster. You
 
     <br/>
 
-     If the **"IBM Cloudpak | Administration"** page appears, navigate to the **IBM Automation page** using the sub-steps below. Otherwise continue with the next step, as you should already be at the **IBM Automation** page.  
+     If a Welcome pop-up window appears, click the upper right corner of the pop-up window to dismiss it. You should see **IBM Automation** in the upper left corner of the page. If instead, you see the **"IBM Cloudpak | Administration"** page, go to the **IBM Automation** page by using these steps:  
 
     ![cloudpack](./lab1-media/media/x-ibm-cloudpak.png)
 
@@ -220,25 +222,25 @@ For this lab, WebSphere Automation is pre-installed on an OpenShift cluster. You
 
     <br>
 	
-6.  View the Application Runtimes that have been registered with IBM Automation
+6.  View the Application Runtimes that are registered with IBM Automation.
 
-    a. Click on the**Navigation Menu** icon located at the upper left corner of the page
+    a. Click the menu icon in the upper left corner of the page.
 
       ![notification config](./lab1-media/media/image15.png)
 
-    b. Click **Operate**, and then click **Application runtimes**.
+    b. Click **Operate**, and then select **Application runtimes**.
   
-    Application Runtimes represent the Traditional WebSphere and WebSphere Liberty servers that have been registered with IBM Automation
+    Application Runtimes represent the Traditional WebSphere and WebSphere Liberty servers that are registered with IBM Automation.
 
       ![notification config](./lab1-media/media/image16.png)
 
       <br/>
 
-7. The **Application runtimes – Security** page appears. There should be no data since there not any WebSphere / Liberty servers registered yet.
+7. The **Application runtimes – Security** page appears. There is no data displayed because no WebSphere or Liberty servers are registered yet.
 
     |         |           |  
     | ------------- |:-------------|
-    | ![](./lab1-media/media/image47.png?cropResize=50,50)   | <strong>IMPORTANT:</strong> <br><br> If any of the labels on the page don't display properly, refresh the browser window using the web browser refresh icon.  <br><br> For example: The label for the **Fix management** tab may display as **!Fix management!** the first time. Refreshing the browser window will result in the labels being displayed correctly.  <br><br> Note: This is only a one-time action. 
+    | ![](./lab1-media/media/image47.png?cropResize=50,50)   | <strong>IMPORTANT:</strong> <br><br> If any of the labels on the page do nt display properly, refresh the browser window by using the web browser refresh icon.  <br><br> For example: The label for the **Fix management** tab might display as **!Fix management!** the first time. Refreshing the browser window results in the labels displaying correctly.  <br><br> Note: This is only a one-time action. 
 
      ![App runtime](./lab1-media/media/image17.png)
 
@@ -247,18 +249,18 @@ For this lab, WebSphere Automation is pre-installed on an OpenShift cluster. You
 
 ###  2.1 Receiving security & event notifications via email
 
-Before you register WebSphere servers with WebSphere Automation, you should configure email address(s) to receive notifications when: 
+Before you register WebSphere servers with WebSphere Automation, you can configure email addresses to receive notifications when: 
 
-  - New vulnerabilities are discovered in WebSphere servers that are registered with IBM WebSphere Automation.
+  - New vulnerabilities are discovered in WebSphere servers that are registered with IBM WebSphere Automation
   - iFixes or Fixpacks are installed or uninstalled
   - Instana observability detects memory issues and WebSphere Automation triggers a diagnosis of the event
 
 
-1.  Add your email address as a receiver of event notifications 
+1.  Add your email address as a receiver of event notifications.
     
     a. Select the **Notifications** menu item from the navigation list.
     
-    b. Click on the **Email addresses** tab, to add your email address where notifications of new CVEs will be delivered
+    b. Click the **Email addresses** tab to add the email address where notifications of new CVEs are delivered.
 
     ![notification config](./lab1-media/media/image18.png)
 	
@@ -266,48 +268,49 @@ Before you register WebSphere servers with WebSphere Automation, you should conf
 	
 2.  The Email server configuration is pre-configured for this lab. You only need to add your personal email to receive notifications.
     
-    a. Click the **Add** button
+    a. Click **Add**.
     
-    b. Enter your **email address**
+    b. Enter your email address.
     
-    c. Click **Save**
+    c. Click **Save**.
 
     ![notification email](./lab1-media/media/image19.png)
 
 **Great\!** Your email is configured to receive event notifications.
 
-In the next section, you will register servers to WebSphere Automation.
+In the next section, you register servers to WebSphere Automation.
 
 <br>
 
 
 ## 3.0 Register WebSphere Application Server with IBM WebSphere Automation 
 
-In this lab, you will run a Linux `shell script` to automatically register a WebSphere Application Server to IBM WebSphere Automation. 
+In this section, you run a Linux shell script to automatically register a WebSphere Application Server to IBM WebSphere Automation. 
 
-The Linux shell script obtains the necessary information as described below. Then the script runs a `wsadmin` script to register the WebSphere application server.  
+The Linux shell script obtains the necessary information as described below. Then, the script runs a `wsadmin` script to register the WebSphere Application Server.  
 
-WebSphere Application Servers and WebSphere Liberty servers are added to WebSphere Automation by registering them with the **usage metering** service.
+WebSphere Application Servers and WebSphere Liberty servers are added to WebSphere Automation by registering them with the *usage metering* service.
 
-To register your application servers with the usage metering service, the following usage metering details is required. The script you will run gathers this information. 
+To register your application servers with the usage metering service, it requires the following usage metering details. The script you  run gathers this information. 
 
   - **URL**: The URL of the usage metering service in WebSphere Automation. This service registers WebSphere Application Server and Liberty servers with WebSphere Automation so that you can track security vulnerabilities.
 
-  - **API Key**: The token used to authenticate the WebSphere Application Server and Liberty servers during the registration process.
+  - **API Key**: The token that is used to authenticate the WebSphere Application Server and Liberty servers during the registration process.
 
-  - **Usage metering certificate**: The certificate that contains the public key. This key allows a `WebSphere Liberty` server that is registering with WebSphere Automation to do an SSL handshake with the metering service.
+  - **Usage metering certificate**: The certificate that contains the public key. This key allows a WebSphere Liberty server that is registering with WebSphere Automation to do an SSL handshake with the metering service.
 
-In this section, run the `register-was-server.sh` script to register a WebSphere Application Server, version 9.0.5.7. 
+In this section, you run the `register-was-server.sh` script to register a WebSphere Application Server, version 9.0.5.7. 
 
 
-1.  Return to the desktop and open a new **terminal** window.
+1.  Minimize the browser window and open a new terminal window.
+
 
     ![open terminal](./lab1-media/media/image20.png)
 	
 	
-2. Run the `register-was-servr.sh` script to register the WebSphere server with IBM WebSphere Automation
+2. Run the `register-was-server.sh` script to register the WebSphere server with IBM WebSphere Automation
 
-    a. Change directory to the location of the script
+    a. Change directory to the location of the script:
         
         cd /home/ibmuser/WAS-Automation-LabFiles/lab1-CVE
 
@@ -317,7 +320,7 @@ In this section, run the `register-was-server.sh` script to register a WebSphere
 
     ![](./lab1-media/media/4310-register-server.png)
         
-    Once the script completes, you should see the message indicating that the WebSphere server was successfully registered. 
+    Once the script completes, you see the message indicating that the WebSphere server was successfully registered. 
 
    ![](./lab1-media/media/4310-server-registered-message.png)
 
@@ -327,51 +330,49 @@ In this section, run the `register-was-server.sh` script to register a WebSphere
 
 3. View the newly registered WebSphere server in WebSphere Automation Dashboard
 
-    a. Go back to the browser
-    
-    b. Go to the browser tab where the WebSphere Automation dashboard is displayed. 
+    a. Open the browser and go to the tab where the WebSphere Automation dashboard is displayed. 
 
     > Note: the URL is: https://cpd-websphere-automation.apps.demo.ibmdte.net/websphereauto/security
     
-    c. Navigate to the WebSphere Automation's `Security -> Servers dashboard`, and confirm that the tWAS v9.0.5.7 server was registered in IBM Automation.
+    c. Go to the WebSphere Automation **Security -> Servers** dashboard, and confirm that the tWAS v9.0.5.7 server is registered in IBM Automation.
 
-    > Note: It may take 15 - 30 seconds for the server to be displayed in the WebSphere Automation UI.
+    > Note: It might take 15 - 30 seconds for the server to be displayed in the WebSphere Automation UI.
 
 
     ![](./lab1-media/media/image28.png)
 
 
  
-4.  Check your email. A mail notification was sent showing new vulnerabilities for the registered application server.
+4.  Check your email. A mail notification is sent that shows new vulnerabilities for the registered application server.
 
     ![](./lab1-media/media/image29.png)
 
 	|         |           |  
     | ------------- |:-------------|
-    | ![](./lab1-media/media/image4.png?cropResize=100,100)   | <strong>Information:</strong> <br>In the email message, there will be a link that would redirect to the console to show more details on the vulnerability. However, Because of network restrictions in the lab environment, this link will not work. 
+    | ![](./lab1-media/media/image4.png?cropResize=100,100)   | <strong>Information:</strong> <br>In the email message, there is a link that redirects to the console to show more details about the vulnerability. However, due to network restrictions in the lab environment, this link does not work. 
 
     <br>
 
 
 
 <details>
-  <summary>Click to expand: Lab 1 - Proactive CVE protection for WebSphere with IBM WebSphere Automation</summary>
+  <summary>Click to expand: Section 4 - Proactive CVE protection for WebSphere with IBM WebSphere Automation</summary>
   
 ## 4.0 Proactive CVE protection for WebSphere Application Server 
 
 
 ### 4.1 Business Context for this scenario
 
-You are a WebSphere Administrator, part of a WebSphere Operations Team responsible for maintaining security compliance of the WebSphere estate in the enterprise. 
+You are a WebSphere Administrator, part of a WebSphere Operations Team that is responsible for maintaining security compliance of the WebSphere estate in the enterprise. 
 
 A typical “as-is” process for maintaining security compliance for WebSphere environments is often a very manual and time consuming process. 
 
 
 ![](./lab1-media/media/image2.png)
 
- This is where **IBM WebSphere Automation** will help\!
+ This is where **IBM WebSphere Automation** can help\!
 
-You would like to have:
+With WebSphere Automation, you have:
 
   - **Management dashboard:** A Consolidated dashboard increases awareness and response time to common vulnerabilities and exposures (CVEs).
 
@@ -385,7 +386,7 @@ You would like to have:
   
   - **Automated fix installation of Fixpaks and iFixes** to your WebSphere and Liberty servers, directly from the IBM WebSphere Automation dashboard. 
 
-In this lab, you use the IBM WebSphere Automation to demonstrate its powerful capabilities for proactive CVP protection for WebSphere. 
+In this section, you use the IBM WebSphere Automation to demonstrate its powerful capabilities for proactive CVP protection for WebSphere. 
 
 
 ![](./lab1-media/media/image3.png)
@@ -396,11 +397,11 @@ In this lab, you use the IBM WebSphere Automation to demonstrate its powerful ca
 
 WebSphere administrators register their WebSphere Application Server or Liberty servers with WebSphere Automation. 
 
-The WebSphere Automation **vulnerability manager** makes an assessment of the security compliance status of each server. Common vulnerabilities or exposures (CVEs) for each server are displayed in the WebSphere Automation UI in an interactive list, and each server is assessed a risk level. Administrators can learn more about the pertinent CVEs, plan their response, and complete the application of the required security fixes to their managed servers using the WebSphere Automation UI.
+The WebSphere Automation *vulnerability manager* makes an assessment of the security compliance status of each server. Common vulnerabilities or exposures (CVEs) for each server are displayed in the WebSphere Automation UI in an interactive list, and each server is assessed a risk level. Administrators can learn more about the pertinent CVEs, plan their response, and complete the application of the required security fixes to their managed servers by using the WebSphere Automation UI.
 
-When the IBM Product Security Incident Response Team (PSIRT) publishes new or updated security bulletins, the WebSphere Automation **CVE/PSIRT monitor** detects them and collects the data about the CVEs from the bulletins. The WebSphere Automation vulnerability manager checks the applicability of the new CVEs to the registered servers. If exposures are found, the WebSphere Automation vulnerability notifier sends email notifications to a customizable list of addresses that new vulnerabilities exist.
+When the IBM Product Security Incident Response Team (PSIRT) publishes new or updated security bulletins, the WebSphere Automation *CVE/PSIRT monitor* detects them and collects the data about the CVEs from the bulletins. The WebSphere Automation vulnerability manager checks the applicability of the new CVEs to the registered servers. If exposures are found, the WebSphere Automation vulnerability notifier sends email notifications to a customizable list of addresses that new vulnerabilities exist.
 
-After defining an exposure mitigation plan, administrators then use the WebSphere Automation UI to select published fix packs or interim fixes to repair vulnerabilities. During the fix installation process, WebSphere Automation requests the selected fix from IBM Fix Central, stores it in the Kafka data store, and then installs it on the indicated server.
+After defining an exposure mitigation plan, administrators can then use the WebSphere Automation UI to select published fix packs or interim fixes to repair vulnerabilities. During the fix installation process, WebSphere Automation requests the selected fix from IBM Fix Central, stores it in the Kafka data store, and then installs it on the indicated server.
 
 
 
@@ -408,33 +409,33 @@ After defining an exposure mitigation plan, administrators then use the WebSpher
 
 ### 4.3 Working with Traditional WebSphere servers with IBM Automation – Security Vulnerabilities
 
-You can view the security vulnerability status of each server in your inventory from the Security page in the WebSphere Automation UI. 
+You can view the security vulnerability status of each server in your inventory from the **Security** page in the WebSphere Automation UI. 
 For each server, the numerical risk level in the range 0 - 10 represents the highest CVSS value of its CVEs.
 
-You can then track security vulnerabilities for your servers from a single user interface (UI) in WebSphere Automation.
+You can track security vulnerabilities for your servers from a single user interface (UI) in WebSphere Automation.
 
-In this section of the lab, you will perform the following task: 
+In this section of the lab, you do the following tasks: 
 
-  - **Resolve a known vulnerabilities in the WebSphere traditional application server**, by using the built-in capabilities in IBM WebSphere Automation to prepare and install the recommended iFix documented in the security bulletin for this vulnerability. 
+  - **Resolve known vulnerabilities in the WebSphere traditional application server**, by using the built-in capabilities in IBM WebSphere Automation to prepare and install the recommended iFix that is documented in the security bulletin for this vulnerability. 
 
-  - **Review the security posture and fix history of the WebSphere application server.**   Once iFixes or Fixpaks are applied, IBM Automation immediately updates the security information for that application server, showing that the critical vulnerabilities have been patched. 
+  - **Review the security posture and fix history of the WebSphere application server.**   After applying iFixes or Fixpaks, IBM Automation immediately updates the security information for that application server to show that the critical vulnerabilities are patched. 
 
   <br>
 
 
-1.	In the browser, navigate to the **Security -> Servers** dashboard in WebSphere Automation.
+1.	In the browser, go to the **Security -> Servers** dashboard in WebSphere Automation.
 
     ![dashboard tWAS1](./lab1-media/media/image28.png)
  
-    You should see that this server Risk Level is 10.0, with (+## more) unresolved CVEs. 
+    You see that this server Risk Level is **10.0**, with **(+## more)** unresolved CVEs. 
 
-    **Note:** Somewhere at the top of that list is the much talked about LOG4J vulnerability, known as CVE-2021-44228, with a critical score of 10.  
+    >**Note:** Near the top of that list is the LOG4J vulnerability, known as CVE-2021-44228, with a critical score of **10**.  
  
 
 
 	|         |           |  
     | ------------- |:-------------|
-    | ![](./lab1-media/media/image4.png?cropResize=50,50)   | <strong>TIP:</strong> <br><strong>Note:</strong> New vulnerabilities are discovered constantly, so the number of CVEs discovered may be different than illustrated.
+    | ![](./lab1-media/media/image4.png?cropResize=50,50)   | <strong>TIP:</strong> <br><strong>Note:</strong> New vulnerabilities are discovered constantly, so the number of CVEs discovered might be different than what is shown in the screen capture.
     
     <br>
  
@@ -444,37 +445,37 @@ In this section of the lab, you will perform the following task:
 
 	|         |           |  
     | ------------- |:-------------|
-    | ![](./lab1-media/media/image4.png?cropResize=100,100)   | <strong>Information:</strong> <br>In the email message, there will be a link that would redirect to the console to show more details on the vulnerability. However, Because of network restrictions in the lab environment, this link will not work. 
+    | ![](./lab1-media/media/image4.png?cropResize=100,100)   | <strong>Information:</strong> <br>In the email message, there is a link that redirects to the console to show more details on the vulnerability. However, due to network restrictions in the lab environment, this link does not work. 
 
     <br>
 
 
 ### 4.4 Review CVE-2021-44228 to understand the remediation options for the LOG4J vulnerability
 
-In this section, you will review the details of the critical (10.0) **CVE-2021-44228** CVE and determine the appropriate remediation options to resolve the CVE.
+In this section, you review the details of the critical (10.0) **CVE-2021-44228** CVE and determine the appropriate remediation options to resolve the CVE.
 
-In this lab, you will apply the iFix that is documented in the IBM security bulletin to resolve the Log4J vulnerability in the traditional WebSphere 9.0.5.7 server, as reported in **CVE-2021-44228**.
+You apply the iFix that is documented in the IBM security bulletin to resolve the Log4J vulnerability in the traditional WebSphere 9.0.5.7 server, as reported in **CVE-2021-44228**.
 
-1.  Notice in the IBM Automation console that tWAS 9.0.5.7 is vulnerable to CVE-2021-44228.
+1.  Notice in the IBM Automation console that **tWAS 9.0.5.7** is vulnerable to **CVE-2021-44228**.
 
     ![](./lab1-media/media/imagev3-32.png)
 
-2.  Click on **(+ \<NUMBER\> more)** to expand the list of unresolved CVEs. 
+2.  Click **(+ \<NUMBER\> more)** to expand the list of unresolved CVEs. 
     
-    IBM Automation also detected the additional unresolved CVEs related to the Log4J vulnerability, which are highlighted below and documented in the security bulletin.
+    IBM Automation also detects additional unresolved CVEs that are related to the Log4J vulnerability, which are highlighted below and documented in the security bulletin.
 
     ![](./lab1-media/media/imagev3-33.png)
  
-    As noted in the IBM security bulletin, which you will explore next, there are three CVEs related to the LOG4J vulnerability. A subset are highlighted below in the list of Unresolved CVEs for this WebSphere server.
+    As noted in the IBM security bulletin, which you explore next, there are three CVEs related to the LOG4J vulnerability. A subset is highlighted below in the list of Unresolved CVEs for this WebSphere Application Server.
  
     ![](./lab1-media/media/imagev3-34.png)
 
-3.  After viewing the complete list of unresolved CVEs for the 9057 server, close the “**Unresolved CVEs**” view.
+3.  After viewing the complete list of unresolved CVEs for the 9057 server, close the **Unresolved CVEs** view.
 
-4.  View the security bulletin(s) for the **CVE-2021-44228** Log4J vulnerability
+4.  View the security bulletins for the **CVE-2021-44228** Log4J vulnerability.
 
 
-    a.  Click on **CVE-2021-44228** link under the 9057 servers **Unresolved CVEs** column
+    a.  Click **CVE-2021-44228** link under the 9057 servers **Unresolved CVEs** column.
 
     ![](./lab1-media/media/imagev3-35.png)
 
@@ -482,19 +483,19 @@ In this lab, you will apply the iFix that is documented in the IBM security bull
 
     <u>Here you can see the following details:</u>
 
-    - Risk Level “Critical (10)
+    - Risk Level **Critical (10)**
 
     - Date the vulnerability was detected in the “**registered**” server
 
-    - Number of days the 9057 WebSphere server has been “**exposed**” to the vulnerability
+    - Number of days the 9057 WebSphere server was **exposed** to the vulnerability
 
-    - List of affected servers that are registered with IBM WebSphere Automation.
+    - List of affected servers that are registered with IBM WebSphere Automation
 
     - Link to the IBM security bulletin for the CVE
 
     > **Note:** The **Days Exposed** and **date detected** are expressed from the point of time that the server is registered with IBM WebSphere Automation.
 
-    b.  Click on the **View** Link to view the IBM security bulletin for this CVE.
+    b.  Click the **View** Link to view the IBM security bulletin for this CVE.
 
     ![](./lab1-media/media/imagev3-36.png)
 
@@ -504,19 +505,19 @@ In this lab, you will apply the iFix that is documented in the IBM security bull
 
     ![](./lab1-media/media/imagev3-37.png)
  
-    As you see, IBM WebSphere Automation makes it easy for you to get to the related security bulletins directly from the CVE information within the WebSphere Automation dashboard so you can have all the details and remediation options at your fingertips
+    As you can see, IBM WebSphere Automation makes it easy for you to get to the related security bulletins directly from the CVE information within the WebSphere Automation dashboard so you can have all the details and remediation options at your fingertips.
 
-    > **Note:** The IBM Security Bulletin associated with this vulnerability documents the options for remediating CVE-2021-44228 and related CVEs (CVE-2021-4104 and CVE-2021-45046)
+    > **Note:** The IBM Security Bulletin associated with this vulnerability documents the options for remediating CVE-2021-44228 and related CVEs (CVE-2021-4104 and CVE-2021-45046).
 
     ![](./lab1-media/media/image32.png)
 
-    You can read the security bulletins from the **ibm.com/support** pages. You may be prompted to login using your IBM ID to access the content:
+    You can read the security bulletins from the **ibm.com/support** pages. You are prompted to log in by using your IBM ID to access the content:
 
     <https://www.ibm.com/support/pages/node/6525706>
 
     
 
-5.  Return to the Browser tab that contains the IBM WebSphere Automation dashboard. Then return to the “**Security**” view
+5.  Return to the browser tab that contains the IBM WebSphere Automation dashboard. Then, return to the **Security** view.
 
 
     ![](./lab1-media/media/imagev3-39.png)
@@ -525,148 +526,148 @@ In this lab, you will apply the iFix that is documented in the IBM security bull
 
 ### 4.5 Update tWAS server v9.0.5.7 to fix the LOG4J vulnerability
 
-Automated installation of WebSphere and Liberty fixpaks and iFixes was introduced into IBM WebSphere Automation in version 1.4
+Automated installation of WebSphere and Liberty fixpaks and iFixes was introduced in IBM WebSphere Automation in version 1.4.
 
 You can automatically deploy fixes to servers in your managed server inventory through the WebSphere Automation UI. You must have a user profile with at least the **Modify WebSphere inventory** permission, and the servers that you want to fix must be registered and configured for fix installation with WebSphere Automation.
 
-In this section, you will leverage the built-in capabilities in IBM WebSphere Automation to automatically prepare and install the recommended iFix to the traditional WebSphere 9.0.5.7 server to remove the Log4J vulnerability reported as **CVE-2021-44228**.
+In this section, you leverage the built-in capabilities in IBM WebSphere Automation to automatically prepare and install the recommended iFix to the traditional WebSphere 9.0.5.7 server to remove the Log4J vulnerability reported as **CVE-2021-44228**.
 
-There are a couple of additional components now included in the product to support this use case. 
+There are a couple of additional components now included in the product to support this use case:
 
   - **Fix manager**
     
-    The WebSphere Automation fix manager uses credentials that you provide to access IBM Fix Central to request fixes. Fixes are fetched and stored in the file storage defined for the websphereSecure custom resource. The fix manager manages the storage space according to frequency of use, deleting older fixes to make room for more recently requested fixes.
+    The WebSphere Automation *fix manager* uses credentials that you provide to access IBM Fix Central to request fixes. Fixes are fetched and stored in the file storage defined for the `websphereSecure` custom resource. The fix manager manages the storage space according to frequency of use, deleting older fixes to make room for more recently requested fixes.
 
   - **Installation manager**
   
-    The WebSphere Automation installation manager communicates with the registered server using the administrator privileges that you provide. When you initiate the installation of a fix, the installation manager ensures that the target server has sufficient space for the fix, transfers the fix to the target server, installs the fix, and creates a log file of the steps taken. If you request a backup of the server environment as part of the fix installation, the installation manager checks for sufficient disk space on the server, and creates an archive of the Installation Manager, Installation Manager data, and WebSphere Application Server or WebSphere Application Server Liberty server installation directories.
+    The WebSphere Automation *installation manager* communicates with the registered server by using the administrator privileges that you provide. When you initiate the installation of a fix, the installation manager ensures that the target server has sufficient space for the fix, transfers the fix to the target server, installs the fix, and creates a log file of the steps taken. If you request a backup of the server environment as part of the fix installation, the installation manager checks for sufficient disk space on the server, and creates an archive of the Installation Manager, Installation Manager data, and WebSphere Application Server or WebSphere Application Server Liberty server installation directories.
 
 ### 4.5.1 Navigate to the Server and unresolved CVE to fix
 
-OK, let's apply the recommended iFix to resolve the CVE-2021-44228 vulnerability! 
+Apply the recommended iFix to resolve the CVE-2021-44228 vulnerability.
 
-1.  Notice in the IBM Automation console that tWAS 9.0.5.7 is vulnerable to **CVE-2021-44228**.
+1.  Notice in the IBM Automation console that **tWAS 9.0.5.7** is vulnerable to **CVE-2021-44228**.
 
     ![CVE 2021 44228](./lab1-media/media/image30.png)
 
  
-    **Note:** The IBM Security Bulletin associated with this vulnerability documents the options for remediating **CVE-2021-44228** and related CVEs (**CVE-2021-4104** and **CVE-2021-45046**) 
+    **Note:** The IBM Security Bulletin associated with this vulnerability documents the options for remediating CVE-2021-44228 and related CVEs (CVE-2021-4104 and CVE-2021-45046) 
 
     ![security bulletin info](./lab1-media/media/image32.png)
 
  
-    You will fix it by applying the recommended iFix. (PH42728)
+    You fix it by applying the recommended iFix (PH42728).
 
     <br>
 
-2. Click on **tWAS_9057_server** to view the list of CVEs / vulnerabilities
+2. Click **tWAS_9057_server** to view the list of CVEs and vulnerabilities.
  
      ![](./lab1-media/media/image83.png)
     
 
-    The displayed list shows both "resolved" and "unresolved" CVEs for the selected server. It also shows the "Risk Level" to identify the severity of the vulnerabilities, and the number of days the server has been exposed to the vulnerability. 
+    The list displays both *resolved* and *unresolved* CVEs for the selected server. It also shows the **Risk Level** to identify the severity of the vulnerabilities, and the number of days the server was exposed to the vulnerability. 
 
     ![](./lab1-media/media/image84-a.png)
  
-3. Click on CVE-2021-44228 to view the CVE information and affected servers
+3. Click **CVE-2021-44228** to view the CVE information and affected servers.
 
     ![](./lab1-media/media/image84.png)
 
     On the CVE Information page for CVE-2021-44228, a list of **Affected Servers** is displayed along with the option to **Prepare fix**. 
 
-    **DO NOT prepare fix yet.** You will do that in the following steps. 
+    >**DO NOT prepare fix yet.** You do that in the following steps. 
 
     ![](./lab1-media/media/image85.png)
     
 
 ### 4.5.2 Prepare Fix 
 
-The **Fix Deployment** capability of WebSphere Automation delivers automation that determines which APARs and interim fixes resolve a specific vulnerability, and enables one-click download and deploy of fixes. 
+The *Fix Deployment* capability of WebSphere Automation delivers automation that determines which APARs and interim fixes resolve a specific vulnerability, and enables one-click download and deploy of fixes. 
 
-Selection of the wanted iFix or published fix pack is exposed through the **Prepare fix** dialog, which can be found in the CVE details view. Simply select the target server to patch and the dialog shows all the affected servers known to WebSphere Automation, and lets you select the wanted fix.
+Selection of the wanted iFix or published fix pack is exposed through the **Prepare fix** dialog, which can be found in the CVE details view. Select the target server to patch and the dialog shows all affected servers that are known to WebSphere Automation, and lets you select the desired fix.
 
 After you select the fix, WebSphere Automation provides two options: 
 
   - **Fetch fix:** 
 
-    If installation should be deferred to a later time, then the **Fetch fix** option causes the fix to be downloaded and stored for later use. 
+    If installation is deferred to a later time, then the **Fetch fix** option causes the fix to be downloaded and stored for later use. 
   
-    This can be preferable for fix packs because those are significantly larger than interim fixes, especially for traditional WebSphere fix packs.
+    This might be a preferred option for fix packs because they are significantly larger than interim fixes, especially for traditional WebSphere fix packs.
   
   - **Fetch then install fix:** 
 
-    The **Fetch then install fix** option automatically downloads the fix and then installs it after the download is complete. 
+    This option automatically downloads the fix and then installs it after the download is complete. 
   
-    Previously fetched fixes are stored within WebSphere Automation for immediate reuse. 
+    Fetched fixes are stored within WebSphere Automation for immediate reuse. 
 
     <br/>  
 
-    > Now you will download and install the recommended iFix for the CVE into the tWAS_9057_server    
+    > Now you can download and install the recommended iFix for the CVE into the tWAS_9057_server.  
 
-1. Download the recommended iFix to resolve the CVE
+1. Download the recommended iFix to resolve the CVE.
  
-    Next to each affected server, there is an option to "**Prepare Fix**". 
+    Next to each affected server, there is a link to **Prepare Fix**. 
     
-    a. Click the **Prepare fix** link next to tWAS_9057_server for CVE-2021-44228
+    a. Click the **Prepare fix** link next to **tWAS_9057_server** for **CVE-2021-44228**.
 
     ![](./lab1-media/media/image86.png)
 
-    b. From the **Select fix** page, select the **PH42728** iFix. Then click the **Fetch fix** button. 
+    b. From the **Select fix** page, select the **PH42728** iFix. Then, click **Fetch fix**. 
 
     
     |         |           |  
     | ------------- |:-------------|
-    | ![](./lab1-media/media/image47.png?cropResize=50,50)   | <strong>IMPORTANT:</strong> <br><br> If the **PH42728** iFix is not listed under the **"resolution"** column as illustrated in the screen shot below, give WebSphere Automation a few more minutes to load the fix meta-data into its database.  <br><br>  To avoid overloading WebSphere Automation, it only loads the meta-data for unresolved CVEs when a WebSphere or Liberty server is registered. And, WSA only loads the meta-data for the unresolved CVEs of the registered server(s). <br><br>  WSA does this using a background process that spins up several threads. Because there are more unresolved CVEs than number of threads loading the meta-data,  it will take a WSA a couple of iterations to load all of the meta-data for the fixes. <br><br>   Typically, the process will complete within 8-10 minutes after the server has been registered with WebSphere Automation. <br><br> WSA will continue to load fix meta-data as new unresolved CVEs are detected for registered servers.
+    | ![](./lab1-media/media/image47.png?cropResize=50,50)   | <strong>IMPORTANT:</strong> <br><br> If the **PH42728** iFix is not listed under the **resolution** column as illustrated in the screen shot below, give WebSphere Automation a few more minutes to load the fix meta-data into its database.  <br><br>  To avoid overloading WebSphere Automation, it only loads the meta-data for unresolved CVEs when a WebSphere or Liberty server is registered. WebSphere Automation only loads the meta-data for the unresolved CVEs of the registered servers. <br><br>  WebSphere Automation does this by using a background process that spins up several threads. Because there are more unresolved CVEs than the number of threads loading the meta-data, it takes WebSphere Automation a couple of iterations to load all of the meta-data for the fixes. <br><br>   Typically, the process completes within 8-10 minutes after the server is registered. <br><br> WebSphere Automation continues to load fix meta-data as new unresolved CVEs are detected for registered servers.
 
     ![](./lab1-media/media/image87.png)
 
 
-    This action will cause WebSphere Automation to fetch the fix from IBM Fix Central, using the credentials that you configured at the beginning of the lab. 
+    This action causes WebSphere Automation to fetch the fix from IBM Fix Central, using the credentials that you configured at the beginning of the lab. 
 
     The **Status** field automatically updates as the action progresses. 
 
     ![](./lab1-media/media/image88.png)
 
-    When the fix has been successfully fetched from IBM Fix Central, the status will change to **Ready to Install**.
+    When the fix is successfully fetched from IBM Fix Central, the status changes to **Ready to Install**.
 
     ![](./lab1-media/media/image89.png)
 
 
-2. Install the fix to resolve the CVE
+2. Install the fix to resolve the CVE.
 
-    Once the fix has been successfully fetched, the action to **Install the fix** is made available next to the affected server.
+    After the fix is successfully fetched, the action to **Install the fix** is made available next to the affected server.
 
-    a. Click on the **Install fix** action next to the tWAS_9057_server    
+    a. Click **Install fix** next to **tWAS_9057_server**.
 
     ![](./lab1-media/media/image90.png)
 
-    b. When prompted to confirm the installation, click **Proceed**
+    b. When prompted to confirm the installation, click **Proceed**.
 
-    > **Note:** For this lab, "Create backup" option should be set to "**off**".
+    > **Note:** For this lab, **Create backup** option should be set to **off**.
 
-    c. Once the installation starts, a new "**fix record" is created, and the installation will begin.
+    c. After installation starts, a new **fix record** is created, and the installation begins.
 
     ![](./lab1-media/media/v51-005.png)
     
-    d. The installation may take 5 or 6 minutes to complete. Wait until you see the status change to "**Installation complete**"
+    d. The installation can take 5 or 6 minutes to complete. Wait until you see the status change to **Installation complete**.
 
     ![](./lab1-media/media/image92.png)
 
 
     > **TROUBLESHOOTING TIP**
     > 
-    > If the installation fails, click on the **ID** of the action, and view the runbook.log output file. 
+    > If the installation fails, click the **ID** of the action and view the `runbook.log` output file. 
     >
-    >  Common errors we have seen reported in the log is the ssh key and/or the wsa-ansible secret not properly configured in the environment.  
+    >  Common errors that are reported in the log are the `ssh key` and the `wsa-ansible secret not properly configured in the environment`.  
     >
     > ![](./lab1-media/media/image93.png)
     >
     > ![](./lab1-media/media/image97.png)
 
 
-**Congratulations!** You have successfully applied the iFix to resolve the critical CVE on the tWAS_9057_server. 
+**Congratulations!** You successfully applied the iFix to resolve the critical CVE on the tWAS_9057_server. 
 
-In the next section of the lab, you will review the updated security posture and fix history of the WebSphere server. 
+In the next section of the lab, you review the updated security posture and fix history of the WebSphere server. 
 
 <br>
 
@@ -675,23 +676,23 @@ In the next section of the lab, you will review the updated security posture and
 
 ### 4.6.1 Fix history
 
-Information technology operations teams must be responsive to the latest security vulnerabilities. A patching service-level agreement (SLA) requires that an operations teams fix vulnerabilities within 30, 60 or 90 days (or faster) based on vulnerability severity.
+Information technology operations teams must be responsive to the latest security vulnerabilities. A patching service-level agreement (SLA) requires that an operations team fixes vulnerabilities within 30, 60 or 90 days (or faster) based on vulnerability severity.
 
-Therefore, it is vital to be able to demonstrate the date that a vulnerability was detected, and the date that the fix was applied. WebSphere Automation provides a detailed history of fixes applied to each registered server, including information about when each issue was detected, when and how it was fixed, and how many days servers were exposed.
+Therefore, it is vital to document the date that a vulnerability was detected, and the date that the fix was applied. WebSphere Automation provides a detailed history of fixes applied to each registered server, including information about when each issue was detected, when and how it was fixed, and how many days that servers were exposed.
 
-A record of all detected security vulnerabilities (CVEs) and the resolution status makes it easy to respond to patching SLA inquiries. WebSphere Automation keeps track of when vulnerabilities were detected, when and how they were fixed, and how many days servers were exposed.
+A record of all detected security vulnerabilities (CVEs) and the resolution status makes it easy to respond to patching SLA inquiries. WebSphere Automation keeps track of when vulnerabilities are detected, when and how they are fixed, and how many days that servers are exposed.
 
-In this section, you will review the security posture and fix history of the two traditional WebSphere servers used in the lab to demonstrate how WebSphere Automation manages the details so you can handle your patching SLAs with ease.
+In this section, you review the security posture and fix history of the two traditional WebSphere servers that are used in the lab to demonstrate how WebSphere Automation manages the details, so you can handle your patching SLAs with ease.
 
-Now that you have applied the PH42762 iFix, let's examine the updated security posture of the 9057 WebSphere server.
+Since you applied the PH42762 iFix, now you can examine the updated security posture of the 9057 WebSphere Application Server.
 
-1.  View the tWAS_9057_server CVE Information
+1.  View the **tWAS_9057_server** CVE Information.
     
-    a. From the **Security** view in the WebSphere Automation dashboard, click on the **tWAS_9057_server** link located under the **Server** column
+    a. From the **Security** view in the WebSphere Automation dashboard, click the **tWAS_9057_server** link located under the **Server** column.
 
     ![](./lab1-media/media/imagev3-44.png)
   
-    b.  Select the **Information** tab
+    b.  Select the **Information** tab.
 
     ![](./lab1-media/media/imagev3-45.png)
 
@@ -699,69 +700,67 @@ Now that you have applied the PH42762 iFix, let's examine the updated security p
 
     ![](./lab1-media/media/imagev3-46.png)
  
-    > Notice that the **Fixed date** for the iFixes related to the Log4J vulnerability show that they were installed moments ago.
+    > Notice that the **Fixed date** for the iFixes that are related to the Log4J vulnerability shows that they were installed moments ago.
     > 
     > However, there are additional iFixes that do not have a Fixed date. That is because these fixes were already applied to the server prior to it being registered with IBM WebSphere Automation.
 
     |                                                |                                                                                                                                                                                                                                                                                                                           |
     | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | ![sign-info](./lab1-media/media/image4.png) | IBM WebSphere Automation reports ALL iFixes that have been applied, regardless of when they were applied. However. It can only determine fix dates, number of days the server was vulnerable, and vulnerability detected date for servers from the time the WebSphere server is registered with IBM WebSphere Automation. |
+    | ![sign-info](./lab1-media/media/image4.png) | IBM WebSphere Automation reports ALL iFixes that were applied, regardless of when they were applied. However. It can only determine fix dates, number of days that the server was vulnerable, and vulnerability detected date for servers from the time the WebSphere Application Server is registered with IBM WebSphere Automation. |
 
-2.  View the tWAS_9057_server CVE Vulnerabilities details
+2.  View the **tWAS_9057_server** CVE Vulnerabilities details.
     
-    a.  From the tWS_9057_server view, select the **Vulnerabilities** tab
+    a.  From the **tWS_9057_server** view, select the **Vulnerabilities** tab.
 
     ![](./lab1-media/media/imagev3-47.png)
 
-    b. From the list of CVEs, sort by **Status**, and display the **Resolved CVEs** on top
+    b. From the list of CVEs, sort by **Status**, and display the **Resolved CVEs** on top.
 
     ![](./lab1-media/media/imagev3-48.png)
  
-    The CVEs that are listed as Resolved are all the related Log4JCVEs that were fixed by applying the iFix moments ago; **CVE-2021-44228**, being the most critical CVE listed.
+    The CVEs that are listed as **Resolved** are related to Log4J CVEs that were fixed by applying the iFix earlier; **CVE-2021-44228** being the most critical CVE listed.
  
-    As illustrated above, the **Vulnerabilities view** provides the details about when the vulnerability was detected in this specific server, and how many days the server has been exposed to each vulnerability.
+    As illustrated above, the **Vulnerabilities view** provides the details about when the vulnerability was detected in this specific server, and how many days the server was exposed to each vulnerability.
 
-3.  View the tWAS_9057_server Fix History details
+3.  View the **tWAS_9057_server** Fix History details.
     
-    a.  From the tWS_9057_server view, select the **Vulnerabilities** tab
+    a.  From the **tWS_9057_server** view, select the **Vulnerabilities** tab.
     
     b. Select **Fix History**, as illustrated below:
 
     ![](./lab1-media/media/imagev3-49.png)
 
-4.  Notice the Fixes that have been applied
+4.  Notice the Fixes that were applied.
 
     ![](./lab1-media/media/imagev3-50.png)
 
-    **Fix history** shows changes to the server. You can see the action that was taken, and in this case, the Fixes were “**Installed**”. Next to each Fix you can view the CVEs that were resolved by that Fix, and very importantly, the date that the Fix was applied that resolved specific vulnerabilities.
- 
-    Having this record of all detected security vulnerabilities (CVEs) and the resolution status makes it easy to respond to patching SLA inquiries. WebSphere Automation keeps track of when vulnerabilities were detected, when and how they were fixed, and how many days servers were exposed.
+    >**Fix history** shows changes to the server. You can see the action that was taken, and in this case, the Fixes were **Installed**. Next to each Fix you can view the CVEs that were resolved by that Fix, and more importantly, the date that the Fix was applied that resolved specific vulnerabilities.
 
-5.  You can also monitor the status of common vulnerabilities and exposures (CVEs) that affect your servers
+5.  You can also monitor the status of common vulnerabilities and exposures (CVEs) that affect your servers.
     
-    a.  Return to the **Security** view. Then select on the **CVEs** category
+    a.  Return to the **Security** view. Then, select the **CVEs** category.
 
     ![](./lab1-media/media/imagev3-51.png)
  
     > Using this view, you can easily determine which servers are affected by specific CVEs.
     >  
-    > As an example, let’s focus on CVE-2021-44228. This is one of the CVEs that was fixed in the tWAS_9057_server when you applied the iFix earlier in the lab.
+    > As an example, focus on CVE-2021-44228. This is one of the CVEs that was fixed in the tWAS_9057_server when you applied the iFix earlier in the lab.
     > 
     > This CVEs view helps your team quicky identify how many servers have been fixed, and how many remain exposed to specific CVEs.
 
-    b. View the CVE-2021-44228 CVE from the current view. Notice that the registered server is patched for this CVE. There are now zero registered servers vulnerable to the CVE. 
+    b. View the **CVE-2021-44228** CVE from the current view. Notice that the registered server is patched for this CVE. There are now zero registered servers vulnerable to the CVE. 
 
     ![](./lab1-media/media/imagev3-52.png)
 
 
-    In this section you have learned how easy IBM WebSphere Automation makes it for your Information technology operations teams to be responsive to the latest security vulnerabilities, ensuring that there is a record of patching critical CVEs in accordance with your patching service-level agreement (SLA).
+    In this section you learned how easy IBM WebSphere Automation makes it for your Information technology operations teams to respond to the latest security vulnerabilities, ensuring that there is a record of patching critical CVEs in accordance with your patching service-level agreement (SLA).
 
     You learned how to use the automated fix deployment capabilities to easily fix vulnerable servers directly from the IBM WebSphere Automation UI. 
     
     You learned how to demonstrate the date that a vulnerability was detected, and the date that the fix was applied. WebSphere Automation provides a detailed history of fixes applied to each registered server, including information about when each issue was detected, when and how it was fixed, and how many days servers were exposed.
 
 
-**Congratulations!**  You have completed the proactive CVE management lab for traditional WebSphere Application Servers.      
+**Congratulations!**  You completed the proactive CVE management lab for traditional WebSphere Application Servers.      
 
 </details>
 
@@ -769,7 +768,7 @@ Now that you have applied the PH42762 iFix, let's examine the updated security p
 
 
 <details>
-  <summary>Click to expand: Lab 2 - Detect and trigger investigation of Application Memory Leak with IBM WebSphere Automation</summary>
+  <summary>Click to expand: Section 5 - Detect and trigger investigation of Application Memory Leak with IBM WebSphere Automation</summary>
 
 ## 5.0 Detect and Address Application Memory Leak with IBM WebSphere Automation and Instana
 
@@ -825,13 +824,13 @@ workstation and start it.
 
 In this lab, you wil install a Linux agent in the `student` VM, where the WebSphere Application Server used in this lab is installed.  
 
-Using the Instana UI, you can select options for installing the agent, such as the `agent mode`, `agent runtime`, and `installation mode`. Doing so, produces a curl command that you run from a terminal window, to install the Linux agent. 
+Using the Instana UI, you can select options for installing the agent, such as the `agent mode`, `agent runtime`, and `installation mode`. Doing so, produces a curl command that you run from a Terminal window, to install the Linux agent. 
 
 In this lab, we have provided a simple Linux shell script that installs the Linux agent and configures a `WebSphere` infrastructure zone for monitoring WebSphere Application Server. 
 
 1.  Install the Instana Linux agent on the Student VM
 
-    a.  Open a new terminal window
+    a.  Open a new Terminal window.
     
     b. Run the following script to install the instana agent
 
@@ -907,7 +906,7 @@ In this lab, you will run a simple Linux shell script that configures and valida
 
 1. Configure the secure ssh connection between Instana server and the Linux Student VM
 
-    a. Return to the terminal window in the Student vm
+    a. Return to the Terminal window in the Student VM.
 
     b. Run the following script that configures the secure ssh connection and restarts the Instana server.
 
