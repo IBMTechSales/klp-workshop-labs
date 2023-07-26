@@ -23,102 +23,62 @@ guidance is available.
 
 ## 2. Accessing the lab environment
 
-If you are doing this lab as part of an instructor led workshop (virtual or face to face), an environment has already been provisioned for you. The instructor will provide the details for accessing the lab environment.
+An environment is provisioned for you for this lab session. The instructor or lab proctor can provide details for accessing the lab environment.
 
-Otherwise, you will need to reserve an environment for the lab. You can obtain one here. Follow the on-screen instructions for the “**Reserve now**” option.
-
-<https://techzone.ibm.com/my/reservations/create/6389feba71c87d001831c119>
-
-
-
-The lab environment contains one (1) Linux VM, named **Workstation**.
-
-  ![](./images/media/workstation.png)
- 
-  The Ubuntu Linux **Workstation** VM has the following software installed:
+The lab environment contains one Linux VM named **Workstation**.
+    
+The Ubuntu Linux **Workstation** VM is installed with the following softare for the lab session:
   
-  - Docker 19.03.13
-  - Git 2.24.1
-  - Maven 3.6.3java
-  - OpenJDK 1.8.0
+  - Application Project with Liberty
+  - Maven 3.6.0 
+
+  <br/>
 
 1.  Access the lab environment from your web browser. 
     
-    A Published Service is configured to provide access to the **Workstation** VM through the noVNC interface for the lab environment.
+    On the **Workstation** tile, click the **ubuntu** screen logo to open the lab environment. 
     
-    a. When the demo environment is provisioned, click on the **environment tile** to open its details view. 
-
-    b. Click on the **Published Service** link which will display a **Directory listing**  
+    <img src="./images/media/TechZoneWorkstationLogin.png" width="150"/>
     
-    c. Click on the **"vnc.html"** link to open the lab environment through the **noVNC** interface. 
+2.  Log in with user ID `ibmdemo` and password `passw0rd`.
     
-    ![](./images/media/vnc-link.png)
-    
-    d. Click the **Connect** button 
-    
-      ![](./images/media/vnc-connect.png)
+    a.  Click **ibmdemo** on the log in screen.
 
+      <img src="./images/media/ibmDemoLogin.png" width="200"/>
 
-    e. Enter the password as:  **passw0rd**. Then click the **Send Credentials** button to access the lab environment. 
-
-    > Note: That is a numeric zero in passw0rd  
-
-      ![](./images/media/vnc-password.png)
-
-
-2. Login with **ibmdemo** ID.
-    
-    a.  Click on the “**ibmdemo**” icon on the Ubuntu screen.
-
-      ![](./images/media/image12.png)
-
-    b. When prompted for the password for “**ibmdemo**” user, enter
-    “**passw0rd**” as the password:
+    b. Enter `passw0rd` for the password.
 
     Password: **passw0rd** (lowercase with a zero instead of the o)
  
-      ![](./images/media/image13.png)
-	
+      <img src="./images/media/ibmDemoPassword.png" width="200"/>
+
     <br/>
+	
+3.  The desktop opens, which contains all the programs that you use (web browser, terminal) during the session.
 
-2.  Once you access the **Student VM** through the published service, you will see the Desktop, which contains all the programs that you will be using (browsers, terminal, etc.)
+|         |           |  
+| ------------- |:-------------|
+| ![](./images/media/image8.png?cropResize=100,100)   | <p><strong>IMPORTANT:</strong></p><p>All required VS Code extensions and dependencies are installed for you.</p><p>This allows you to focus on using the tools for fast, efficient inner-loop development, test and debug of Java-based applications and Microservices by using Open Liberty in `dev` mode.</p></p> |
+  <br/>
 
-    <br/>    
-	     
+
 ## Tips for working in the lab environment     
 
-1.  You can resize the viewable area using the **noVNC Settings** options to resize the virtual desktop to fit your screen.
+1. The UI allows you to fit the viewing area to fit the browser window size that you are using.
 
-    a. From the environemnt VM, click on the **twisty** on the noNC control pane to open the menu.  
-
-    ![fit to window](./images/media/z-twisty.png)
-
-    b. To increase the visible area, click on `Settings > Scaling Mode` and set the value to `Remote Resizing`
-      
-     ![fit to window](./images/media/z-remote-resize.png)
+    <img src="./images/media/FitToWindow.png" width="250"/>
 
 
-2.  You can copy / paste text from the lab guide into the lab environment using the clipboard in the noVNC viewer. 
+2.  You can copy and paste text from the lab guide into the lab environment by using **Send Text** clipboard. 
    
-    a. Copy the text from the lab guide that you want to paste into the lab environment
-    
-    b. Click the **Clipboard** icon and **paste** the text into the noVNC clipboard
-
-    ![fit to window](./images/media/paste.png)
-    
-    c. Paste the text into the VM, such as to a terminal window, browser window, etc. 
-
-    d. Click on the **clipboard** icon again to close the clipboard
-
-    > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. 
-    
-    > In this case you might try again, or open another Terminal Window and try again, or  paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
-
-
-3. An alternative to using the noVNC Copy / Paste option, you may consider opening the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide without having to use the noVNC clipboard. 
-
+    <img src="./images/media/CopyPaste.png" width="280"/>)
 
     <br>
+
+|         |           |  
+| ------------- |:-------------|
+| ![](./images/media/image8.png?cropResize=100,100)   | <p><strong>IMPORTANT:</strong> <p>If, at any time during the lab, you are prompted to install updated software onto the VM, **DO NOT install the update**. Click **Cancel**.</p> <p>These lab instructions are intended for a specific version of software, which must not be udpated at this time.</p><p>![](./images/media/image15a.png?cropResize=100,100)</p> |
+
 
 
 ## 3. Why Do I need Mono2Micro?
@@ -1802,8 +1762,8 @@ summary and details of the Java source files that were generated.
 3.  **Close** the editor for the CardinalFileSummary.txt file
 
 
-## 3.3 Examine the Java code that was generated by the code generator
-
+## 3.3 (OPTIONAL) Examine the Java code that was generated by the code generator
+ 
 The code generator produces the Java source files in separate folders
 for each partition and are named according to their respective
 partitions.
