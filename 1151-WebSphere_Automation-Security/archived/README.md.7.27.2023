@@ -439,93 +439,173 @@ In the next section, you will register servers to WebSphere Automation.
 
 <br>
 
-## PART 2: Register WebSphere Application Server with IBM WebSphere Automation 
+## PART 2: Getting configuration parameters needed to register WebSphere / Liberty servers to IBM Automation
 
-In this section, you run a Linux shell script to automatically register a WebSphere Application Server to IBM WebSphere Automation. 
+Add each of your WebSphere Application Server and WebSphere Liberty servers to WebSphere Automation by registering them with the **usage metering** service.
 
-The Linux shell script obtains the necessary information as described below. Then, the script runs a `wsadmin` script to register the WebSphere Application Server.  
-
-WebSphere Application Servers and WebSphere Liberty servers are added to WebSphere Automation by registering them with the *usage metering* service.
-
-To register your application servers with the usage metering service, it requires the following usage metering details. The script you  run gathers this information. 
+To register your application servers with the usage metering service in WebSphere Automation, you must configure the usage metering feature in each application server. To configure the usage metering feature in each of your application servers, you must obtain the following usage metering details:
 
   - **URL**: The URL of the usage metering service in WebSphere Automation. This service registers WebSphere Application Server and Liberty servers with WebSphere Automation so that you can track security vulnerabilities.
 
-  - **API Key**: The token that is used to authenticate the WebSphere Application Server and Liberty servers during the registration process.
+  - **API Key**: The token used to authenticate the WebSphere Application Server and Liberty servers during the registration process.
 
-  - **Usage metering certificate**: The certificate that contains the public key. This key allows a WebSphere Liberty server that is registering with WebSphere Automation to do an SSL handshake with the metering service.
+  - **Usage metering certificate**: The certificate that contains the public key. This key allows a Liberty server that is registering with WebSphere Automation to do an SSL handshake with the metering service.
 
-In this section, you run the `register-was-server.sh` script to register a WebSphere Application Server, version 9.0.5.7. 
+In this section, you will get these configuration parameters that will be used to register application servers.
 
 
-1.  Minimize the browser window and open a new terminal window.
-
+1.  Return to the desktop and open a new **terminal** window.
 
     ![open terminal](./lab1-media/media/image20.png)
 	
+	<br>
+
+2.  Login to the OpenShift Cluster using the oc CLI command shown below, if you are not already logged in:
+
+        oc login --username=ibmadmin --password=engageibm --insecure-skip-tls-verify=true --server=https://api.demo.ibmdte.net:6443
+
+       ![oc login](./lab1-media/media/image21.png)
 	
-2. Run the `register-was-server.sh` script to register the WebSphere server with IBM WebSphere Automation
+	<br>
 
-    a. Change directory to the location of the script:
-        
-        cd /home/ibmuser/WAS-Automation-LabFiles/lab1-CVE
+3.  Make sure that the project you are working on is **websphere-automation**:
 
-    b. Run the script, passing in the parameter `9057` to register the WebSphere version 9.0.5.7 server in this lab environment. 
+        oc project websphere-automation
 
-        ./register-was-server.sh 9057    
+    ![](./lab1-media/media/image22.png)
 
-    ![](./lab1-media/media/4310-register-server.png)
-        
-    Once the script completes, you see the message indicating that the WebSphere server was successfully registered. 
+    <br/>
 
-   ![](./lab1-media/media/4310-server-registered-message.png)
+4.  Use the **oc** command to get the URL of the usage metering service in WebSphere Automation and save it to a file  “/opt/IBM/WebSphere/metering-url.txt”
+
+        echo https://$(oc get route cpd -n websphere-automation -o jsonpath='{.spec.host}')/websphereauto/meteringapi > /opt/IBM/WebSphere/metering-url.txt
+
+5.  View the contents of the saved file to ensure the URL was captured.
+
+        cat /opt/IBM/WebSphere/metering-url.txt
+
+    ![](./lab1-media/media/image23.png)
+	
+	<br>
+
+6.  Get the **api-key** that will be used to authenticate the WebSphere Application Server and Liberty servers during the registration process. Save it to a file named “/opt/IBM/WebSphere/api-key.txt”
+
+        oc -n websphere-automation get secret wsa-secure-metering-apis-encrypted-tokens -o jsonpath='{.data.wsa-secure-metering-apis-sa}' | base64 -d > /opt/IBM/WebSphere/api-key.txt; echo >> /opt/IBM/WebSphere/api-key.txt
+
+7.  View the contents of the saved file to ensure the api-key (token) was captured.
+
+        cat /opt/IBM/WebSphere/api-key.txt
+
+     ![](./lab1-media/media/image24.png)
+	 
+	 <br>
+
+8.  Finally, get the Server certificate that is used for SSL handshake between the **Liberty servers** and IBM Automation, and save it to a file named “/opt/IBM/WebSphere/cacert.pem”
+
+        oc get secret external-tls-secret -n websphere-automation -o jsonpath='{.data.cert\.crt}' | base64 -d > /opt/IBM/WebSphere/cacert.pem
+
+9. View the contents of the saved file to ensure the api-key (token) was captured.
+
+        cat /opt/IBM/WebSphere/cacert.pem
+
+    ![](./lab1-media/media/image25.png)
+
+**Great\!** Now you have all the configuration parameters necessary to register the application servers with the usage metering service in WebSphere Automation.
 
 
-   At this point, the newly registered server is automatically added to the WebSphere Automation dashboard in the UI. 
+|         |           |  
+| ------------- |:-------------|
+| ![](./lab1-media/media/image4.png?cropResize=100,100)   | <strong>For more information:</strong> <br> For additional details, view the section titled: <strong>Setting up security monitoring</strong> in the WebSphere Automation on-line documentation, or download it as a PDF from this URL: [https://www.ibm.com/docs/en/ws-automation](https://www.ibm.com/docs/en/ws-automation)|
 
 
-3. View the newly registered WebSphere server in WebSphere Automation Dashboard
+In the next section, you register your first server in WebSphere Automation.
 
-    a. Open the browser and go to the tab where the WebSphere Automation dashboard is displayed. 
-
-    > Note: the URL is: https://cpd-websphere-automation.apps.demo.ibmdte.net/websphereauto/security
-    
-    c. Go to the WebSphere Automation **Security -> Servers** dashboard, and confirm that the tWAS v9.0.5.7 server is registered in IBM Automation.
-
-    > Note: It might take 15 - 30 seconds for the server to be displayed in the WebSphere Automation UI.
-
-
-    ![](./lab1-media/media/image28.png)
-
-
- 
-4.  Check your email. A mail notification is sent that shows new vulnerabilities for the registered application server.
-
-    ![](./lab1-media/media/image29.png)
-
-	|         |           |  
-    | ------------- |:-------------|
-    | ![](./lab1-media/media/image4.png?cropResize=100,100)   | <strong>Information:</strong> <br>In the email message, there is a link that redirects to the console to show more details about the vulnerability. However, due to network restrictions in the lab environment, this link does not work. 
-
-    <br>
+<br>
 
 ## Part 3: Working with Traditional WebSphere servers with IBM Automation – Security Vulnerabilities
 
 You can view the security vulnerability status of each server in your inventory from the Security page in the WebSphere Automation UI. 
 For each server, the numerical risk level in the range 0 - 10 represents the highest CVSS value of its CVEs.
 
-You can track security vulnerabilities for your servers from a single user interface (UI) in WebSphere Automation.
+To set up security monitoring, add each of your WebSphere Application Server servers and WebSphere Liberty servers to WebSphere Automation by registering them with the usage metering service. 
+
+You can then track security vulnerabilities for your servers from a single user interface (UI) in WebSphere Automation.
+
+To register your application servers with the usage metering service in WebSphere Automation, you must configure the usage metering feature in each application server. 
 
 In Part 3 of the lab, you will perform the following task for WebSphere Traditional servers in IBM Automation. 
 
-1. **Resolve the known Log4J vulnerabilities in the WebSphere traditional application server**, by using the built-in capabilities in IBM WebSphere Automation to prepare and install the recommended iFix documented in the security bulletin for this vulnerability. 
+1.	**Register a WebSphere traditional application server** (tWAS), version 9.0.5.7 to IBM Automation, using the URL, API Key, and usage Metering Certificate that you gathered in the previous section of the lab. 
+
+    Once registered, you will immediately see the list of all unresolved CVEs and applied iFixes for the server. 
+
+
+2.	**Resolve the known Log4J vulnerabilities in the WebSphere traditional application server**, by using the built-in capabilities in IBM WebSphere Automation to prepare and install the recommended iFix documented in the security bulletin for this vulnerability. 
 
     Once the iFix is applied, IBM Automation immediately updates the security information for that application server, showing that the critical Log4J vulnerabilities have been patched. 
 
-   
+    
  <br>
 
-## 3.1 Review CVE-2021-44228 to understand the remediation options for the LOG4J vulnerability
+## 3.1 Register traditional WebSphere (tWAS) v9.0.5.7
+
+In this section, you configure a traditional WebSphere Application Server to your WebSphere Automation dashboard. With traditional WebSphere, you use the wsadmin script to configure the usage metering service.
+
+
+1.  First, let’s start the traditional WebSphere (tWAS) 9.0.5.7 server. Return to the terminal window and execute the command below:
+
+        /opt/IBM/WebSphere/AppServer9057/bin/startServer.sh tWAS_9057_server
+
+    ![](./lab1-media/media/image26.png)
+	
+	<br>
+
+2.  Configure usage-metering using the wsadmin script below:
+
+    The wsadmin command invokes a Python script named configuretWasUsageMetering.py. The script requires the same **url** and **apiKey** that you gathered earlier from the IBM automation environment. These parameters are captured from the text files that you saved earlier in the lab and inserted into the url and apiKey parameters.
+
+        /opt/IBM/WebSphere/AppServer9057/bin/wsadmin.sh -f /api-usagemetering/scripts/configuretWasUsageMetering.py url=$(cat /opt/IBM/WebSphere/metering-url.txt) apiKey=$(cat /opt/IBM/WebSphere/api-key.txt) trustStorePassword=th1nkpassword
+
+    The script should run successfully as illustrated below.
+
+    ![](./lab1-media/media/image27.png)
+	
+	<br>
+
+    Great, you first traditional WAS server is configured. Let’s check the WebSphere Automation dashboard. 
+
+    </br>
+
+3.	Go back to the browser, navigate to the **Security -> Servers** dashboard, and confirm that the tWAS v9.0.5.7 server was registered in IBM Automation.
+
+    **Note:** It may take 15 - 30 seconds for the server to be displayed in the WebSphere Automation UI. 
+
+    ![dashboard tWAS1](./lab1-media/media/image28.png)
+ 
+    You should see that this server Risk Level is 10.0, with (+## more) unresolved CVEs. 
+
+    **Note:** Somewhere at the top of that list is the much talked about LOG4J vulnerability, known as CVE-2021-44228, with a critical score of 10.  
+ 
+
+
+	|         |           |  
+    | ------------- |:-------------|
+    | ![](./lab1-media/media/image4.png?cropResize=50,50)   | <strong>TIP:</strong> <br><strong>Note:</strong> New vulnerabilities are discovered constantly, so the number of CVEs discovered may be different than illustrated.
+    
+    <br>
+ 
+4.  Check your email. A mail notification was sent showing new vulnerabilities for the registered application server.
+
+    ![](./lab1-media/media/image29.png)
+
+	|         |           |  
+    | ------------- |:-------------|
+    | ![](./lab1-media/media/image4.png?cropResize=100,100)   | <strong>Information:</strong> <br>In the email message, there will be a link that would redirect to the console to show more details on the vulnerability. However, Because of network restrictions in the lab environment, this link will not work. 
+
+    <br>
+
+
+## 3.2 Review CVE-2021-44228 to understand the remediation options for the LOG4J vulnerability
 
 In this section, you will review the details of the critical (10.0) **CVE-2021-44228** CVE and determine the appropriate remediation options to resolve the CVE.
 
@@ -599,7 +679,7 @@ In this lab, you will apply the iFix that is documented in the IBM security bull
 
 
 
-## 3.2 Update tWAS server v9.0.5.7 to fix the LOG4J vulnerability
+## 3.3 Update tWAS server v9.0.5.7 to fix the LOG4J vulnerability
 
 Automated installation of WebSphere and Liberty fixpaks and iFixes was introduced into IBM WebSphere Automation in version 1.4
 
@@ -617,7 +697,7 @@ There are a couple of additional components now included in the product to suppo
   
     The WebSphere Automation installation manager communicates with the registered server using the administrator privileges that you provide. When you initiate the installation of a fix, the installation manager ensures that the target server has sufficient space for the fix, transfers the fix to the target server, installs the fix, and creates a log file of the steps taken. If you request a backup of the server environment as part of the fix installation, the installation manager checks for sufficient disk space on the server, and creates an archive of the Installation Manager, Installation Manager data, and WebSphere Application Server or WebSphere Application Server Liberty server installation directories.
 
-### 3.2.1 Navigate to the Server and unresolved CVE to fix
+### 3.3.1 Navigate to the Server and unresolved CVE to fix
 
 OK, let's apply the recommended iFix to resolve the CVE-2021-44228 vulnerability! 
 
@@ -655,7 +735,7 @@ OK, let's apply the recommended iFix to resolve the CVE-2021-44228 vulnerability
     ![](./lab1-media/media/image85.png)
     
 
-### 3.2.2 Prepare Fix 
+### 3.3.2 Prepare Fix 
 
 The **Fix Deployment** capability of WebSphere Automation delivers automation that determines which APARs and interim fixes resolve a specific vulnerability, and enables one-click download and deploy of fixes. 
 
@@ -747,9 +827,9 @@ In the next section of the lab, you will review the updated security posture and
 <br>
 
 
-## 3.3 View the security posture and Fix History of your WebSphere servers
+## 3.4 View the security posture and Fix History of your WebSphere servers
 
-### 3.3.1 Fix history
+### 3.4.1 Fix history
 
 Information technology operations teams must be responsive to the latest security vulnerabilities. A patching service-level agreement (SLA) requires that an operations teams fix vulnerabilities within 30, 60 or 90 days (or faster) based on vulnerability severity.
 
@@ -836,7 +916,7 @@ Now that you have applied the PH42762 iFix, let's examine the updated security p
     
     You learned how to demonstrate the date that a vulnerability was detected, and the date that the fix was applied. WebSphere Automation provides a detailed history of fixes applied to each registered server, including information about when each issue was detected, when and how it was fixed, and how many days servers were exposed.
 
-### 3.4 Optional - Uninstall the latest fix that was applied    
+### 3.5 Optional - Uninstall the latest fix that was applied    
 
 With WebSphere Automation, you can uninstall the most recently applied fix for WebSphere and Liberty servers using the UI. 
 
