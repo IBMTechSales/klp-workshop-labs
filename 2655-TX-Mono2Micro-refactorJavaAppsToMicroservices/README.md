@@ -248,7 +248,13 @@ application used in this lab, to microservices.
 
         ls -l
 
+3. Open the `lab-commands.txt` file in an editor, to copy & paste commands throughout the lab. 
 
+   **TIP:** `Use the lab-commands.txt file to copy & paste commands throught the lab.` 
+   
+        gedit /home/ibmdemo/m2m-ws-sample/lab-commands.txt
+
+    <br/>   
 
 # **PART 2: Use Mono2Micro to analyze the Java EE monolith application and recommend partitions**
 
