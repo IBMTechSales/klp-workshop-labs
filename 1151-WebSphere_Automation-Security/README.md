@@ -2,7 +2,7 @@
 
 ![banner](./lab1-media/media/image1.jpeg)
 
-**Last updated:** March 2023
+**Last updated:** July 2023
 
 IBM WebSphere Automation version 5.1
 
