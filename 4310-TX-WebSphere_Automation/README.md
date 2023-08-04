@@ -75,7 +75,7 @@ The remaining VMs are the RedHat OpenShift Cluster VMs that hosts the  IBM WebSp
 
     <br>
 
-## 1.0 Set up IBM WebSphere Automation in the lab environment 
+## Section 1 - Set up IBM WebSphere Automation in the lab environment 
 
 
 1. Log in to the Student VM. You see the Desktop, which contains all the programs that you use (browsers, terminal) in this session.
@@ -204,20 +204,9 @@ If the `wsa-setup.sh` script completed with **TEST PASSED**, you can proceed wit
 
 <br/>
 
---------------------------------------------------------------------
+## Section 2 - Accessing the WebSphere Automation UI
 
-###  Continue the lab by expanding the sections below, as you progress
 
---------------------------------------------------------------------
-
-<br/>
-
-### Section 2 - Accessing the WebSphere Automation UI
-
-<detailsa> 
-    <summary><b><font color="dodgerblue">Click to expand:</font></b> Section 2 </font></b> - Accessing the WebSphere Automation UI</summary>
-
-## 2.0 Accessing the WebSphere Automation UI
 
 A WebSphere administrator sets up WebSphere Automation by registering and configuring WebSphere Application Servers and WebSphere Liberty servers. 
 
@@ -289,17 +278,12 @@ You can also define custom notifications for events that occur in WebSphere Auto
 
 https://www.ibm.com/docs/en/ws-automation?topic=notifications-example-notification-contents
 
-</details>
+
 
 <br/>
 
-### Section 3 - Register WebSphere Application Server with IBM WebSphere Automation
+## Section 3 - Register WebSphere Application Server with IBM WebSphere Automation
 
-<detailsa> 
-    <summary><b><font color="dodgerblue">Click to expand:</font></b> Section 3 </font></b> - Register WebSphere Application Server with IBM WebSphere Automation</summary>
-
-
-## 3.0 Register WebSphere Application Server with IBM WebSphere Automation 
 
 In this section, you run a Linux shell script to automatically register a WebSphere Application Server to IBM WebSphere Automation. 
 
@@ -357,18 +341,11 @@ In this section, you run the `register-was-server.sh` script to register a WebSp
 
     ![](./lab1-media/media/image28.png)
 
-    </details>
 
     <br/>
 
 
-### Section 4 - Proactive CVE protection for WebSphere with IBM WebSphere Automation
-
-<detailsa> 
-    <summary><b><font color="dodgerblue">Click to expand:</font></b> Section 4 - Proactive CVE protection for WebSphere with IBM WebSphere Automation</summary>
-
-  
-## 4.0 Proactive CVE protection for WebSphere Application Server 
+## Section 4 - Proactive CVE protection for WebSphere with IBM WebSphere Automation
 
 
 ### 4.1 Business Context for this scenario
@@ -792,17 +769,10 @@ Since you applied the PH42762 iFix, now you can examine the updated security pos
 
 **Congratulations!**  You completed the proactive CVE management lab for traditional WebSphere Application Servers.      
 
-</details>
-
 </br>
 
 
-### Section 5 - Detect and trigger investigation of Application Memory Leak with IBM WebSphere Automation
-
-<detailsa>
- <summary><b><font color="dodgerblue">Click to expand:</font></b> Section 5 - Detect and trigger investigation of Application Memory Leak with IBM WebSphere Automation</summary>
-
-## 5.0 Detect and Address Application Memory Leak with IBM WebSphere Automation and Instana
+## Section 5 - Detect and trigger investigation of Application Memory Leak with IBM WebSphere Automation
 
 In this section of the lab, you are going to use a traditional WebSphere Application
 Server registered with IBM WebSphere Automation (WSA), and monitored by Instana to drive a memory leak investigation.
@@ -1163,17 +1133,15 @@ When WebSphere Automation detects the memory leak, it automatically conducts the
 
     **Congratulations!** You have completed the WebSphere Automation Memory Leak Detection lab.
 
-</details>
-
-
-<br/>
+    <br/>
 
 
 ### Appendix A: Detailed steps to configure Instana for memory leak alert
 
 
 <details>
- <summary><b><font color="dodgerblue">Click to expand:</font></b> Appendix A: Detailed steps to configure Instana for memory leak alert</summary>
+ <summary><b><font color="dodgerblue">Click to expand:</font></b> Appendix A: Detailed steps to configure Instana for memory leak alert
+ </summary>
 
 <br/>
 
