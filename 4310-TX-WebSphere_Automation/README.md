@@ -33,7 +33,7 @@ The lab environment contains seven Linux VMs.
 
 **Note:** The `Student` VM is the only VM that you access directly in the lab environment.
 
-<img src="./lab1-media/media/4310-env-tiles.png" width="350"/>
+<img src="./lab1-media/media/4310-env-tiles.png" width="650"/>
 
 <br/>
     
@@ -45,7 +45,7 @@ The remaining VMs are the RedHat OpenShift Cluster VMs that hosts the  IBM WebSp
     
     On the **`Student`** tile, click the **`CentOS`** screen logo to open the lab environment. 
     
-    <img src="./lab1-media/media/TechZoneWorkstationLogin.png" width="150"/>
+    <img src="./lab1-media/media/TechZoneWorkstationLogin.png" width="250"/>
     
 2.  If a login screen is displayed, log in with the following credentials:
     
