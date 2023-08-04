@@ -10,6 +10,8 @@
 
 It removes manual toil so that your team can spend more time innovating while minimizing the cost of extending the life and maximizing the ROI of your WebSphere investments.
 
+In conversations with customers, the same three concerns repeatedly come up. Organizations must keep their IT estate secure, compliant amd resilient to disruption, they must keep it running optimally, and they must reduce costs and maximize ROI.
+
 WebSphere Automation helps organizations gain visibility, operational efficiencies, and cost savings quickly by extending the life of WebSphere investments and giving teams time to focus on unlocking new value and fixing the imbalance of pure maintenance versus innovation tasks. It provides the following benefits:
 
   - WebSphere operators and administrators save time and embrace DevSecOps by implementing patches more efficiently on virtual and container environments to keep operations compliant and secure.
@@ -18,7 +20,7 @@ WebSphere Automation helps organizations gain visibility, operational efficienci
 
   - Augmented operational experience with access to simplified and consolidated information that enables teams to act.
 
-
+With WebSphere Automation, security, business efficiency and resilience become standard. IBM can meet you wherever you are in your optimization and automation journeys to help you quickly deliver value and increase ROI, while laying a solid automation foundation to support future growth.
 
 IBM WebSphere Automation is a stand-alone product that runs on Red Hat OpenShift. Entitlement to Red Hat OpenShift is included with IBM WebSphere Automation but must be installed separately. As part of IBM Automation platform, WebSphere Automation includes containerized components and common software services on top of a common automation layer, to manage WebSphere incidents, hybrid applications, and cost with complete observability, governance, and compliance.
 
@@ -214,7 +216,7 @@ If the `wsa-setup.sh` script completed with **TEST PASSED**, you can proceed wit
 
 ### Section 2 - Accessing the WebSphere Automation UI
 
-<detailsa> 
+<details> 
     <summary><b><font color="dodgerblue">Click to expand:</font></b> Section 2 </font></b> - Accessing the WebSphere Automation UI</summary>
 
 ## 2.0 Accessing the WebSphere Automation UI
@@ -253,7 +255,7 @@ For this lab, WebSphere Automation is pre-installed on an OpenShift cluster. You
 
     <br/>
 	
-5.  View the `Application Runtimes` that are registered with IBM Automation.
+5.  View the Application Runtimes that are registered with IBM Automation.
 
     a. Click the menu icon in the upper left corner of the page.
 
@@ -283,8 +285,6 @@ For security monitoring, email notifications are sent when a new security bullet
 
 For server health monitoring, email notifications are sent when an investigation into a server health issue is started, when an investigation successfully completes, or when an investigation fails to complete. 
 
-You can also define custom notifications for events that occur in WebSphere Automation using webhook notifications for `Slack` and `ServiceNow`. 
-
 **Reference:** To review the information that is included in each email, see Example notification contents in the IBM WebSphere Automation documentation: 
 
 https://www.ibm.com/docs/en/ws-automation?topic=notifications-example-notification-contents
@@ -295,7 +295,7 @@ https://www.ibm.com/docs/en/ws-automation?topic=notifications-example-notificati
 
 ### Section 3 - Register WebSphere Application Server with IBM WebSphere Automation
 
-<detailsa> 
+<details> 
     <summary><b><font color="dodgerblue">Click to expand:</font></b> Section 3 </font></b> - Register WebSphere Application Server with IBM WebSphere Automation</summary>
 
 
@@ -350,7 +350,7 @@ In this section, you run the `register-was-server.sh` script to register a WebSp
 
     > Note: the URL is: https://cpd-websphere-automation.apps.ocp.ibm.edu/websphereauto/security
     
-    b. From the WebSphere Automation **`Security`** dashboard, confirm that the tWAS v9.0.5.7 server is registered in IBM Automation.
+    c. From the WebSphere Automation **`Security`** dashboard, confirm that the tWAS v9.0.5.7 server is registered in IBM Automation.
 
     > Note: It might take 15 - 30 seconds for the server to be displayed in the WebSphere Automation UI.
 
@@ -364,7 +364,7 @@ In this section, you run the `register-was-server.sh` script to register a WebSp
 
 ### Section 4 - Proactive CVE protection for WebSphere with IBM WebSphere Automation
 
-<detailsa> 
+<details> 
     <summary><b><font color="dodgerblue">Click to expand:</font></b> Section 4 - Proactive CVE protection for WebSphere with IBM WebSphere Automation</summary>
 
   
@@ -375,7 +375,7 @@ In this section, you run the `register-was-server.sh` script to register a WebSp
 
 You are a WebSphere Administrator, part of a WebSphere Operations Team that is responsible for maintaining security compliance of the WebSphere estate in the enterprise. 
 
-A typical “as-is” process for maintaining security compliance for WebSphere environments is often a very manual and time consuming process, as illustrated below:  
+A typical “as-is” process for maintaining security compliance for WebSphere environments is often a very manual and time consuming process. 
 
 
 ![](./lab1-media/media/image2.png)
@@ -492,9 +492,9 @@ You apply the iFix that is documented in the IBM security bulletin to resolve th
 
     c.  The security bulletin is displayed in a new browser tab.
 
-    d. Close the `site cookies` dialog box, if displayed
+    d. Close the `site cookies` dialog box, if diplayed
     
-    e.  Review the security bulletin to learn about the vulnerability, versions of WebSphere affected, and options for remediating the vulnerability.
+    e  Review the security bulletin to learn about the vulnerability, versions of WebSphere affected, and options for remediating the vulnerability.
 
     ![](./lab1-media/media/imagev3-37.png)
  
@@ -519,11 +519,13 @@ You apply the iFix that is documented in the IBM security bulletin to resolve th
 
 ### 4.3.2 Update tWAS server v9.0.5.7 to fix the LOG4J vulnerability
 
+Automated installation of WebSphere and Liberty fixpaks and iFixes was introduced in IBM WebSphere Automation in version 1.4.
+
 You can automatically deploy fixes to servers in your managed server inventory through the WebSphere Automation UI. You must have a user profile with at least the **Modify WebSphere inventory** permission, and the servers that you want to fix must be registered and configured for fix installation with WebSphere Automation.
 
 In this section, you leverage the built-in capabilities in IBM WebSphere Automation to automatically prepare and install the recommended iFix to the traditional WebSphere 9.0.5.7 server to remove the Log4J vulnerability reported as **CVE-2021-44228**.
 
-There are a couple of additional components in the product to support this use case:
+There are a couple of additional components now included in the product to support this use case:
 
   - **Fix manager**
     
@@ -786,7 +788,7 @@ Since you applied the PH42762 iFix, now you can examine the updated security pos
 
     You learned how to use the automated fix deployment capabilities to easily fix vulnerable servers directly from the IBM WebSphere Automation UI. 
     
-    You learned that WebSphere Automation provides a detailed history of fixes applied to each registered server, including information about when each issue was detected, when and how it was fixed, and how many days servers were exposed.
+    You learned how to demonstrate the date that a vulnerability was detected, and the date that the fix was applied. WebSphere Automation provides a detailed history of fixes applied to each registered server, including information about when each issue was detected, when and how it was fixed, and how many days servers were exposed.
 
     <br/>
 
@@ -799,12 +801,12 @@ Since you applied the PH42762 iFix, now you can examine the updated security pos
 
 ### Section 5 - Detect and trigger investigation of Application Memory Leak with IBM WebSphere Automation
 
-<detailsa>
+<details>
  <summary><b><font color="dodgerblue">Click to expand:</font></b> Section 5 - Detect and trigger investigation of Application Memory Leak with IBM WebSphere Automation</summary>
 
 ## 5.0 Detect and Address Application Memory Leak with IBM WebSphere Automation and Instana
 
-In this section of the lab, you are going to use a traditional WebSphere Application
+In this lab, you are going to use a traditional WebSphere Application
 Server registered with IBM WebSphere Automation (WSA), and monitored by Instana to drive a memory leak investigation.
 
 You will learn how WSA can automatically:
@@ -846,20 +848,45 @@ In this lab, the root cause is a vector, growing unbounded, in the sample applic
 WSA also allows you to download all the files that you need to share with your application development team or application vendor, so that they could take the action to remediate the memory leak in the application.
 
 
- ### 5.1 Verify the Instana agent is running and configured
+ ### 5.1 Installing and starting Instana agent
 
-For this lab, the Instana agent has already been installed on the VM. 
+<font color=red> KLP bake this into the image and just add this to appendix. </font>
 
-However, installing the Instana agent is simple. Using the Instana UI, you can select options for installing the agent, such as the `agent mode`, `agent runtime`, and `installation mode`. Doing so, produces a `curl command` that you run from a Terminal window, to install the Linux agent. 
+In this section, you wil install an Instana agent in the `student` VM, where the WebSphere Application Server used in this lab is installed.  
 
-1. Check that the Instana agent process is running. You should see the Instana Java process listed. 
+Using the Instana UI, you can select options for installing the agent, such as the `agent mode`, `agent runtime`, and `installation mode`. Doing so, produces a curl command that you run from a Terminal window, to install the Linux agent. 
 
-        ps -ef | grep instana
+In this lab, we have provided a simple Linux shell script that installs the Linux agent and configures a `WebSphere` infrastructure zone for monitoring WebSphere Application Server. 
 
-    ![](./lab2-media/media/4310-instana-process-pid.png)
+1.  Install the Instana Linux agent on the Student VM
 
-     
-    **Tip:** The Instana agent is installed in **/opt/instana/agent** directory.
+    a.  Open a Terminal window.
+    
+    b. Change to the directory where the script is located
+
+         cd /home/ibmuser/WAS-Automation-LabFiles/techxchange/lab2-MemoryLeak
+
+    c. Run the following script to install the instana agent
+
+        ./klp-install-instana-agent.sh
+        
+    ![](./lab2-media/media/4310-install-instana-agant.png)
+ 
+     ![](./lab2-media/media/4310-restarted-instana.png)
+      
+    The Instana agent is installed in **/opt/instana/agent** directory.
+
+    The script also defined an Instana Infrastructure Zone for WebSphere by enabling the Instana `Hardware & Zone plugin settings` as illustrated below:  
+    
+    ![Graphical user interface, text Description automatically
+ generated](./lab2-media/media/image24.png)
+
+    > For reference purposes only, Instana's configuration file is located here: `/opt/instana/agent/etc/instana/configuration.yaml`
+
+
+    Lastly, the script restarted the Instana agent with the updated configuration.
+
+      ![](./lab2-media/media/4310-restarted-instana.png)
 
 
 2. Login to the Instana UI
@@ -878,22 +905,22 @@ However, installing the Instana agent is simple. Using the Instana UI, you can s
 
 3.  Verify the Instana agent installation
 
+    > Note: after the agent is started, it might take a few minutes for the agent to sync with Instana server.
+
     a. Click on the `Infrastructure` icon on the left navigation bar. 
     
-    You will see the `WebSphere` infrastructure zone that we configured in the Instana agent for this lab. 
-    
-    This infrastructure zone is configured for montoring WebSphere, using Instana's out of the box capabilities. 
+    You will see the `WebSphere` infrastructure zone that was configured when you installed the Instana agent using the Linux script.  
 
     ![](./lab2-media/media/4310-infrastructure-zone.png)
 
-    b. Click `Time Rage` dropdown button, select `Last 5 minutes` and click `Live`.
+       b. Click `Time Rage` dropdown button, select `Last 5 minutes` and click `Live`.
 
     ![A screenshot of a computer Description automatically generated with medium confidence](./lab2-media/media/image28.png)
 
     The Istana agent is now set to monitor the changes in 5 minutes interval, the agent installation is now completed.
 
 
-### 5.2 WebSphere Automation integration with Instana and WebSphere Servers
+### 5.2 Configure WebSphere Automation integration with Instana and WebSphere Servers
 
 WebSphere Automation (WSA) communicates with Instana to receive real-time Instana alerts. 
 
@@ -903,9 +930,30 @@ To do so, a secure ssh connection must be configured between the Instana server 
 
 -----------------------------------------------------------
 
-For this lab, we have configured the secure ssh connections required for Instana, WebSphere Automation, and WebSphere Application Server environments, according to the product documentation. 
+In this lab, you will run a simple Linux shell script that configures and validates the secure SSH connection,
 
 ----------------------------------------------------------
+
+1. Configure the secure ssh connection between Instana server and the Linux Student VM
+
+    a. Return to the Terminal window in the Student VM.
+
+    b. Ensure you are in the directory where the script is located
+
+        cd /home/ibmuser/WAS-Automation-LabFiles/techxchange/lab2-MemoryLeak
+
+    c. Run the following script that configures the secure ssh connection and restarts the Instana server.
+
+        ./klp-instana-setup.sh 
+
+
+    c. Ensure the script completed with the `TEST PASSED` message. 
+
+    When the script completes the ssh configuration, it tests the secure connection. If the connection is properly configured, the `TEST PASSED` message is displayed. 
+
+    If the test passes, you can continue with the lab.
+
+    ![](./lab2-media/media/4310-setup-instana-ssh.png)
 
 
 ### 5.3 Configure Instana for memory leak alert
