@@ -2,11 +2,18 @@
 
 ![banner](./lab1-media/media/image1.jpeg)
 
-**Last updated:** August 2022
+**Last updated:** March 2023
+
+IBM WebSphere Automation version 5.1
 
 **Duration:** 90 mins
 
-Need support? Contact **Kevin Postreich**
+Need support? 
+
+  - **Kevin Postreich** - kevinlp@us.ibm.com
+
+  - **Yi Tang** - yitang@us.ibm.com
+
 
 ## Introduction to WebSphere Automation
 
@@ -82,52 +89,59 @@ You will use the **one-click Fix Deployment** capability of WebSphere Automation
 
 ![](./lab1-media/media/image3.png)
 
-## Accessing and starting the environment
+## Accessing the environment
 
 If you are doing this lab as part of an instructor led workshop (virtual or face to face), an environment has already been provisioned for you. The instructor will provide the details for accessing the lab environment.
 
 Otherwise, you will need to reserve an environment for the lab. You can obtain one here. Follow the on-screen instructions for the “**Reserve now**” option.
 
-<https://techzone.ibm.com/my/reservations/create/60da2c20e2cb7a001f656575>
+<https://techzone.ibm.com/my/reservations/create/63867b6a4cd2a3001961ea2c>
 
 
-1.  When the demo environment is provisioned, use the provided username and password to access and start the environment. You should see the following screen:
+1.  Access the lab environment from your web browser. 
+    
+    a. When the demo environment is provisioned, click on the **environment tile** to open its details view. 
 
-    ![](./lab1-media/media/image5.png)
+    b. Click on the **Published Service** link which will display a **Directory listing**  
+    
+    c. Click on the **"vnc.html"** link to open the lab environment through the **noVNC** interface. 
+    
+    ![](./lab1-media/media/vnc-link.png)
+    
+    d. Click the **Connect** button 
+    
+      ![](./lab1-media/media/vnc-connect.png)
 
-     WebSphere Automation is pre-installed in the OCP cluster hosted on the VMs.
+    e. Enter the password as:  **passw0rd**. Then click the **Send Credentials** button to access the lab environment. 
+
+    > Note: That is a numeric zero in passw0rd  
+
+      ![](./lab1-media/media/vnc-password.png)
+
+
+    IBM WebSphere Automation is pre-installed in the OCP cluster hosted on the VMs.
 	 
 	 <br>
 	 
-2. If the environment is **NOT** already started, go ahead, and **Start** the environment by clicking on the **Play** button. It takes about 10-15 minutes for the environment to start and stabilize.
 
-    ![](./lab1-media/media/image6.png)
+3. The Published Service provides access to the **STUDENT** VM through the noVNC interface for the lab environment. 
 
-    <br> 
-
-3. You will be working on the **STUDENT** VM only. 
-
-    All the WebSphere **images** and **iFixes** required for the lab are pre-installed:
+    All the WebSphere **images** and **iFixes** required for the lab are pre-installed on the VM:
 
     - /opt/IBM/WebSphere/Liberty20009/
 
     - /opt/IBM/WebSphere/AppServer9057/
 
     <br>
-	
-4.  Click the screen representing the **STUDENT** VM
 
-    ![student vm](./lab1-media/media/image7.png)
-
-    <br>
 	
-5.  Once you log in to the Student VM you will see the Desktop, which     contains all the programs that you will be using (browsers, terminal, etc.)
+5.  Once you log in to the Student VM you will see the Desktop, which contains all the programs that you will be using (browsers, terminal, etc.)
 
     The login credentials for the **STUDENT”** image is:
  
      - User ID: **ibmuser**
 
-     - Password: **engageibm\!**
+     - Password: **engageibm**
 	 
 	 <br>
  
@@ -135,9 +149,37 @@ Otherwise, you will need to reserve an environment for the lab. You can obtain o
 	 
 	 <br>
 
-6.  You can resize the virtual desktop with the **Fit to window** button, located at the top of the Skytap environment window.
+## Tips for working in the lab environment     
 
-    ![fit to window](./lab1-media/media/image9.png)
+1.  You can resize the viewable area using the **noVNC Settings** options to resize the virtual desktop to fit your screen.
+
+    a. From the environemnt VM, click on the **twisty** on the noNC control pane to open the menu.  
+
+    ![fit to window](./lab1-media/media/z-twisty.png)
+
+    b. To increase the visible area, click on `Settings > Scaling Mode` and set the value to `Remote Resizing`
+      
+     ![fit to window](./lab1-media/media/z-remote-resize.png)
+
+
+2.  You can copy / paste text from the lab guide into the lab environment using the clipboard in the noVNC viewer. 
+   
+    a. Copy the text from the lab guide that you want to paste into the lab environment
+    
+    b. Click the **Clipboard** icon and **paste** the text into the noVNC clipboard
+
+    ![fit to window](./lab1-media/media/paste.png)
+    
+    c. Paste the text into the VM, such as to a terminal window, browser window, etc. 
+
+    d. Click on the **clipboard** icon again to close the clipboard
+
+    > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. 
+    
+    > In this case you might try again, or open another Terminal Window and try again, or  paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
+
+3. An alternative to using the noVNC Copy / Paste option, you may consider opening the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide wihout having to use the noVNC clipboard. 
+
 
     <br>
 
@@ -166,21 +208,35 @@ After defining an exposure mitigation plan, administrators then use the WebSpher
 
     ![](./lab1-media/media/clonerepo.png)
 
+    c.  Navigate to the cloned repo directory for this lab
+
+        cd /home/ibmuser/WAS-Automation-LabFiles/lab1-CVE
+
+    d. Add execute permission to the shell scripts
+
+        chmod 755 *.sh
+
+        
+
 
 ## REQUIRED: WebSphere Automation setup
 
-The Fix Deployment capability of WebSphere Automation 1.4 delivers automation that determines which APARs and interim fixes resolve a specific vulnerability, and enables one-click download and deploy of fixes. This capability augments the existing automated vulnerability assessment and fix history tracking.
+The Fix Deployment capability of WebSphere Automation delivers automation that determines which APARs and interim fixes resolve a specific vulnerability, and enables one-click download and deploy of fixes. This capability augments the existing automated vulnerability assessment and fix history tracking.
 
 To apply security fixes from managed servers, both WebSphere Automation and the WebSphere servers must be properly configured to communicate by using SSH. 
 
 The following configuration tasks must be completed to use the Fix Deployment features in IBM WebSphere Automation.  
-You will do these steps in this section of the lab, to become familiar with configuring IBM WebSphere Automation. 
+You will do these steps in this section of the lab using a shell script, which will streamline the setup process.  
 
   - Create the **ssh key**
   - Copy the key over to the WAS server to be monitored
   - Create the **wsa-ansible** secret that contains the key
   - Create the **known_hosts** file
   - Create the **wsa-secure-fixcentral-creds** secret that contains the IBM ID credentials to access IBM Fix Central
+
+Fist, you need to verify that IBM WebSphere Automation is in the "Ready" state. 
+
+### Ensure WebSphere Automation is "Ready" for use 
 
 1. Login to OpenShift CLI
 
@@ -190,7 +246,7 @@ You will do these steps in this section of the lab, to become familiar with conf
     
     Use the following credentials to login: 
     > 
-    > username: ibmuser
+    > username: ibmadmin
 
     > password: engageibm
 
@@ -198,7 +254,7 @@ You will do these steps in this section of the lab, to become familiar with conf
 
      <br/>
 
-2.  Type `oc project websphere-automation` to ensure you are working in the **websphere-automation** project
+3.  Type `oc project websphere-automation` to ensure you are working in the **websphere-automation** project
 
     ![](./lab1-media/media/image71.png)
 
@@ -211,131 +267,62 @@ You will do these steps in this section of the lab, to become familiar with conf
 
 
 
-4. Create the **ssh key** that is used for secure communication between WebSphere Automation and the WebSphere servers
+### Use the provided shell script to setup WebSphere Automation
 
-        cd /home/ibmuser
+In this section, you run a shell script that performs the setup steps noted above, which are required to use the Fix Deployment features in IBM WebSphere Automation.  
+
+1. Ensure you are in directory where the shell scripts are located. 
+
+        cd /home/ibmuser/WAS-Automation-LabFiles/lab1-CVE
+
+2. Run the shell script
+
+        ./wsa-setup.sh
+
+   The shell script is interactive, and requires keyboard input. Respond to the prompts as illustrated below: 
+
+    a.  Type "**passw0rd**" when prompted for a password for the ssh-keygen password. (Note the zero)
         
-        ssh-keygen -f ~/.ssh/wsa
+    > **Note:** Re-enter SAME passphrase again: **passw0rd**  
 
-    a. When prompted, enter the password as: **passw0rd** 
+   ![](./lab1-media/media/v51-001.png)
+
+    b. Type "**yes**" when prompted to continue connecting for the **ssh-copy-key** command
+
+    ![](./lab1-media/media/v51-002.png)
+
+    c. Type "**engageibm**" when prompted for the password for "ibmuser" on the ssh-copy-key command
+
+    ![](./lab1-media/media/v51-003.png)
+
+    - The script will now run to completion without any further interaction. 
+
+3. When the script completes, verify the "Test-Connection" Ansible playbook ran successfully, as illustrated in the console output. 
+
+    ![](./lab1-media/media/v51-004.png)
+
+
+    <table>
+    <tbody>
+    <tr class="odd">
+    <td><img src="./lab1-media/media/image47.png" style="width:3.90417in;height:1.00417in" alt="sign-info" /></td>
+    <td><p><strong>What if the script FAILS?</strong></p>
+    <p>If the script completed with "TEST FAILED", the likely cause is  incorrect input was entered for one or more of the input prompts. 
     
-    > **Note:** That is a numeric zero in **passw0rd**
+    The ssh-key passphrase MUST be set to "passw0rd", as that is the password that we code into the OCP secret. 
 
-    ![](./lab1-media/media/image73.png)
+    RE-RUN the script again. Respond to the input prompts carefully, according to the lab guide illustrations shown above. 
 
-    Additional documentation can be found here: [https://www.ibm.com/docs/en/ws-automation?topic=servers-setting-up-ssh-linux-unix](https://www.ibm.com/docs/en/ws-automation?topic=servers-setting-up-ssh-linux-unix)
-
-
-5.	Copy the ssh key over to the WAS server to be monitored. In this lab the following command is used:
-
-        ssh-copy-id -i ~/.ssh/wsa ibmuser@student.demo.ibmdte.net
-
-    a. When prompted to continue connection, type `yes`
-
-    b. When prompted for the password for ibmuser@student.demo.ibmdte.net, type `engageibm!` as the password. 
-
-    Ensure the message indicates that 1 key was **added** to the users key store. 
-
-    ![](./lab1-media/media/image74.png)
-
-6.	Test the login to the WAS server from the WebSphere Automation server via ssh key with the key passphrase from the ssh key, which is set to passw0rd. 
-
-        ssh -i ~/.ssh/wsa ibmuser@student.demo.ibmdte.net
-
-    ![](./lab1-media/media/image76.png)
-
-    a. Type `whoami` from the command line and verify the user is **ibmuser**
-
-    ![](./lab1-media/media/image75.png)
-
-     b. Type `exit` from the command line to close the ssh connection
-
-      ![](./lab1-media/media/image77.png)
+    Note: you can also run the "oc logs --tail ..." command that is shown on the console output, which is the entire log output from the ansible test-connection playbook. That log may provide additional insights into the error. </p>
+    </td> 
+    </tr>
+    </tbody>
+    </table>
 
 
-7. Create the **wsa-ansible** secret that contains the key
+**You have now completed the WebSphere Automation setup procedures**
 
-        oc create secret generic wsa-ansible \
-        --from-literal=ansible_user=ibmuser \
-        --from-literal=ansible_port=22 \
-        --from-file=ssh_private_key_file=/home/ibmuser/.ssh/wsa \
-        --from-literal=ssh_private_key_password=passw0rd
-
-    ![](./lab1-media/media/image78.png)
-
-    Additional documentation can be found here: [https://www.ibm.com/docs/en/ws-automation?topic=servers-setting-up-websphere-automation-ssh](https://www.ibm.com/docs/en/ws-automation?topic=servers-setting-up-websphere-automation-ssh)
-
-
-8. Create a **known-hosts** file which will configure WebSphere Automation with a list known hosts and their public keys that WebSphere Automation will trust. 
-
-        ssh-keyscan student.demo.ibmdte.net >> /home/ibmuser/wsa_known_hosts
-        
-    ![](./lab1-media/media/image79.png)
-    
-    Additional documentation can be found here: [https://www.ibm.com/docs/en/ws-automation?topic=servers-setting-up-websphere-automation-ssh](https://www.ibm.com/docs/en/ws-automation?topic=servers-setting-up-websphere-automation-ssh)
-
-9. Create the **wsa-ansible_known_hosts configMap**, using the known-hosts file you just created. 
-
-        oc create configmap wsa-ansible-known-hosts --from-file=known_hosts=/home/ibmuser/wsa_known_hosts
-  
-    ![](./lab1-media/media/image80.png)
-
-
-
-10. Test the ssh connection from IBM WebSphere Automation to WAS environment, using the following commands: 
-
-        MANAGER_POD=$(oc get pod -l app.kubernetes.io/component=runbook-manager -o name | head -n 1)
-
-        oc rsh $MANAGER_POD runcli testConnection student.demo.ibmdte.net linux
-
-    a. Run the `oc log` command that is outputted from the "**oc rsh**" command. 
-
-       **Example:**   
-       oc logs --tail=100 -l job-name=test-connection-######     
-
-       >  **Note:** Run the command multiple times until you see the exected output as shown below.    
-
-    ![](./lab1-media/media/image94.png)
-
-    b. A successful connection should look similar to this output: 
-
-    ![](./lab1-media/media/image95.png)
-
-     ![](./lab1-media/media/image95-cont.png)
-
-
-11. Create the **wsa-secure-fixcentral-creds secret** that contains the credentials to access IBM Fix Central. 
-
-    > **Note!** The password in the command below expires on or around December 12, 2022.
-
-        oc create secret generic wsa-secure-fixcentral-creds --from-literal=user=wasngi@ca.ibm.com --from-literal=password=Dec12was
-
-    ![](./lab1-media/media/image81.png) 
-
-12. Wait for the following two pods to be created and started, using the oc get pods command below: 
- 
-    - wsa-secure-fix-manager-*
-    - wsa-secure-installation-manager-*
-
-    <br/>  
-   
-    ```   
-    oc get pods | grep '\<fix\>\|installation'
-    ```
-    
-    > **Note:** It will take a few minutes for both pods to be created and listed in the `oc get pods` command. It will also take a couple of minutes for the ods to get to the running state. These pods are only created and started once the **wsa-secure-fixcentral-creds** secret is created in the OCP cluster. 
-
-
-    ![](./lab1-media/media/image82.png)
-
-
-    The **wsa-secure-fix-manager-\*** pod is responsible for downloading the fixpaks and iFixes from IBM Fix Central, using the credentials you provided in the **wsa-secure-fixcentral-creds** secret. 
-
-    The **wsa-secure-installation-manager-\*** pod is responsible for running the Ansible playbooks to install the fixpaks or iFixes into the registered WebSphere or Liberty servers. 
-
-    <br/>
-
-> **You have now completed the custom configuration required for this lab.**
+If the wsa-setup.sh script completed with **TEST_PASSED**, you can proceed with the lab.
 
 <br/>
 
@@ -418,9 +405,13 @@ For this lab, WebSphere Automation is pre-installed on an OCP cluster. You have 
 
 7. The **Application runtimes – Security** page appears. There should be no data since there not any WebSphere / Liberty servers registered yet.
 
+    |         |           |  
+    | ------------- |:-------------|
+    | ![](./lab1-media/media/image47.png?cropResize=50,50)   | <strong>IMPORTANT:</strong> <br><br> If any of the labels on the page don't display properly, refresh the browser window using the web browser refresh icon.  <br><br> For example: The label for the **Fix management** tab may display as **!Fix management!** the first time. Refreshing the browser window will result in the labels being displayed correctly.  <br><br> Note: This is only a one-time action. 
+
      ![App runtime](./lab1-media/media/image17.png)
 
-     <br/>
+    <br/>
 
 8.  Before you start to register servers to the Dashboard, you need to configure an email to received notifications about CVEs.
     
@@ -781,7 +772,7 @@ After you select the fix, WebSphere Automation provides two options:
     
     |         |           |  
     | ------------- |:-------------|
-    | ![](./lab1-media/media/image47.png?cropResize=50,50)   | <strong>IMPORTANT:</strong> <br><br> If the **PH42728** iFix is not listed under the **"resolution"** column as illustrated in the screen shot below, give WebSphere Automation a few more minutes to load the fix meta-data into its database.  <br><br>  To avoid overloading WebSphere Automation, it only loads the meta-data for unresolved CVEs when a WebSphere or Liberty server is registered. And, WSA only loads the meta-data for the unresolved CVEs of the registered server(s). <br><br>  WSA does this using a background process that spins up several threads. Because there are more unresolved CVEs than number of threads loading the meta-data,  it will take a WSA a couple of iterations to load all of the meta-data for the fixes. <br><br>   Typically, the process will complete within 8-10 minutes after the server has been registered with WebSphere Automation. <br><br> WSA will continue to load fix meta-data as new unresolved CVEs are detected for registered servers. 
+    | ![](./lab1-media/media/image47.png?cropResize=50,50)   | <strong>IMPORTANT:</strong> <br><br> If the **PH42728** iFix is not listed under the **"resolution"** column as illustrated in the screen shot below, give WebSphere Automation a few more minutes to load the fix meta-data into its database.  <br><br>  To avoid overloading WebSphere Automation, it only loads the meta-data for unresolved CVEs when a WebSphere or Liberty server is registered. And, WSA only loads the meta-data for the unresolved CVEs of the registered server(s). <br><br>  WSA does this using a background process that spins up several threads. Because there are more unresolved CVEs than number of threads loading the meta-data,  it will take a WSA a couple of iterations to load all of the meta-data for the fixes. <br><br>   Typically, the process will complete within 8-10 minutes after the server has been registered with WebSphere Automation. <br><br> WSA will continue to load fix meta-data as new unresolved CVEs are detected for registered servers.
 
     ![](./lab1-media/media/image87.png)
 
@@ -809,16 +800,11 @@ After you select the fix, WebSphere Automation provides two options:
 
     > **Note:** For this lab, "Create backup" option should be set to "**off**".
 
+    c. Once the installation starts, a new "**fix record" is created, and the installation will begin.
 
-    ![](./lab1-media/media/image91.png)
-
-
-	|         |           |  
-    | ------------- |:-------------|
-    | ![](./lab1-media/media/image4.png?cropResize=100,100)   | <strong>Alert:</strong> <br>In this lab environment, when the Install Fix action is initiated, a pop-up error dialog may be displayed that may be ignored!<br/> <br/>![](./lab1-media/media/image96.png) <br/> If the "Status" field has not changed to "Failed", let the installation proceed to completion. 
-
+    ![](./lab1-media/media/v51-005.png)
     
-    c. The installation may take 5 or 6 minutes to complete. Wait until you see the status change to "**Installation complete**"
+    d. The installation may take 5 or 6 minutes to complete. Wait until you see the status change to "**Installation complete**"
 
     ![](./lab1-media/media/image92.png)
 
@@ -930,7 +916,77 @@ Now that you have applied the PH42762 iFix, let's examine the updated security p
     
     You learned how to demonstrate the date that a vulnerability was detected, and the date that the fix was applied. WebSphere Automation provides a detailed history of fixes applied to each registered server, including information about when each issue was detected, when and how it was fixed, and how many days servers were exposed.
 
+### 3.5 Optional - Uninstall the latest fix that was applied    
 
+With WebSphere Automation, you can uninstall the most recently applied fix for WebSphere and Liberty servers using the UI. 
+
+The server installation with the fix that you want to remove must have a fix management record with a successfully installed fix package (that is, an "**Install**" action with a "**Succeeded**" status).
+
+1. View the **Fix record** for the 9057 server
+
+    a. Return to the **Security** view, and click on the **9057 server** 
+
+    ![](./lab1-media/media/v51-006.png)
+
+    b. Click the **Fix Management** tab, and note the fix record for the installed package "IFPH43148". This is the fix package you installed to resolve the CVE-2021-44228 CVE. 
+ 
+    c. Note the fix record status: 
+    - Action: **Install**
+    - Status: **Succeeded**
+
+    ![](./lab1-media/media/v51-007.png)
+
+    Since the "Install" fix record for the IFPH3148 package is in the "Succeeded" state, you can use the WebSphere Automation UI to **Uninstall** the fix. 
+
+2. Uninstall this latest installed fix for the 9057 server
+
+    a. From the **Fix Management** view for the 9057 server, click on the "**Uninstall latest package**" link. 
+
+    ![](./lab1-media/media/v51-009.png)
+   
+    b. Review the details. Then click "**Uninstall**" to uninstall the fix package.
+
+    ![](./lab1-media/media/v51-010.png)
+
+    c. When asked if you want to create a backup, select "**OFF**". Then click the **Proceed** button to begin the Uninstallation of the package. 
+
+    ![](./lab1-media/media/v51-011.png)
+
+    d. A new "Fix Management" record is created, and the "Uninstall" action is started. 
+    
+    ![](./lab1-media/media/v51-012.png)
+
+
+    e. After a few moments, the status of the "Uninstall" fix record  changes to **Succeeded**. 
+    
+    > The fix package has successfully been uninstalled from the 9057 WebSphere server. 
+
+    ![](./lab1-media/media/v51-013.png)
+
+
+ 3. View the CVE-2021-44228 CVE in the Servers view, and note that the 9057 server is once again vulnerable to this CVE. 
+
+    a. Click on the **CVEs** tab
+
+    ![](./lab1-media/media/v51-014.png)
+
+    b. Select the CVE-2021-44228 CVE
+
+    ![](./lab1-media/media/v51-015.png)
+
+    c. Scroll down to the **Affected Servers** section in the view. 
+
+    Note that the 9057 WebSphere server is once again vulnerable to the CVE, as the fix package for the CVE as been removed from the server. 
+
+    ![](./lab1-media/media/v51-016.png)
+
+
+4. Return to the Application Runtimes **Security** view in WebSphere Automation     
+
+    ![](./lab1-media/media/v51-017.png)
+
+
+**Congratulations!**  You have completed the proactive CVE management lab for traditional WebSphere Application Servers.      
 
 ## Part 4: Working with WebSphere Liberty servers in IBM Automation
 
@@ -972,7 +1028,7 @@ In this section, you configure Liberty Server version 20.0.0.9 to register to We
 
         sudo \cp -f /home/ibmuser/Desktop/lab_backup/liberty20009/server_tls.xml /opt/IBM/WebSphere/Liberty20009/usr/servers/Liberty_20009_server/server.xml
 
-    When prompted for the password for ibmuser, enter: **engageibm!**
+    When prompted for the password for ibmuser, enter: **engageibm**
 
 	<br>
 
@@ -1358,7 +1414,7 @@ Now that you have applied the PH29942 iFix, let’s examine the updated security
     <table>
     <tbody>
     <tr class="odd">
-    <td><img src="./lab1-media/media/image4.png" style="width:1.60417in;height:1.60417in" alt="sign-info" /></td>
+    <td><img src="./lab1-media/media/image4.png" style="width:3.70417in;height:1.10417in" alt="sign-info" /></td>
     <td><p><strong>Information:</strong></p>
     <p>IBM WebSphere Automation reports ALL iFixes that have been applied, regardless of when they were applied. However. It can only determine fix dates, number of days the server was vulnerable, and vulnerability detected date for servers from the time the WebSphere server is registered with IBM WebSphere Automation.</p>
     <p>If the servers already had iFixes installed prior to being registered to IBM WebSphere Automation, they would be listed, but the installed date in not known and will be blank.</p></td> 
@@ -1502,7 +1558,7 @@ In this section, you will apply an iFix to the traditional WebSphere 9.0.5.7 ser
 
         sudo /iFix/PH42762-LOG4J/imcl_ifix_install.sh 9057
 
-    When prompted for the password for the ibmadmin user, enter: **engageibm!**
+    When prompted for the password for the ibmadmin user, enter: **engageibm**
 
     ![](./lab1-media/media/image34.png)
 	
@@ -1538,7 +1594,7 @@ You can remove the iFix that was applied to confirm that the CVE-2021-44228 show
 
         sudo /iFix/PH42762-LOG4J/imcl_ifix_uninstall.sh 9057
 
-    When prompted for the password for the ibmadmin user, enter: **engageibm!**
+    When prompted for the password for the ibmadmin user, enter: **engageibm**
 
     <br>
 
@@ -1644,7 +1700,7 @@ vulnerability.
     
         sudo /iFix/PH29942/imcl_ifix_install.sh 20009
 
-    When prompted for the password for ibmuser, enter: **engageibm!**
+    When prompted for the password for ibmuser, enter: **engageibm**
 
      ![apply fix](./lab1-media/media/image55.png)
 	
@@ -1667,3 +1723,151 @@ vulnerability.
     ![ifixes appli](./lab1-media/media/image58.png)
 
    
+## APPENDIX 3: Manual Setup for WebSphere Automation
+
+This sectin is for reference only. 
+
+The lab instructions include steps to run a provided shell script which automates the manual configuration steps below. 
+
+
+1. Create the **ssh key** that is used for secure communication between WebSphere Automation and the WebSphere servers
+
+        cd /home/ibmuser
+        
+        ssh-keygen -f ~/.ssh/wsa
+
+    a. When prompted, enter the password as: **passw0rd** 
+    
+    > **Note:** That is a numeric zero in **passw0rd**
+
+    > This is the password you are assigning for the new ssh key that is being reated
+
+    ![](./lab1-media/media/image73.png)
+
+    Additional documentation can be found here: [https://www.ibm.com/docs/en/ws-automation?topic=servers-setting-up-ssh-linux-unix](https://www.ibm.com/docs/en/ws-automation?topic=servers-setting-up-ssh-linux-unix)
+
+
+2.	Copy the ssh key over to the WAS server to be monitored. In this lab the following command is used:
+
+        ssh-copy-id -i ~/.ssh/wsa ibmuser@student.demo.ibmdte.net
+
+    a. When prompted to continue connection, type `yes`
+
+    b. When prompted for the password for ibmuser@student.demo.ibmdte.net, type `engageibm` as the password. 
+
+    Ensure the message indicates that 1 key was **added** to the users key store. 
+
+    **Note** This password is for the operating system user: **"ibmuser"** so that the ssh key can be securly copied.  
+
+    ![](./lab1-media/media/image74.png)
+
+3.	Test the login to the WAS server from the WebSphere Automation server via ssh key with the key passphrase from the ssh key, which is **passw0rd** 
+
+        ssh -i ~/.ssh/wsa ibmuser@student.demo.ibmdte.net
+
+    ![](./lab1-media/media/image76.png)
+
+    a. Type `whoami` from the command line and verify the user is **ibmuser**
+
+    ![](./lab1-media/media/image75.png)
+
+     b. Type `exit` from the command line to close the ssh connection
+
+      ![](./lab1-media/media/image77.png)
+
+
+4. Create the **wsa-ansible** secret that contains the key
+
+        oc create secret generic wsa-ansible \
+        --from-literal=ansible_user=ibmuser \
+        --from-literal=ansible_port=22 \
+        --from-file=ssh_private_key_file=/home/ibmuser/.ssh/wsa \
+        --from-literal=ssh_private_key_password=passw0rd
+
+    **Note:** The "wsa-ansible" secret contains the connection information required for WebSphere Automation to connect to the WebSphere server used in this lab. This connection is required for WebSphere Automation to ssh into WebSphere and execute Ansible playbooks to install WebSphere iFixes and Fixpacks. 
+
+    ![](./lab1-media/media/image78.png)
+
+    Additional documentation can be found here: [https://www.ibm.com/docs/en/ws-automation?topic=servers-setting-up-websphere-automation-ssh](https://www.ibm.com/docs/en/ws-automation?topic=servers-setting-up-websphere-automation-ssh)
+
+
+5. Create a **known-hosts** file which will configure WebSphere Automation with a list known hosts and their public keys that WebSphere Automation will trust. 
+
+        ssh-keyscan student.demo.ibmdte.net >> /home/ibmuser/wsa_known_hosts
+        
+    ![](./lab1-media/media/image79.png)
+    
+    Additional documentation can be found here: [https://www.ibm.com/docs/en/ws-automation?topic=servers-setting-up-websphere-automation-ssh](https://www.ibm.com/docs/en/ws-automation?topic=servers-setting-up-websphere-automation-ssh)
+
+6. Create the **wsa-ansible_known_hosts configMap**, using the known-hosts file you just created. 
+
+        oc create configmap wsa-ansible-known-hosts --from-file=known_hosts=/home/ibmuser/wsa_known_hosts
+  
+    ![](./lab1-media/media/image80.png)
+
+
+
+7. Test the ssh connection from IBM WebSphere Automation to WAS environment, using the following commands: 
+
+        MANAGER_POD=$(oc get pod -l app.kubernetes.io/component=runbook-manager -o name | head -n 1)
+
+        oc rsh $MANAGER_POD runcli testConnection student.demo.ibmdte.net linux
+
+    a. Run the `oc log` command that is outputted from the "**oc rsh**" command. 
+
+       **Example:**   
+       oc logs --tail=100 -l job-name=test-connection-######     
+
+       >  **Note:** Run the command multiple times until you see the exected output as shown below. At first, you will see messages "**waiting to start**", which can take a minute or two.    
+
+    ![](./lab1-media/media/image94.png)
+
+    b. A successful connection should look similar to this output: 
+
+    ![](./lab1-media/media/image95.png)
+
+     ![](./lab1-media/media/image95-cont.png)
+
+
+8. Verify the Kubernetes secret named **wsa-secure-fixcentral-creds** has been created in the lab environment. 
+
+        oc get secret | grep wsa-secure-fixcentral-creds
+
+    **Note:** This secret contains the information required for WebSphere Automation to access IBM Fix Central to fetch WebSphere and Libery fixes.   
+
+    **Note:** The wsa-secure-fixcentral-creds secret has already been created for you in the lab environment. 
+    
+    ![](./lab1-media/media/fixcentral-secret.png)    
+ 
+    When the secret is created, WebSphere Automation strarts two additional pods in OpenShift that are responsible for downloading WebSphere and Liberty fixes from IBM Fix Central and installing the fixes into WebSphere and Liberty servers that are registered with WebSphere Automation.  
+
+      - wsa-secure-fix-manager-*
+      - wsa-secure-installation-manager-*
+
+
+  
+9. Ensure the following two pods mentioned above are created and started, using the **oc get pods** command below: 
+ 
+    - wsa-secure-fix-manager-*
+    - wsa-secure-installation-manager-*
+
+    <br/>  
+   
+    ```   
+    oc get pods | grep '\<fix\>\|installation'
+    ```
+    
+    > **Note:** These pods are only created and started once the **wsa-secure-fixcentral-creds** secret is created in the OCP cluster. If the credentials in the secret are updated, the wsa-secure-fix-manager-* pod will automatically be restarted by OpenShift based on the updated credentials. 
+
+
+    ![](./lab1-media/media/image82.png)
+
+
+    The **wsa-secure-fix-manager-\*** pod is responsible for downloading the fixpaks and iFixes from IBM Fix Central, using the credentials you provided in the **wsa-secure-fixcentral-creds** secret. 
+
+    The **wsa-secure-installation-manager-\*** pod is responsible for running the Ansible playbooks to install the fixpaks or iFixes into the registered WebSphere or Liberty servers. 
+
+    <br/>
+
+
+
