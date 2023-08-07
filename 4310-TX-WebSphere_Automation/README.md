@@ -75,6 +75,15 @@ The remaining VMs are the RedHat OpenShift Cluster VMs that hosts the  IBM WebSp
 
     <br>
 
+
+3. (Optional) Open the `lab-commands.txt` file in an editor, to copy & paste commands throughout the lab. 
+
+   **TIP:** `You may use the lab-commands.txt file to copy & paste commands throught the lab.` 
+   
+        gedit /home/ibmuser/WAS-Automation-LabFiles/techxchange/lab-commands.txt
+
+    <br/>       
+
 ## Section 1 - Set up IBM WebSphere Automation in the lab environment 
 
 
