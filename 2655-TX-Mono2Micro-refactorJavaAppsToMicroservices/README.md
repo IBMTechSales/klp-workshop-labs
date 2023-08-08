@@ -1,7 +1,6 @@
 # Lab 2655 
 
-## Getting Started with Mono2Micro – An AI Powered Java Monolith to Microservices Transformer
-
+## Harnessing AI for efficient Java Refactoring: Mono2Micro – Your gateway to microservices transformation
 
 ## 1: Learning Objectives
 
