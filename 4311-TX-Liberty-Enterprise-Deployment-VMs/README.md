@@ -132,7 +132,7 @@ The “**server1.gym.lan**” VM contains the following components:
  
     **Note:** That is a numeric zero in **IBMDem0s!**
 
-4.  The `server0`` VM GUI is displayed, click the RedHat icon in the middle
+4.  The `server0` VM GUI is displayed, click the RedHat icon in the middle
     of screen to bring up the VM desktop UI.
 
     ![A screenshot of a computer Description automatically
@@ -456,7 +456,7 @@ The “**createController.sh**” script provides the following capabilities
 1.  Run commands below in the same command shell as you used to build
     the serverPackage, to create a Liberty collective controller:
 
-        /home/techzone/liberty\_admin\_pot/lab-scripts/createController.sh
+        /home/techzone/liberty\admin\pot/lab-scripts/createController.sh
  
     The createController.sh script creates a Liberty server
  named **CollectiveController.**

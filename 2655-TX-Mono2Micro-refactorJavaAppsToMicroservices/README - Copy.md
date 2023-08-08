@@ -42,7 +42,7 @@ The Ubuntu Linux **Workstation** VM is installed with the following softare for 
     
     <img src="./images/media/TechZoneWorkstationLogin.png" width="150"/>
     
-2.  If prompted. login with user ID `ibmdemo` and password `passw0rd`.
+2.  Log in with user ID `ibmdemo` and password `passw0rd`.
     
     a.  Click **ibmdemo** on the log in screen.
 
@@ -71,28 +71,15 @@ The Ubuntu Linux **Workstation** VM is installed with the following softare for 
     <img src="./images/media/FitToWindow.png" width="250"/>
 
 
-2.  You can copy and paste text from the lab guide into the lab environment by using **Send Text** clipboard tool. 
+2.  You can copy and paste text from the lab guide into the lab environment by using **Send Text** clipboard. 
    
-    <img src="./images/media/CopyPaste.png" width="280"/>
-
-    a. Copy the text from the lab guide that you want to paste into the lab environment.
-
-    b. Open a terminal window, or a text editor or a web browser in the VM Desktop where you want to copy the text to.
-
-    c. Click the Send Text icon in the VM Desktop tool bar, paste the text into its window, then again click Send Text  to send the text to an open command shell, text editor or browser  then close the Send Text window. 
-
-3. An alternative to using the Send Text tool is to copy and paste from the lab instructions to the VM is to use the `2655-lab-command-snippets` file. 
-  
-    **Note:** This file will be copied onto the VM when you clone the GitHub repository in the nxt section of the lab. 
-
-        /home/ibmdemo/m2m-ws-sample/lab-commands.txt 
-
+    <img src="./images/media/CopyPaste.png" width="280"/>)
 
     <br>
 
 |         |           |  
 | ------------- |:-------------|
-| ![](./images/media/image8.png?cropResize=100,100)   | <p><strong>IMPORTANT:</strong> <p>If, at any time during the lab, you are prompted to install updated software onto the VM, **DO NOT install the update**. Click **Cancel**.</p> <p>These lab instructions are intended for a specific version of software, which must not be updated at this time.</p><p>![](./images/media/image15a.png?cropResize=100,100)</p> |
+| ![](./images/media/image8.png?cropResize=100,100)   | <p><strong>IMPORTANT:</strong> <p>If, at any time during the lab, you are prompted to install updated software onto the VM, **DO NOT install the update**. Click **Cancel**.</p> <p>These lab instructions are intended for a specific version of software, which must not be udpated at this time.</p><p>![](./images/media/image15a.png?cropResize=100,100)</p> |
 
 
 
@@ -164,7 +151,8 @@ purpose. The component and their uses are listed in the following:
 
   - **Binary instrumenter** (minerva-agent-1.0.jar): A Java agent that
 instruments a running application deployed on the application server.
-The instrumentation adds entry point and exit point logging with a timestamp of every Java method in the application.
+The instrumentation captures entry and exit of every Java method in the
+application
 
   - **Use case recorder:** A Java program that is used while running test
 cases that gathers runtime analysis data. The use case recorder is used
@@ -206,7 +194,7 @@ In this lab, you will use Mono2Micro to transform WebSphere Application
 Server’s **Default Application** into microservices.
 
 The Default application contains a web module called
-***DefaultWebApplication*** and a JPA Entity called
+***DefaultWebApplication*** and an enterprise Java bean (EJB) called
 ***Increment***.
 
 The Default Application provides two servlets that are invoked from an
@@ -227,7 +215,7 @@ methods, including:
 
   - A servlet instance variable
   - An HTTP session
-  - A JPA Entity
+  - An enterprise bean
 
 ![](./images/media/image18.png)
 
@@ -260,9 +248,12 @@ application used in this lab, to microservices.
     
         cd /home/ibmdemo/m2m-ws-sample
 
-      
-3.	Instead of using the Send Text tool, Open the `lab-commands.txt` file in an editor from a separate command shell from the one used to execute the commands, to copy & paste commands throughout the lab.
+        ls -l
 
+3. Open the `lab-commands.txt` file in an editor, to copy & paste commands throughout the lab. 
+
+   **TIP:** `Use the lab-commands.txt file to copy & paste commands throught the lab.` 
+   
         gedit /home/ibmdemo/m2m-ws-sample/lab-commands.txt
 
     <br/>   
@@ -620,7 +611,9 @@ quantity and quality of the data gathered will impact the quality and
 usefulness of the partitioning recommendations from Mono2Micro’s AI
 analyzer tool.
 
-The key concept here is to run as many user scenarios for the application as possible while executing the application that has been instrumented using the binary instrumenter with the monolith application, in turn exercising as much of the codebase as possible.
+The key concept here is to run as much user scenarios as possible in the
+running the binary instrumenter with the monolith application,
+exercising as much of the codebase as possible.
 
 These user scenarios (or business use cases if you will), should be
 typical user threads through the application, related to various
@@ -665,7 +658,7 @@ You will configure the Liberty server to load the Binary instrumenter (minerva-a
 
         -javaagent:/home/ibmdemo/Mono2Micro-CLI/instrumenter/minerva-agent-1.0.jar=/home/ibmdemo/Mono2Micro-CLI/DefaultApplication-mono2micro/instrumenter-config.json 
 
-    c.  **Save** the “jvm.options” file and **Close** the editor for the jvm options file. 
+    c.  **Save** the “jvm.options” file and **Close** the editor
 
 
 2.  Run the scripts below to Start the Liberty server and check that the server is in the running state
