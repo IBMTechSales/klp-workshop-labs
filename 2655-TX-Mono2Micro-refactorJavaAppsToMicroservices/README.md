@@ -1384,7 +1384,6 @@ Lets get started\!
 
     a.   Modify the value for the “**`UserModifiedGraph`**” property to **`custom_graph.json`**
 
-    b.  **Save** and **Close** the config.ini file
 
             [Global]
             Logging = stderr
@@ -1409,6 +1408,8 @@ Lets get started\!
             [Utility Classes Discovery]
             Threshold = 0.7
 
+
+    b.  **Save** and **Close** the config.ini file
 
 4.  Go to the Mono2Micro-CLI directory and then rerun the AI engine with
     the “**refine”** command to generate the partitioning
