@@ -393,7 +393,7 @@ remote hosts (VMs / machines) where the Liberty collective members will
 host the sample applications.
 
 In the next sections of the lab, you will continue the recommended
-practice of using automation to create a `Liberty Collective`` and deploy
+practice of using automation to create a `Liberty Collective` and deploy
 the server package to two hosts (VMs), and add the deployed servers to
 the Liberty Collective, where the servers can be centrally managed by
 the collective.
@@ -446,7 +446,7 @@ The “**createController.sh**” script provides the following capabilities
 1.  Run commands below in the same command shell as you used to build
     the serverPackage, to create a Liberty collective controller:
 
-        /home/techzone/liberty\admin\pot/lab-scripts/createController.sh
+        /home/techzone/liberty/admin/pot/lab-scripts/createController.sh
  
     The createController.sh script creates a Liberty server
  named **CollectiveController.**
