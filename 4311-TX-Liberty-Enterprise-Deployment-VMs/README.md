@@ -90,9 +90,7 @@ following components:
     showcase Liberty capabilities such as Dynamic Routing, Session
     Persistence, and fail-over scenarios.
 
-**Note:** In most cases the HTTP server is placed on a dedicated host
-located in the DMZ, but to minimize the size of this demonstration
-environment, it’s collocated with Liberty processes.
+    **Note:** In most cases the HTTP server is placed on a dedicated host located in the DMZ, but to minimize the size of this demonstration environment, it’s collocated with Liberty processes.
 
 The “**server1.gym.lan**” VM contains the following components:
 
@@ -314,15 +312,13 @@ collective.
     <img src="./images/media/image15.png" width="200"/>
 
     b. From the file explorer, navigate
- to **techzone/lab-work/packagedServers** directory.
+ to **`Home > lab-work > packagedServers`** directory.
  
     **TIP:** the server package is named based on the version of Liberty
  in the package, and the placeholder server name;
  “**22.0.0.8-pbwServerX.zip**".
  
-    ![A screenshot of a computer Description automatically
- generated](./images/media/image16.png)
-
+    <img src="./images/media/image16.png" width="400"/>
 
 **What did the Maven Build do?**
 
