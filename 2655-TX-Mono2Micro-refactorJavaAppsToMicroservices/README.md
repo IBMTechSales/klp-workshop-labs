@@ -31,7 +31,7 @@ The lab environment contains one Linux VM named **Workstation**.
 The Ubuntu Linux **Workstation** VM is installed with the following softare for the lab session:
   
   - Application Project with Liberty
-  - Maven 3.6.0 
+  - Maven  
 
   <br/>
 
@@ -114,42 +114,8 @@ Based on the partitioning, Mono2Micro also **generates the microservices foundat
 
 ![](./images/media/image5.png)
 
-## 3.1 Getting Started with Mono2Micro
 
-Below is a high-level flow diagram of getting started with Mono2Micro in
-collecting data on an existing monolith application, and then running
-the AI analyzer tool to generate two kinds of recommendations as how to
-partition the application into recommended microservices.
-
-1.  The data is collected from static code analysis, capturing **data
-    (Class) dependencies,** depicted in **\[1\]**.
-
-2.  Data is dynamically collected through **runtime trace logs** as the
-    instrumented monolith application is run through various **use case
-    scenarios** to exercise as much of the codebase as possible,
-    depicted in **\[2\]** & **\[3\]**.
-
-Based on all three kinds of data, Mono2Micro generates a ***Natural
-Seams Partitioning*** recommendation that aims to partition and group
-the monolith classes such that there are minimal class containment
-dependencies and entanglements (i.e. classes calling methods outside
-their partitions) between the partitions.
-
-The “Data Dependency Analysis” in \[1\] refers to this kind of
-dependency analysis between the Java classes. In effect, this breaks up
-the monolith along its natural seams with the least amount of
-disruption.
-
-Based on \[2\] and \[3\] alone, and not taking class containment
-dependencies and method call entanglements into account, Mono2Micro also
-generates a ***Business Logic Partitioning*** that might present more
-entanglements and dependencies between partitions, but ultimately
-provides a more useful partitioning of the monolith divided along
-functional and business logic capabilities.
-
-![](./images/media/image6.png)
-
-## 3.2 How does Mono2Micro work?
+## 3.1 How does Mono2Micro work?
 
 In this lab, you will use a simple JEE monolith application named
 DefaultApplication, and step through the entire Mono2Micro toolset, end
@@ -305,7 +271,9 @@ In Part 2 of the lab, you will first install the Mono2Micro tools. Then you will
 In this section of the lab, you will download and install the mono2micro
 command line tool.
 
-1.  Download the Mono2Micro-CLI.zip and unzip it in the user directory
+1. Open a new Terminal window
+
+2.  Download the Mono2Micro-CLI.zip and unzip it in the user directory
     folder:
 
         cd /home/ibmdemo
@@ -316,7 +284,7 @@ command line tool.
 
         cd /home/ibmdemo/Mono2Micro-CLI
 
-2.  Run the Mono2Micro CLI version commands:
+3.  Run the Mono2Micro CLI version commands:
 
         ./mono2micro -v
         
@@ -324,7 +292,7 @@ command line tool.
     
         mono2micro-cli version: 23.0.06.0
 
-3.  Run the Mono2Micro CLI help command:
+4.  Run the Mono2Micro CLI help command:
   
         ./mono2micro -h
 
@@ -348,41 +316,13 @@ command line tool.
         Run 'mono2micro COMMAND --help' for more information on a command.
 
 
-4.  Check the install possibilities by using the help option within
-    install command:
-
-        ./mono2micro install -h
- 
-     command output: 
- 
-        Install Mono2Micro components and images
-        Usage: mono2micro install [options]
-        Options:
-        -a, --airgap                             Work in an AirGapped Environment
-        -c, --container-engine=<docker|podman>   Set the container engine to Podman (default) or Docker
-        -h, --help                               Display help information
-        -l, --license=<1|2|3|4>                  Accept license:
-                                                1. IBM WebSphere Hybrid Edition 5.1 (L-AMIK-C92MN6)
-                                                2. IBM Mono2Micro 23.0.06 trial (L-KNAV-6S5BZN)
-                                                3. IBM WebSphere Application Server for z/OS V9.0.5.15 (L-QJFA-M33W3S)
-                                                4. IBM WebSphere Application Server for z/OS V8.5.5.23 (L-LRGS-5TV3HE)
-        -r, --repo=<string>                      Set a custom repository prefix to pull Mono2Micro images from.
-                                                If this is not specified or if it is set to "default" then the images will 
-                                                    be pulled from the product repositories.
-        -v, --license-view=<1|2|3|4>             View license:
-                                                1. IBM WebSphere Hybrid Edition 5.1 (L-AMIK-C92MN6)
-                                                2. IBM Mono2Micro 23.0.06 trial (L-KNAV-6S5BZN)
-                                                3. IBM WebSphere Application Server for z/OS V9.0.5.15 (L-QJFA-M33W3S)
-                                                4. IBM WebSphere Application Server for z/OS V8.5.5.23 (L-LRGS-5TV3HE)
-        -z, --verbose                            Enable verbose mode
-
-
+  
 5.  Run the Mono2Micro **install command,** selecting Docker as the
     container engine:
 
         ./mono2micro install -c docker
 
-6.  You need to choose option “**2**” for trial to proceed:
+6.  You need to choose option “**`2`**” for trial to proceed:
 
     <table>
     <tbody>
@@ -397,7 +337,7 @@ command line tool.
     </tbody>
     </table>
 
-7.  The license will be presented, and you need to accept it. Type “**1**” to proceed:
+7.  The license will be presented, and you need to accept it. Type “**`1`**” to proceed:
 
     |                                                           |
     | --------------------------------------------------------- |
@@ -415,7 +355,7 @@ command line tool.
         Next steps: Analyze your Java application source code with the "mono2micro analyze" or "mono2micro instrument" commands
 
 
-9.  Now Mono2Micro is successfully installed. As a result of the
+10.  Now Mono2Micro is successfully installed. As a result of the
     installation, two new files were created under the user home
     directory. Use the commands below to check the content of the files:
 
