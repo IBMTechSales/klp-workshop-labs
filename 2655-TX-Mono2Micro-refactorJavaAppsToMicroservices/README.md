@@ -354,8 +354,7 @@ command line tool.
 
         Next steps: Analyze your Java application source code with the "mono2micro analyze" or "mono2micro instrument" commands
 
-
-10.  Now Mono2Micro is successfully installed. As a result of the
+9.  Now Mono2Micro is successfully installed. As a result of the
     installation, two new files were created under the user home
     directory. Use the commands below to check the content of the files:
 
@@ -365,8 +364,9 @@ command line tool.
         
     command output:     
         
-        accept_license_flag = true
-        license_key = L-KNAV-6S5BZN
+    > accept_license_flag = true
+
+    > license_key = L-KNAV-6S5BZN
 
     b. view the configuration
 
@@ -374,10 +374,13 @@ command line tool.
     
     command output: 
 
-        update_check_last = 2023-06-27
-        license_type = 2
-        container_engine = docker
-        update_check_frequency = 30
+    > update_check_last = 2023-06-27
+    
+    > license_type = 2
+    
+    > container_engine = docker
+    
+    > update_check_frequency = 30
 
 
 
