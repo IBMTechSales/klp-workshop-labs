@@ -1344,19 +1344,6 @@ To generate the new microservice recommendations and the relevant
 reports for a modified graph you must execute the AI engine with the
 refine command.
 
-Additionally, the AI engine must reference the customized version of the
-final\_graph.json file. To prepare to run the AI engine again, you must
-first do a couple of manual steps:
-
-  - Move the customized final\_graph.json file from “**Downloads”**
-    folder to a known location by Mono2Micro.
-
-  - Rename the customized “**final\_graph.json”** file to a name that
-    makes it obvious this is our customized graph and not the original
-
-  - Modify the Mono2Micro “**config.ini**” file to reference the name
-    and location of the customized graph file.
-
 Lets get started\!
 
 1.  Copy the customized **final_graph.json** file from users
