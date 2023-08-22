@@ -378,7 +378,7 @@ this lab:**
 The output from the “**mavenBuild**” script is a Liberty Server package.
 The server package is in the following working directory.
 
-    /home/techzone/lab-work/packagedServers
+  > /home/techzone/lab-work/packagedServers
 
   <br/>
 
