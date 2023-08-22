@@ -644,32 +644,7 @@ which you need to ensure is up and running.
     ![A screenshot of a computer Description automatically generated with
  medium confidence](./images/media/image32.png)
 
-4.  Click the **`Explorer`** dashboard icon to go back to the dashboard
-    view.
 
-    ![Graphical user interface, application Description automatically
- generated](./images/media/image33.png)
- 
-    Explore the “**Applications**”, “**servers**”, and “**hosts**” that
- are registered and running in the collective
- 
-    ![A screenshot of a computer Description automatically generated with
- medium confidence](./images/media/image34.png)
- 
-    **Applications view:**
- 
-    ![A screenshot of a computer Description automatically
- generated](./images/media/image35.png)
- 
-    **Servers view:**
- 
-    ![A screenshot of a computer Description automatically
- generated](./images/media/image36.png)
- 
-    **Hosts view:**
- 
-    ![A screenshot of a computer Description automatically generated with
- medium confidence](./images/media/image37.png)
 
 ### 5.1 - Test the two example applications used in the lab
 
