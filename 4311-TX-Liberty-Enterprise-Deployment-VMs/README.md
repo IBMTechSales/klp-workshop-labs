@@ -910,7 +910,7 @@ lost, such as items in a shopping cart, or login cookies, etc.
     can see that although the application is running on two Liberty
     servers with different HTTP/HTTPS ports, the dynamic routing
     function of the Liberty collective is able to direct the incoming
-    traffic through the specified IHS server port (8080) to the
+    traffic through the specified IHS server HTTPS port (8443) to the
     application.
 
     ![A screenshot of a computer Description automatically generated with
@@ -1057,7 +1057,7 @@ collective.
 
     
     b. From the file explorer, navigate
- to **`/home/techzone/lab-work/packagedServers`** directory.
+ to **`Home > lab-work > packagedServers`** directory.
  
     **TIP:** the server package is named based on the version of Liberty
  in the package, and the placeholder server name;
