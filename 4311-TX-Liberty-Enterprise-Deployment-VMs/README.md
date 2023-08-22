@@ -75,10 +75,7 @@ following components:
     feature, which enables the Server to act as the management server
     for the collective.
 
-> **Note:** In most cases the Collective Controller would likely be
-> placed on a dedicated host, but to minimize the size of this
-> demonstration environment, it’s collocated with the host used for
-> builds
+    > **Note:** In most cases the Collective Controller would likely be placed on a dedicated host, but to minimize the size of this demonstration environment, it’s collocated with the host used for builds
 
   - **Collective Member:** Collective members are Liberty Servers that
     run your application and are joined to the collective with the
@@ -87,10 +84,7 @@ following components:
     Routing” without requiring Liberty ND licenses for the collective
     members.
 
-> **Note:** In most cases Liberty collective members are not located on
-> the same host as collective controllers, but to minimize the size of
-> this demonstration environment a collective member is collocated with
-> a collective controller.
+    > **Note:** In most cases Liberty collective members are not located on the same host as collective controllers, but to minimize the size of this demonstration environment a collective member is collocated with a collective controller.
 
   - **Http Server:** The IBM HTTP server is used in some labs to
     showcase Liberty capabilities such as Dynamic Routing, Session
