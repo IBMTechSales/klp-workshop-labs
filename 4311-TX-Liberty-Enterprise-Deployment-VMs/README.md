@@ -611,14 +611,7 @@ which you need to ensure is up and running.
 
 2. Start the Liberty servers from the Admin Center
 
-    a.  To start the collective member from the Liberty Admin
-    Center **Explorer** page, click the **SERVERS** icon to go to its
-    details page.
-
-    ![A picture containing text, font, number, line Description
- automatically generated](./images/media/image27.png)
-
-    b.  In the server details page, click the dropdown menu icon
+    a.  In the server details page, click the dropdown menu icon
     of **`appServer1`** and select **`Start`** to start the server.
 
     ![Graphical user interface, application Description automatically
