@@ -446,7 +446,7 @@ The “**createController.sh**” script provides the following capabilities
 1.  Run commands below in the same command shell as you used to build
     the serverPackage, to create a Liberty collective controller:
 
-        /home/techzone/liberty/admin/pot/lab-scripts/createController.sh
+        /home/techzone/liberty_admin_pot/lab-scripts/createController.sh
  
     The createController.sh script creates a Liberty server
  named **CollectiveController.**
