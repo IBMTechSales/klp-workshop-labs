@@ -322,7 +322,7 @@ command line tool.
 
         ./mono2micro install -c docker
 
-6.  You need to choose option “**`2`**” for trial to proceed:
+6.  You need to choose option “**`2`**” for **`trial`** to proceed:
 
     <table>
     <tbody>
@@ -373,6 +373,8 @@ command line tool.
         cat ~/.mono2micro_config
     
     command output: 
+
+    **Note:** The `update_Check_last` date may be different in your environment. 
 
     > update_check_last = 2023-06-27
     
@@ -889,7 +891,7 @@ generated for the snoop and hit count test cases
 
         cat /home/ibmdemo/m2m-ws-sample/defaultapplication/monolith/DefaultApplication-ear/target/liberty/wlp/usr/servers/DefaultApplicationServer/logs/messages.log | grep '\<Entering\>\|Exiting'
 
-    As illustrated in the screenshot below, the Liberty server log file (messages.log) will include trace data that captures the `entry`` and `exit`` of each Java method called, along with the timestamp of the  invocation. 
+    As illustrated in the screenshot below, the Liberty server log file (messages.log) will include trace data that captures the `entry` and `exit` of each Java method called, along with the timestamp of the  invocation. 
 
     Note that you may have to scroll up quite a ways in the file to see snoop which was executed before hitcount.
  
@@ -1371,7 +1373,7 @@ Lets get started\!
 
         sudo chmod 777 ./config.ini
 
-            When prompted, enter the sudo password for ibmdemo user: passw0rd
+    **Note:** When prompted, enter the sudo password for ibmdemo user: `passw0rd`
 
 3.  Edit the **config.ini** file to reference the new
     **custom_graph.json** file to be used for regenerating the
@@ -1379,7 +1381,7 @@ Lets get started\!
 
         gedit ./config.ini
 
-            *** Modify the config.ini as described and illustrated below.
+    **Note:** Modify the config.ini as described and illustrated below.
 
 
     a.   Modify the value for the “**`UserModifiedGraph`**” property to **`custom_graph.json`**
