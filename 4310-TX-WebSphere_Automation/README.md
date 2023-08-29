@@ -4,8 +4,7 @@
 
 ![banner](./lab1-media/media/image1.jpeg)
 
-
-
+ 
 ## Introduction to IBM WebSphere Automation
 
 [<span class="underline">IBM WebSphere Automation</span>](https://www.ibm.com/cloud/websphere-automation) focuses on delivering value to existing WebSphere Application Server (WAS) environments by helping administrators reduce the cost, effort and risk of addressing common vulnerabilities, automating tasks and remediating capacity incidents.
@@ -225,7 +224,9 @@ For this lab, WebSphere Automation is pre-installed on an OpenShift cluster. You
 
 1.  On the *Student VM*, open a browser and enter the following URL (there is a WebSphere Automation link on bookmark toolbar):
     
-  	 <a href="https://cp-console.apps.ocp.ibm.edu/oidc/login.jsp#/homepage"><span class="underline">https://cp-console.apps.ocp.ibm.edu/oidc/login.jsp#/homepage</span></a>
+  	 <a href="https://cpd-websphere-automation.apps.ocp.ibm.edu/zen/#/homepage"><span class="underline">https://cpd-websphere-automation.apps.ocp.ibm.edu/zen/#/homepage</span></a>
+
+   
 
 
     ![opening browser](./lab1-media/media/image10.png)
