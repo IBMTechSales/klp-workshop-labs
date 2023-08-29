@@ -940,6 +940,7 @@ generated](./lab2-media/media/4310-alert-channel-created.png)
     a. On the Team Settings page, under **`Events & Alerts`**,
     click **`Events`**.
 
+    b. In the `search field`, enter `memory usgae high` to filter the list of events.
 
     b. You see the custom event named `Memory Usage High` that was configured for the lab.  
 
@@ -982,7 +983,7 @@ When WebSphere Automation detects the memory leak, it automatically conducts the
   
     a.  On the *Student VM*, open a browser and enter the following URL (there is a WebSphere Automation link on bookmark toolbar):
     
-  	 <a href="https://cp-console.apps.ocp.ibm.edu/oidc/login.jsp#/homepage"><span class="underline">https://cp-console.apps.ocp.ibm.edu/oidc/login.jsp#/homepage</span></a>
+    <a href="https://cpd-websphere-automation.apps.ocp.ibm.edu/zen/#/homepage"><span class="underline">https://cpd-websphere-automation.apps.ocp.ibm.edu/zen/#/homepage</span></a>
 
 
     ![opening browser](./lab1-media/media/image10.png)
@@ -1137,8 +1138,12 @@ When WebSphere Automation detects the memory leak, it automatically conducts the
 12. you can run a script to reduce the heap usage and then stop the WAS
     server with the commands:
 
-        /home/ibmuser/WAS-Automation-LabFiles/techxchange/lab2-MemoryLeak/klp-curl_MLAPP_removeLast.sh
+    a. Free the memory 
 
+        /home/ibmuser/WAS-Automation-LabFiles/techxchange/lab2-MemoryLeak/klp-curl_MLApp_removeLast.sh
+
+    b. Stop the WebSPhere Application Server
+        
         /opt/IBM/WebSphere/AppServer9057/bin/stopServer.sh tWAS_9057_server -username wasadmin -password wasadmin
 
     <br/>
