@@ -130,10 +130,14 @@ Otherwise, you will need to reserve an environment for the lab. You can obtain o
     
     > In this case you might try again, or open another Terminal Window and try again, or  paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
 
-3. An alternative to using the noVNC Copy / Paste option, you may consider opening the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide wihout having to use the noVNC clipboard. 
+3. (Optional) Open the `lab-commands.txt` file in an editor, to copy & paste commands throughout the lab. 
 
+   **TIP:** `You may use the lab-commands.txt file to copy & paste commands throught the lab.` 
+   
+        gedit /home/ibmuser/WAS-Automation-LabFiles/wsalabs/lab-commands.txt
 
-    <br>
+    <br/>   
+
 
 ## Section 1 - Set up IBM WebSphere Automation in the lab environment 
 
