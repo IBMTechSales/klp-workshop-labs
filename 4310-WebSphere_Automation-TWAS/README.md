@@ -1317,7 +1317,7 @@ When WebSphere Automation detects the memory leak, it automatically conducts the
 
 
 <details>
- <summary><b><font color="dodgerblue">Click to expand:</font></b> Appendix A: Detailed steps to configure Instana for memory leak alert
+ <summary><b><font color="dodgerblue">Click to expand:</font></b> Appendix A: (READ_ONLY - For reference) Detailed steps to configure Instana for memory leak alert
  </summary>
 
 <br/>
