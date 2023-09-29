@@ -223,13 +223,15 @@ The steps needed to analyze the existing Customer Order Services application are
     
      <br/> 
 	
-8. Upload the results of the data collection **/home/ibmuser/openshift-workshop-was/labs/Openshift/RuntimeModernization/resources/datacollection.zip/datacollection.zip** file to IBM Cloud Transformation Advisor.
+8. Upload the data collection file below, to IBM Cloud Transformation Advisor.
+
+        /home/ibmuser/openshift-workshop-was/labs/Openshift/RuntimeModernization/resources/datacollection.zip
     
     ![TA upload collection screen](extras/images/ta-upload-datacollection-dialog.png)
 
      <br/> 
 
-9. When the upload is complete, you will see a list of applications analyzed from the source environment. At the top of the page, you can see the **source environment** and the **target environment** settings.  
+9.  When the upload is complete, you will see a list of applications analyzed from the source environment. At the top of the page, you can see the **source environment** and the **target environment** settings.  
 
     ![TA recommendations screen for the data collection](extras/images/analysis5.png)
     
