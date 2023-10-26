@@ -540,7 +540,7 @@ The configuration file for the server is in the **server.xml**.
     FROM ibmcom/websphere-liberty:kernel-java8-ibmjava-ubi
     COPY server.xml  /config
     COPY ServletApp.war /config/dropins/app.war
-    RUN /liberty/wlp/bin/installUtility install --acceptLicense /config/server.xml 
+    RUN installUtility install --acceptLicense /config/server.xml 
     ```
 
     - To create a new image, you start with a pre-existing image. The first line `FROM` specifies the existing image to be used as the base.  If this is not in the local registry, it will be pulled from a remote registry such as docker hub. The base image we are using, `ibmcom/websphere-liberty`, is already prepackaged for us and made available on docker hub.
@@ -588,7 +588,7 @@ The configuration file for the server is in the **server.xml**.
      ---> 4a02d03d3725
     Step 3/4 : COPY ServletApp.war /config/dropins/app.war
      ---> b2def2a0feac
-    Step 4/4 : RUN /liberty/wlp/bin/installUtility install --acceptLicense /config/server.xml
+    Step 4/4 : RUN installUtility install --acceptLicense /config/server.xml
      ---> Running in 5f5b05aec1ae
     Checking for missing features required by the server ...
     The server requires the following additional features: appsecurity-2.0 servlet-3.0.  Installing features from the repository ...
@@ -796,7 +796,7 @@ Let's assume that the first version we will build for our environment is 1.3.5. 
     Step 3/5 : COPY ServletApp.war /config/dropins/app.war
      ---> Using cache
      ---> 24d85579e404
-    Step 4/5 : RUN /liberty/wlp/bin/installUtility install --acceptLicense /config/server.xml
+    Step 4/5 : RUN installUtility install --acceptLicense /config/server.xml
      ---> Using cache
      ---> 5e924d776a9c
     Step 5/5 : RUN echo test1 > /config/test1
@@ -859,7 +859,7 @@ Let's assume that the first version we will build for our environment is 1.3.5. 
     Step 3/6 : COPY ServletApp.war /config/dropins/app.war 
      ---> Using cache
      ---> 24d85579e404
-    Step 4/6 : RUN /liberty/wlp/bin/installUtility install --acceptLicense /config/server.xml
+    Step 4/6 : RUN installUtility install --acceptLicense /config/server.xml
      ---> Using cache
      ---> 5e924d776a9c
     Step 5/6 : RUN echo test1 > /config/test1
