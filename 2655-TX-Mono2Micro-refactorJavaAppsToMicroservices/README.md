@@ -1004,7 +1004,7 @@ The **/home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/** directo
         messages.log
 
         /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/tables:
-        instrumenter-config.json      recommender-config.properties refTable.json                 symTable.json
+        callGraph.json  instrumenter-config.json   recommender-config.properties refTable.json                 symTable.json
 
 
 
