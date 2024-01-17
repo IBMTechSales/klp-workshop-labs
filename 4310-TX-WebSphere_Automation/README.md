@@ -121,6 +121,20 @@ The remaining VMs are the RedHat OpenShift Cluster VMs that hosts the  IBM WebSp
     ![](./lab1-media/media/4310-list-cloned-dir.png)
 
 
+=================================================
+
+### ERRATA - Fix an issue in our lab environment
+
+1. Change to the directory where the shell scripts are located. 
+
+        cd /home/ibmuser/WAS-Automation-LabFiles/techxchange
+
+2. Run the `errata.sh` shell script to fix a known issue in our lab environment:
+
+        sudo ./errata.sh
+
+===============================================
+
 ### 1.1 Overview - Configuring WebSphere Automation
 
 The Fix Deployment capability of WebSphere Automation delivers determines which APARs and interim fixes resolve a specific vulnerability, and enables one-click download and deploy of fixes. This capability augments the existing automated vulnerability assessment and fix history tracking.
