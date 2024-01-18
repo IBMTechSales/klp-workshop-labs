@@ -683,28 +683,7 @@ After you select the fix, WebSphere Automation provides two options:
     ![](./lab1-media/media/image89.png)
 
 
-2. Stop the WebSphere Application Server: 
-
-    a. Return to a Terminal window in the VM
-
-    b. Run the `stopServer.sh` command below 
-    
-        /opt/IBM/WebSphere/AppServer9057/bin/stopServer.sh tWAS_9057_server -username wasadmin -password wasadmin
-
-    ![](./lab1-media/media/image89-1.png)    
-
-	|         |           |  
-    | ------------- |:-------------|
-    | ![](./lab1-media/media/image4.png?cropResize=50,50)   | <strong>TIP:</strong> <br>IBM WebSphere Automation will attempt to stop the WebSphere Application Server, if the credentials areprovided in the `soap.client.props` file. <p> However, in this lab environment, the WebSphere credentials are not stored, and you must manually stop the WebSphere Application Server in order for IBM WebSphere Automation to apply the iFix that was downloaded.   
-
-3. Verify the WebSphere Application Server is stopped, using the command below: 
-
-        /opt/IBM/WebSphere/AppServer9057/bin/serverStatus.sh tWAS_9057_server -username wasadmin -password wasadmin
-
-    ![](./lab1-media/media/image89-2.png) 
-   
-
-4. Install the fix to resolve the CVE.
+2. Install the fix to resolve the CVE.
 
     After the fix is successfully fetched, the action to **Install the fix** is made available next to the affected server.
 
@@ -736,20 +715,7 @@ After you select the fix, WebSphere Automation provides two options:
     > ![](./lab1-media/media/image97.png)
 
 
-5. Restart the WebSphere Application Server: 
 
-    a. Return to a Terminal window in the VM
-
-    b. Run the `startServer.sh` command below 
-    
-        /opt/IBM/WebSphere/AppServer9057/bin/startServer.sh tWAS_9057_server
-
-    ![](./lab1-media/media/image89-3.png)    
-
-
-    |        |           |  
-    | ------------- |:-------------|
-    | ![](./lab1-media/media/image4.png?cropResize=50,50)   | <strong>TIP:</strong> <br>IBM WebSphere Automation will START WebSphere Application Servers after it installs a fix, if and only if, IBM WebSphere Automation Stopped the server. <p> However, in this lab, you manually stopped WebSphere Application Server, so WebSphere Automation did NOT restart it.    
 
     <br/>
 
