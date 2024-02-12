@@ -17,7 +17,7 @@
 <a name="Background"> </a>
 ## Background
 
-If you are expecting a lab about `containers and docker`, you are at the right place.
+If you are expecting a lab about `docker`, you are at the right place.
 This lab will introduce you to the basic concepts of containerization, including:
 
 - What are containers and container images
@@ -60,7 +60,7 @@ If you are doing this lab as part of an instructor led workshop (virtual or face
 
 Otherwise, you will need to reserve an environment for the lab. You can obtain one here. Follow the on-screen instructions for the “**Reserve now**” option.
 
-<https://TBD-to-the-reservation-link>
+<https://techzone.ibm.com/my/reservations/create/6387aa80eb61a800183d69d3>
 
 The lab environment contains six (6) Linux VMs. 
 
@@ -71,22 +71,22 @@ The lab environment contains six (6) Linux VMs.
 
 1.  Access the lab environment from your web browser. 
      
-    A `Published Service` is configured to provide access to the **`Workstation`** VM through the noVNC interface for the lab environment.
+    A `Published Service` is configured to provide access to the **Workstation** VM through the noVNC interface for the lab environment.
     
-    a. When the demo environment is provisioned, click on the **`environment tile`** to open its details view. 
+    a. When the demo environment is provisioned, click on the **environment tile** to open its details view. 
 
-    b. Click on the **`Published Service`** link which will display a **Directory listing**  
+    b. Click on the **Published Service** link which will display a **Directory listing**  
     
-    c. Click on the **`vnc.html`** link to open the lab environment through the **noVNC** interface. 
+    c. Click on the **"vnc.html"** link to open the lab environment through the **noVNC** interface. 
     
     ![](./images/vnc-link.png)
     
-    d. Click the **`Connect`** button 
+    d. Click the **Connect** button 
     
       ![](./images/vnc-connect.png)
 
 
-    e. Enter the password as:  **`passw0rd`**. Then click the **`Send Credentials`** button to access the lab environment. 
+    e. Enter the password as:  **passw0rd**. Then click the **Send Credentials** button to access the lab environment. 
 
     > Note: That is a numeric zero in passw0rd  
 
@@ -95,19 +95,17 @@ The lab environment contains six (6) Linux VMs.
 	 
 	 <br>
 	 
-2.  If prompted to Login to the "workstation" VM, use the credetials below: 
+2.  Login to the desktop VM using the credetials below: 
 
-    The login credentials for the **workstation”** VM is:
+    The login credentials for the **Desktop”** VM is:
  
-     - User ID: **techzone**
+     - User ID: **ibmuser**
 
-     - Password: **IBMDem0s!**
-
-     > Note: That is a numneric zero in the password
-
+     - Password: **engageibm**
+	 
 	 <br>
  
-     ![student vm screen](./images/techzone-user-pw.png)
+     ![student vm screen](./images/loginvm3.png)
 	 
 	 <br>
 
@@ -136,7 +134,11 @@ The lab environment contains six (6) Linux VMs.
 
     d. Click on the **clipboard** icon again to close the clipboard
 
-   
+    > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. 
+    
+    > In this case you might try again, or open another Terminal Window and try again, or  paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
+
+
 3. An alternative to using the noVNC Copy / Paste option, you may consider opening the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide without having to use the noVNC clipboard. 
 
 
@@ -161,33 +163,28 @@ The lab environment contains six (6) Linux VMs.
    
     Example output:
     
-        Docker version 23.0.1, build a5ee5b1
-
+        Docker version 20.10.7, build f0df350
     
    
     - For more background on docker command line: [https://docs.docker.com/engine/reference/commandline/cli/](https://docs.docker.com/engine/reference/commandline/cli/)
 
     <br/>
 
-3. From the terminal window  in the VM, clone the github repo to your local directory. 
+3. From the terminal window  in the VM, and clone the lab to your local directory via:
 
-   > The github repo conatains artifacts required to complete this lab. 
-
-        cd /home/techzone
+        cd /home/ibmuser
 		
-		git clone https://github.com/IBMTechSales/appmod-pot-labfiles.git
+		git clone https://github.com/IBMTechSales/openshift-workshop-was.git
 
 
-4. Change directory to the cloned local copy of the git repository. `/home/techzone/appmod-pot-labfiles/labs/IntroContainers`
+4. Change directory to the cloned local copy of the git repository. `/home/ibmuser/openshift-workshop-was/labs/Openshift/HelloContainer`
 
-
-        cd /home/techzone/appmod-pot-labfiles/labs/IntroContainers
-
+```
+cd /home/ibmuser/openshift-workshop-was/labs/Openshift/HelloContainer
+```
 
 <a name="Run_Prebuilt"> </a>
 ## Run a pre-built image
-
-In this section of the lab, you will work with a pre-built container image from public DockerHub. 
 
 1. Container images must be available locally before they can be run. To list available local images: 
 
@@ -198,19 +195,6 @@ In this section of the lab, you will work with a pre-built container image from 
      **Note:** You may see some images that already exit on the VM, whch are used for different labs.  
 
         REPOSITORY   TAG   IMAGE ID   CREATED   SIZE
-
-        default-route-openshift-image-registry.apps.ocp.ibm.edu/db2/db2_demo_data   latest    ...
-
-        icr.io/appcafe/transformation-advisor-ui  3.8.1  ...   
-
-        icr.io/appcafe/transformation-advisor-server 3.8.1  ...  
-
-        icr.io/appcafe/transformation-advisor-db  3.8.1  ...  
-
-        icr.io/appcafe/transformation-advisor-neo4j  3.8.1  ...     
-
-        ibmoms/db2express-c  latest  ...  
-
 
     
 2. Images are hosted in container registries. The default container registry for docker is docker hub, located at https://hub.docker.com.  Let's pull a test image from docker hub:  
@@ -234,7 +218,7 @@ In this section of the lab, you will work with a pre-built container image from 
 3. List available local images again: 
 
      ```
-     docker images | grep -B1 hello
+     docker images | grep hello
      ```
    
      The **hello-openshift** image is now listed
@@ -289,8 +273,6 @@ In this section of the lab, you will work with a pre-built container image from 
 				}
 			]
     
-        ![hello-openshift-detaila](images/hello-openshift-details.png)
-
 
 5. Run the image in an container: Notice the exposed ports (8083 and 8888) on the **docker run** command. 
    ```
@@ -335,11 +317,7 @@ In this section of the lab, you will work with a pre-built container image from 
      ![hello openshift](images/runprebuilt2.png)
    
 
-9. Use the `docker ps` command to verify there are two containers running in the same host: 
-
-        docker ps | grep -B1 hello
-
-    > Note: The "CONTAINER ID" may be different that illustratd. That is OK.
+9. Verify there are two containers running in the same host: `docker ps`:
 
     ```
     CONTAINER ID        IMAGE                       COMMAND              CREATED              STATUS              PORTS                                            NAMES
@@ -413,15 +391,13 @@ In this section of the lab, you will work with a pre-built container image from 
     However, our image is tiny, and there is no built-in shell.
 
     For the purpose of this lab, we'll execute the command to invoke **hello-openshift** executable that we just extracted from the tar file: 
-
-    >**Note:** Running the command below will results in an error, because there is already another copy running in the background that is bound to the ports 8080 and 8888:
-
 	
 	```
 	docker exec -ti hello1 /hello-openshift . 
     ```
 	
-	
+	**Note:** Running the command above in the same container results in an error, because there is already another copy running in the background that is bound to the ports 8080 and 8888:
+
     ```
     serving on 8888
     serving on 8080
@@ -438,10 +414,10 @@ In this section of the lab, you will work with a pre-built container image from 
 16. List running containers: 
 
     ```
-	docker ps | grep -B1 hello
+	docker ps
     ```
 	
-	There should not be any running containers listed that match the name "hello"
+	There should not be any running containers listed
 	
     ```
     CONTAINER ID        IMAGE                       COMMAND              CREATED            
@@ -451,7 +427,7 @@ In this section of the lab, you will work with a pre-built container image from 
 17. List the hello-openshift containers, including stopped containers: 
 
     ```
-	docker ps -a | grep -B1 hello
+	docker ps -a | grep hello
 	```
  
     You should see the two cntainers listed, although not running; STATUS is **Exited**
@@ -471,7 +447,7 @@ In this section of the lab, you will work with a pre-built container image from 
 19. List running containers: 
 
     ```
-	docker ps | grep -B1 hello
+	docker ps
     ```
 	
 	The hello-openshift container is now running again.
@@ -492,7 +468,7 @@ In this section of the lab, you will work with a pre-built container image from 
 	```
 	docker rm hello1
     docker rm hello2
-    docker ps -a | grep -B1 hello
+    docker ps -a
     ```
 	
 22. Remove the image from local cache:
@@ -545,14 +521,13 @@ For those familiar with docker, the `Containerfile` is equivalent to a `Dockerfi
 > **Note:** In addition to a Containerfile, you can also use existing docker Dockerfiles to create an image with podman
 
 Recall that an image contains the entire file system that you want to use to run your virtual process in a container.
-
 For this sample, we are building a new image for a Java EE web application **ServletApp.war**.
 It is configured to run on the WebSphere Liberty Runtime. 
 The configuration file for the server is in the **server.xml**.
 
 1. Change directory to openshift-workshop-was/labs/Openshift/HelloContainer 
    ```
-   cd /home/techzone/appmod-pot-labfiles/labs/IntroContainers 
+   cd /home/ibmuser/openshift-workshop-was/labs/Openshift/HelloContainer 
    ```
 
 2. Review the provided `Containerfile` from the directory:
@@ -592,34 +567,77 @@ The configuration file for the server is in the **server.xml**.
     Example output:
 	
     ```
-    +] Building 37.3s (9/9) FINISHED                                                                                                                         
-    => [internal] load build definition from Containerfile                                                                                              0.0s
-    => => transferring dockerfile: 308B                                                                                                                 0.0s
-    => [internal] load .dockerignore                                                                                                                    0.0s
-    => => transferring context: 2B                                                                                                                      0.0s
-    => [internal] load metadata for docker.io/ibmcom/websphere-liberty:kernel-java8-ibmjava-ubi                                                         0.1s
-    => [1/4] FROM docker.io/ibmcom/websphere-liberty:kernel-java8-ibmjava-ubi@sha256:919c8624bc6259eafb4b76f2deada08574f933642c114d2bcbf6d7d488719ed0   0.0s
-    => [internal] load build context                                                                                                                    0.0s
-    => => transferring context: 66B                                                                                                                     0.0s
-    => CACHED [2/4] COPY server.xml  /config                                                                                                            0.0s
-    => CACHED [3/4] COPY ServletApp.war /config/dropins/app.war                                                                                         0.0s
-    => [4/4] RUN installUtility install --acceptLicense /config/server.xml                                                                             36.9s
-    => exporting to image                                                                                                                               0.2s
-    => => exporting layers                                                                                                                              0.2s
-    => => writing image sha256:cde953ee1a01310e425f334152be2463c0dce03b9d2fd337ec41a920e8ba5d7d                                                         0.0s 
-    => => naming to docker.io/library/app  
+    Sending build context to Docker daemon   25.6kB
+    Step 1/4 : FROM ibmcom/websphere-liberty:kernel-java8-ibmjava-ubi
+    kernel-java8-ibmjava-ubi: Pulling from ibmcom/websphere-liberty
+    ee2244abc66f: Pull complete 
+    befb03b11956: Pull complete 
+    137dc88f6a93: Pull complete 
+    5bdd69a33184: Pull complete 
+    d4e2554981d7: Pull complete 
+    32c91bc0f2e1: Pull complete 
+    db7e931336a9: Pull complete 
+    3b32f9956ae2: Pull complete 
+    304584ffa0a2: Pull complete 
+    9f6da4c82b7e: Pull complete 
+    b6fa5b2e2325: Pull complete 
+    Digest: sha256:d76f79695afe2f653fc7b272f9a629105446e6b78ff0d733d494c93ff05728e7
+    Status: Downloaded newer image for ibmcom/websphere-liberty:kernel-java8-ibmjava-ubi
+     ---> 4d9265befb26
+    Step 2/4 : COPY server.xml  /config
+     ---> 4a02d03d3725
+    Step 3/4 : COPY ServletApp.war /config/dropins/app.war
+     ---> b2def2a0feac
+    Step 4/4 : RUN installUtility install --acceptLicense /config/server.xml
+     ---> Running in 5f5b05aec1ae
+    Checking for missing features required by the server ...
+    The server requires the following additional features: appsecurity-2.0 servlet-3.0.  Installing features from the repository ...
+    Establishing a connection to the configured repositories ...
+    This process might take several minutes to complete.
+
+    Successfully connected to all configured repositories.
+
+    Preparing assets for installation. This process might take several minutes to complete.
+
+    Additional Liberty features must be installed for this server.
+
+    To install the additional features, review and accept the feature license agreement:
+    The --acceptLicense argument was found. This indicates that you have
+    accepted the terms of the license agreement.
+
+    Step 1 of 12: Downloading ssl-1.0 ...
+    Step 2 of 12: Installing ssl-1.0 ...
+    Step 3 of 12: Downloading appSecurity-2.0 ...
+    Step 4 of 12: Installing appSecurity-2.0 ...
+    Step 5 of 12: Downloading servlet-3.0 ...
+    Step 6 of 12: Installing servlet-3.0 ...
+    Step 7 of 12: Downloading jndi-1.0 ...
+    Step 8 of 12: Installing jndi-1.0 ...
+    Step 9 of 12: Downloading distributedMap-1.0 ...
+    Step 10 of 12: Installing distributedMap-1.0 ...
+    Step 11 of 12: Validating installed fixes ...
+    Step 12 of 12: Cleaning up temporary files ...
+
+    All assets were successfully installed.
+
+    Start product validation...
+    Product validation completed successfully.
+    Removing intermediate container 5f5b05aec1ae
+     ---> e1c6bfabda76
+    Successfully built e1c6bfabda76
+    Successfully tagged app:latest
     ```
 
 4. List the images to see that the new image `app` is built: 
    ```
-   docker images | grep -B1 '\<app\>'
+   docker images | grep '\<app\>\|websphere'
    ```
-   
-   Output: 
+   Note: The base image, `ibmcom/websphere-liberty` has also been pulled into the local registry.
 
      ```
      REPOSITORY                            TAG                        IMAGE ID       CREATED         SIZE
      app                                   latest                     baa6bb9ad29d   2 minutes ago   544 MB
+     ibmcom/websphere-liberty              kernel-java8-ibmjava-ubi   7ea3d0a2b3fe   4 hours ago     544 MB
      ```
 
 5. Start the container. 
@@ -648,10 +666,8 @@ The configuration file for the server is in the **server.xml**.
 
 7. List the running containers: 
     ```
-    docker ps  | grep -B1 '\<app\>'
+    docker ps
     ```
-    Output: 
-
     ```
     CONTAINER ID     IMAGE     COMMAND                  CREATED             STATUS              PORTS                                NAMES                                     
     595cdc49c710     app       "/opt/ibm/helpers/ru…"   8 minutes ago       Up 8 minutes        0.0.0.0:9080->9080/tcp, 0.0.0.0:9443->9443/tcp      app-instance
@@ -661,15 +677,7 @@ The configuration file for the server is in the **server.xml**.
      ```
      docker logs -f app-instance
      ```
-    
-    Partial Output: Shows the application named "app" started and the application server named "defaultServer" ready to run. 
-
-        [AUDIT   ] CWWKZ0001I: Application app started in 0.346 seconds.
-        [AUDIT   ] CWWKF0012I: The server installed the following features: [appSecurity-2.0, distributedMap-1.0, jndi-1.0, servlet-3.0, ssl-1.0].
-        [AUDIT   ] CWWKF0011I: The defaultServer server is ready to run a smarter planet. The defaultServer server started in 3.106 seconds.
-
-    
-    a. Use `Ctrl-C` To exit viewing the log
+     Use `Ctrl-C` To exit.
    
      <br>
 
@@ -682,7 +690,6 @@ The configuration file for the server is in the **server.xml**.
 	a. Run `whoami` and then run `id`, note you're not running as root.
 		
 	    whoami
-
 	    id
 	
 	
@@ -692,8 +699,8 @@ The configuration file for the server is in the **server.xml**.
 
   	 - **which ps** to see running processes (notice the **ps** command is not available)
 	 - **cd /logs** to find the log files.
-     - **cd /liberty** to find the location of the liberty install
-     - **cd /liberty/usr/servers/defaultServer** to find the server configuration. 
+     - **cd /liberty/wlp** to find the location of the liberty install
+     - **cd /liberty/wlp/usr/servers/defaultServer** to find the server configuration. 
      - **cd /opt/ibm/wlp/output/defaultServer** to find the workarea files required by the server runtime
       
 	  
@@ -712,19 +719,6 @@ The configuration file for the server is in the **server.xml**.
 	  docker stop app-instance
 	  docker rm app-instance
 	  ```
-
-12. Verify the docker container `app-instance` has been removed
-
-    ```
-    docker ps | grep app-instance
-
-    docker ps -a | grep app-instance    
-    ```
-    
-    Both commands should not return any results.
-
-
-
 
 <a name="Versions"> </a>
 ## Managing Image Versions
@@ -790,26 +784,27 @@ Let's assume that the first version we will build for our environment is 1.3.5. 
     docker build -t app -f Containerfile1 .
     ```
 
-    Example partial output:
+    Example output:
 
     ```
-    [+] Building 0.5s (10/10) FINISHED                                                                       
-    => [internal] load .dockerignore                                                                   0.0s
-    => => transferring context: 2B                                                                     0.0s
-    => [internal] load build definition from Containerfile1                                            0.0s
-    => => transferring dockerfile: 260B                                                                0.0s
-    => [internal] load metadata for docker.io/ibmcom/websphere-liberty:kernel-java8-ibmjava-ubi        0.1s
-    => [1/5] FROM docker.io/ibmcom/websphere-liberty:kernel-java8-ibmjava-ubi@sha256:919c8624bc6259ea  0.0s
-    => [internal] load build context                                                                   0.0s
-    => => transferring context: 66B                                                                    0.0s
-    => CACHED [2/5] COPY server.xml  /config                                                           0.0s
-    => CACHED [3/5] COPY ServletApp.war /config/dropins/app.war                                        0.0s
-    => CACHED [4/5] RUN installUtility install --acceptLicense /config/server.xml                      0.0s
-    => [5/5] RUN echo test1 > /config/test1                                                            0.3s
-    => exporting to image                                                                              0.0s
-    => => exporting layers                                                                             0.0s
-    => => writing image sha256:6d4a772e1fd194e8786e3c2a89681da581d51fca884dad0a9633cf1d6a0e42e0        0.0s
-    => => naming to docker.io/library/app       
+    Sending build context to Docker daemon  32.26kB
+    Step 1/5 : FROM ibmcom/websphere-liberty:kernel-java8-ibmjava-ubi
+     ---> bb79b9e26fd3
+    Step 2/5 : COPY server.xml  /config
+     ---> Using cache
+     ---> f10659bc62b2
+    Step 3/5 : COPY ServletApp.war /config/dropins/app.war
+     ---> Using cache
+     ---> 24d85579e404
+    Step 4/5 : RUN installUtility install --acceptLicense /config/server.xml
+     ---> Using cache
+     ---> 5e924d776a9c
+    Step 5/5 : RUN echo test1 > /config/test1
+     ---> Running in 08e6135b00f5
+    Removing intermediate container 08e6135b00f5
+     ---> 69d20332a5e0
+    Successfully built 69d20332a5e0
+    Successfully tagged app:latest 
     ```
 
 4. Tag the imaage as follows :
@@ -823,7 +818,7 @@ Let's assume that the first version we will build for our environment is 1.3.5. 
 5. Verify that these three images all have the same **IMAGE ID** indicating they are all the same image: `app:1`, `app:1.3`, `app:1.3.6`.
 
     ```
-     docker images | grep '\<app\>'
+    docker images | grep app 
     ```
 	```
     REPOSITORY                 TAG                        IMAGE ID       CREATED          SIZE
@@ -852,27 +847,29 @@ Let's assume that the first version we will build for our environment is 1.3.5. 
     docker build -t app -f Containerfile2 .
     ```
 
-    The partial Output: 
+    The Output: 
 
     ```
-    [+] Building 0.4s (11/11) FINISHED                                                                       
-    => [internal] load .dockerignore                                                                   0.0s
-    => => transferring context: 2B                                                                     0.0s
-    => [internal] load build definition from Containerfile2                                            0.0s
-    => => transferring dockerfile: 291B                                                                0.0s
-    => [internal] load metadata for docker.io/ibmcom/websphere-liberty:kernel-java8-ibmjava-ubi        0.1s
-    => [internal] load build context                                                                   0.0s
-    => => transferring context: 66B                                                                    0.0s
-    => [1/6] FROM docker.io/ibmcom/websphere-liberty:kernel-java8-ibmjava-ubi@sha256:919c8624bc6259ea  0.0s
-    => CACHED [2/6] COPY server.xml  /config                                                           0.0s
-    => CACHED [3/6] COPY ServletApp.war /config/dropins/app.war                                        0.0s
-    => CACHED [4/6] RUN installUtility install --acceptLicense /config/server.xml                      0.0s
-    => CACHED [5/6] RUN echo test1 > /config/test1                                                     0.0s
-    => [6/6] RUN echo test2 > /config/test2                                                            0.2s
-    => exporting to image                                                                              0.0s
-    => => exporting layers                                                                             0.0s
-    => => writing image sha256:e4b59ae187e74e06eba7bdd2bfef71eea586cbf31c569bf0590a2eeaae515997        0.0s
-    => => naming to docker.io/library/app 
+    Sending build context to Docker daemon  32.26kB
+    Step 1/6 : FROM ibmcom/websphere-liberty:kernel-java8-ibmjava-ubi
+     ---> bb79b9e26fd3
+    Step 2/6 : COPY server.xml  /config
+     ---> Using cache
+     ---> f10659bc62b2
+    Step 3/6 : COPY ServletApp.war /config/dropins/app.war 
+     ---> Using cache
+     ---> 24d85579e404
+    Step 4/6 : RUN installUtility install --acceptLicense /config/server.xml
+     ---> Using cache
+     ---> 5e924d776a9c
+    Step 5/6 : RUN echo test1 > /config/test1
+     ---> Using cache
+     ---> 69d20332a5e0
+    Step 6/6 : RUN echo test2 > /config/test2
+     ---> Running in 96ea24b9ba66
+    Removing intermediate container 96ea24b9ba66
+     ---> 31b27169b3bc
+    Successfully built 31b27169b3bc
     ```
 
 7. Tag the new image as follows:
@@ -883,7 +880,7 @@ Let's assume that the first version we will build for our environment is 1.3.5. 
     docker tag app app:1.4.0
     ```
 
-8. Use the command `docker images | grep '\<app\>'` and verify the following: 
+8. Use the command `docker images | grep app` and verify the following: 
 
     - `1`, `1.4`, and `1.4.0` are the same image
     - `1.3` and `1.3.6` are the same image
@@ -911,12 +908,5 @@ Let's assume that the first version we will build for our environment is 1.3.5. 
 	docker rmi app:latest
     ```
 
-10.  Verify the images have been deleted. The following command should  not have any images listed. 
 
-   ```
-   docker images | grep '\<app\>'
-   ```   
-
-<br/>
-
-Congratulations! You have completed the **Introduction to Containers** lab.
+Congratulations! You have completed the **Introduction to Containerization** lab.
