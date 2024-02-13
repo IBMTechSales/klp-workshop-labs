@@ -94,51 +94,64 @@ lab:
   - Have a lab environment ready
 
 
-## Accessing the lab environment
+<br/>
+
+## Accessing the environment
 
 If you are doing this lab as part of an instructor led workshop (virtual or face to face), an environment has already been provisioned for you. The instructor will provide the details for accessing the lab environment.
 
 Otherwise, you will need to reserve an environment for the lab. You can obtain one here. Follow the on-screen instructions for the “**Reserve now**” option.
 
-<https://techzone.ibm.com/my/reservations/create/65c6ac2a72369e00117f48ee>
+<https://TBD-to-the-reservation-link>
 
- The lab environment contains one (1) Linux VM, named **Workstation**.
+The lab environment contains six (6) Linux VMs. 
 
-  ![](./images/media/workstation.png)
-    
-  The Ubuntu Linux **Workstation** VM has the following software installed for the lab:
-  
-   - Transformation Advisor (TA) has already been installed on the
-    Workstation VM. TA local runs in Docker containers.
+![](./images/media/env-list.png)
 
-  <br/> 
+
+<br/>
 
 1.  Access the lab environment from your web browser. 
+     
+    A `Published Service` is configured to provide access to the **`Workstation`** VM through the noVNC interface for the lab environment.
     
-    A `Published Service` is configured to provide access to the **Workstation** VM through the noVNC interface for the lab environment.
-    
-    a. When the demo environment is provisioned, click on the **environment tile** to open its details view. 
+    a. When the demo environment is provisioned, click on the **`environment tile`** to open its details view. 
 
-    b. Click on the **Published Service** link which will display a **Directory listing**  
+    b. Click on the **`Published Service`** link which will display a **Directory listing**  
     
-    c. Click on the **"vnc.html"** link to open the lab environment through the **noVNC** interface. 
+    c. Click on the **`vnc.html`** link to open the lab environment through the **noVNC** interface. 
     
     ![](./images/media/vnc-link.png)
     
-    d. Click the **Connect** button 
+    d. Click the **`Connect`** button 
     
       ![](./images/media/vnc-connect.png)
-    
-    e. Enter the password as:  **passw0rd**. Then click the **Send Credentials** button to access the lab environment. 
+
+
+    e. Enter the password as:  **`passw0rd`**. Then click the **`Send Credentials`** button to access the lab environment. 
 
     > Note: That is a numeric zero in passw0rd  
 
       ![](./images/media/vnc-password.png)
 
-Once you access the **Student VM** through the published service, you will see the Desktop, which contains all the programs that you will be using (browsers, terminal, etc.)
+	 
+	 <br>
+	 
+2.  If prompted to Login to the "workstation" VM, use the credetials below: 
 
-  <br/>
+    The login credentials for the **workstation”** VM is:
+ 
+     - User ID: **techzone**
 
+     - Password: **IBMDem0s!**
+
+     > Note: That is a numneric zero in the password
+
+	 <br>
+ 
+     ![student vm screen](./images/media/techzone-user-pw.png)
+	 
+	 <br>
 
 ## Tips for working in the lab environment     
 
@@ -157,19 +170,15 @@ Once you access the **Student VM** through the published service, you will see t
    
     a. Copy the text from the lab guide that you want to paste into the lab environment
     
-    b. Click the **Clipboard** icon and **paste** the text into the noVNC clipboard
+    b. Click the **`Clipboard`** icon and **`paste`** the text into the noVNC clipboard
 
     ![fit to window](./images/media/paste.png)
     
     c. Paste the text into the VM, such as to a terminal window, browser window, etc. 
 
-    d. Click on the **clipboard** icon again to close the clipboard
+    d. Click on the **`clipboard`** icon again to close the clipboard
 
-    > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. 
-    
-    > In this case you might try again, or open another Terminal Window and try again, or  paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
-
-
+   
 3. An alternative to using the noVNC Copy / Paste option, you may consider opening the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide without having to use the noVNC clipboard. 
 
 
