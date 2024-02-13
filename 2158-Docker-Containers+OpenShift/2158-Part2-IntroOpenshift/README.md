@@ -3,14 +3,10 @@
 In this lab, we will introduce you to the basics of container Orchestration using Openshift. We will
 
 - Perform basic navigation using the web console
-- Deploy the `hello-openshift` image through the web console.
-- Deploy the `hello-openshift` image through the command line.
+- Deploy the example `httpd` image through the web console.
+- Deploy the example `httpd` image through the command line.
 
-## Prerequisite
 
-- For background on basic Openshift concepts, read [Openshift Concepts for WebSphere Administrators](https://github.com/IBM/openshift-workshop-was/blob/master/OpenshiftConcepts.md)
-
-<a name="Login_VM"> </a>
 
 ## Accessing the environment
 
@@ -18,7 +14,7 @@ If you are doing this lab as part of an instructor led workshop (virtual or face
 
 Otherwise, you will need to reserve an environment for the lab. You can obtain one here. Follow the on-screen instructions for the “**Reserve now**” option.
 
-<https://techzone.ibm.com/my/reservations/create/6387aa80eb61a800183d69d3>
+<https://TBD-to-the-reservation-link>
 
 The lab environment contains six (6) Linux VMs. 
 
@@ -29,21 +25,22 @@ The lab environment contains six (6) Linux VMs.
 
 1.  Access the lab environment from your web browser. 
      
-    A `Published Service` is configured to provide access to the **Workstation** VM through the noVNC interface for the lab environment.
+    A `Published Service` is configured to provide access to the **`Workstation`** VM through the noVNC interface for the lab environment.
     
-    a. When the demo environment is provisioned, click on the **environment tile** to open its details view. 
+    a. When the demo environment is provisioned, click on the **`environment tile`** to open its details view. 
 
-    b. Click on the **Published Service** link which will display a **Directory listing**  
+    b. Click on the **`Published Service`** link which will display a **Directory listing**  
     
-    c. Click on the **"vnc.html"** link to open the lab environment through the **noVNC** interface. 
+    c. Click on the **`vnc.html`** link to open the lab environment through the **noVNC** interface. 
     
     ![](./images/vnc-link.png)
     
-    d. Click the **Connect** button 
+    d. Click the **`Connect`** button 
     
       ![](./images/vnc-connect.png)
 
-    e. Enter the password as:  **passw0rd**. Then click the **Send Credentials** button to access the lab environment. 
+
+    e. Enter the password as:  **`passw0rd`**. Then click the **`Send Credentials`** button to access the lab environment. 
 
     > Note: That is a numeric zero in passw0rd  
 
@@ -52,17 +49,19 @@ The lab environment contains six (6) Linux VMs.
 	 
 	 <br>
 	 
-2.  Login to the desktop VM using the credetials below: 
+2.  If prompted to Login to the "workstation" VM, use the credetials below: 
 
-    The login credentials for the **Desktop”** VM is:
+    The login credentials for the **workstation”** VM is:
  
-     - User ID: **ibmuser**
+     - User ID: **techzone**
 
-     - Password: **engageibm**
-	 
+     - Password: **IBMDem0s!**
+
+     > Note: That is a numneric zero in the password
+
 	 <br>
  
-     ![student vm screen](./images/loginvm3.png)
+     ![student vm screen](./images/techzone-user-pw.png)
 	 
 	 <br>
 
@@ -91,21 +90,16 @@ The lab environment contains six (6) Linux VMs.
 
     d. Click on the **clipboard** icon again to close the clipboard
 
-    > **NOTE:** Sometimes pasting into a Terminal window in the VM does not work consistently. 
-    
-    > In this case you might try again, or open another Terminal Window and try again, or  paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
-
-
+   
 3. An alternative to using the noVNC Copy / Paste option, you may consider opening the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide without having to use the noVNC clipboard. 
 
 
     <br>
 
-      
 
-## Deploy the hello-openshift image through the web console
+## Deploy the example 'httpd' image through the web console
 
-### Login to the web console
+### Login to the OpenShift web console
 
 1. Open the Firefox Web Browser from the VM. 
 
@@ -113,63 +107,58 @@ The lab environment contains six (6) Linux VMs.
  
      <br/>
 
-2. Select the **openshift console** bookmark at the top left of the browser window to access the OpenShift Container Platform web console.
+2. Select the **`OpenShift Console`** bookmark at the top left of the browser window to access the OpenShift Container Platform web console.
 
      ![console](images/loginconsole1.png)
      
 	 <br/>
 	 
-3. This will take you to a login screen. Click on the **htpasswd** login option.
-
-     ![console](images/loginconsole2.png)
-	 
-     <br/>
-	 
-4. Log in to the account using the following credentials:
+ 
+3. Log in to the account using the following credentials:
    
-     * Username: **ibmadmin**
-     * Password: **engageibm**
+     * Username: **`ocadmin`**
+     * Password: **`ibmrhocp`**
 
      ![console](images/loginconsole3.png)
 
 
 ### Overview
 
-1. Click on the **Overview** tab under **Home** in the left menu to view a summary of events:
+1. Click on the **`Overview`** tab under **`Home`** in the left menu to view a summary of events:
 
     ![Overview1](images/overview1.png)
 
 	 <br/>
 
-2. Scroll down to view the utilization of cluster resources:
+2. Scroll down to view the resources `Cluster utilization`:
 
     ![Overview2](images/overview2.png)
 
      <br/>
 
-3. Scroll further down to view the cluster inventory. Click through each item in the inventory to find out more:
+3. View the `Cluster inventory` information on the Overview page. You can Click on each item in the inventory to find out more:
 
     ![Overview3](images/overview3.png)
 
     Note that:
 
-    - **Nodes** represent physical or virtual hardware that your Openshift cluster is running.
-    - **Pods** are used to host and run one or more containers. Each node may run multiple pods. Containers in the same pod share the same network and storage.
-    - **Storage classes** represent the different types of storage configured and made available for your Openshift cluster. 
-    - **Persistent Volume Claims** (PVCs) represent the usage of storage by the pods. After a pod is removed, data not persistent to persistent storage are gone.
+    - **`Nodes`** represent physical or virtual hardware that your Openshift cluster is running.
+    - **`Pods`** are used to host and run one or more containers. Each node may run multiple pods. Containers in the same pod share the same network and storage.
+    - **`Storage classes`** represent the different types of storage configured and made available for your Openshift cluster. 
+    - **`Persistent Volume Claims`** (PVCs) represent the usage of storage by the pods. After a pod is removed, data not persistent to persistent storage are gone.
 
 ### Projects
 
 Openshift `projects` allow you to group related resources together and to assign them separate management policies. 
 It is common for artifacts related to different applications to be assigned to different `projects`. Resources that belong to the same project are stored in the same Kubernetes `namespace`.
 
-1. Click on the **Projects** tab under **Home** in the left menu, followed by **Create Project**:
+1. Click on the **`Projects`** tab under **`Home`** in the left menu, followed by **`Create Project`**:
 
     ![projects1](images/projects1.png)
 
 	<br/>
 
-2. In the dialog, enter `myproject` as project name, then click **Create**:
+2. In the dialog, enter `myproject` as project name, then click **`Create`**:
 
     ![Myproject](images/Myproject.jpg)
 
@@ -198,13 +187,23 @@ The typical artifacts you will need to run an application in Openshift are:
 
 #### First deployment 
 
-1. Under the **Workloads** tab, click **Deployments**. Then click **Create Deployment**:
+1. Under the **`Workloads`** tab, click **`Deployments`**. Then click **`Create Deployment`**:
 
     ![Create Deployment](images/CreateDeployment.jpg)
 
 	 <br/>
 
-2. Note that the console shows you the YAML file for the deployment.  Change the number of replicas from default 3 to **2**, then click **Create**:
+2. Note that the console shows you the YAML file for the deployment. 
+
+   make the following changes to the yaml as decribed and illustrated below. 
+
+    a. Type `'example'` as the **'name'** of the deployment. Be sure to retain the single quotes as illustrated below. 
+    
+    b. Change the number of `replicas` from 3 to **`2`** 
+
+    c. change **'app: name'** to `app: httpd` under 'matchLabels' and 'labels' 
+    
+    d. Click **`Create`**:
 
     ![Deployment Replicas](images/DeploymentReplicas.jpg)
 
@@ -215,23 +214,30 @@ The typical artifacts you will need to run an application in Openshift are:
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: example
       namespace: myproject
+      name: 'example'
     spec:
       selector:
         matchLabels:
-          app: hello-openshift
+          app: httpd
       replicas: 2
       template:
         metadata:
           labels:
-            app: hello-openshift
+            app: httpd
         spec:
           containers:
-            - name: hello-openshift
-              image: openshift/hello-openshift
+            - name: container
+              image: >-
+                image-registry.openshift-image-registry.svc:5000/openshift/httpd:latest
               ports:
                 - containerPort: 8080
+                  protocol: TCP
+      strategy:
+        type: RollingUpdate
+        rollingUpdate:
+          maxSurge: 25%
+          maxUnavailable: 25%
     ```
 
 3. Let's review this resource:
@@ -245,12 +251,13 @@ The typical artifacts you will need to run an application in Openshift are:
         - The namespace where the resource is running is `myproject`
         - Though not shown here, any labels associated with the resource. We will see the use of labels later.
     - The `spec` section defines the details specific to this kind of resource:
-        - The `selector` defines details of the `pods` that this `deployment` will manage. The `matchLabels` attribute with value `app: hello-openshift` means this `deployment` instance will search for and manage all pods whose labels contain `app: hello-openshift`.
+        - The `selector` defines details of the `pods` that this `deployment` will manage. The `matchLabels` attribute with value `app: httpd` means this `deployment` instance will search for and manage all pods whose labels contain `app: httpd`.
     - The `replicas: 2`  field specifies the number of instances to run.
     - The `template` section describes information about how to run the container image and create the `pods`:
         - The `labels` section specifies what labels to add to the pods being to be created. Note that it matches the labels defined in the `selector`.
-        - The `containers` section specifies where to fetch the container image and which ports to expose. For our example, the image to run is `openshift/hello-openshift`.
-
+        - The `containers` section specifies where to fetch the container image and which ports to expose. For our example, the image to run is `openshift/httpd`.
+    - The `stratey` section defines how to create, upgrade, or downgrade different versions of applications. 
+        - The `RollingUpdate` strategy is the default strategy. It  allows you to update a set of pods without downtime. It replaces pods running the old version of the application with the new version, one by one.
     <br/> 
  
 4. Wait for both pods to be running:
@@ -259,138 +266,60 @@ The typical artifacts you will need to run an application in Openshift are:
 
     <br/> 
 
-5. Click on the **YAML** tab, and note the additions to the original input YAML file.
 
-    ![Deployment After Create YAML](images/DeploymentAfterCreateYAML.jpg)
+5. Click on `Pods` tab. 
 
-    <br/> 
+    Note that the pods resources are managed by the controller for your `deployment`. 
 
-6. Here is a sample YAML after the deployment is created :
-
-    ```yaml
-    kind: Deployment
-    apiVersion: apps/v1
-    metadata:
-      name: example
-      namespace: myproject
-      selfLink: /apis/apps/v1/namespaces/myproject/deployments/example
-      uid: 7c6a339b-385c-41bf-b4bf-3b6a120ef137
-      resourceVersion: '297294'
-      generation: 1
-      creationTimestamp: '2020-01-30T15:45:15Z'
-      annotations:
-        deployment.kubernetes.io/revision: '1'
-    spec:
-      replicas: 2
-      selector:
-        matchLabels:
-          app: hello-openshift
-      template:
-        metadata:
-          creationTimestamp: null
-          labels:
-            app: hello-openshift
-        spec:
-          containers:
-            - name: hello-openshift
-              image: openshift/hello-openshift
-              ports:
-                - containerPort: 8080
-                  protocol: TCP
-              resources: {}
-              terminationMessagePath: /dev/termination-log
-              terminationMessagePolicy: File
-              imagePullPolicy: Always
-          restartPolicy: Always
-          terminationGracePeriodSeconds: 30
-          dnsPolicy: ClusterFirst
-          securityContext: {}
-          schedulerName: default-scheduler
-      strategy:
-        type: RollingUpdate
-        rollingUpdate:
-          maxUnavailable: 25%
-          maxSurge: 25%
-      revisionHistoryLimit: 10
-      progressDeadlineSeconds: 600
-    status:
-      observedGeneration: 1
-      replicas: 2
-      updatedReplicas: 2
-      readyReplicas: 2
-      availableReplicas: 2
-      conditions:
-        - type: Available
-          status: 'True'
-          lastUpdateTime: '2020-01-30T15:45:20Z'
-          lastTransitionTime: '2020-01-30T15:45:20Z'
-          reason: MinimumReplicasAvailable
-          message: Deployment has minimum availability.
-        - type: Progressing
-          status: 'True'
-          lastUpdateTime: '2020-01-30T15:45:20Z'
-          lastTransitionTime: '2020-01-30T15:45:15Z'
-          reason: NewReplicaSetAvailable
-          message: ReplicaSet "example-75778c488" has successfully progressed.
-    ```
-
-    <br/> 
-
-7. In the YAML, note that:
-
-    - There are quite a bit more `metadata`. Metadata may be added by any number of controllers as needed to help with their function.
-    - The `spec` has more attributes filled in as well. These are default values that were not specified in our original YAML file. But sometimes it is also possible that some values are overridden by background admission controllers.
-    - The `status` sub-resource is how Openshift communicates that status of the resource. The `status` is updated regularly as the underlying state of the resource changes.
-
-    <br/> 
-
-8. Click on `Pods`. 
-Note that the pods resources are managed by the controller for your `deployment`. 
-You do not create the pod resources yourself. 
+    You do not create the pod resources yourself. 
 That is the reason that `Pods` tab is under the `deployment` resource you just created.
 
     ![Create Service](images/DeploymentToPods.jpg)
 
     <br/> 
 
-9. Click on one of the pods:
+6. Click on one of the pods:
 
     ![Create Service](images/Pods.jpg)
 
     <br/> 
 
-10. Explore the various **tabs** for your pod
+7. Explore the various **tabs** for your pod
 
     ![Create Service](images/ExplorePod.jpg)
 
     <br/> 
 
-     - **Overview:** displays the overall resource usage for your pod. Note that for CPU usage, the unit is m, or milli-core, which is 1/1000th of one core.
-     - **YAML:** examine the YAML that describes your pod. This YAML is created by the deployment controller based on the specification you supplied in your deployment. Note that labels associated with your pod are what you had specified in the deployment.
-     - **Environment:** lists the environment variables defined for your pod. For our `hello-openshift` pod, there is none.
-     - **Logs:** shows the console log for your container. Note that it is the same log as the log from the Introduction to Docker lab, as the same image is being used.
-     - **Terminal:** Opens a remote shell into your container. As with the Introduction to Docker lab, no shell is available within the container for this image. This makes it more secure, but also more difficult to debug.
+     - **`Detils:`** displays the hi-level detsils of the pod.
+     - **`Metrics:`** displays the overall resource usage for your pod. 
+     Note that for CPU usage, the unit is m, or milli-core, which is 1/1000th of one core.
+     - **`YAML:`** examine the YAML that describes your pod. This YAML is created by the deployment controller based on the specification you supplied in your deployment. Note that labels associated with your pod are what you had specified in the deployment.
+     - **`Environment:`** lists the environment variables defined for your pod. For our `httpd` pod, there is none.
+     - **`Logs:`** shows the console log for your container. 
+     - **`Events:`** are a resource type in Kubernetes that are automatically created when other resources have state changes, errors, or other messages that should be broadcast to the system.
+     - **`Terminal:`** Opens a remote shell into your container. As with the Introduction to Docker lab, no shell is available within the container for this image. This makes it more secure, but also more difficult to debug.
 
 
 ### First Service
 
-A **service** enables the pods we just created to be load balanced within the Openshift cluster. 
+A **`service`** enables the pods we just created to be load balanced within the Openshift cluster. 
 
-1. Scroll down to the **Networking** tab on the left navigation, click **Services**, then click **Create Service**:
+1. Scroll down to the **`Networking`** tab on the left navigation, click **`Services`**, then click **`Create Service`**:
 
     ![Create Service](images/CreateService.jpg)
 
     <br/>
 
-2. Update the YAML parameters as follows:
+2. Update the `YAML` parameters as follows:
     
     **(Before update)**
     ![Create Service Params Before](images/CreateService_before.jpg)
     
     a. Under spec.selector: 
 	
-      - change `MyApp` to `hello-openshift`
-      - This is how the service will find the pods to load balance. Therefore, it matches the labels (`spec.selector.matchLabels`) that we used when creating the deployment for the hello-openshift application.
+      - change `MyApp` to `httpd`
+        
+        This is how the service will find the pods to load balance. Therefore, it matches the labels (`spec.selector.matchLabels`) that we used when creating the deployment for the httpd application.
    
     <br/>   
    
@@ -409,31 +338,55 @@ A **service** enables the pods we just created to be load balanced within the Op
 
     <br/>
 	
-3. After the service is created, click on the **YAML** tab:
+3. After the service is created, click on the **`YAML`** tab:
 
     ![Create Service After YAML ](images/CreateServiceAfterYAML.jpg)
 
     The YAML file looks like:
     ```yaml
-    Kind: Service
+    kind: Service
     apiVersion: v1
     metadata:
       name: example
       namespace: myproject
-      selfLink: /api/v1/namespaces/myproject/services/example
-      uid: 6ca3c2b7-bbfa-432e-8757-c60dbf04b26b
-      resourceVersion: '307351'
-      creationTimestamp: '2020-01-30T16:28:03Z'
+      uid: d716f19c-3fbe-4917-89f3-7ea426d66494
+      resourceVersion: '12721128'
+      creationTimestamp: '2024-02-12T23:21:02Z'
+      managedFields:
+        - manager: Mozilla
+          operation: Update
+          apiVersion: v1
+          time: '2024-02-12T23:21:02Z'
+          fieldsType: FieldsV1
+          fieldsV1:
+            'f:spec':
+              'f:internalTrafficPolicy': {}
+              'f:ports':
+                .: {}
+                'k:{"port":8080,"protocol":"TCP"}':
+                  .: {}
+                  'f:port': {}
+                  'f:protocol': {}
+                  'f:targetPort': {}
+              'f:selector': {}
+              'f:sessionAffinity': {}
+              'f:type': {}
     spec:
+      clusterIP: 172.30.14.92
+      ipFamilies:
+        - IPv4
       ports:
         - protocol: TCP
           port: 8080
           targetPort: 8080
-      selector:
-        app: hello-openshift
-      clusterIP: 172.21.239.191
+      internalTrafficPolicy: Cluster
+      clusterIPs:
+        - 172.30.14.92
       type: ClusterIP
+      ipFamilyPolicy: SingleStack
       sessionAffinity: None
+      selector:
+        app: httpd
     status:
       loadBalancer: {}
     ```
@@ -444,7 +397,7 @@ A **service** enables the pods we just created to be load balanced within the Op
 
 A route exposes your internal endpoints outside your cluster's built-in firewall. 
 
-1. Click on the **Route** tab under **Networking** in the left navigation, then click **Create Route**:
+1. Click on the **`Route`** tab under **`Networking`** in the left navigation, then click **`Create Route`**:
 
     ![Create Route](images/CreateRoute.jpg)
 
@@ -465,77 +418,94 @@ A route exposes your internal endpoints outside your cluster's built-in firewall
 
     <br/>
 
-3. Access the route at the link provided under Location. The route location will open in a new browser tab.
+3. Access the route at the link provided under the `Location` field of the Route resource. The route location will open in a new browser tab.
 
     ![Create Route](images/CreateRouteAccessRoute.jpg)
 
     <br/>
 
-4. If you have configured everything correctly, the browser will show `Hello Openshift!`. 
+4. If you have configured everything correctly, the browser will show the  `Red Hat Enterprise Linux Test page`. 
 
   ![Create Route](images/CreateRouteAccessRouteResult.jpg)
 
+<br/>
+
 **Congratulations**, you just deployed your first application to Openshift.
 
+<br/>
 
 ### Changing Replica Instances
 
-1. Click on the **Projects** tab under **Home** from the left navigation, then click on `myproject`:
+1. Click on the **`Projects`** tab under **`Home`** from the left navigation, then type `myproject` in the **filter** field:
 
-    ![Locate Myproject](images/LocateMyproject.jpg)
+    ![Filter Project](images/filterProject.png)
 
-    <br/>
+2. Click on `myproject`:
 
-2. Scroll down to see the resources that were created. Recall that we have created one deployment with 2 pods in the specification. We also created one service, and one route.
-
-    ![Locate Myproject Resoruces](images/LocateMyprojectResources.jpg)
+    ![Locate Myproject](images/selectMyProject.png)
 
     <br/>
 
-3. Under the **Inventory** section, click on the **2 pods** link:
+3. Scroll down to the `Inventory` section to see the resources that were created. Recall that we have created one deployment with 2 pods in the specification. We also created one service, and one route.
 
-    ![Locate Myproject Resoruces](images/LocateMyprojectPods.jpg)
+    ![Locate Myproject Resoruces](images/LocateMyprojectResources.png)
+
+    <br/>
+
+4. Under the **Inventory** section, click on the **2 pods** link:
+
+    ![Locate Myproject Resoruces](images/LocateMyprojectPods.png)
 
      <br/>
 
-4. Delete one of the pods by clicking on the menu on the right, then selecting `Delete pod`. When prompted, click `Delete`.
+5. Delete one of the pods by clicking on the menu on the right, then selecting `Delete pod`. When prompted, click `Delete`.
 
-    ![Delete Pod](images/DeletePod.jpg)
+    ![Delete Pod](images/DeletePod.png)
 
-    This is not the right way to reduce number of instances. You will notice that as soon as one of the pods is being terminated, another one is being created. The reason is that the controller for the `deployment` resource knows that your specification is for **2 instances**, and it honors that specification by creating another one. This also gives you automatic failure recovery should one of the pods crashes on its own.
+    a. Click `Delete` to confirm the deletion of the pod 
 
-    ![Delete Pod](images/DeletePodRecreate.jpg)
+    ![Delete Pod](images/confirmDeletePod.png)
+
+
+    This is not the right way to reduce number of instances. You will notice that as soon as one of the pods is being terminated, another one is being created. 
+    
+    The reason is that the controller for the `deployment` resource knows that your specification is for **2 instances**, and it honors that specification by creating another one. This also gives you automatic failure recovery should one of the pods crashes on its own.
+
+    ![Delete Pod](images/DeletePodRecreate.png)
+
+ 
+    <br/>
+
+6. To change the number of instances, you will need to change the specification of your deployment. Click on the **`Deployments`** tab under **`Workloads`** in the left navigation, then click on `example` deployment:
+
+    ![Locate Deloyment](images/LocateDeployment.png)
 
     <br/>
 
-5. To change the number of instances, you will need to change the specification of your deployment. Click on the **Deployments** tab under **Workloads** in the left navigation, then click on `example` deployment:
+7. Click on the **`down arrow`** to reduce the replica size down to 1:
 
-    ![Locate Deloyment](images/LocateDeployment.jpg)
-
-    <br/>
-
-6. Click on the **down arrow** to reduce the replica size down to 1:
-
-    ![Reduce Deployment](images/DeploymentReducePod.jpg)
+    ![Reduce Deployment](images/DeploymentReducePod.png)
 
     <br/>
 
-7. After the operation is completed, click on the **YAML** tab:
+8. After the operation is completed, click on the **`YAML`** tab:
 
-    ![Reduce Deployment](images/DeploymentReducePod1.jpg)
+    ![Reduce Deployment](images/DeploymentReducePod1.png)
 
     Note that the console had changed the REST specification on your behalf so that the replica count is now 1:
 
 
-    ![Reduce Deployment YAML](images/DeploymentReducePod1YAML.jpg)
+    ![Reduce Deployment YAML](images/DeploymentReducePod1YAML.png)
 
 
 
-## Deploy the hello-openshift image through the command line
+## Deploy the exmample 'httd' image through the command line
 
 You can use both `oc`, the openshift command line tool, or `kubectl`, the Kubernetes command line tool, to interact with Openshift. 
+
 Resources in Openshift are configured via REST data structure. 
 For the command line tools, the REST data structure may be stored either in  a YAML file, or in a JSON file.
+
 The command line tools may be used to:
 
 - List available resources
@@ -548,7 +518,7 @@ The command line tools may be used to:
 
 The `oc` command is already installed on your VM's terminal.
 
-1. Open a new terminal window on the Desktop VM:
+1. Open a new `Terminal` window on the Desktop VM:
    
     ![terminal](images/checkenv1.png)
    
@@ -557,84 +527,66 @@ The `oc` command is already installed on your VM's terminal.
 2. If you have not yet cloned the GitHub repo with the lab artifacts, in a previous lab, run the following command on your terminal:
 
 ```   
-  cd /home/ibmuser
+  cd /home/techzone
 		
-  git clone https://github.com/IBMTechSales/openshift-workshop-was.git 
+  git clone https://github.com/IBMTechSales/appmod-pot-labfiles.git 
 ```
 
-3. Change directory to:  `openshift-workshop-was/labs/Openshift/IntroOpenshift`
+3. Change directory to:  `appmod-pot-labfiles/labs/IntroOpenshift`
 
 
-        cd /home/ibmuser/openshift-workshop-was/labs/Openshift/IntroOpenshift
+        cd /home/techzone/appmod-pot-labfiles/labs/IntroOpenshift
     
 
 ### Login to OpenShift
 
-1. Return to the Openshift console, click on the arrow next to your login name and select `Copy Login Command`.
+1. Login to OpenShift CLI with the `oc login` command from the terminal. 
 
-    ![Login1](images/login1.png)
+   When prompted for the username and password, enter the following login credentials:
 
-    <br/>
+    Username: `ocadmin`
 
-2. OpenShift may require to login via the web UI to get the login token. 
+    Password: `ibmrhocp`
+
+        oc login -u ocadmin -p ibmrhocp
+
+    <br/> 
+
+    After login, the project last accessed is displayed, and it may or may not be the `default` project shown below:
+
+    ![Login1](images/login.png)
    
-   If so, login via the verify **htpasswd** option as user **ibmadmin** and password **engageibm**
-
-4. In the new window that pops up, click on `Display Token`:
-
-    ![Display Token](images/DisplayToken.jpg)
-
-    <br/>
-
-5. Copy the `oc login` command and paste it into your terminal window.
-
-    ```
-    oc login --token=<TOKEN> --server=<SERVER Address>
-    ```
-    
-    ![Login2](images/login2.png)
-    
-
-6. After login, the project last accessed is displayed, and it may or may not be the `default` project shown below:
-
-    ```
-    Logged into "<SERVER address" as "<USER>" using the token provided.
-
-    You have access to 56 projects, the list has been suppressed. You can list all projects with 'oc projects'
-    
-    Using project "default".
-    ```
 
 ### Listing resources
 
-Use `oc api-resources` to list all available resource kinds. 
+2. Use `oc api-resources` to list all available resource kinds. 
 
-Note that resources in Openshift have a `group`, `version`, and `kind`. 
+    Note that resources in Openshift have a `group`, `version`, and `kind`. 
 Some resources are global (not in a namespace), while others are scoped to a `namespace`.
 
-Many resources also have short names to save typing when using the command line tool.
+    Many resources also have short names to save typing when using the command line tool.
 
-For example, you may use `cm` instead of ConfigMap as a command line parameter when the parameter is for a `KIND`.
+    For example, you may use `cm` instead of `ConfigMap` as a command line parameter when the parameter is for a `KIND`.
 
-**Example output:**
+    **Example output:**
 
-```
-NAME                                  SHORTNAMES       APIGROUP                              NAMESPACED   KIND
-bindings                                                                                     true         Binding
-componentstatuses                     cs                                                     false        ComponentStatu
-s
-configmaps                            cm                                                     true         ConfigMap
-endpoints                             ep                                                     true         Endpoints
-events                                ev                                                     true         Event
-limitranges                           limits                                                 true         LimitRange
-namespaces                            ns                                                     false        Namespace
-nodes                                 no                                                     false        Node
-```
+    ```
+    NAME                                  SHORTNAMES       APIGROUP                              NAMESPACED   KIND
+    bindings                                                                                     true         Binding
+    componentstatuses                     cs                                                     false        ComponentStatus
+    configmaps                            cm                                                     true         ConfigMap
+    endpoints                             ep                                                     true         Endpoints
+    events                                ev                                                     true         Event
+    limitranges                           limits                                                 true         LimitRange
+    namespaces                            ns                                                     false        Namespace
+    nodes                                 no                                                     false        Node
+    ...   
+    ```
 
 
 ### Listing instances of a resource kind
 
-1. List all projects: `oc get projects`
+3. List all projects: `oc get projects`
 
     ```
     NAME          DISPLAY NAME   STATUS
@@ -649,56 +601,59 @@ nodes                                 no                                        
     ```
 
 
-2. List all pods in all namespaces: `oc get pods --all-namespaces`
+4. List all pods in all namespaces: `oc get pods --all-namespaces`
 
     ```
-    NAMESPACE                                               NAME
-      READY   STATUS      RESTARTS   AGE
-    ibm-system                                              ibm-cloud-provider-ip-52-116-182-130-67c44c6d5d-bh9x5
-      1/1     Running     0          24h
-    ibm-system                                              ibm-cloud-provider-ip-52-116-182-130-67c44c6d5d-cs5ln
-      1/1     Running     0          24h
-    kube-system                                             calico-kube-controllers-549fdb8d79-khkvr
-      1/1     Running     0          25h
+    NAMESPACE                                          NAME                                                              READY   STATUS      RESTARTS       AGE
+    clusteroverride                                    clusterresourceoverride-operator-8447f78c94-9ww57                 1/1     Running     1              3d22h
+    db2                                                db2-6b759748bf-spkgr                                              1/1     Running     2              5d23h
+    ibm-common-services                                iam-onboarding-4knm6                                              0/1     Completed   0              217d
+    ibm-common-services                                ibm-common-service-webhook-f74fd799d-vrlr4                        1/1     Running     11             217d
+    ibm-common-services                                ibm-namespace-scope-operator-948fd44bb-5wb97                      1/1     Running     11             217d
+    ibm-common-services                                meta-api-deploy-594f4f9bf4-mvq2k                                  1/1     Running     11             217d
+    ibm-common-services                                pre-zen-operand-config-job-hld85                                  0/1     Completed   0 
     ...
     ```
 
-
-3.  List all pods within a namespace: `oc get pods -n myproject`
+5.  List all pods within a namespace: `oc get pods -n myproject`
 
     ```
     NAME                       READY   STATUS    RESTARTS   AGE
-    example-5fb6876865-pqhcd   1/1     Running   0          21m
+    example-5648b6cf6d-gz46j   1/1     Running   0          19h
     ```
      
 
 
 ### Projects
 
-1. List all projects: `oc get projects`
+6. List all projects: `oc get projects`
 
     ```
-    NAME                                                    DISPLAY NAME   STATUS
-    default                                                                Active
-    ibm-cert-store                                                         Active
-    ibm-system                                                             Active
-    kube-node-lease                                                        Active
+    NAME          DISPLAY NAME   STATUS
+    default                      Active
+    ibm-cert-store               Active
+    ibm-system                   Active
+    kube-node-lease              Active
+    kube-public                  Active
+    kube-system                  Active
+    myproject                    Active
+    ...
     ```
 
-2. Get current project: `oc project` (Note: current project may not be `myproject` shown below):
+7. Get current project: `oc project` (Note: current project may not be `default` as shown below):
 
     ```
-    Using project "default" on server "https://c100-e.us-south.containers.cloud.ibm.com:32541".
+   Using project "default" on server "https://api.ocp.ibm.edu:6443".
     ```
 
-3. Change to a specific project
+8. Change to a specific project
 
     ```
     oc project myproject
     ```
 
     ```
-    Now using project "myproject" on server "https://api.demo.ibmdte.net:6443".
+    Now using project "myproject" on server "https://api.ocp.ibm.edu:6443".
     ```
 
 
@@ -710,7 +665,15 @@ nodes                                 no                                        
     The output from creating a new project:
 
     ```
-    Now using project "project1" on server "https://c100-e.us-south.containers.cloud.ibm.com:32541".
+    Now using project "project1" on server "https://api.ocp.ibm.edu:6443".
+
+    You can add applications to this project with the 'new-app' command. For example, try:
+
+    oc new-app rails-postgresql-example
+
+    to build a new example application in Ruby. Or use kubectl to deploy a simple Kubernetes application:
+
+    kubectl create deployment hello-node --image=k8s.gcr.io/e2e-test-images/agnhost:2.33 -- /agnhost serve-hostname
     ```
 
 
@@ -725,6 +688,10 @@ nodes                                 no                                        
    oc project project1
    ```
 
+    Output: 
+   
+        Now using project "project1" on server "https://api.ocp.ibm.edu:6443".
+
 7. View the REST specification of the project: 
    ```
    oc get project project1 -o yaml
@@ -732,46 +699,52 @@ nodes                                 no                                        
 
    The output of the resource specification in **yaml**
 
-   ```yaml
+    ```yaml
     apiVersion: project.openshift.io/v1
     kind: Project
     metadata:
       annotations:
         openshift.io/description: ""
         openshift.io/display-name: ""
-        openshift.io/requester: IAM#mcheng@us.ibm.com
-        openshift.io/sa.scc.mcs: s0:c24,c9
-        openshift.io/sa.scc.supplemental-groups: 1000570000/10000
-        openshift.io/sa.scc.uid-range: 1000570000/10000
-      creationTimestamp: "2020-01-30T20:28:13Z"
+        openshift.io/requester: ocadmin
+        openshift.io/sa.scc.mcs: s0:c28,c7
+        openshift.io/sa.scc.supplemental-groups: 1000770000/10000
+        openshift.io/sa.scc.uid-range: 1000770000/10000
+      creationTimestamp: "2024-02-13T18:51:45Z"
+      labels:
+        kubernetes.io/metadata.name: project1
+        pod-security.kubernetes.io/audit: restricted
+        pod-security.kubernetes.io/audit-version: v1.24
+        pod-security.kubernetes.io/warn: restricted
+        pod-security.kubernetes.io/warn-version: v1.24
       name: project1
-      resourceVersion: "364002"
-      selfLink: /apis/project.openshift.io/v1/projects/project1
-      uid: a817b908-a7fe-4f82-9bfa-e18fa4c12584
+      resourceVersion: "13199098"
+      uid: 34c89410-a09a-419e-82dd-d2788379ad01
     spec:
       finalizers:
       - kubernetes
     status:
       phase: Active
-   ```
+    ```
 
 ### First Application
 
 #### First Deployment
 
-1. In your terminal window, under the directory where you cloned the labs repository `(/home/ibmuser/openshift-workshop-was/labs/Openshift/IntroOpenshift)`, you will find **Deployment.yaml**;  
+1. In th terminal window, under the directory where you cloned the labs repository `(/home/techzone/appmod-pot-labfiles/labs/IntroOpenshift)`, you will find `Deployment.yaml`, which you will use to deploy the `httpd` application using the OpenShift CLI.   
 
-     For example:
+        cd /home/techzone/appmod-pot-labfiles/labs/IntroOpenshift
+
+        ls -l
+
+     Output:
      ```
-     root@lab-tools-6d4cbb56b6-cn2k5:/openshift-workshop-was/labs/Openshift/IntroOpenshift# ls -lt
-     drwxr-xr-x. 2 root root  4096 Apr  9 01:13 images
-     -rw-r--r--. 1 root root 32461 Apr  9 01:13 README.md
-     -rw-r--r--. 1 root root   171 Apr  9 01:13 Route.yaml
-     -rw-r--r--. 1 root root   207 Apr  9 01:13 Service.yaml
-     -rw-r--r--. 1 root root   384 Apr  9 01:13 Deployment.yaml
+     -rw-rw-r-- 1 techzone techzone 669 Feb 13 11:48 Deployment.yaml
+     -rw-rw-r-- 1 techzone techzone 171 Feb 13 11:48 Route.yaml
+     -rw-rw-r-- 1 techzone techzone 197 Feb 13 11:48 Service.yaml
      ```
 	 
-2. Review the contents of `Deployment.yaml` and note that it is identical to the to the deployment from the last section except for the namespace. 
+2. Review the contents of `Deployment.yaml`  
 
      ```
      clear
@@ -783,26 +756,35 @@ nodes                                 no                                        
 
 
      ```yaml
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
-        name: example
-        namespace: project1
-      spec:
-        selector:
-          matchLabels:
-            app: hello-openshift
-        replicas: 2
-        template:
-          metadata:
-            labels:
-              app: hello-openshift
-          spec:
-            containers:
-              - name: hello-openshift
-                image: openshift/hello-openshift
-                ports:
-                  - containerPort: 8080
+     apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: example
+      namespace: project1
+    spec:
+      selector:
+        matchLabels:
+          app: httpd
+      replicas: 2
+      template:
+        metadata:
+          labels:
+            app: httpd
+        spec:
+          containers:
+            - name: httpd
+              image: image-registry.openshift-image-registry.svc:5000/openshift/httpd:latest
+              ports:
+                - containerPort: 8080
+              imagePullPolicy: Always  
+              securityContext:
+                allowPrivilegeEscalation: false
+                runAsNonRoot: true
+                capabilities: 
+                  drop: 
+                  - ALL
+                seccompProfile: 
+                  type: "RuntimeDefault"
      ```
 
 
@@ -821,226 +803,41 @@ nodes                                 no                                        
 4. Check the status of deployment: 
 
     ```
-    oc get deployment example -o yaml
+    oc get deployment example -o wide
     ```
 
-    If the status does not show available **replica count of 2**, wait a few seconds, then rerun the command.
+    There should be 2 of 2 pods in the READY state: 
 
-    ```yaml
-    apiVersion: extensions/v1beta1
-    kind: Deployment
-    metadata:
-      annotations:
-        deployment.kubernetes.io/revision: "1"
-        kubectl.kubernetes.io/last-applied-configuration: |
-          {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"example","namespace":"project1"},
-    "spec":{"replicas":2,"selector":{"matchLabels":{"app":"hello-openshift"}},"template":{"metadata":{"labels":{"app":"hello
-    -openshift"}},"spec":{"containers":[{"image":"openshift/hello-openshift","name":"hello-openshift","ports":[{"containerPo
-    rt":8080}]}]}}}}
-      creationTimestamp: "2020-01-30T20:37:28Z"
-      generation: 1
-      name: example
-      namespace: project1
-      resourceVersion: "366251"
-      selfLink: /apis/extensions/v1beta1/namespaces/project1/deployments/example
-      uid: f011a93d-2231-4187-b265-f350ee830971
-    spec:
-      progressDeadlineSeconds: 600
-      replicas: 2
-      revisionHistoryLimit: 10
-      selector:
-        matchLabels:
-          app: hello-openshift
-      strategy:
-        rollingUpdate:
-          maxSurge: 25%
-          maxUnavailable: 25%
-        type: RollingUpdate
-      template:
-        metadata:
-          creationTimestamp: null
-          labels:
-            app: hello-openshift
-        spec:
-          containers:
-          - image: openshift/hello-openshift
-            imagePullPolicy: Always
-            name: hello-openshift
-            ports:
-            - containerPort: 8080
-              protocol: TCP
-            resources: {}
-            terminationMessagePath: /dev/termination-log
-            terminationMessagePolicy: File
-          dnsPolicy: ClusterFirst
-          restartPolicy: Always
-          schedulerName: default-scheduler
-          securityContext: {}
-          terminationGracePeriodSeconds: 30
-    status:
-      availableReplicas: 2
-      conditions:
-      - lastTransitionTime: "2020-01-30T20:37:31Z"
-        lastUpdateTime: "2020-01-30T20:37:31Z"
-        message: Deployment has minimum availability.
-        reason: MinimumReplicasAvailable
-        status: "True"
-        type: Available
-      - lastTransitionTime: "2020-01-30T20:37:28Z"
-        lastUpdateTime: "2020-01-30T20:37:31Z"
-        message: ReplicaSet "example-75778c488" has successfully progressed.
-        reason: NewReplicaSetAvailable
-        status: "True"
-        type: Progressing
-      observedGeneration: 1
-      readyReplicas: 2
-      replicas: 2
-      updatedReplicas: 2
     ```
+    NAME      READY   UP-TO-DATE   AVAILABLE   AGE    CONTAINERS IMAGES                                                                    SELECTOR
+    example   2/2     2            2           103s   httpd        image-registry.openshift-image-registry.svc:5000/openshift/httpd:latest   app=httpd
+
+    ```
+
+    If the status does not show available **`READY 2/2`**, wait a few seconds, then rerun the command.
+
+   
 
 5. List the running pods created by the controller for the deployment: 
    ```
    oc get pods
    ```
 
-   The pods should be in the **Running** state
+    The pods should be in the **`Running`** state
 
-   ```
+    ```
     NAME                      READY   STATUS    RESTARTS   AGE
-    example-75778c488-7k7q2   1/1     Running   0          3m37s
-    example-75778c488-c9jhd   1/1     Running   0          3m37s
+    example-764854fb5-lhdm7   1/1     Running   0          5m53s
+    example-764854fb5-s5f68   1/1     Running   0          5m53s
+
    ```
 
-6. List the details for one of the pods: 
-   ```
-   oc get pods <pod name> -o yaml 
-   ```
+6. Show the logs of one of the pods: `oc logs <pod name>`
 
-   **Note:** `<pod name>` is listed under `NAME` in the previous command's output.
-	
-   ```yaml
-    apiVersion: v1
-    kind: Pod
-    metadata:
-      annotations:
-        cni.projectcalico.org/podIP: 172.30.26.229/32
-        openshift.io/scc: restricted
-      creationTimestamp: "2020-01-30T20:37:28Z"
-      generateName: example-75778c488-
-      labels:
-        app: hello-openshift
-        pod-template-hash: 75778c488
-      name: example-75778c488-7k7q2
-      namespace: project1
-      ownerReferences:
-      - apiVersion: apps/v1
-        blockOwnerDeletion: true
-        controller: true
-        kind: ReplicaSet
-        name: example-75778c488
-        uid: 2b03ef6a-8a1a-4f7e-9502-7249a4dabb98
-      resourceVersion: "366248"
-      selfLink: /api/v1/namespaces/project1/pods/example-75778c488-7k7q2
-      uid: 504c999e-d47d-48f7-afcb-992a5a13fc67
-    spec:
-      containers:
-      - image: openshift/hello-openshift
-        imagePullPolicy: Always
-        name: hello-openshift
-        ports:
-        - containerPort: 8080
-          protocol: TCP
-        resources: {}
-        securityContext:
-          capabilities:
-            drop:
-            - KILL
-            - MKNOD
-            - SETGID
-            - SETUID
-          runAsUser: 1000570000
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-        volumeMounts:
-        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-          name: default-token-ngv4p
-          readOnly: true
-      dnsPolicy: ClusterFirst
-      enableServiceLinks: true
-      imagePullSecrets:
-      - name: default-dockercfg-shjmz
-      nodeName: 10.177.93.14
-      priority: 0
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext:
-        fsGroup: 1000570000
-        seLinuxOptions:
-          level: s0:c24,c9
-      serviceAccount: default
-      serviceAccountName: default
-      terminationGracePeriodSeconds: 30
-      tolerations:
-      - effect: NoExecute
-        key: node.kubernetes.io/not-ready
-        operator: Exists
-        tolerationSeconds: 300
-      - effect: NoExecute
-        key: node.kubernetes.io/unreachable
-        operator: Exists
-        tolerationSeconds: 300
-      volumes:
-      - name: default-token-ngv4p
-        secret:
-          defaultMode: 420
-          secretName: default-token-ngv4p
-    status:
-      conditions:
-      - lastProbeTime: null
-        lastTransitionTime: "2020-01-30T20:37:28Z"
-        status: "True"
-        type: Initialized
-      - lastProbeTime: null
-        lastTransitionTime: "2020-01-30T20:37:31Z"
-        status: "True"
-        type: Ready
-      - lastProbeTime: null
-        lastTransitionTime: "2020-01-30T20:37:31Z"
-        status: "True"
-        type: ContainersReady
-      - lastProbeTime: null
-        lastTransitionTime: "2020-01-30T20:37:28Z"
-        status: "True"
-        type: PodScheduled
-      containerStatuses:
-      - containerID: cri-o://42828d4a8333d4fa9d3882805680d7693616610ff78a3e07f4794d91b86862b5
-        image: docker.io/openshift/hello-openshift:latest
-        imageID: docker.io/openshift/hello-openshift@sha256:aaea76ff622d2f8bcb32e538e7b3cd0ef6d291953f3e7c9f556c1ba5baf47e2e
-        lastState: {}
-        name: hello-openshift
-        ready: true
-        restartCount: 0
-        started: true
-        state:
-          running:
-            startedAt: "2020-01-30T20:37:30Z"
-      hostIP: 10.177.93.14
-      phase: Running
-      podIP: 172.30.26.229
-      podIPs:
-      - ip: 172.30.26.229
-      qosClass: BestEffort
-      startTime: "2020-01-30T20:37:28Z"
-   ```
+   **Note:** `\<pod name\>` is the name of the pods from the `oc get pods` command in the previous step. 
 
-7. Show the logs of one of the pods: `oc logs <pod name>`
-
-    ```
-    serving on 8888
-    serving on 8080
-    ```
-
-8. Take a look at `Service.yaml` and note that it's for the `project1` namespace:
+ 
+7. Take a look at `Service.yaml` and note that it's for the `project1` namespace:
 
     ```
     clear
@@ -1062,13 +859,13 @@ nodes                                 no                                        
           port: 8080
           targetPort: 8080
       selector:
-        app: hello-openshift
+        app: httpd
       type: ClusterIP
     ```
 
-    Notice tha **selector** set to **app: hello-openshift** which means the service willload balance pods with label `app: hello-openshift` within the `project1` namespace: 
+    Notice tha **selector** set to **app: httd** which means the service willload balance pods with label `app: httpd` within the `project1` namespace: 
 
-9. Create the service. 
+8. Create the service. 
     
     ```
     oc apply -f Service.yaml
@@ -1080,7 +877,7 @@ nodes                                 no                                        
     service/example created
     ```
 
-10. Examine Route.yaml:
+9. Examine Route.yaml:
     ```
     clear
     
@@ -1104,7 +901,7 @@ nodes                                 no                                        
         name: example
     ```
 
-11. Apply the route to make the service reachable from outside the cluster: 
+10. Apply the route to make the service reachable from outside the cluster: 
     
     ```
     oc apply -f Route.yaml
@@ -1116,7 +913,7 @@ nodes                                 no                                        
     route.route.openshift.io/example created
     ```
 
-12. Use the following command to get the URL for the route. Then open the URL in the Browseer on the VM: 
+11. Use the following command to get the URL for the route. Then open the URL in the Browser on the VM: 
    
     ```
     echo http://$(oc get route example --template='{{ .spec.host }}')
@@ -1124,12 +921,12 @@ nodes                                 no                                        
     Output:
    
     ```
-    http://example-project1.apps.demo.ibmdte.net
+    http://example-project1.apps.ocp.ibm.edu
     ```
 
-13. Open your Firefox browser again and visit the URL outputted by the previous command. You should see a web page displaying the following message:
+12. Open your Firefox browser again and visit the URL outputted by the previous command. You should see a web page displaying the following message:
 
-    ![firstapplication1](images/firstapplication1.png)
+    ![firstapplication1](images/httpdApp.png)
 
 
 ### Changing Replica Instance
@@ -1145,15 +942,17 @@ nodes                                 no                                        
 2. Delete one of the pods: `oc delete pod <pod name>`
 
     ```
-    pod "example-75778c488-7k7q2" deleted
+    pod "example-764854fb5-lhdm7" deleted
     ```
 
 3. List pods again and note that a new instance has been created as expected. The deployment specified 2 instances, so the controller tries to maintain 2 instances: `oc get pods`
 
+  **Note:** New pod is automaticially started
+
     ```
     NAME                      READY   STATUS    RESTARTS   AGE
-    example-75778c488-c9jhd   1/1     Running   0          63m
-    example-75778c488-rhjrx   1/1     Running   0          28s
+    example-764854fb5-pjdgg   1/1     Running   0          42s
+    example-764854fb5-s5f68   1/1     Running   0          44m
     ```
 
 4. To cange the number of pods, you can patch the resource in one of two ways:
@@ -1167,8 +966,8 @@ nodes                                 no                                        
        ```
       
        ```
-       NAME                       READY   STATUS    RESTARTS   AGE
-       example-5fb6876865-xjbb6   1/1     Running   0          14m
+       NAME                      READY   STATUS    RESTARTS   AGE
+       example-764854fb5-s5f68   1/1     Running   0          47m
        ``` 
 
      - Interactive patch using the `edit` option of the command line through `vi` editor:
@@ -1184,33 +983,85 @@ nodes                                 no                                        
       deployment.extensions/example edited
       ```
 
-     **Note:** The above edits the copy that is stored in Openshift. You may also edit your local copy of `Deployment.yaml` and re-apply it.
-
-      <br/>
-
 5. List the pods to show 2 pods runing after issueing the previous commands: 
 
     ```
     oc get pods
     ```
 
+    If you edited and saved the resource in the previous step, there will be two pods running. 
+
     ```
-    NAME                       READY   STATUS    RESTARTS   AGE
-    example-5fb6876865-5vpwk   1/1     Running   0          20s
-    example-5fb6876865-xjbb6   1/1     Running   0          20m
+    NAME                      READY   STATUS    RESTARTS   AGE
+    example-764854fb5-s5f68   1/1     Running   0          50m
+    example-764854fb5-w6w8j   1/1     Running   0          75s
     ```
 
 
-6. Cleanup:
+     **Note:** The above edits the copy that is stored in Openshift. You may also edit your local copy of `Deployment.yaml` and re-apply it.
+
+      <br/>
+
+
+6. Edit the `Deployment.yaml` on the VM, and re-apply the updates
+
+    a. From a `Terminal` window, change to the lab directory foler where the `Deployment.yaml` file resides
+
+        cd  /home/techzone/appmod-pot-labfiles/labs/IntroOpenshift
+
+    b. Use gedit to edit the `Deployment.yaml` file
+
+        gedit ./Deployment.yaml
+
+    ![firstapplication1](images/geditDeployment.png)
+
+
+    c. `Save` the Deployment.yaml file
+
+    d. Re-Apply the Deployment
+
+        oc apply -f ./Deployment.yaml
+
+    The example deployment has been re-applied. 
+
+        deployment.apps/example configured
+        
+7. List the pods again to see that `3` pods are now running
+
+    ```
+    oc get pods
+    ```
+
+    Three pods running
+
+    ```
+    NAME                      READY   STATUS    RESTARTS   AGE
+    example-764854fb5-s5f68   1/1     Running   0          63m
+    example-764854fb5-t4w24   1/1     Running   0          111s
+    example-764854fb5-w6w8j   1/1     Running   0          13m
+    ```
+
+
+8. Cleanup:
     
-   ```
-   oc delete route example
-   oc delete service example
-   oc delete deployment example
+    ```
+    oc delete route example
+    oc delete service example
+    oc delete deployment example
    
-   oc get pods  
-   ``` 
+    oc get pods  
+    ``` 
+
+    The Output should state that no resources found in the project
+
+    ```
+    No resources found in project1 namespace.
+    ```
    
    **Note:** You may have to run the **oc get pods** command a few times, to wait for the pods to be deleted.
 
+<br/>
+
 Congratulations, you have deployed your first application to Openshift via the command line.
+
+END OF LAB
