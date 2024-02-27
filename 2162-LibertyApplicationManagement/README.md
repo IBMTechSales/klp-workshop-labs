@@ -1,3 +1,127 @@
+# Day-2 Operations
+
+In this lab, we will introduce you to the basics of day 2 operations in containers on OpenShift. We will:
+
+- Deploy an example application using the WebSphere Liberty Operator
+- Use the built-in day 2 diagnostic capabilities of the WebSphere Liberty Operator including server dump and diagnostic trace
+- Delete the operator-managed application and directly deploy an application
+- Perform day 2 diagnostic steps directly on the running application including server dump and diagnostic trace
+- Download diagnostic data locally
+
+## Accessing the environment
+
+If you are doing this lab as part of an instructor led workshop (virtual or face to face), an environment has already been provisioned for you. The instructor will provide the details for accessing the lab environment.
+
+Otherwise, you will need to reserve an environment for the lab. You can obtain one here. Follow the on-screen instructions for the “**Reserve now**” option.
+
+<https://TBD-to-the-reservation-link>
+
+The lab environment contains six (6) Linux VMs. 
+
+![](./images/env-list.png)
+
+
+<br/>
+
+1.  Access the lab environment from your web browser. 
+     
+    A `Published Service` is configured to provide access to the **`Workstation`** VM through the noVNC interface for the lab environment.
+    
+    a. When the demo environment is provisioned, click on the **`environment tile`** to open its details view. 
+
+    b. Click on the **`Published Service`** link which will display a **Directory listing**  
+    
+    c. Click on the **`vnc.html`** link to open the lab environment through the **noVNC** interface. 
+    
+    ![](./images/vnc-link.png)
+    
+    d. Click the **`Connect`** button 
+    
+      ![](./images/vnc-connect.png)
+
+
+    e. Enter the password as:  **`passw0rd`**. Then click the **`Send Credentials`** button to access the lab environment. 
+
+    > Note: That is a numeric zero in passw0rd  
+
+      ![](./images/vnc-password.png)
+
+	 
+	 <br>
+	 
+2.  If prompted to Login to the "workstation" VM, use the credetials below: 
+
+    The login credentials for the **workstation”** VM is:
+ 
+     - User ID: **techzone**
+
+     - Password: **IBMDem0s!**
+
+     > Note: That is a numneric zero in the password
+
+	 <br>
+ 
+     ![student vm screen](./images/techzone-user-pw.png)
+	 
+	 <br>
+
+## Tips for working in the lab environment     
+
+1. You can resize the viewable area using the **noVNC Settings** options to resize the virtual desktop to fit your screen.
+
+    a. From the environemnt VM, click on the **twisty** on the noNC control pane to open the menu.  
+
+    ![fit to window](./images/z-twisty.png)
+
+    b. To increase the visible area, click on `Settings > Scaling Mode` and set the value to `Remote Resizing`
+      
+     ![fit to window](./images/z-remote-resize.png)
+
+
+2.  You can copy / paste text from the lab guide into the lab environment using the clipboard in the noVNC viewer. 
+   
+    a. Copy the text from the lab guide that you want to paste into the lab environment
+    
+    b. Click the **Clipboard** icon and **paste** the text into the noVNC clipboard
+
+    ![fit to window](./images/paste.png)
+    
+    c. Paste the text into the VM, such as to a terminal window, browser window, etc. 
+
+    d. Click on the **clipboard** icon again to close the clipboard
+
+   
+3. An alternative to using the noVNC Copy / Paste option, you may consider opening the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide without having to use the noVNC clipboard. 
+
+
+    <br>
+
+## Building and deploying the application
+
+1. Open a new `Terminal` window on the Desktop VM:
+   
+    ![terminal](images/checkenv1.png)
+   
+    <br/>
+   
+2. If you have not yet cloned the GitHub repo with the lab artifacts, in a previous lab, run the following command on your terminal:
+
+```   
+  cd /home/techzone
+		
+  git clone https://github.com/IBMTechSales/appmod-pot-labfiles.git 
+```
+
+3. Change directory to:  `appmod-pot-labfiles/labs/Day2/scripts`
+
+
+        cd /home/techzone/appmod-pot-labfiles/labs/Day2/scripts
+
+4. Run the script to build and deploy the application:
+   ```
+   ./day2.sh
+   ```
+
 ## Day-2 Operations (Hands-on)
 
 It is often necessary to gather server **logs**, **traces** and/or **dumps** for analyzing some problems with an application. The [WebSphere Liberty Operator](https://www.ibm.com/docs/en/was-liberty/core?topic=operator-websphere-liberty-overview) makes it easy to gather these on a server running inside a container. You can also gather these files without the WebSphere Liberty Operator. Both scenarios will be covered in this lab.
