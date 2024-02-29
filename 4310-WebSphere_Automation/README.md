@@ -46,7 +46,7 @@ If you are doing this lab as part of an instructor led workshop (virtual or face
 
 Otherwise, you will need to reserve an environment for the lab. You can obtain one here. Follow the on-screen instructions for the “**Reserve now**” option.
 
-<https://techzone.ibm.com/my/reservations/create/63867b6a4cd2a3001961ea2xxx>
+<https://techzone.ibm.com/my/reservations/create/65ae86397aace000116fac7a>
 
 
 1.  Access the lab environment from your web browser. 
