@@ -129,12 +129,6 @@ Otherwise, you will need to reserve an environment for the lab. You can obtain o
     
     > In this case you might try again, or open another Terminal Window and try again, or  paste the text into a **Text Editor** in the VM, and then paste it into the Terminal window in the VM. 
 
-3. (Optional) Open the `lab-commands.txt` file in an editor, to copy & paste commands throughout the lab. 
-
-   **TIP:** `You may use the lab-commands.txt file to copy & paste commands throught the lab.` 
-   
-        gedit /home/ibmuser/WAS-Automation-LabFiles/techxchange/lab-commands.txt
-
     <br/>   
 
 
@@ -172,6 +166,17 @@ Otherwise, you will need to reserve an environment for the lab. You can obtain o
         ls -l /home/ibmuser/WAS-Automation-LabFiles/techxchange/*
 
     ![](./lab1-media/media/4310-list-cloned-dir.png)
+
+
+
+
+3. (Optional) Open the `lab-commands.txt` file in an editor, to copy & paste commands throughout the lab. 
+
+   **TIP:** `You may use the lab-commands.txt file to copy & paste commands throught the lab.` 
+   
+        gedit /home/ibmuser/WAS-Automation-LabFiles/techxchange/lab-commands.txt
+
+    <br/>       
 
 
 ### 1.1 Overview - Configuring WebSphere Automation
