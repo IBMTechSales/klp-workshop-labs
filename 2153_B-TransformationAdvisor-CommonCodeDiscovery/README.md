@@ -202,7 +202,7 @@ In this section of the lab, you will clone the GitHub repo to the **Workstation*
 
 3.  Upload WebSphere Application Server bulk data to TA Local.
 
-    After TA Local is ready, run the curl command shown below to call the TA “**bulkImport”** API to upload the WebSphere Application Server bulk data to TA Local.
+    After TA Local is ready, run the `curl command` shown below to call the TA “**bulkImport”** API to upload the WebSphere Application Server bulk data to TA Local.
 
     a. Upload the **bulk_data_3.zip** using the following command in a terminal window on the **Workstation** VM:
 
@@ -217,7 +217,7 @@ In this section of the lab, you will clone the GitHub repo to the **Workstation*
     When invoking the bulkImport API, the command returns immediately. However, the bulk import process takes a few minutes to complete. You see the output as follows:
 
 
-
+    **Output from the curl command:**
 
     ```
     curl -v -k -X POST "http://server0.gym.lan:2220/lands_advisor/advisor/v2/collectionArchives/bulkImport" -H "accept: */*" -H "archiveName: bulk_data_3.zip" -H "Content-Type: application/octet-stream" --data-binary "@/home/techzone/appmod-pot-labfiles/labs/TransformationAdvisor/bulk_data_3.zip"
@@ -262,6 +262,8 @@ In this section of the lab, you will clone the GitHub repo to the **Workstation*
 
     **Example:**
  
+    From the web browser: 
+
     http://server0.gym.lan:2220/lands_advisor/advisor/v2/collectionArchives/bulkImport/status/83265910884066
     
     **(The ID will be different on your environment)**
@@ -366,6 +368,7 @@ Let’s create a new group for the ACME applications.
 
 5.  Select the **`ACME`** group under **`Groups`**, which will cause TA to recalculate the effort involved to modernize the workspace scoped to only include the ACME group of applications.
 
+    ![](./images/media/acme-group.png)
  
     Now you see that TA has recalculated the costs associated for modernizing just the ACME group of applications.
  
@@ -448,7 +451,7 @@ With these insights you will learn which common code libraries would provide the
  
     This means that you only modernize these common code files once and it is fixed for all **5** of the applications that also share this common code.
 
-    c.  **Close** the common code details view for the **ACMEAnnuityEJBMDB.ear** application
+    c.  **`Collapse`** the "common code details view" for the **ACMEAnnuityEJBMDB.ear** application
 
 
 
@@ -500,7 +503,7 @@ With these insights you will learn which common code libraries would provide the
 
     As noted in the previous step, the AcmeAnnuityCommon.jar is used by all 5 ACME application. 
 
-6.  From the list of applications using this common code utility jar, click on the **ACMEAnnuityEJBWSes.ear** application to display its details. 
+6.  From the list of applications using this common code utility jar, `click` on the **ACMEAnnuityEJBWSes.ear** application to display its details. 
 
     ![](./images/media/image41-b.png)
 
@@ -543,15 +546,15 @@ The export generates a zip file of the workspace summary and /or application det
 
 1.  Export the Workspace and application details for the **ACME** group of applications.
     
-    a.  From TA, return to the ACME group applications list.
+    a.  From TA, return to the `ACME group` applications list.
 
     ![](./images/media/image44.png)
 
-    b.  From the **Java applications** view of the ACME group, click on the “**Export**” icon.
+    b.  From the **Java applications** view of the ACME group, click on the **`Export`** icon.
 
     ![](./images/media/image45.png)
 
-    c.   From the “Export” page, ensure the “**Summary of workspace**” and “**Application details**” are selected to be exported, then click **Export**.
+    c.   From the “Export” page, ensure the “**Summary of workspace**” and “**Application details**” are selected to be exported, then click **`Export`**.
 
     ![](./images/media/image46.png)
  
@@ -566,19 +569,25 @@ The export generates a zip file of the workspace summary and /or application det
 
 3.  Explore the file structure and contents of the exported data.
     
-    a. Open a File Explorer window on the VM and navigate to **`/home/techzone/Downloads/ACME/ta300_data_3_ACME`** directory.
+    a. Open a `File Explorer` window on the VM and navigate to the directory: 
+    
+        Home > techzone > Downloads > ACME > ta300_data_3_ACME
 
     The file structure is split into two categories, one for the workspace summary, and the other for the application details.
  
     ![](./images/media/image47.png)
 
-    b.  Open the “**`summary`**” directory.
+    b.  Open the **`summary`** directory.
     
     ![](./images/media/image47-b.png)
 
-    > Note that the **workspace summary** data is separated by applications, common code, and rules.
+    ___
+
+    Note that the **workspace summary** data is separated by applications, common code, and rules.
  
-    > In each of the sub-directories you find the csv and pdf files that contain the summary data
+    In each of the sub-directories you find the csv and pdf files that contain the summary data
+    ___
+
 
     c.  Navigate to **`/home/techzone/Downloads/ACME/ta300_data_3_ACME/summary/applications`** directory, and open the pdf file to view the ACME applications summary.
 
@@ -602,17 +611,17 @@ The Migration Toolkit for Application Binaries is a tool in the IBM WebSphere Ap
 
 This command-line tool enables administrators to evaluate applications in minutes without accessing the source code. This tool can also be integrated with TA and add scanned data into an existing TA workspace.
 
-The binary scanner can scan an application binary such as a WAR or EAR file.
+**The binary scanner can scan an application binary such as a WAR or EAR file.**
 
   - Scanning a binary archive only produces application data.
 
-The binary scanner can also scan a WebSphere application server profile configuration.
+**The binary scanner can also scan a WebSphere application server profile configuration.**
 
   - With this option, the binary scanner also collects the WebSphere server configuration data and produces deployment accelerators for building and deploying the application to Liberty, traditional WebSphere in containers, and container-based clouds.
 
-The binary scanner can also be run using the **`--ta`** option, which produces a data collection archive that can be uploaded directly into Transformation Advisor.
+**The binary scanner can also be run using the **`--ta`** option, which produces a data collection archive that can be uploaded directly into Transformation Advisor.**
 
-  - With the **`--ta`** option, the data collection archive can be uploaded to TA, and applications can be analyzed alongside the applications you already have uploaded into the TA UI, providing the ability to get a broader understanding of the applications in the enterprise, including code that may be common among applications from different WebSphere Applications and Application servers.
+  - With the **`--ta`** option, the data collection archive can be uploaded to TA. The applications can be analyzed alongside the applications you already have uploaded into the TA UI. This provides the ability to get a broader understanding of the applications in the enterprise, including code that may be common among applications from different WebSphere Applications and Application servers.
 
 <table>
 <tbody>
@@ -649,6 +658,7 @@ The WebSphere Application Server environment configuration is also available on 
 
 1.  Run the binary scanner to collect the data for the **PlantsByWebSphere** application in the WebSphere profile named “**profile1**”, using the **“--ta**” option.
 
+
         cd /home/techzone/binary-scanner/wamt
 
         java -jar binaryAppScanner.jar /opt/IBM/WebSphere/AppServer85515 --ta --profile=AppSrv01
@@ -671,7 +681,7 @@ The WebSphere Application Server environment configuration is also available on 
 
 3. Upload the “**profile1.zip**” file to TA.
     
-    a.  From the TA UI, click **`Options** > **Upload data`** from the “**options**” menu, to start uploading the new **AppSrv01.zip** archive collected from the binary scanner.
+    a.  From the TA UI, click **`Options > Upload data`** from the **`options`** menu, to start uploading the new **`AppSrv01.zip`** archive collected from the binary scanner.
 
     ![](./images/media/image55.png)
 
@@ -680,7 +690,7 @@ The WebSphere Application Server environment configuration is also available on 
 
     ![](./images/media/image56.png)
 
-    c. Navigate to **`/home/techzone/binary-scanner/wamt`** directory. Select **AppSrv01.zip**, then click **`Open`**.
+    c. Navigate to **`Home > techzone > binary-scanner > wamt`** directory. Select **AppSrv01.zip**, then click **`Open`**.
 
     ![](./images/media/image57.png)
 
@@ -696,19 +706,19 @@ The WebSphere Application Server environment configuration is also available on 
 
     ![](./images/media/image58.png)
 
-    f.  In this case, just accept the default selection “**Auto-detect collection name from archive**”. Then click **Upload** to upload the data.
+    f.  In this case, just accept the default selection “**Auto-detect collection name from archive**”. Then click **`Upload`** to upload the data.
 
     ![](./images/media/image59.png)
  
     The Java applications in the local WebSphere Application Server are added to the **ta300_data_3** workspace.
  
-     Now the total number of applications in the workspace is **15.**
+     Now the total number of applications in the workspace is **16.**
  
     ![](./images/media/image60.png)
 
 4.  View the Java applications in the new collection that was created when the **AppSrv01.zip** was uploaded.
     
-    a. Expand the “Collections” list, and select the new collection named **server0.gym.lan**.
+    a. Expand the “Collections” list, and select the new collection named **`server0.gym.lan`**.
 
     ![](./images/media/image61.png)
 

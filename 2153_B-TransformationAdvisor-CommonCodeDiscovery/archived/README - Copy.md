@@ -2,7 +2,6 @@
 
 ![banner](./images/media/image1.jpeg)
 
-**Last updated:** September 2022
 
 **Duration:** 60 minutes
 
@@ -14,7 +13,7 @@ Need support? Contact **Yi Tang** and **Kevin Postreich**
 
 This lab highlights the capability of IBM Cloud Transformation Advisor (TA) to get an estimate of the total cost of modernizing all applications in the TA workspace, taking into consideration common (shared) code included across applications, that only need to be updated once.
 
-IBM Cloud Transformation Advisor (TA), an application modernization tool included in IBM WebSphere Hybrid Edition (WSHE), has the great capabilities to quickly evaluate and help deploy on-premises Java EE applications for deployment to Liberty and container-based clouds.
+IBM Cloud Transformation Advisor (TA), an application modernization tool included in IBM Cloud Pak for Applications (CP4Apps), has the great capabilities to quickly evaluate and help deploy on-premises Java EE applications for deployment to Liberty and container-based clouds.
 
 TA provides a whole new way to look at your data with its **workspace level view.** This view provides the estimated development effort to modernize all of the applications in the TA workspace, taking into account all the code that is common across your applications.
 
@@ -58,51 +57,96 @@ ACME application has several modules, and you are using TA to evaluate the appli
 
 You know that it is extremely challenging to get a good estimate of the effort required. You want to use Transformation Advisor with its common code discovery and workspace view to get a practical and realistic estimate of the effort based on the analysis and insights gained from TA. Then report back to the development team to craft a modernization plan for your ACME enterprise application.
 
+  <br/>
 
-## Accessing and starting the environment
+
+## Accessing the environment
 
 If you are doing this lab as part of an instructor led workshop (virtual or face to face), an environment has already been provisioned for you. The instructor will provide the details for accessing the lab environment.
 
 Otherwise, you will need to reserve an environment for the lab. You can obtain one here. Follow the on-screen instructions for the “**Reserve now**” option.
 
-<https://techzone.ibm.com/my/reservations/create/6127f5c66c03be001ef63c48>
+<https://TBD-to-the-reservation-link>
 
-<table>
-<tbody>
-<tr class="odd">
-<td><img src="./images/media/image2.png" style="width:0.960417in;height:0.60417in" alt="sign-info" /></td>
-<td><p><strong>TIP:</strong></p>
-<p>If you need additional details, the step-by-step instructions for reserving an environment can be found in <strong>APPENDIX 1</strong> of this lab guide.</p></td>
-</tr>
-</tbody>
-</table>
+The lab environment contains six (6) Linux VMs. 
 
-1. When the demo environment is provisioned, use the provided username and password to access and start the environment. You should see the following screen:
+![](./images/media/env-list.png)
 
-    ![](./images/media/image3a.png)
 
-2.  If the environment is **NOT** already started, go ahead, and **start** the environment by clicking on the **Play** button. It takes about 2 - 5 minutes for the environment to start and stabilize.
+<br/>
 
-    ![Graphical user interface, application Description automatically generated](./images/media/image4.png)
+1.  Access the lab environment from your web browser. 
+     
+    A `Published Service` is configured to provide access to the **`Workstation`** VM through the noVNC interface for the lab environment.
+    
+    a. When the demo environment is provisioned, click on the **`environment tile`** to open its details view. 
 
-3.  Click the screen representing the **Workstation** VM
+    b. Click on the **`Published Service`** link which will display a **Directory listing**  
+    
+    c. Click on the **`vnc.html`** link to open the lab environment through the **noVNC** interface. 
+    
+    ![](./images/media/vnc-link.png)
+    
+    d. Click the **`Connect`** button 
+    
+      ![](./images/media/vnc-connect.png)
 
-    ![Graphical user interface, application Description automatically generated](./images/media/image3.png)
 
-4.  Once you log in to the Student VM you will see the Desktop, which contains all the programs that you will be using (browsers, terminal, etc.)
+    e. Enter the password as:  **`passw0rd`**. Then click the **`Send Credentials`** button to access the lab environment. 
 
-    > The login credentials for the **Workstation** image are:
-    > 
-    > User ID: **ibmdemo** 
-    > 
-    > Password: **passw0rd (numeric zero in passw0rd)**   
-    > 
-    ![Graphical user interface Description automatically generated with low confidence](./images/media/image6.png)
+    > Note: That is a numeric zero in passw0rd  
 
-5.  You can resize the virtual desktop with the **Fit to window** button, located at the top of the Skytap environment window.
+      ![](./images/media/vnc-password.png)
 
-    ![Graphical user interface Description automatically generated](./images/media/image7.png)
+	 
+	 <br>
+	 
+2.  If prompted to Login to the "workstation" VM, use the credetials below: 
 
+    The login credentials for the **workstation”** VM is:
+ 
+     - User ID: **techzone**
+
+     - Password: **IBMDem0s!**
+
+     > Note: That is a numneric zero in the password
+
+	 <br>
+ 
+     ![student vm screen](./images/media/techzone-user-pw.png)
+	 
+	 <br>
+
+## Tips for working in the lab environment     
+
+1. You can resize the viewable area using the **noVNC Settings** options to resize the virtual desktop to fit your screen.
+
+    a. From the environemnt VM, click on the **twisty** on the noNC control pane to open the menu.  
+
+    ![fit to window](./images/media/z-twisty.png)
+
+    b. To increase the visible area, click on `Settings > Scaling Mode` and set the value to `Remote Resizing`
+      
+     ![fit to window](./images/media/z-remote-resize.png)
+
+
+2.  You can copy / paste text from the lab guide into the lab environment using the clipboard in the noVNC viewer. 
+   
+    a. Copy the text from the lab guide that you want to paste into the lab environment
+    
+    b. Click the **Clipboard** icon and **paste** the text into the noVNC clipboard
+
+    ![fit to window](./images/media/paste.png)
+    
+    c. Paste the text into the VM, such as to a terminal window, browser window, etc. 
+
+    d. Click on the **clipboard** icon again to close the clipboard
+
+   
+3. An alternative to using the noVNC Copy / Paste option, you may consider opening the lab guide in a web browser inside of the VM. Using this method, you can easily copy / paste text from the lab guide without having to use the noVNC clipboard. 
+
+
+    <br>
 
 
 # Part 1: Load WebSphere Application Server Data to TA
@@ -127,28 +171,28 @@ In this section of the lab, you will clone the GitHub repo to the **Workstation*
 
     b.  Clone the GitHub repo by running the commands below from the terminal window.
 
-        cd /home/ibmdemo
+        cd /home/techzone
 
-        git clone https://github.com/IBMTechSales/openshift-workshop-was
+        git clone https://github.com/IBMTechSales/appmod-pot-labfiles
 
     Once the repo is clone, the local lab artifacts is available in the following directory.
  
-    > /home/ibmdemo/*openshift-workshop-was
+    > /home/techzone/appmod-pot-labfiles
  
     The bulk data file, **bulk\_data\_3.zip** is located at:
  
-    > /home/ibmdemo/*openshift-workshop-was/labs/Liberty/TA-Labs
+    > /home/techzone/appmod-pot-labfiles/labs/TransformationAdvisor
 
 1.  Start TA Local.
     
     a. TA Local needs to be started using the following commands and selections:
 
-        cd /home/ibmdemo/TA_LOCAL/transformationAdvisor/transformation-advisor-local-3.2.1
+        cd /home/techzone/transformation-advisor-local-3.8.1
 
         ./launchTransformationAdvisor.sh
 
 
-    b. Type **5** for starting Transformation Advisor and press **Enter**.
+    b. Type **`5`** for starting Transformation Advisor and press **`Enter`**.
 
     ![Text Description automatically generated](./images/media/image9.png)
  
@@ -162,7 +206,7 @@ In this section of the lab, you will clone the GitHub repo to the **Workstation*
 
     a. Upload the **bulk_data_3.zip** using the following command in a terminal window on the **Workstation** VM:
 
-        curl -v -k -X POST "http://10.0.0.1:2220/lands_advisor/advisor/v2/collectionArchives/bulkImport" -H "accept: */*" -H "archiveName: bulk_data_3.zip" -H "Content-Type: application/octet-stream" --data-binary "@/home/ibmdemo/openshift-workshop-was/labs/Liberty/TA-labs/bulk_data_3.zip" 
+        curl -v -k -X POST "http://server0.gym.lan:2220/lands_advisor/advisor/v2/collectionArchives/bulkImport" -H "accept: */*" -H "archiveName: bulk_data_3.zip" -H "Content-Type: application/octet-stream" --data-binary "@/home/techzone/appmod-pot-labfiles/labs/TransformationAdvisor/bulk_data_3.zip" 
 
     - TA’s REST APIs are exposed through the endpoint “**lands\_advisor/advisor/v2**” on **port 2220.**
      
@@ -172,54 +216,55 @@ In this section of the lab, you will clone the GitHub repo to the **Workstation*
 
     When invoking the bulkImport API, the command returns immediately. However, the bulk import process takes a few minutes to complete. You see the output as follows:
 
-    <table>
-    <tbody>
-    <tr class="odd">
-    <td><blockquote>
-    <p>curl -v -k -X POST "http://10.0.0.1:2220/lands_advisor/advisor/v2/collectionArchives/bulkImport" -H "accept: */*" -H "archiveName: bulk_data_3.zip" -H "Content-Type: application/octet-stream" --data-binary "@/home/ibmdemo/openshift-workshop-was/labs/Liberty/TA-labs/bulk_data_3.zip"</p>
-    <p>Note: Unnecessary use of -X or --request, POST is already inferred.</p>
-    <p>* Trying 10.0.0.1...</p>
-    <p>* TCP_NODELAY set</p>
-    <p>* Connected to 10.0.0.1 (10.0.0.1) port 2220 (#0)</p>
-    <p>&gt; POST /lands_advisor/advisor/v2/collectionArchives/bulkImport HTTP/1.1</p>
-    <p>&gt; Host: 10.0.0.1:2220</p>
-    <p>&gt; User-Agent: curl/7.58.0</p>
-    <p>&gt; accept: */*</p>
-    <p>&gt; archiveName: bulk_data_3.zip</p>
-    <p>&gt; Content-Type: application/octet-stream</p>
-    <p>&gt; Content-Length: 4460706</p>
-    <p>&gt; Expect: 100-continue</p>
-    <p>&gt;</p>
-    <p>&lt; HTTP/1.1 100 Continue</p>
-    <p>&lt; Content-Length: 0</p>
-    <p>&lt; Date: Mon, 29 Aug 2022 19:48:42 GMT</p>
-    <p>* We are completely uploaded and fine</p>
-    <p>&lt; HTTP/1.1 200 OK</p>
-    <p>&lt; Date: Mon, 29 Aug 2022 19:48:42 GMT</p>
-    <p>&lt; Access-Control-Allow-Origin: http://10.0.0.1:3000</p>
-    <p>&lt; Access-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS</p>
-    <p>&lt; Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Cookie, Authorization, tenantId, profileName, taskName, appName, fileName, description, workspace, collection, uploadkey, setdecode, locale, archiveName</p>
-    <p>&lt; Cache-Control: no-store</p>
-    <p>&lt; Pragma: no-cache</p>
-    <p>&lt; X-Content-Type-Options: nosniff</p>
-    <p>&lt; Content-Type: application/json</p>
-    <p>&lt; Content-Language: en-US</p>
-    <p>&lt; Content-Length: 153</p>
-    <p>&lt;</p>
-    <p>* Connection #0 to host 10.0.0.1 left intact</p>
-    </blockquote>
-    <p><strong>{"message":"Bulk upload started. Track the status at: http://10.0.0.1:2220/lands_advisor/advisor/v2/collectionArchives/bulkImport/status/6934256291924</strong></p></td>
-    </tr>
-    </tbody>
-    </table>
 
+
+
+    ```
+    curl -v -k -X POST "http://server0.gym.lan:2220/lands_advisor/advisor/v2/collectionArchives/bulkImport" -H "accept: */*" -H "archiveName: bulk_data_3.zip" -H "Content-Type: application/octet-stream" --data-binary "@/home/techzone/appmod-pot-labfiles/labs/TransformationAdvisor/bulk_data_3.zip"
+    
+    Note: Unnecessary use of -X or --request, POST is already inferred.
+    * Trying 10.100.1.61:2220...
+    * Connected to server0.gym.lan (10.100.1.61) port 2220 (#0)
+    
+    > POST /lands_advisor/advisor/v2/collectionArchives/bulkImport HTTP/1.1
+    > Host: server0.gym.lan:2220
+    > User-Agent: curl/7.76.1
+    > accept: */*
+    > archiveName: bulk_data_3.zip
+    > Content-Type: application/octet-stream
+    > Content-Length: 4460706
+    > Expect: 100-continue
+    > 
+    * Mark bundle as not supporting multiuse
+    < HTTP/1.1 100 Continue
+    < Content-Length: 0
+    < Date: Tue, 13 Feb 2024 15:00:29 GMT
+    * We are completely uploaded and fine
+    * Mark bundle as not supporting multiuse
+    < HTTP/1.1 200 OK
+    < Date: Tue, 13 Feb 2024 15:00:29 GMT
+    < Cache-Control: no-store
+    < Pragma: no-cache
+    < X-Content-Type-Options: nosniff
+    < Content-Type: application/json
+    < Content-Language: en-US
+    < Content-Length: 161
+    < 
+    
+    * Connection #0 to host server0.gym.lan left intact 
+      {"message":"Bulk upload started.}
+      Track the status at: http://server0.gym.lan:2220/lands_advisor/advisor/v2/collectionArchives/bulkImport/status/83265910884066"
+   
+    ```
     It takes a few minutes (3-5 minutes) for the upload to complete.
 
 4.  You can track the progress of the upload by using the command that is displayed at the end of the “bulkImport” output on the Terminal Window
 
     **Example:**
  
-    http://10.0.0.1:2220/lands_advisor/advisor/v2/collectionArchives/bulkImport/status/7615468272942  **(The ID will be different on your environment)**
+    http://server0.gym.lan:2220/lands_advisor/advisor/v2/collectionArchives/bulkImport/status/83265910884066
+    
+    **(The ID will be different on your environment)**
  
     **Note**: Your URL will be different than the example shown, as the URL to the status is specific for each bulkImport, which includes a **unique ID** for the bulkImport.
  
@@ -227,7 +272,9 @@ In this section of the lab, you will clone the GitHub repo to the **Workstation*
  
     ![](./images/media/image11.png)
  
-    **Note:** You can also track the progress of the upload by tailing the logs for the **taserver** docker container. When the logging stops, that is an indication that the data collection archive upload has been completed, and you can continue to the next section.
+    **Note:** You can also track the progress of the upload by tailing the logs for the **taserver** docker container. 
+    
+    When the logging stops, that is an indication that the data collection archive upload has been completed, and you can continue to the next section.
 
         docker logs -f taserver
 
@@ -245,29 +292,27 @@ Once the bulk data upload processing is complete, it creates a **workspace** in 
 
     ![Graphical user interface Description automatically generated](./images/media/image12.png)
 
-    b.  In the web browser window, click the **TA Local bookmark** to open TA console.
+    b.  In the web browser window, click the **`TA Local bookmark`** to open TA console.
 
-    The TA local URL is: **http://10.0.0.1:3000**
+    The TA local URL is: **http://server0.gym.lan:3000**
  
     ![Graphical user interface, application Description automatically generated](./images/media/image13.png)
  
-    TA UI Welcome page is displayed, and you can see that **ta300_data_3** workspace is listed.
+    TA **UI Welcome page** is displayed, and you can see that **ta300_data_3** workspace is listed.
 
     ![Graphical user interface, application, Teams Description automatically generated](./images/media/image14.png)
 
-2.  Click **ta300_data_3** workspace link to access the workspace.
+2.  Click **`ta300_data_3`** workspace link to access the workspace.
 
     ![Graphical user interface, application Description automatically generated](./images/media/image15.png)
  
     The **ta300_data_3** workspace page is displayed and has evaluated 15 java applications, including 5 applications related to the ACME application.
  
-    TA has analyzed the **15 java applications** and determined that the total cost of modernizing all applications in the workspace to WebSphere Liberty is 106.5, which is 7.1days per application.
- 
-    ![](./images/media/image16.png)
- 
+    TA has analyzed the **15 java applications** and determined that the total cost of modernizing all applications in the workspace to WebSphere Liberty is 102.5, which is 6.8 days per application.
+  
     TA also provided the summarization of the effort modernizing code that is **unique to each application** as well as common code among the applications.
  
-    In this summary, modernizing the **common code cost** is **11.5** days, and **unique application modernization cost** is **95** days.
+    In this summary, modernizing the **common code cost** is **11** days, and **unique application modernization cost** is **91.5** days.
  
     ![](./images/media/image17.png)
  
@@ -283,7 +328,7 @@ Once the bulk data upload processing is complete, it creates a **workspace** in 
  
     ![](./images/media/image20.png)
  
- 3. If you opened the “**edit Collections**” option, **close** it now.
+3. If you opened the “**edit Collections**” option, **close** it now.
 
     <br/>
 
@@ -299,53 +344,50 @@ The benefit of this is that you can easily get an accurate estimate for moderniz
  
 Let’s create a new group for the ACME applications.
 
-1. Click the **Collections** dropdown menu.
+1. Click the **`Collections`** dropdown menu.
 
     ![](./images/media/image21.png).
 
-2. Check the box next to **acme.webserver.com.** Ensure the other two collections remain UNCHECKED.
+2. Check the box next to **`acme.webserver.com`.** Ensure the other two collections remain UNCHECKED.
 
     ![](./images/media/image22.png)
 
-3.  Next, check the box next to Java application, which will select all five ACME applications. Then click **Add to group**.
+3.  Next, check the box next to Java application, which will select all five ACME applications. Then click **`Add to group`**.
 
     ![](./images/media/image23.png)
 
-4.  Give a group name as **ACME** and click **Add to group(s).**
+4.  Give a group name as **`ACME`** and click **`Add to group(s)`.**
 
     ![](./images/media/image24.png)
  
-    A new Group named **ACME** has been created, and is listed under All Java applications in the TA navigation menu
+    A new Group named **ACME** has been created, and is listed under **Groups** in the TA navigation menu
  
     ![](./images/media/image25.png)
 
-5.  Select the **ACME** group under **All Java applications**, which will cause TA to recalculate the effort involved to modernize the workspace scoped to only include the ACME group of applications.
+5.  Select the **`ACME`** group under **`Groups`**, which will cause TA to recalculate the effort involved to modernize the workspace scoped to only include the ACME group of applications.
 
-    ![](./images/media/image26.png)
  
     Now you see that TA has recalculated the costs associated for modernizing just the ACME group of applications.
  
-    The **ACME group summary** now shows **5 applications** and an average of **2.6** days to modernize each application.
- 
     ![](./images/media/image27.png)
+    
+    The **ACME group summary** now shows **5 applications** and an average of **2.3** days to modernize each application.
  
     TA’s assessment of the Group estimated costs take into consideration the following:
 
-    - The **unique application code** to be modernized, which is **2.5** days.
+    - The **unique application code** to be modernized, which is **2** days.
 
-    - The **Common code** shared between some or all the applications, which is **10.5** days.
+    - The **Common code** shared between some or all the applications, which is **10** days.
 
     With this view, TA has produced a realistic and more accurate cost estimate for modernizing the ACME application.
  
-    The cost to modernize the **5** ACME applications including common code, that only needs to be updated ONCE, is about **13** days (**2.6** days per application).
- 
-    ![](./images/media/image28.png)
+    The cost to modernize the **5** ACME applications including common code, that only needs to be updated ONCE, is about **11.5** days.
  
     From this we can see the value of the TA analysis in terms of looking into the applications to find COMMON CODE and SHARED libraries, then coming up with a reasonable recommendation for modernizing the applications since common code only needs to be fixed once and is fixed for all the applications that use it.
  
-    In this example, without common code discovery, the view of the individual applications cost of modernization shows **53.5** days, as illustrated below. However, the **more accurate assessment** of the **Total cost** is **13 days** based on TA’s analysis of the common code used among the ACME applications.
+    In this example, without common code discovery, the view of the individual applications cost of modernization shows **49.5** days, as illustrated below. However, the **more accurate assessment** of the **Total cost** is **11.5** days based on TA’s analysis of the common code used among the ACME applications.
  
-    The cost for modernizing the **unique application code** in the ACME group is just **2.5 days**.
+    The cost for modernizing the **unique application code** in the ACME group is just **2** days.
  
     ![](./images/media/image29.png)
  
@@ -353,30 +395,26 @@ Let’s create a new group for the ACME applications.
  
     Transformation Advisor looks for common code between all applications, even if in different collections in the workspace.
  
-    TA uses a combination of **JAR file name** and **CHECKSUM** to determine if the code is **IDENTICAL** and truly shared among applications.
-
-   ![](./images/media/image30.png)
-
-
+   
 ## 2.3 Explore Common code discovery in TA
 
 In this section of the lab, you will dig into the details of the ACME applications to understand the cost for modernizing applications that share common code. You will gain insights into common code libraries, and which applications share this code.
 
 With these insights you will learn which common code libraries would provide the best ROI for modernizing first, since you only pay for modernizing the shared library once, and all applications that use that common code benefit.
 
-1.  First, let’s take a quick look at the six (**6**) Common code files that have been discovered in the workspace
+1.  First, let’s take a quick look at the Common code files that have been discovered in the workspace
     
-    a. From the ACME group, open the “**Common code files**” tab
+    a. From the ACME group, open the “**`Common code`**” tab
 
     ![](./images/media/image31.png)
 
-    b. Now you see the summary for the common code files, including the **Complexity, Issues**, **number of apps use the common code file**, and **Common code cost** to modernize the common code file.
+    b. Now you see the summary for the common code files, including the **Complexity, Issues**, **Used by Applications**, and **Common code cost** to modernize the common code file.
 
     ![](./images/media/image32.png)
 
-2.  Return to the “**Java Applications**” tab, and view the details of the common code used by the **ACMEAnnuityEJBMDB.ear** application
+2.  Return to the “**`Java Applications`**” tab, and view the details of the common code used by the **ACMEAnnuityEJBMDB.ear** application
     
-    a.   Click the “**Java applications**” tab to return to the list of ava applications
+    a.   Click the “**`Java applications`**” tab to return to the list of ava applications
 
     ![](./images/media/image33.png)
 
@@ -402,15 +440,13 @@ With these insights you will learn which common code libraries would provide the
 
     - **AcmeCommon.jar** modernization complexity is **SIMPLE**
 
-    - Cost to modernize the **common code** is **10** days
+    - Cost to modernize the **common code** is **9.5** days
 
     - Cost to modernize the **unique application code** is **0** days (no code changes required)
 
     With this information you can see that **ALL** the cost associated for modernizing the **ACMEAnnuityEJBMDB.ear** is in common code, and these common code files are used by **5** applications.
  
     This means that you only modernize these common code files once and it is fixed for all **5** of the applications that also share this common code.
- 
-    ![](./images/media/image36.png)
 
     c.  **Close** the common code details view for the **ACMEAnnuityEJBMDB.ear** application
 
@@ -430,11 +466,9 @@ With these insights you will learn which common code libraries would provide the
 
     - The application uses **5** common code jar files
 
-    ![](./images/media/image39.png)
+    - Cost to modernize the **common code** is **9.5** days
 
-    - Cost to modernize the **common code** is **10.5** days
-
-    - Cost to modernize the **unique application code** is **2** days
+    - Cost to modernize the **unique application code** is **1.5** days
 
 
 
@@ -444,23 +478,34 @@ With these insights you will learn which common code libraries would provide the
 
     ![](./images/media/image40.png)
 
-    b. The details view for the **AcmeAnnuityCommon.jar** file reveals very important information and insights about modernizing the ACME applications.
+    b. The details view for the **AcmeAnnuityCommon.jar** file reveals very important information and insights about modernizing the ACME applications, as illustrated below. 
 
     - **AcmeAnnuityCommon.jar** is used by all **5** ACME applications
 
-    - The modernization cost for **AcmeAnnuityCommon.jar** is **10** days
+    - The modernization cost for **AcmeAnnuityCommon.jar** is **9.5** days
 
-    - Looking at each application in isolation, as illustrated below, you see the total cost for each app is between **10** days and **12** days.
+    - Looking at each application in isolation, as illustrated below, you see the total cost for each app is between **9.5** days and **11** days.
     
-      - **AcmeAnnuityCommon.jar** accounts for **10** days of that cost, but only needs to be incurred once.
+      - **AcmeAnnuityCommon.jar** accounts for **9.5** days of that cost, but only needs to be incurred once.
 
-    - Modernizing the **unique application code** across all **5** applications is only **3** days.
+    - Modernizing the **unique application code** across all **5** applications is only **2** days.
+      - 1.5 days for ACMEAnnuityEJBWSes.ear
+      - 0.5 day for ACMEAnnuityJAXRSWSes.ear
 
-    The insights gained here clearly show that performing the **10** days required to modernize the **AcmeAnnuityCommon.ja**r file means that MOST of the work will be completed for all five (5) of the ACME applications.
+    The insights gained here clearly show that performing the **9.5** days required to modernize the **AcmeAnnuityCommon.ja**r file means that MOST of the work will be completed for all five (5) of the ACME applications.
  
     ![](./images/media/image41.png)
 
-5.  While in the **AcmeAnnuityCommon.jar** details view, scroll down to the **Complexity Rues** and **Issues Detail** sections, where you can begin to dig deeper into the specific issues flagged by TA
+5.  While in the **AcmeAnnuityCommon.jar** details view, scroll down to view the applications that use this common utility jar. 
+
+    As noted in the previous step, the AcmeAnnuityCommon.jar is used by all 5 ACME application. 
+
+6.  From the list of applications using this common code utility jar, click on the **ACMEAnnuityEJBWSes.ear** application to display its details. 
+
+    ![](./images/media/image41-b.png)
+
+ 
+7.  While in the **ACMEAnnuityEJBWSes.ear** details view, scroll down to the **Complexity Rues** and **Issues Detail** sections, where you can begin to dig deeper into the specific issues flagged by TA.
     
     a. Notice that Transformation Advisor splits the Issues details into two sections making it quick and easy to get to the specific details you want to review.
 
@@ -474,15 +519,15 @@ With these insights you will learn which common code libraries would provide the
  
     In summary, the insights gained using Transformation Advisors common code discovery capability clearly show that performing the **10** days of effort required to modernize the **AcmeAnnuityCommon.jar** file means that MOST of the work will be completed for all five (5) of the ACME applications.
   
-    Recall the summary view for the **ACME group of applications** showed the **Total cost** for modernizing the entire ACME group of applications is **13** days.
+    Recall the summary view for the **ACME group of applications** showed the **Total cost** for modernizing the entire ACME group of applications is **11.5** days.
  
-    ![](./images/media/image43.png)
+    ![](./images/media/image27.png)
  
-    You learned that **10.5** days of that work is modernizing the common code, which only needs to be done once.
+    You learned that **10** days of that work is modernizing the common code, which only needs to be done once.
  
-    You further learned that the **AcmeAnnuityCommon.jar** file cost accounts for **10** days of the **10.5** days required to modernize the common code.
+    You further learned that the **AcmeAnnuityCommon.jar** file cost accounts for **9.5** days of the **10** days required to modernize the common code.
  
-    Lastly, you learned that the cost associated for modernizing the **unique application code** for the **ACME group** of applications is only **3** day of the **13** days estimated by Transformation Advisor.
+    Lastly, you learned that the cost associated for modernizing the **unique application code** for the **ACME group** of applications is only **2** day of the **11.5** days estimated by Transformation Advisor.
 
     <br/>
 
@@ -510,36 +555,38 @@ The export generates a zip file of the workspace summary and /or application det
 
     ![](./images/media/image46.png)
  
-    A zip file named “**ta300_data_3_ACME_WebsphereLiberty_report.zip**” is created in the directory: **/home/ibmdemo/Downloads.**
+    A zip file named “**ta300_data_3_ACME_WebsphereLiberty_report.zip**” is created in the directory: **/home/techzone/Downloads.**
 
 2.  From a Terminal window, unzip (extract) the contents of the archive, using the following commands:
 
-        cd /home/ibmdemo/Downloads
+        cd /home/techzone/Downloads
 
-        unzip ta300_data_3_ACME_websphereLiberty_report.zip -d /home/ibmdemo/Downloads/ACME
+        unzip ta300_data_3_ACME_websphereLiberty_report.zip -d /home/techzone/Downloads/ACME
 
 
 3.  Explore the file structure and contents of the exported data.
     
-    a. Open a File Explorer window on the VM and navigate to **Home \> Downloads \> ACME \> ta300\_data\_3\_ACME.**
+    a. Open a File Explorer window on the VM and navigate to **`/home/techzone/Downloads/ACME/ta300_data_3_ACME`** directory.
 
     The file structure is split into two categories, one for the workspace summary, and the other for the application details.
  
     ![](./images/media/image47.png)
 
-    b.  Open the “**summary**” directory.
+    b.  Open the “**`summary`**” directory.
+    
+    ![](./images/media/image47-b.png)
 
     > Note that the **workspace summary** data is separated by applications, common code, and rules.
  
     > In each of the sub-directories you find the csv and pdf files that contain the summary data
 
-    c.  As an example, navigate to **Home \> Downloads \> ACME \> ta300\_data\_3\_ACME \> summary \> applications**, and open the pdf file to view the ACME applications summary.
+    c.  Navigate to **`/home/techzone/Downloads/ACME/ta300_data_3_ACME/summary/applications`** directory, and open the pdf file to view the ACME applications summary.
 
     ![](./images/media/image48.png)
  
     ![](./images/media/image49.png)
 
-    d.  Navigate to **Home \> Downloads \> ACME \> ta300\_data\_3\_ACME \> summary \> commonCode**, and open the pdf file to view the common code summary
+    d.  Navigate to **`/home/techzone/Downloads/ACME/ta300_data_3_ACME/summary/commonCode`** directory, and open the pdf file to view the common code summary
 
     ![](./images/media/image50.png)
  
@@ -563,9 +610,9 @@ The binary scanner can also scan a WebSphere application server profile configur
 
   - With this option, the binary scanner also collects the WebSphere server configuration data and produces deployment accelerators for building and deploying the application to Liberty, traditional WebSphere in containers, and container-based clouds.
 
-The binary scanner can also be run using the **“--ta”** option, which produces a data collection archive that can be uploaded directly into Transformation Advisor.
+The binary scanner can also be run using the **`--ta`** option, which produces a data collection archive that can be uploaded directly into Transformation Advisor.
 
-  - With the **“--ta”** option, the data collection archive can be uploaded to TA, and applications can be analyzed alongside the applications you already have uploaded into the TA UI, providing the ability to get a broader understanding of the applications in the enterprise, including code that may be common among applications from different WebSphere Applications and Application servers.
+  - With the **`--ta`** option, the data collection archive can be uploaded to TA, and applications can be analyzed alongside the applications you already have uploaded into the TA UI, providing the ability to get a broader understanding of the applications in the enterprise, including code that may be common among applications from different WebSphere Applications and Application servers.
 
 <table>
 <tbody>
@@ -588,32 +635,32 @@ The binary scanner can also be run using the **“--ta”** option, which produc
 </tbody>
 </table>
 
-In this section, you are going to run the binary scanner against a WebSphere application server profile configuration that has an application called **PlantsByWebSphere** deployed. You will use the **“--ta”** option and upload the resulting data collection archive into the TA workspace.
+In this section, you are going to run the binary scanner against a WebSphere application server profile configuration that has an application called **`PlantsByWebSphere`** deployed. You will use the **`--ta`** option and upload the resulting data collection archive into the TA workspace.
 
 The Binary scanner is a stand-alone jar file. It has already been downloaded to the following directory on the Workstation VM.
 
-> /home/ibmdemo/binary-scanner/wamt*
+> /home/techzone/binary-scanner/wamt
 
 The WebSphere Application Server environment configuration is also available on the Workstation VM in the following directory:
 
-> /opt/IBM/WebSphere/AppServer*
+> /opt/IBM/WebSphere/AppServer85515
 
 <br/>
 
 1.  Run the binary scanner to collect the data for the **PlantsByWebSphere** application in the WebSphere profile named “**profile1**”, using the **“--ta**” option.
 
-        cd /home/ibmdemo/binary-scanner/wamt
+        cd /home/techzone/binary-scanner/wamt
 
-        java -jar binaryAppScanner.jar /opt/IBM/WebSphere/AppServer --ta --profile=profile1
+        java -jar binaryAppScanner.jar /opt/IBM/WebSphere/AppServer85515 --ta --profile=AppSrv01
 
 
     ![](./images/media/image52.png)
  
-    The generated data collection archive is name “**profile1.zip**” and is created in the following directory:
+    The generated data collection archive is name **AppSrv01.zip** and is created in the following directory:
  
-    > /home/ibmdemo/binary-scanner/wamt
+    > /home/techzone/binary-scanner/wamt
  
-     With the data collection archive, “**profile1.zip**” created using the “--**ta”** option, it can be uploaded into the Transformation Advisor from the UI.
+     With the data collection archive, **AppSrv01.zip** created using the “--**ta”** option, it can be uploaded into the Transformation Advisor from the UI.
 
 2.  In the TA UI, return to the “**All Java Applications**” view.
 
@@ -621,21 +668,19 @@ The WebSphere Application Server environment configuration is also available on 
  
     All 15 applications should again be displayed and listed in the workspace.
  
-    ![](./images/media/image54.png)
 
 3. Upload the “**profile1.zip**” file to TA.
     
-    a.  From the TA UI, click **Options** \> **Upload data** from the “**options**” menu, to start uploading the new profile1.zip archive collected from the binary scanner.
+    a.  From the TA UI, click **`Options** > **Upload data`** from the “**options**” menu, to start uploading the new **AppSrv01.zip** archive collected from the binary scanner.
 
     ![](./images/media/image55.png)
 
-    b. From the TA UI, click **Options** \> **Upload data** from the “**options**” menu, to start uploading the new **profile1.zip** archive collected from the binary scanner.
 
-    c. Click **Drop or add file** link.
+    b. Click **`Drop or add file`** link.
 
     ![](./images/media/image56.png)
 
-    d. Navigate to **/home/ibmdemo/binary-scanner/wamt** directory. Select **profile1.zip**, then click **Open.**
+    c. Navigate to **`/home/techzone/binary-scanner/wamt`** directory. Select **AppSrv01.zip**, then click **`Open`**.
 
     ![](./images/media/image57.png)
 
@@ -657,13 +702,13 @@ The WebSphere Application Server environment configuration is also available on 
  
     The Java applications in the local WebSphere Application Server are added to the **ta300_data_3** workspace.
  
-     Now the total number of applications in the workspace is **19.**
+     Now the total number of applications in the workspace is **15.**
  
     ![](./images/media/image60.png)
 
-4.  View the Java applications in the new collection that was created when the **profilele1.zip** was uploaded.
+4.  View the Java applications in the new collection that was created when the **AppSrv01.zip** was uploaded.
     
-    a. Expand the “Collections” list, and select the new collection named “**ibmdemo.vitual-machine**”.
+    a. Expand the “Collections” list, and select the new collection named **server0.gym.lan**.
 
     ![](./images/media/image61.png)
 
@@ -671,8 +716,6 @@ The WebSphere Application Server environment configuration is also available on 
 
     ![](./images/media/image62.png)
 
-
-    **Notice that there are no common code files in this collection.**
 
     <br/>
 
@@ -694,73 +737,3 @@ As such, in cases where common code is discovered among applications in the work
 
 That makes it easy to see how to expend your modernization effort to produce the optimal ROI for modernization.
 
-# Appendix 1: Reserve an environment for the lab
-
-<table>
-<tbody>
-<tr class="odd">
-<td><img src="./images/media/image63.png" style="width:0.60417in;height:0.60417in" alt="sign-caution" /></td>
-<td><p><strong>IMPORTANT!</strong></p>
-<p>Reserving an environment ONLY applies if you are performing this lab as self-paced outside of an instructor led virtual lab.</p>
-<p>A Skytap cloud lab environment is required for performing the lab.</p>
-<p>In <strong>self-paced mode</strong>, you are required to request an environment using the instructions provided below.</p>
-<p>Otherwise, in an <strong>instructor led</strong> lab, the lab instructor will provide access to pre-provisioned lab environment.</p></td>
-</tr>
-</tbody>
-</table>
-
-1.  Use the link below to access the WebSphere Foundation Bootcamp
-
-    <https://techzone.ibm.com/my/reservations/create/6127f5c66c03be001ef63c48>
-
-    a. Use your **IBM ID** to login to the IBM Technology Zone
-
-    b. The **Create a reservation** page is displayed
-
-    ![](./images/media/image64.png)
-
-2.  Select “**Reserve for Now**” Radio button, and then follow the on-screen dialog to reserve an environment in a Skytap data center in the closest Geography (US-Central, EMEA, Asia Pacific)
-    
-    a.  The environment **name** should be pre-filled with “**Liberty Workshop Skytap Environment**”
-    
-    b.  **Purpose**: Practice / Self-Education
-    
-    c.  **Description**: Enter a description. The field is required.
-    
-    d.  **End date and time**: Use the calendar widget and select the maximum date available (3 days, and can be extended an additional 5 days from date of reservation)
-    
-    e.  **Select a time**: Select a time of day for reservation to expire
-    
-    f.  Select a **timezone** nearest to you
-
-    ![](./images/media/image65.png)
-
-3.  Preferred Geography: Choose a Skytap datacenter in the closest geography (US, EMEA, Asia Pacific)
-
-    ![](./images/media/image66.png)
-
-4.  One complete, click on the “**Submit**” Button
-
-5.  The reservation takes a moment to be created. When it is created, click on the “**My reservations**” ![](./images/media/image67.png) button to see the detail so of the environment reservation.
-
-    **Note:** The details of your environment reservation are displayed.
-
-6.  Take not of the **Username** and **Password**. Then click the ![](./images/media/image68.png) icon to navigate to the Launch page.
-
-    ![](./images/media/image69.png)
-
-7.  Click the “**Open Your Skytap Environment**” link.
-
-8.  Enter the **Desktop Password** for the VM access, that was generated for your environment. Click **Submit** button.
-
-    ![](./images/media/image70.png)
-
-### The lab environment
-
-  ![](./images/media/image71.png)
-
-  - The login credentials for the **Workstation** VM is:
-
-    > User ID: **ibmdemo**
-    > 
-    > Password: **passw0rd**
