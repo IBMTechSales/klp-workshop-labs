@@ -282,7 +282,7 @@ VM. Launch the Transformation Advisor tool using the steps below.
 
     Once completed, the local lab artifacts repo is cloned at the following directory on the desktop VM. 
     
-    > **/home/techzone/openshift-workshop-was/labs/Liberty/TA-labs**
+    > **/home/techzone/appmod-pot-labfiles**
 
 3.  Launch the **Transformation Advisor** with commands:
 
