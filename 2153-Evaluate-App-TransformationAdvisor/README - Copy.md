@@ -21,10 +21,10 @@ and using TA’s deployment accelerators to accelerate your application
 modernization journey to Liberty and containers.
 
 **IBM Cloud Transformation Advisor** (Transformation Advisor) is an
-application modernization tool that is entitled through IBM Cloud Pak for Applications and IBM WebSphere Hybrid Edition. Transformation Advisor helps you quickly evaluate
-on-premises Java EE applications for deployment to the cloud. 
-
-**The Transformation Advisor tool provides the following value:**
+application modernization tool that is entitled through IBM WebSphere
+Hybrid Edition. Transformation Advisor helps you quickly evaluate
+on-premises Java EE applications for deployment to the cloud. The
+Transformation Advisor tool provides the following value:
 
   - identify the Java EE programming models in the app.
 
@@ -211,7 +211,7 @@ you will determine the complexity of the development effort required and
 select a candidate application to migrate to Liberty in a
 container-based cloud.
 
-**Here are the activities involved in this process:**
+Here are the activities involved in this process:
 
   - Simulate running the Transformation Advisor Data Collector tool
     against the WebSphere Application Server to get application data
@@ -234,12 +234,9 @@ already ran the Transformation Advisor Data Collection tool against the
 WebSphere server and provided the resulting data collection zip archive
 file on the Workstation VM to be used in the lab.
 
-___
-
 You will simulate the data collection process. However, not actually run
 the data collector since this lab environment does not have access to
 the WebSphere environment.
-___
 
 As illustrated below, Transformation Advisor will collect the
 application data for the following five applications. During the
@@ -251,13 +248,10 @@ container-based cloud environments.
 
 ![](./images/media/image2.png)
 
-___
-
-In the Enterprise Applications list above, you can see the
- applications that deployed to the WebSphere Application Server
- environment. Next, you use Transformation Advisor to analyze these
- applications to identify a good candidate to be moved to Liberty.
-___
+> In the Enterprise Applications list above, you can see the
+> applications that deployed to the WebSphere Application Server
+> environment. Next, you use Transformation Advisor to analyze these
+> applications to identify a good candidate to be moved to Liberty.
 
 ### 6.2 Launch Transformation Advisor (local)
 
@@ -292,12 +286,12 @@ VM. Launch the Transformation Advisor tool using the steps below.
 
     Wait for Transformation Advisor to initialize and display the action menu list.
 
-4.  Type **`5`** and press **`Enter`** to start the **Transformation
+4.  Type **5** and press **Enter** to start the **Transformation
     Advisor**.
 
     ![](./images/media/image9.png)
 
-5.  The **Transformation Advisor** application is started, right-click the application URL link and select **`Open Link`** to launch it in a web browser window. 
+5.  The **Transformation Advisor** application is started, right-click the application URL link and select **Open Link** to launch it in a web browser window. 
 
     Th URL is displayed in the output from the TA command: **http://server0.gym.lan:3000**
 
@@ -323,11 +317,11 @@ Transformation Advisor UI.
 1.  From the Transformation Advisor Home page, create a **new
     workspace**
     
-    a.  Click the **`Create New`** button.
+    a.  Click the **Create New** button.
     
     ![](./images/media/createnew.png)
     
-    b.  Enter the workspace name as **`Evaluation`**, then click the **`Create`** button.
+    b.  Enter the workspace name as **Evaluation, then** click the **Create** button.
 
     ![](./images/media/image12.png)
 
@@ -351,7 +345,7 @@ Transformation Advisor UI.
 
 
 
-2.  Click the **`Download`** button to download the data collector for     Linux
+2.  Click the **Download** button to download the data collector for     Linux
 
     ![](./images/media/image15.png)
 
@@ -361,7 +355,7 @@ Transformation Advisor UI.
     application and configuration data from WebSphere, WebLogic, and
     Tomcat servers.
     
-    a.  Since the lab VM is a Linux OS, click **`Download Linux`** to get
+    a.  Since the lab VM is a Linux OS, click **Download Linux** to get
         the utility.
 
     ![A screenshot of a social media post Description automatically  generated](./images/media/image16.png)
@@ -380,9 +374,9 @@ unpacked and run against a WebSphere Application server (WAS) to collect
 all the data of deployed applications and their configuration from the
 WAS server.
 
-Now, let’s `simulate` the steps to run the data collector.
+Now, let’s simulate the steps to run the data collector.
 
-1.  Go back to the `Terminal` window and navigate the
+1.  Go back to the terminal window and navigate the
     **/home/techzone/Downloads** directory and view its contents with
     commands:
 
@@ -401,30 +395,27 @@ Now, let’s `simulate` the steps to run the data collector.
 
     The data collector utility will be extracted to **/home/techzone/Downloads/transformationadvisor-3.8.1** directory.
 
-    ___
-
     **Note:** At this point, the data collector is ready to execute  against a WebSphere environment.
-    ___
-
 
 3.  Return to the Transformation Advisor UI in the Web browser to view
     the section on “**Run the Tool**”, which shows the command to run on
     the WebSphere environment.
     
-    a.  From the **Data Collector** page, scroll down to the “**`Run Tool`**” section.
+    a.  From the **Data Collector** page, scroll down to the “**Run
+        Tool**” section.
 
     The data collector command that would be executed is based on the  **domain** and **analysis type** selections you make in this section.
  
     ![](./images/media/image19.png)
 
-4.  Choose the **`IBM WebSphere`** Domain. Other domains include other
+4.  Choose the **IBM WebSphere** Domain. Other domains include other
     JAVA EE runtimes.
 
     **Note:** The data collector tool command changes based on this selection.
  
     ![](./images/media/image20.png)
 
-5.  Select the Analysis type of “**`Apps and Configuration`**”
+5.  Select the Analysis type of “**Apps and Configuration**”
 
     Selecting **Apps & Configuration** ensures that the application data  and server configuration data is collected.
  
@@ -434,14 +425,14 @@ Now, let’s `simulate` the steps to run the data collector.
 
 6.  Review, but **DO NOT EXECUTE** the data collector command shown below, which is based on the selected options.
 
+    **Note: There’s no tWAS server in this lab environment, so you cannot run the data collector.** 
+
     ![](./images/media/image22.png)
 
-    ___
-    
     **IMPORTANT!**
     
-    For this lab, we have already executed the the collector on a WebSphere Application Server. And the resulting data collection archive (zip file) named AppSrv01.zip is provided for you to upload into Transformation Advisor UI. 
-    ___
+    >For this lab, we have already executed the the collector on a WebSphere Application Server. And the resulting data collection archive (zip file) named AppSrv01.zip is provided for you to upload into Transformation Advisor UI. 
+   
 
 ### **6.4.1 FOR ILLUSTRATIVE PURPOSES ONLY: Simulation of running the Transformation Advisor Data Collector utility**
 
@@ -451,7 +442,7 @@ Now, let’s `simulate` the steps to run the data collector.
 <td><img src="./images/media/image23.png" style="width:0.60625in;height:0.60625in" alt="sign-caution" /></td>
 <td><p><strong>Important:</strong></p>
 <p>This section is for illustrative purposes only.</p>
-<p>DO NOT RUN THE COMMANDS shown in this section!</p></td>
+<p>DO NOT RUN THE COMMANDS shown!</p></td>
 </tr>
 </tbody>
 </table>
@@ -481,13 +472,10 @@ connectivity, the data collector could be run as follows.
  
     ![](./images/media/image25.png)
 
-    ___
-    
     **NOTE: The following details are for reference only!**
     
     **NOTE: You will NOT run the data collector in this lab.**
-    ___ 
-
+ 
     This process takes time to complete, depending on how many applications are deployed on the WebSphere Application server.
  
     When the collection utility completes, the following message is displayed; 
@@ -513,34 +501,33 @@ Additionally, you would run the data collector in the target environment
 to collect the data for your applications. Then, you can import the
 collection data into Transformation Advisor for analysis.
 
-___
-
 **Tip:** As noted in the previous section, the data collection steps
-have already been done, and the resulting **`AppSrv01-3.8.1.zip`** file is
+have already been done, and the resulting **AppSrv01-3.8.1.zip** file is
 provided for you in the lab environment.
-___
 
 1.  Go back to the Transformation Advisor page in the web browser, click
-    the **`Workload type`** link to go to the Recommendations page.
+    the “**Workload type**” link to go to the Recommendations page.
 
     ![](./images/media/image26.png)
 
-2.  From the **Evaluation** workspace, upload the **`AppSrv01-3.8.1.zip`** data collection file.
+2.  From the **Evaluation** workspace, upload the “**AppSrv01-3.8.1.zip**”
+    data collection file.
 
 
-    a.  Click the **`Upload`** button to upload a data collection file.
+    a.  Click the **Upload** button to upload a data collection file.
 
     ![](./images/media/image27.png)
 
-    b.  From the Upload Data page, click the **`Drop or add file`** link
+    b.  From the Upload Data page, click the **Drop or add file** link
 
     ![](./images/media/image28.png)
 
-    c.  Navigate to the location of the data collection file **Home > techzone > appmod-pot-labfiles > labs > TransformationAdvisor** and select the **`AppSrv01-3.8.1.zip`** file. Then click the **`Open`** button on the page.
+    c.  Navigate to the location of the data collection file **/Home/techzone/appmode-pot-labfiles/labs/TransformationAdvisor** and select the **AppSrv01-3.8.1.zip** file. Then click the **Open** button on the page.
 
     ![](./images/media/image29.png)
 
-    d.  The **AppSrv01-3.8.1.zip** data collection file is now ready to be uploaded. Click the **`Upload`** button to continue.
+    d.  The **AppSrv01-3.8.1.zip** data collection file is now ready to be
+    uploaded. Click the **Upload** button to continue.
 
     ![](./images/media/image30.png)
  
@@ -551,19 +538,17 @@ ___
  
     ![](./images/media/image31.png)
 
-    The following details are included in the `workspace summary` section at the top of the page:
+    The following details are included in the workspace summary:
 
     - **Total Applications**: The total number of applications in the    workspace.
 
     - **Avg. cost per application**: The average number of days of development effort required to migrate an application.
 
-    - **Workspace estimated total costs**
-    
-      - **Common Code**: The total cost to migrate all the common code in the workspace to the target platform.
+    - **Common Code**: The total cost to migrate all the common code in the workspace to the target platform.
 
-      - **Unique app code**: The total cost to migrate all the unique app  code (code that is not shared between applications) in the workspace to the target platform.
+    - **Unique app code**: The total cost to migrate all the unique app  code (code that is not shared between applications) in the workspace to the target platform.
 
-      - **Total cost**: The total cost to migrate all the applications and
+    - **Total cost**: The total cost to migrate all the applications and
     common code in the workspace to the target platform.
 
     In the next section, you will use Transformation Advisor to view the application data analysis that was collected.
@@ -585,7 +570,7 @@ view the application data analysis results that was collected in the previous se
  
     In this example, the default collection name is used: **admin.ibm.demo**, which is the host machine where the data came  from.
 
-2.  Click on the **`Collections`** drop-down icon and view the
+2.  Click on the “**Collections**” drop-down icon and view the
     collection name: “**admin.ibm.demo**”
 
     ![](./images/media/image33.png)
@@ -687,11 +672,11 @@ To do that, we need to drill into some of the details and reports.
 
 1.	Review the details for the CustomerOrderSrvicesApp.ear for **WebSphere Liberty**
 
-    a.	Click on `CustomerOrderSrvicesApp.ear` for **`WebSphere Liberty`** to open its detail view
+    a.	Click on CustomerOrderSrvicesApp.ear for “**WebSphere Liberty**” to open its detail view
 
     ![](./images/media/image109.png)
 
-    b.	Expand the **`Complexity Rules`** for moving the application to WebSphere Liberty. 
+    b.	Expand the **Complexity Rules** for moving the application to WebSphere Liberty. 
 
     From this view, you get insights into the related issues that may require code changes or configuration changes. 
 
@@ -709,16 +694,16 @@ To do that, we need to drill into some of the details and reports.
 
     c.	Scroll down to the bottom of the application detail page to locate the available reports. 
 
-    d.	Click on the **`Analysis report`**, which will open the report in a new browser tab. 
+    d.	Click on the **Analysis report**, which will open the report in a new browser tab. 
 
     ![](./images/media/image111.png)
 
-    e.	On the **Detailed Migration Analysis Report**, click on the **`Information`** link under the LABEL column. This will take you directly to the critical issues in the report. 
+    e.	On the **Detailed Migration Analysis Report**, click on the “**Information**” link under the LABEL column. This will take you directly to the critical issues in the report. 
 
     ![](./images/media/image112.png)
 
 
-    f.	Click on **`Show rule help`** link to expand the help section for the **Java EE security** issue. 
+    f.	Click on “**Show rule help**” link to expand the help section for the **Java EE security** issue. 
 
     ![](./images/media/image113.png)
 
@@ -727,7 +712,7 @@ To do that, we need to drill into some of the details and reports.
     ![](./images/media/image114.png)
 
 
-    h.	To find out where in the application code these issues are flagged, click on the **`show results`** link next to the issue. 
+    h.	To find out where in the application code these issues are flagged, click on the “**show results**” link next to the issue. 
     
     ![](./images/media/image115.png)
 
@@ -737,19 +722,18 @@ To do that, we need to drill into some of the details and reports.
     ![](./images/media/image116.png)
 
    
-2.	Return to the browser tab that displays the “**Application Details Page**” and view the **`Technology report`**. 
+2.	Return to the browser tab that displays the “**Application Details Page**” and view the **Technology report**. 
 
     ![](./images/media/image44.png)
 
     The Technology report provides the details on which IBM platforms support the Java EE technologies used by the applications.
 
-    ![](./images/media/image118.png)
-    ___
-
     **Tip:** If checks are omitted for specific editions of Liberty, this means the application code will have to be rewritten to run on that specific target environment. That adds application and developer costs to the project. 
 
     **Tip:** WebSphere Liberty includes more Java EE technologies than open Liberty. This is a common reason why it may be more costly to move to Open Liberty that to WebSphere Liberty. 
-    ___
+
+    ![](./images/media/image118.png)
+
 
 ### 6.6.1.3 Examine CustomerOrderServicesApp.ear on Open Liberty
 
@@ -761,9 +745,9 @@ Let’s understand why the effort to move the application top Open Liberty requi
 
     **Note** that the number of development days to move the application to Open Liberty is 3.5 days, while moving to WebSphere Liberty is 0 day. Let’s find out why. 
 
-2.	Click on the `CustomerOrderServicesApp.ear` for **`Open Liberty`** to open its detail view. 
+2.	Click on the CustomerOrderServicesApp.ear for **Open Liberty** to open its detail view. 
 
-    **Tip:** You may type “Customer” in the search field to filter on just the Customer Order Services app
+    **Tip:** You may type “Customer” in the search field to filer on just the Customer Order Services app
 
     ![](./images/media/image119.png)
 
@@ -778,27 +762,25 @@ Let’s understand why the effort to move the application top Open Liberty requi
 
     You see a break-down of the effort required to resolve each of the issues that were flagged. 
 
-    ___
-    
-    **Note** that the time-consuming effort is handing these technology issues.  
+    > **Note** that the time-consuming effort is handing these technology issues.  
 
-    These issues are not present when moving to WebSphere Liberty, as the APIs are included with WebSphere Liberty. 
-    ___ 
+    > These issues are not present when moving to WebSphere Liberty, as the APIs are included with WebSphere Liberty. 
+ 
 
     ![](./images/media/image121.png)
 
 
-6.	Scroll down to the available reports. Open the **`Analysis report`**
+6.	Scroll down to the available reports. Open the **"Analysis report"**
 
     ![](./images/media/image122.png)
 
-7.	Go to the **`Critical rules`** flagged for the application moving to Open Liberty. 
+7.	Go to the **Critical rules** flagged for the application moving to Open Liberty. 
 
     ![](./images/media/image123.png)
 
-8.	Expand the **`OpenJPA and WebSphere JPA configuration properties must be migrated`** section
+8.	Expand the **OpenJPA and WebSphere JPA configuration properties must be migrated** section
 
-    Here you find that `JPA 2.0` was discovered in the application. 
+    Here you find that JPA 2.0 was discovered in the application. 
 
     For **Open Liberty**, you must manually migrate from JPA 2.0 to standardized or EclipseLink. JPA 2.0 is an older Java EE 6 specification. Java EE 6 specification. 
 
@@ -815,7 +797,7 @@ Mainly, WebSphere Liberty includes additional JAVA APIs and libraries that Open 
 
 Transformation Advisor not only provides great insights about your applications that you consider modernizing to WebSphere Liberty or Open Liberty, it also generates deployment accelerators for building and deploying the application on Liberty, containers, and Kubernetes based clouds. 
 
-In this section, we take a quick peak at the **Liberty server configuration** `server.xml` that TA generates, based on the analysis of the WebSphere configuration when the Transformation Advisor data collector was run against the WebSphere server on the VM.  
+In this section, we take a quick peak at the **Liberty server configuration** (server.xml) that TA generates, based on the analysis of the WebSphere configuration when the Transformation Advisor data collector was run against the WebSphere server on the VM.  
 
 Simply put, Transformation Advisor creates the server.xml file that contains the Liberty server configuration required to run the application on Liberty.  
 
@@ -823,15 +805,15 @@ Simply put, Transformation Advisor creates the server.xml file that contains the
 
     ![](./images/media/image127.png)
 
-2.	Ensure only the **`WebSphere Liberty`** migration target is selected
+2.	Ensure only the **WebSphere Liberty** migration target is selected
 
     ![](./images/media/image128.png)
 
-3.	Click on the **`Migration plan`** link located next to the **`CustomerOrderServicesApp.ear`** for **`WebSphere Liberty`**, which will display migration plan for the WebSphere Liberty target. 
+3.	Click on the "**Migration plan"** link located next to the **CustomerOrderServicesApp.ear** for **WebSphere Liberty**, which will display migration plan for the WebSphere Liberty target. 
 
     ![](./images/media/image129.png)
     
-4.	The **`Migration plan`** displays a "partial list" of files generated by Transformation advisor to assist in the migration of the application.
+4.	The **Migration plan** displays the list of files generated by Transformation advisor to assist in the migration of the application.
 
     - **server.xml:** the configuration for the Liberty server
     - **pom.xml:** Build the application using Maven
@@ -841,11 +823,11 @@ Simply put, Transformation Advisor creates the server.xml file that contains the
 
     ![](./images/media/image130.png)
 
-5.	Click to view the contents of the **`server.xml`** file.
+5.	Click to view the contents of the **server.xml** file.
 
     ![](./images/media/image131.png)
 
-6.	The **server.xml** is displayed in the File preview window, click **`Show more`** to expand it.
+6.	The **server.xml** is displayed in the File preview window, click **Show more** to expand it.
 
     ![](./images/media/image132.png)
  
@@ -854,7 +836,7 @@ Simply put, Transformation Advisor creates the server.xml file that contains the
 
     Notice that Transformation Advisor generated the **server.xml** file that includes the Liberty server configuration that has been mapped from the original WebSphere traditional application server. 
 
-    When the Transformation Advisors data collector was run against the WebSphere Application server, it analyzed the applications and the WebSphere server configuration. The server configuration data was used to generate an appropriate server.xml file to configure the application on Liberty. 
+    When the Transformation Advisors data collector was run against the WebSphere Application server, it analyzed the applications and the WebSphere server configuration. The server configuration data was used to generate an appropriate serer.ml file to configure the application on Liberty. 
 
     a.	The **Liberty features** that the application uses are configured. 
 
@@ -904,7 +886,7 @@ In this section you will review the analysis results for the **modresorts-1_0_wa
 
     ![](./images/media/image102.png)
 
-3.	In the **"search"** field, type **`modresorts`** which will narrow the application list to only the Mod Resorts application for all three migration target. 
+3.	In the **"search"** field, type **modresorts** which will narrow the application list to only the Mod Resorts application for all three migration target. 
 
     ![](./images/media/image103.png)
 
@@ -920,12 +902,12 @@ In this section you will review the analysis results for the **modresorts-1_0_wa
 
     ![](./images/media/image105.png)
 
-    For this lab, you will focus on the modernization of `moderesorts-1.0_war.ear` to `Open Liberty`. 
+    For this lab, you will focus on the modernization of moderesorts-1.0_war.ear to Open Liberty. 
 
     Next, you will look at the analysis results for**moderesorts-1.0_war**.ear application in detail.
 
 
-4.  Click the **`modresorts-1_0_war.ear`** link targeting **Open Liberty** to expand its analysis results.
+4.  Click the **modresorts-1_0_war.ear** link targeting **Open Liberty** to expand its analysis results.
 
     ![](./images/media/image104.png)
  
@@ -934,7 +916,7 @@ In this section you will review the analysis results for the **modresorts-1_0_wa
  
     ![](./images/media/image106.png)
 
-5.  Scroll down to **`Complexity Rules`** section. You can see there is no
+5.  Scroll down to **Complexity Rules** section. You can see there is no
     code change required and no development cost, the estimate migration
     over all develop cost is **0 days**.
 
@@ -942,12 +924,12 @@ In this section you will review the analysis results for the **modresorts-1_0_wa
  
     ![](./images/media/image42.png)
 
-6.  Expand the **`Issues and details`** section. You can see the only minor potential issue listed is for configuring CDI (Context Dependency Injection beans).
+6.  Expand the **Issues and details** section. You can see the only minor potential issue listed is for configuring CDI (Context Dependency Injection beans).
 
     ![](./images/media/image43.png)
 
 7.  Next, scroll down to the bottom of the page and click the
-    **`Technology Report`** link, this opens a new browser window to show
+    **Technology Report** link, this opens a new browser window to show
     the application Evaluation Report.
 
     ![](./images/media/image44.png)
@@ -970,8 +952,8 @@ In this section you will review the analysis results for the **modresorts-1_0_wa
  
     As you can see from the report, the Mod Resorts application only uses  **Java Servlet** which is supported by all WebSphere editions.
 
-8. Go back to the Transformation Advisor page and click the **`Inventory
-    Report`** link.
+8. Go back to the Transformation Advisor page and click the **Inventory
+    Report** link.
 
     ![](./images/media/image52.png)
  
@@ -981,11 +963,11 @@ In this section you will review the analysis results for the **modresorts-1_0_wa
  
     ![](./images/media/image53.png)
 
-    a.  Scroll down through the `Inventory Report` to view this report which serves as good decision-making tool to info you what is inside your application runtime, and to help you to have a better understanding of the application runtime, the components it has and the relationships among them.
+    a.  Scroll down to view this report which serves as good decision-making tool to info you what is inside your application runtime, and to help you to have a better understanding of the application runtime, the components it has and the relationships among them.
 
     ![ta inventory report 2](./images/media/image54.png)
 
-9. In the `Inventory report`, view the package names of the classes in
+9. In the Inventory report, view the package names of the classes in
     the utility Jars
     
     a.  Scroll down to view the **Contained Archives** section and click
@@ -1060,16 +1042,17 @@ expedite the app deployment to OpenShift Platform.
 
     ![](./images/media/image59.png)
 
-2.  Ensure only the **`Open Liberty`** migration target is selected
+2.  Ensure only the **Open Liberty** migration target is selected
 
     ![](./images/media/image60.png)
 
-3.  Click on the **`Migration plan`** link located next to the Mod Resorts application analysis for `Open Liberty`, which will display
-    **`migration plan`** for modresorts for the Open Liberty target
+3.  Click on the **Migration plan** link located next to the Mod Resorts
+    application analysis for Open Liberty, which will display
+    **migration plan** for modresorts for the Open Liberty target
 
     ![](./images/media/image61.png)
 
-7.  Click the **`Download`** link to download the bundle of artifacts to the local filesystem on the Workstation VM.
+7.  Click the **Download** link to download the bundle of artifacts to the local filesystem on the Workstation VM.
 
     The **modresorts10war_migrationBundle.zip** file will be downloaded to the **/home/techzone/Downloads** directory
  
@@ -1116,7 +1099,7 @@ expedite the app deployment to OpenShift Platform.
 
         gedit ~/modresorts-bundle/Containerfile
 
-    - The Containerfile is a two-stage Containerfile.
+    - The Containerfile is a two-stage Dockerfile.
     
       - The first phase is the “**build-stage**” that creates a docker
         image for the modresorts application.
@@ -1136,7 +1119,7 @@ expedite the app deployment to OpenShift Platform.
     
 13. Finally, you need to add the executable file of the Modresorts application to the Target directory of the migration bundle.
 
-        cp /home/techzone/appmod-pot-labfiles/labs/TransformationAdvisor/modresorts-1.0.war ~/modresorts-bundle/target
+    cp /home/techzone/appmod-pot-labfiles/labs/TransformationAdvisor/modresorts-1.0.war ~/modresorts-bundle/target
     
 
 ## 8. Use Transformation Advisor deployment accelerators to deploy and run the Mod Resorts application on Open Liberty
@@ -1146,13 +1129,10 @@ server, and leverage the artifacts generated by Transformation Advisor
 to configure and run the Mod Resorts application on your new Open
 Liberty server.
 
-___
-
-**Tip:** Open Liberty is installed from a zip archive file.
+> **Tip:** Open Liberty is installed from a zip archive file.
 
 For the lab, the Open Liberty zip archive has already been downloaded to
 the lab environment.
-___
 
 To get started, you will create a new directory where you would like to
 install Open Liberty. Then unzip the archive. That’s it, Open Liberty is
@@ -1169,24 +1149,25 @@ installed.
         unzip ~/appmod-pot-labfiles/labs/TransformationAdvisor/openliberty-webProfile8-21.0.0.12.zip -d ~/Liberty
 
 
-    b.  Open Liberty is installed to the **/home/techzone/Liberty/wlp** directory.  Change to Open Liberty “**bin**” directory, which is where the Open Liberty binaries are located.
+    b.  Open Liberty is installed to the **\~/Liberty/wlp** directory.  Change to Open Liberty “**bin**” directory, which is where the Open Liberty binaries are located.
 
         cd wlp/bin
 
-2.  Use the **`server`** command to create a new Open Liberty server named **`modresorts_server`**
+2.  Use the **server** command to create a new Open Liberty server named
+    **modresorts_server**
 
         ./server create modresorts_server
 
     ![](./images/media/image70.png)
 
-3.  Use the **`server`** command to start the Open Liberty server named
-    **`modresorts_server`**
+3.  Use the **server** command to start the Open Liberty server named
+    **modresorts_server**
 
         ./server start modresorts_server
 
     ![](./images/media/image71.png)
 
-4.  Open a new `Terminal` window and view the Open Liberty server log
+4.  Open a **new Terminal window** and view the Open Liberty server log
     file named “messages.log”
 
          tail -f ~/Liberty/wlp/usr/servers/modresorts_server/logs/messages.log 
@@ -1198,12 +1179,12 @@ installed.
     At this point you have an Open Liberty Server running with a defaultserver configuration. However, there are no applications installed(deployed).
     
 
-    Next, you will copy the Mod Resorts binary (WAR) to the Open Liberty server, in which case the application will be deployed and started. Then copy the Open Liberty server configuration file that TA generated for the Mod Resorts application. 
-    
-    The Liberty server will automatically detect and apply these changes in the running server. 
+    Next, you will copy the Mod Resorts binary (WAR) to the Open Liberty server, in which case the application will be deployed and started. Then copy the Open Liberty server configuration file that TA generated for the Mod Resorts application. The Liberty server will automatically detect and apply these changes in the running server. 
    
 
-5.	From a new `Termninal` window, install the modresorts application to the Open Liberty server, using the WAR file that is included in the Transformation Advisor migration bundle.
+5.	Install the modresorts application to the Open Liberty server, using
+    the WAR file that is included in the Transformation Advisor
+    migration bundle.
 
         cp ~/modresorts-bundle/target/modresorts-1.0.war ~/Liberty/wlp/usr/servers/modresorts_server/apps
 
@@ -1214,19 +1195,20 @@ installed.
     includes the Open Liberty server configuration for the modresorts
     application
 
-    a.   From a `Terminal` window, run the following command to copy the **server.xml** file to the  **modresorts_server** configuration directory.
+    a.   Return to the Terminal window where you started the Open Liberty Server.
+
+    b.   Run the following command to copy the **server.xml** file to the  **modresorts_server** configuration directory.
 
         cp ~/modresorts-bundle/src/main/liberty/config/server.xml ~/Liberty/wlp/usr/servers/modresorts_server
 
-    b.  In the Terminal window running the “**tail**” command on the Open Liberty log file, notice that the server is being updated to reflect the updates in the new server.xml file that we copied into the Liberty runtime configuration.
+    c.  In the Terminal window running the “**tail**” command on the Open Liberty log file, notice that the server is being updated to reflect the updates in the new server.xml file that we copied into the Liberty runtime configuration.
 
-    **Note:** You will see a message stating the modresorts application is started.  
+     > Note: You will see a message stating the modresorts application is started.  
 
-    ![](./images/media/image73.png)
+       ![](./images/media/image73.png)
 
-
-7.  Run the modresorts application from the Web browser on the VM.
-    The context root for the application is `/resorts` and is defined in
+7.  Run the modresorts application from the Chrome browser on the VM.
+    The context root for the application is “/resorts” and is defined in
     the Open Liberty server.xml file.
 
         http://localhost:9080/resorts
@@ -1240,7 +1222,7 @@ installed.
     <tr class="odd">
     <td><img src="./images/media/image23.png" style="width:0.80625in;height:0.60625in" alt="sign-caution" /></td>
     <td><p><strong>Tip!</strong></p>
-    <p>If the application does not respond when clicking on the “WHERE TO?” menu, increase the window size of the Web browser.</p>
+    <p>If the application does not respond when clicking on the “WHERE TO?” menu, increase the window size of the Chrome browser.</p>
     </td>
     </tr>
     </tbody>
@@ -1248,9 +1230,14 @@ installed.
 
     ![](./images/media/image75.png)
 
-8.  `Stop` the Open Liberty server, from a Terminal window. 
+8.  Stop the Open Liberty server
 
-        /home/techzone/Liberty/wlp/bin/server stop modresorts_server
+
+    a.  Return to the Terminal window where you started the Open Liberty  Server
+
+    b.  Run the following command to **stop** the server named **modresorts_server**
+
+        ./server stop modresorts_server
 
     ![](./images/media/image76.png)
 
@@ -1262,13 +1249,11 @@ installed.
 ## 9. Use Transformation Advisor accelerators to run the Mod Resorts application on Open Liberty in containers
 
 
-In this section, you will use the `Containerfile` from the Transformation Advisor bundle to build a container image and run the modresorts application in a local container.
+In this section, you will use the Dockerfile to build a docker image and run the modresorts application in a local Docker container.
 
-The `Containerfile` is a two-stage Containerfile:
-
+The Dockerfile is a two-stage Dockerfile:
   - The first phase is the “**build-stage**” that creates a docker
      image for the modresorts application.
-  
   -  The second stage uses the **Open Liberty kernel** container image
      and the build artifacts produced from the “build-stage” to build
      the modresorts container image with the modresorts application and
@@ -1283,36 +1268,34 @@ The `Containerfile` is a two-stage Containerfile:
     Open Liberty
 
     a.  From a Terminal window, change to the directory where the Transformation Advisor migration bundle is located. 
-
-        cd ~/modresorts-bundle
     
     b.  Run the Docker build command to build the image
 
     - The name of the docker image will be **modresorts:1.0,** as
     specified by the -t (tag) parameter.
 
-    - The container image is built from the directives in the **Containerfile** as
+    - The name of the Dockerfile will be **Containerfile** as
     specified by the -f (tag) parameter.
     
-    - The Container image is built using the artifacts in the current directoy of the migration bunlde, as specified by the training **dot** on the command
+    - The Dockerfile used is in the current directory, as specified by the training **dot** on the command
 
+            cd ~/modresorts-bundle
+          
             docker build --no-cache -t modresorts:1.0 -f Containerfile .
 
-    When complete, you will see that the Container image was created and tagged as “**modresorts:1.0**”
+    When complete, you will see that the Docker image was created and tagged as “**modresorts:1.0**”
 
     ![](./images/media/image77.png)
 
 
-    c.  List the Container image and its tag. The name of the image is
+    c.  List the Docker image and its tag. The name of the image is
     “**modresorts**” and is tagged as “**1.0**”
 
         docker images | grep modresorts
 
     ![](./images/media/image78.png)
 
-2.  Run the Modresorts app in the container
-
-        docker run -d -p 9081:9080 --name modresorts modresorts:1.0
+2.  Run the Docker image
 
     - **-d** runs the docker command in detached mode
 
@@ -1324,14 +1307,16 @@ The `Containerfile` is a two-stage Containerfile:
     - **Modresorts:1.0** is the name of the **docker image** to use to
     spin up the new container
 
-           
+            docker run -d -p 9081:9080 --name modresorts modresorts:1.0
+
+
 3.  Verify the docker container is running
 
         docker ps | grep modresorts
 
-    The “**docker ps**” command lists containers that are “running”.
+    The “**docker ps**” command lists docker containers that are “running”.
  
-    Running “**docker ps -a**” lists all containers, including  containers that are stopped.
+    Running “**docker ps -a**” lists all docker containers, including  containers that are stopped.
  
     ![](./images/media/image79.png)
 
@@ -1345,9 +1330,9 @@ The `Containerfile` is a two-stage Containerfile:
 
 5.  Run the modresorts application from the Web Browser.
 
-    - The application is exposed on port: **9081**
+  - The application is exposed on port: **9081**
 
-    - The application context root is: **/resorts**
+  - The application context root is: **/resorts**
 
         http://localhost:9081/resorts
 
@@ -1360,15 +1345,15 @@ The `Containerfile` is a two-stage Containerfile:
     <tr class="odd">
     <td><img src="./images/media/image23.png" style="width:0.90625in;height:0.60625in" alt="sign-caution" /></td>
     <td><p><strong>Tip!</strong></p>
-    <p>If the application does not respond when clicking on the “WHERE TO?” menu, increase the window size of the browser.</p>
-    <p>This appears to be a glitch with the application</p></td>
+    <p>If the application does not respond when clicking on the “WHERE TO?” menu, increase the window size of the Chrome browser.</p>
+    <p>This appears to be a glitch with the application in Chrome browser</p></td>
     </tr>
     </tbody>
     </table>
 
     ![](./images/media/image75.png)
 
-6.  **`Stop`** and **`remove`** the container. Then check that the
+6.  **Stop** and **remove** the docker container. Then check that the
     container has been removed, by using the “**docker ps -a”** command
 
         docker stop modresorts
@@ -1377,7 +1362,7 @@ The `Containerfile` is a two-stage Containerfile:
         
         docker ps -a | grep modresorts
 
-7.  **`Remove`** the modresorts container image. Then use the “**docker
+7.  **Remove** the modresorts docker image. Then use the “**docker
     images**” command to verify the image has been removed
 
         docker rmi modresorts:1.0
