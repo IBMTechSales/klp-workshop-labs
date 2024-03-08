@@ -1,5 +1,15 @@
 # Introduction to Container Orchestration using Openshift
 
+![banner](./images/banner1.jpeg) 
+
+**Last updated:** March 2024
+
+**Duration:** 45 minutes
+
+Need support? Contact **Kevin Postreich, Yi Tang**
+
+## Introduction 
+
 In this lab, we will introduce you to the basics of container Orchestration using Openshift. We will
 
 - Perform basic navigation using the web console

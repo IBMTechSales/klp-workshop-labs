@@ -1,18 +1,12 @@
 # Introduction to Containerization
 
-## Table of Contents
+![banner](./images/banner1.jpeg) 
 
-- [Introduction to Containerization](#introduction-to-containerization)
-  - [Table of Contents](#table-of-contents)
-  - [Background](#background)
-  - [Prerequisites](#prerequisites)
-  - [What is a Container](#what-is-a-container)
-  - [Accessing the environment](#accessing-the-environment)
-  - [Tips for working in the lab environment](#tips-for-working-in-the-lab-environment)
-  - [Check your environment and clone the workshop GitHub project](#check-your-environment-and-clone-the-workshop-github-project)
-  - [Run a pre-built image](#run-a-pre-built-image)
-  - [Build and Run Your Own Image](#build-and-run-your-own-image)
-  - [Managing Image Versions](#managing-image-versions)
+**Last updated:** March 2024
+
+**Duration:** 45 minutes
+
+Need support? Contact **Kevin Postreich, Yi Tang**
 
 <a name="Background"> </a>
 ## Background

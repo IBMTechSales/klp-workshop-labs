@@ -1,6 +1,15 @@
-# Explore IBM Transformation Advisor data collection, app assessments, and deployment accelerators
+# Explore IBM Transformation Advisor
 
-### Hands-on scenario using TA’s WebSphere Data collector, Java application assessment, and deployment accelerators for modernization to Liberty and containers
+## data collection, assessments, & deployment accelerators
+
+![banner](./images/media/banner1.jpeg) 
+
+**Last updated:** March 2024
+
+**Duration:** 45 minutes
+
+Need support? Contact **Kevin Postreich, Yi Tang**
+
 
 ## Explore IBM Transformation Advisor
 
