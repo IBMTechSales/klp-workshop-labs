@@ -1,14 +1,4 @@
-# Liberty Day-2 Operations in containers
-
-![banner](./images/banner1.jpeg) 
-
-**Last updated:** March 2024
-
-**Duration:** 45 minutes
-
-Need support? Contact **Kevin Postreich, Yi Tang**
-
-## Intoduction
+# Day-2 Operations
 
 In this lab, we will introduce you to the basics of day 2 operations in containers on OpenShift. We will:
 
@@ -127,7 +117,7 @@ The lab environment contains six (6) Linux VMs.
 
         cd /home/techzone/appmod-pot-labfiles/labs/Day2/scripts
 
-4. Run the script to build and deploy the PlantsByWebSphere application to the "dev" namespace:
+4. Run the script to build and deploy the application:
    ```
    ./day2.sh
    ```
@@ -146,47 +136,28 @@ First, let's create a request for storage.
 
 #### Request storage (Hands-on)
 
-1. Login to OpenShift console
+1. In the OpenShift console, from the left-panel, select **Storage** > **Persistent Volume Claims**.
 
-    a. Open a new tab in the web browser
+2. From the Project drop-down list, select `dev`. 
 
-    b. Click on the `OpenShift Console bookmark` on the bookmark toolbar
-
-    c. Login credentials:
-
-    - Username: `ocadmin`
-
-    - Password: `ibmrhocp`
-
-
-2. In the OpenShift console, from the left-panel, select **Storage** > **Persistent Volume Claims**.
-
-3. Switch to the `dev` project  
-
-    a. From the `Project` drop-down list, select `dev`. 
-
-    ![dev project](images/dev-project.png)
-
-5. Click on the **Create Persistent Volume Claim** button.
+3. Click on the **Create Persistent Volume Claim** button.
 
     ![create volume claim](extras/images/operations1.png)
 
-6. Ensure that **Storage Class** is `nfs-client`. If not, select it from the list.
+4. Ensure that **Storage Class** is `nfs-client`. If not, select it from the list.
 
-7. Enter `liberty` for the **Persistent Volume Claim Name** field.
+5. Enter `liberty` for the **Persistent Volume Claim Name** field.
 
-8. Request **1 GiB** by entering `1` in the text box for **Size**.
+6. Request **1 GiB** by entering `1` in the text box for **Size**.
 
-9. Click on **Create**.
+7. Click on **Create**.
 
     ![create volume claim](extras/images/operations2.png)
 
-10. The created Persistent Volume Claim will be displayed. Wait for the **Status** field to change from `Pending` to `Bound`. It may take 1-2 minutes.
-
-11. Once bound, you should see the volume displayed under the **Persistent Volume** field.
+8. The created Persistent Volume Claim will be displayed. Wait for the **Status** field to change from `Pending` to `Bound`. It may take 1-2 minutes.
+9. Once bound, you should see the volume displayed under the **Persistent Volume** field.
 
     ![create volume claim](extras/images/operations3.png)
-
 
 #### Enable serviceability (Hands-on)
 
@@ -226,14 +197,10 @@ The volume can be shared by all Liberty applications that are in the same namesp
     A common mistake is creating the Persistent Volume Claim in another namespace. Ensure that it is created in the `dev` namespace.
 
 3. In the OpenShift console, from the left-panel, click on **Workloads** > **Pods**. Wait until there is only 1 pod on the list and its **Ready** column says 1/1.
-
 4. Click on this pod.
 
     ![pod name](extras/images/operations4.png)
-
 5. The pod's name is needed for requesting server dump and trace in the next sections. Scroll down and copy the value under the **Name** field.
-
-    **Tip:** The pod name will begin with `plantsbywebsphereee6-`   
 
     ![requesting server dump](extras/images/operations5.png)
 
@@ -249,21 +216,15 @@ Use the following steps to request a server dump:
 
 3. Click on the **Create WebSphereLibertyDump** button. 
 
-4. Accept the license
+4. Replace `Specify_Pod_Name_Here` in the **Pod Name** text field with the pod name you copied earlier.
 
-    a. Click the `>` next to the licence file to expand the section
+5. The **Include** field specifies the type of server dumps to request. Let's use the `thread` value only by expanding `Include` and clicking `Remove include` for the second `heap` section.
 
-    b. CLick the `Accept` chckbox to accept the license
- 
-6. Replace `Specify_Pod_Name_Here` in the **Pod Name** text field with the pod name you copied earlier.
+6. Click on the **Create** button.
 
-7. The **Include** field specifies the type of server dumps to request. Let's use the `thread` value only by expanding `Include` and clicking `Remove include` for the second `heap` section.
+7. Click on `websphereliberty-dump-sample` from the list.
 
-8. Click on the **Create** button.
-
-9. Click on `websphereliberty-dump-sample` from the list.
-
-10. Scroll-down to the **Conditions** section and you should see `Started` status has value `True`. Wait for the operator to complete the dump operation. You should see status `Completed` with value `True`.
+8. Scroll-down to the **Conditions** section and you should see `Started` status has value `True`. Wait for the operator to complete the dump operation. You should see status `Completed` with value `True`.
 
 Once the dumps are completed, a zipfile containing the **logs**, **configuration** and **thread dump** is created on the storage volume that was attached to the pod. 
 
@@ -285,23 +246,16 @@ Use the following steps to request a server trace:
 
 3. Click on the **Create WebSphereLibertyTrace** button.
 
-4. Accept the license
+4. Replace `Specify_Pod_Name_Here` under the **Pod Name** text field with the pod name you copied earlier.
 
-    a. Click the `>` next to the licence file to expand the section
-    
-    b. CLick the `Accept` chckbox to accept the license
+5. The **Trace Specification** field specifies the trace string to be used to selectively enable trace on Liberty server. Let's use the default value. 
 
-5. Replace `Specify_Pod_Name_Here` under the **Pod Name** text field with the pod name you copied earlier.
+6. Click on the **Create** button.
 
-6. The **Trace Specification** field specifies the trace string to be used to selectively enable trace on Liberty server. Let's use the default value. 
+7. Click on `websphereliberty-trace-sample` from the list.
 
-7. Click on the **Create** button.
-
-8. Click on `websphereliberty-trace-sample` from the list.
-
-9. Scroll-down to the **Conditions** section and you should see `Enabled` status has value `True`. 
-
-
+8. Scroll-down to the **Conditions** section and you should see `Enabled` status has value `True`. 
+	
 **Additional notes:** 
 
    - Once the trace has started, it can be stopped by setting the `disable` parameter to true. 
@@ -339,11 +293,6 @@ In this lab environment, the NFS server is on the **nfs** VM. You will not acces
     ```
     The shared volume is mounted at the `serviceability` folder. The sub-folder `dev` is the namespace of the Pod. You should see a zip file for dumps and trace log files. These are produced by the day-2 operations you performed.
 
-3. Exit the pod:
-   ```
-   exit
-   ```
-
 ### Day-2 Operations without the WebSphere Liberty Operator
 
 This part of the lab will cover how to gather dumps and traces without the Liberty Operator, or in the case that a Liberty Operator application has not been configured with persistent serviceability storage.
@@ -356,9 +305,9 @@ First we will delete the WebSphere Liberty Application created previously and cr
    ```
    oc delete wlapp plantsbywebsphereee6
    ```
-2. Create the Deployment, Service, and Route:
+1. Create the Deployment, Service, and Route:
    ```
-   oc apply -f /home/techzone/appmod-pot-labfiles/labs/Day2/plantsbywebsphereee6.yaml
+   oc apply -f ../../Day2/plantsbywebsphereee6.yaml
    ```
 
 The application should now be running as it was before but this time using a Kubernetes Deployment, Service and Route that is not managed by the WebSphere Liberty Operator.
@@ -376,20 +325,20 @@ You can request a snapshot of the server including different types of server dum
       ```
   
     - OR, From OpenShift console: click on **Workloads** > **Pods**. Click on the pod and then click on the **Terminal** tab. 
-2. Run the command to start the server dump:
+1. Run the command to start the server dump:
    ```
    /opt/ibm/wlp/bin/server dump defaultServer --include=thread
    ```
-3. After some time, a message should be written with the resulting zip file; for example:
+1. After some time, a message should be written with the resulting zip file; for example:
    ```
    Dumping server defaultServer.
    Server defaultServer dump complete in /opt/ibm/wlp/output/defaultServer/defaultServer.dump-24.02.27_15.40.39.zip.
    ```
-4. Finally, let's download the zip file. First exit the pod:
+1. Finally, let's download the zip file. First exit the pod:
    ```
    exit
    ```
-5. Then, use the `oc cp` command, replacing the pod name and the zip path and zip name from the output above:
+1. Then, use the `oc cp` command, replacing the pod name and the zip path and zip name from the output above:
    ```
    oc cp <pod-name>:<zip-path> <zip-name>
    ```
@@ -398,13 +347,6 @@ You can request a snapshot of the server including different types of server dum
    $ oc cp plantsbywebsphereee6-7c96f58946-dlbqd:/opt/ibm/wlp/output/defaultServer/defaultServer.dump-24.02.27_15.40.39.zip defaultServer.dump-24.02.27_15.40.39.zip
    tar: Removing leading `/' from member names
    ```
-   ___
-   
-   **Note:** Ignore the message: 
-   
-   tar: Removing leading `/' from member names
-   ___   
-
    Now the zip file is downloaded locally.
 
 #### Request server traces manually (Hands-on)
@@ -420,41 +362,34 @@ Use the following steps to enable a server trace:
       ```
   
     - OR, From OpenShift console: click on **Workloads** > **Pods**. Click on the pod and then click on the **Terminal** tab. 
-    - 
-2. Print the trace configuration into a config dropin file; for example:
-   
-   **Tip:** Run the command from inside the pod
-
+1. Print the trace configuration into a config dropin file; for example:
    ```
    echo '<?xml version="1.0" encoding="UTF-8"?><server><logging traceSpecification="*=info:com.ibm.ws.webcontainer*=all" maxFileSize="100" maxFiles="10" /></server>' > /config/configDropins/overrides/trace.xml
    ```
-3. Make a request to the application to cause some trace to be generated:
-  
-   **Tip:** Run the command from inside the pod
-
+1. Make a request to the application to cause some trace to be generated:
    ```
    curl http://localhost:9080/PlantsByWebSphere/
    ```
-4. Verify that traces have been started by listing the logs directory and noting the existence of a `trace.log` file:
+1. Verify that traces have been started by listing the logs directory and noting the existence of a `trace.log` file:
    ```
    ls -l /logs/
    ```
-5. Example output showing `trace.log`:
+1. Example output showing `trace.log`:
    ```
    $ ls -l /logs/
    total 280
    -rw-r-----. 1 1000740000 root  23181 Feb 27 15:46 messages.log
    -rw-r-----. 1 1000740000 root 211814 Feb 27 15:46 trace.log
    ```
-6. Disable the trace by deleting the config dropin:
+1. Disable the trace by deleting the config dropin:
    ```
    rm /config/configDropins/overrides/trace.xml
    ```
-7. Finally, let's download the trace. First exit the pod:
+1. Finally, let's download the trace. First exit the pod:
    ```
    exit
    ```
-8. Then, use the `oc cp` command, replacing the pod name:
+1. Then, use the `oc cp` command, replacing the pod name:
    ```
    oc cp <pod-name>:/logs/trace.log trace.log
    ```
@@ -463,13 +398,6 @@ Use the following steps to enable a server trace:
    $ oc cp plantsbywebsphereee6-7c96f58946-dlbqd:/logs/trace.log trace.log
    tar: Removing leading `/' from member names
    ```
-   ___
-   
-   **Note:** Ignore the message: 
-   
-   tar: Removing leading `/' from member names
-   ___   
-   
    Now the `trace.log` file is downloaded locally.
 
 ## Summary
