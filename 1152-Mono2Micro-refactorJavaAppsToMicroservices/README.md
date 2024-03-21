@@ -496,22 +496,22 @@ command line tool.
 
         ./mono2micro install -c docker
 
-6.  You need to choose option “**2**” for trial to proceed:
+6.  You need to choose option **`1`** for trial to proceed:
 
     <table>
     <tbody>
     <tr class="odd">
     <td><p>License not accepted. Choose from the following options:</p>
-    <p>1. IBM WebSphere Hybrid Edition 5.1 (L-AMIK-C92MN6)</p>
-    <p>2. IBM Mono2Micro 23.0.06 trial (L-KNAV-6S5BZN)</p>
+    <p>1. IBM Mono2Micro 23.0.06 trial (L-KNAV-6S5BZN)</p>
+    <p>2. IBM WebSphere Hybrid Edition 5.1 (L-AMIK-C92MN6)</p>
     <p>3. IBM WebSphere Application Server for z/OS V9.0.5.15 (L-QJFA-M33W3S)</p>
     <p>4. IBM WebSphere Application Server for z/OS V8.5.5.23 (L-LRGS-5TV3HE)</p>
-    <p>Select [1/2/3/4]: 2</p></td>
+    <p>Select [1/2/3/4]: 1</p></td>
     </tr>
     </tbody>
     </table>
 
-7.  The license will be presented, and you need to accept it. Type “**1**” to proceed:
+7.  The license will be presented, and you need to accept it. Type **`1`** to proceed:
 
     |                                                           |
     | --------------------------------------------------------- |
