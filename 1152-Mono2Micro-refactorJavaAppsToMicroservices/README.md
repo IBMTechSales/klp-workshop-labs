@@ -3007,8 +3007,7 @@ generated code’s JAX-RS webservice service and client code:
 
 # **Appendix C:** **How can I do this lab using my own environment**? 
 
-It is possible to do this lab using your own environment instead of the
-Skytap environment provided.
+It is possible to do this lab using your own environment instead of the environment provided.
 
 **NOTE**: The **prerequisite software** listed in the prerequisites
 section of the lab MUST be installed on your local environment.
@@ -3047,45 +3046,3 @@ obviously issuing commands using my own path instead of /home/ibmdemo:
   - Edit **\$LAB\_HOME/m2m-ws-sample/defaultapplication/scripts/refactorPartitions.sh** to adjust the path to your own environment, here:
     WORKDIR="$LAB\_HOME/m2m-ws-sample"
 
-# Appendix: *How to us Copy / Paste between local desktop and Skytap VMs
-
-**How to use Copy / Paste between local desktop and Skytap VM?***
-
-Using copy / Paste capabilities between the lab document (PDF) on your
- local workstation to the VM is a good approach to work through a lab
- more efficiently, while reducing the typing errors that often occur
- when manually entering data.
-
-1.  In SkyTap, you will find that any text copied to the clipboard on
-    your local workstation is not available to be pasted into the VM on
-    SkyTap. So how can you easily accomplish this?
-    
-    a.  First copy the text you intend to paste, from the lab document
-         to the clipboard on your local workstation, as you always have
-         (CTRL-C)
-    
-    b.   Return to the SkyTap environment and click on the Clipboard at
-         the top of the SkyTap session window.
-
-    ![](./images/media/image132.png)
-
-    c.   Use **CTRL-V** to paste the content into the Copy/paste VM
-     clipboard. Or use the **paste** menu item that is available in the
-     dialog, when you right mouse click in the clipboard text area.
-
-    ![](./images/media/image133.png)
-
-    d.  Once the text is pasted, just navigate away to the VM window where
-     you want to paste the content. Then, use **CTRL-C**, or right
-     mouse click & us the **paste menu item** to paste the content.
-
-    ![](./images/media/image134.png)
-
-    e.  The text is pasted into the VM
-
-    ![](./images/media/image135.png)
-
-    **Note:** The very first time you do this, if the text does not paste,
-you may have to paste the contents into the Skytap clipboard twice. This
-is a known Skytap issue. It only happens on the 1<sup>st</sup> attempt
-to copy / paste into Skytap.

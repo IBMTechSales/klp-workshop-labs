@@ -14,7 +14,7 @@
 The following prerequisites must be completed prior to beginning this
 lab if running the lab using your own environment. Refer to **Appendix
 C** if you want to run the lab using your own environment, as it details
-the minimal changes to the lab instructions.
+the minimal changes to the lab instructions. 
 
   - 3 GB free storage for the Mono2Micro Docker images and containerized
     microservices
@@ -430,12 +430,20 @@ command line tool.
 
         cd /home/ibmdemo/Mono2Micro-CLI
 
-2.  Run the Mono2Micro CLI version and help commands:
+2.  Run the Mono2Micro CLI version commands:
 
         ./mono2micro -v
-        mono2micro-cli version: 23.0.04.0
+        
+    command output:     
+    
+        mono2micro-cli version: 23.0.06.0
 
+3.  Run the Mono2Micro CLI help command:
+  
         ./mono2micro -h
+
+    command output: 
+
         Mono2Micro: AI driven transformation of Java monoliths to microservices for WebSphere Liberty
         Usage: mono2micro [-hvz] COMMAND
         -h, --help      Display help information
@@ -454,10 +462,13 @@ command line tool.
         Run 'mono2micro COMMAND --help' for more information on a command.
 
 
-3.  Check the install possibilities by using the help option within
+4.  Check the install possibilities by using the help option within
     install command:
 
         ./mono2micro install -h
+ 
+     command output: 
+ 
         Install Mono2Micro components and images
         Usage: mono2micro install [options]
         Options:
@@ -466,50 +477,50 @@ command line tool.
         -h, --help                               Display help information
         -l, --license=<1|2|3|4>                  Accept license:
                                                 1. IBM WebSphere Hybrid Edition 5.1 (L-AMIK-C92MN6)
-                                                2. IBM Mono2Micro 23.0.04 trial (L-CQBY-93TJUZ)
-                                                3. IBM WebSphere Application Server for z/OS V9.0.5.14 (L-VNYU-W694VR)
+                                                2. IBM Mono2Micro 23.0.06 trial (L-KNAV-6S5BZN)
+                                                3. IBM WebSphere Application Server for z/OS V9.0.5.15 (L-QJFA-M33W3S)
                                                 4. IBM WebSphere Application Server for z/OS V8.5.5.23 (L-LRGS-5TV3HE)
         -r, --repo=<string>                      Set a custom repository prefix to pull Mono2Micro images from.
                                                 If this is not specified or if it is set to "default" then the images will 
                                                     be pulled from the product repositories.
         -v, --license-view=<1|2|3|4>             View license:
                                                 1. IBM WebSphere Hybrid Edition 5.1 (L-AMIK-C92MN6)
-                                                2. IBM Mono2Micro 23.0.04 trial (L-CQBY-93TJUZ)
-                                                3. IBM WebSphere Application Server for z/OS V9.0.5.14 (L-VNYU-W694VR)
+                                                2. IBM Mono2Micro 23.0.06 trial (L-KNAV-6S5BZN)
+                                                3. IBM WebSphere Application Server for z/OS V9.0.5.15 (L-QJFA-M33W3S)
                                                 4. IBM WebSphere Application Server for z/OS V8.5.5.23 (L-LRGS-5TV3HE)
         -z, --verbose                            Enable verbose mode
 
 
-4.  Run the Mono2Micro **install command,** selecting Docker as the
+5.  Run the Mono2Micro **install command,** selecting Docker as the
     container engine:
 
         ./mono2micro install -c docker
 
-5.  You need to choose option “**2**” for trial to proceed:
+6.  You need to choose option **`1`** for trial to proceed:
 
     <table>
     <tbody>
     <tr class="odd">
     <td><p>License not accepted. Choose from the following options:</p>
-    <p>1. IBM WebSphere Hybrid Edition 5.1 (L-AMIK-C92MN6)</p>
-    <p>2. IBM Mono2Micro 23.0.04 trial (L-CQBY-93TJUZ)</p>
-    <p>3. IBM WebSphere Application Server for z/OS V9.0.5.14 (L-VNYU-W694VR)</p>
+    <p>1. IBM Mono2Micro 23.0.06 trial (L-KNAV-6S5BZN)</p>
+    <p>2. IBM WebSphere Hybrid Edition 5.1 (L-AMIK-C92MN6)</p>
+    <p>3. IBM WebSphere Application Server for z/OS V9.0.5.15 (L-QJFA-M33W3S)</p>
     <p>4. IBM WebSphere Application Server for z/OS V8.5.5.23 (L-LRGS-5TV3HE)</p>
-    <p>Select [1/2/3/4]: 2</p></td>
+    <p>Select [1/2/3/4]: 1</p></td>
     </tr>
     </tbody>
     </table>
 
-6.  The license will be presented, and you need to accept it. Type “**1**” to proceed:
+7.  The license will be presented, and you need to accept it. Type **`1`** to proceed:
 
     |                                                           |
     | --------------------------------------------------------- |
     | Do you accept the license? Enter 1 for Yes or 2 for No: 1 |
 
-7.  The **next steps** message will be displayed when the Mono2Micro-CLI
+8.  The **next steps** message will be displayed when the Mono2Micro-CLI
     is successfully installed:
 
-        License used: IBM Mono2Micro 23.0.04 trial (L-CQBY-93TJUZ)
+        License used: IBM Mono2Micro 23.0.06 trial (L-KNAV-6S5BZN)
         Container engine used: Docker
         Completed downloading all Mono2Micro images
 
@@ -518,16 +529,26 @@ command line tool.
         Next steps: Analyze your Java application source code with the "mono2micro analyze" or "mono2micro instrument" commands
 
 
-8.  Now Mono2Micro is successfully installed. As a result of the
+9.  Now Mono2Micro is successfully installed. As a result of the
     installation, two new files were created under the user home
     directory. Use the commands below to check the content of the files:
 
+    a. view the license key
+
         cat ~/.mono2micro_license
+        
+    command output:     
+        
         accept_license_flag = true
-        license_key = L-CQBY-93TJUZ
+        license_key = L-KNAV-6S5BZN
+
+    b. view the configuration
 
         cat ~/.mono2micro_config
-        update_check_last = 2023-04-14
+    
+    command output: 
+
+        update_check_last = 2023-06-27
         license_type = 2
         container_engine = docker
         update_check_frequency = 30
@@ -561,18 +582,20 @@ Let’s begin with the build of the .ear file and then the static data collectio
 
         cd /home/ibmdemo/m2m-ws-sample/defaultapplication/monolith
 
-        mvn clean install
+        mvn -DskipTests=true clean install
 
     Maven should have successfully built the application and generated the  binary artifacts (EAR, WAR), and placed them in the Liberty Server “apps” folder.
 
     ![](./images/media/image27.png)
 
-2.  Return to Mono2Micro folder and run the code analyzer with help option to verify the possibilities
-    available:
+2.  Return to Mono2Micro folder and run the code analyzer with help option to verify the possibilities available:
 
         cd /home/ibmdemo/Mono2Micro-CLI
 
         ./mono2micro analyze -h
+        
+    command output:     
+        
         Analyze the monolith application source code or binary code
         Usage: mono2micro analyze [options] (-a=<file> | -s=<dir>)
         Options:
@@ -607,7 +630,9 @@ Let’s begin with the build of the .ear file and then the static data collectio
         -z, --verbose                            Enable verbose mode
 
 
-    The following options are exclusively used to control the Java packages to be analyzed with the binary analyzer. None of the options persist because the analyzer does not save any list or user preference. Thus, you must specify the wanted options for each execution. For the options, specify a comma-separated list with no empty spaces, for example:
+    The following options are exclusively used to control the Java packages to be analyzed with the binary analyzer. None of the options persist because the analyzer does not save any list or user preference. Thus, you must specify the wanted options for each execution. For the options, specify a comma-separated list with no empty spaces; 
+    
+    For example:
 
     ```
     com.test.app,org.xyz.lib,edu.abc
@@ -659,6 +684,9 @@ Let’s begin with the build of the .ear file and then the static data collectio
 5.  Review the output from the binary code analyzer:
 
         ls -g DefaultApplication-mono2micro
+
+    command output:
+
         -rw-r--r--  1 staff    199 17 Apr 13:53 instrumenter-config.json
         -rw-r--r--  1 staff    193 17 Apr 13:53 recommender-config.properties
         -rw-r--r--  1 staff   1449 17 Apr 13:53 refTable.json
@@ -745,6 +773,7 @@ You will configure the Liberty server to load the Binary instrumenter (minerva-a
 
     The **jvm.options** file in Liberty is used to set Java Virtual Machine arguments. For Mono2micro, you need to configure the Java agent for the binary instrumenter
 
+    
     b.  Edit the **jvm.options** to point to the files under monolith-mono2micro folder and the binary instrumenter (minerva-agent.jar) under Mono2Micro-CLI/instrumenter folder.
 
     Copy / Paste the following content into the jvm.options file:
@@ -831,6 +860,9 @@ running that scenario on the monolith.
     b.  Check the possible options to run the use case recorder
 
         ./mono2micro usecase -h
+
+    command output: 
+
         Capture use case context (names and times) while running them on the instrumented application
         Usage: mono2micro usecase [options]
         Options:
@@ -854,7 +886,7 @@ running that scenario on the monolith.
 
     a. In the web browser, go to **http://localhost:9080/**
 
-    b. From the **use case recorder**, provide the label named **snoop** and press **ENTER**. 
+    b. From the **use case recorder**, provide the label named **`snoop`** and press **ENTER**. 
     
     This starts the **use case recorder** stopwatch for the snoop test case.
 
@@ -878,7 +910,7 @@ running that scenario on the monolith.
 
     e. When finished, click on the Browsers “**back**” button ![](./images/media/image35.png) to return to the applications main   > HTML page.
 
-    f.  In the **use case recorder**, enter **9**, to stop the stopwatch for the test case
+    f.  In the **use case recorder**, enter **`9`**, to stop the stopwatch for the test case
 
         A filename is not specified. Creating a default file: "context_1681760275797.json".
         Enter <Label> to start recording current context or enter 1 to exit.
@@ -896,7 +928,7 @@ running that scenario on the monolith.
 
     Running the Hit Count test case requires the same basic step as Snoop, but has a few more options to test in the application:
 
-    a.  In the **use case recorder**, provide the label named **hitcount** which will start the stopwatch for the snoop test case.
+    a.  In the **use case recorder**, provide the label named **`hitcount`** which will start the stopwatch for the snoop test case.
 
         A filename is not specified. Creating a default file: "context_1681760275797.json".
         Enter <Label> to start recording current context or enter 1 to exit.
@@ -937,7 +969,7 @@ running that scenario on the monolith.
     e.  You can run **HitCount** multiple times, choosing different
     “**Transaction Type**” options.
 
-    f. In the **use case recorder**, enter **9**, to stop the **use case recorder** stopwatch for the test case
+    f. In the **use case recorder**, enter **`9`**, to stop the **use case recorder** stopwatch for the test case
 
     The **use case recorder** has now captured the START and STOP timestamps for the use cases, which corresponds to the timestamps  recorded in the Liberty log file from the  instrumented version of the DefaultApplication.
  
@@ -958,7 +990,7 @@ running that scenario on the monolith.
         Enter <Label> to start recording current context or enter 1 to exit.
 
 
-    g.  In the **use case recorder**, enter **1**, to quit
+    g.  In the **use case recorder**, enter **`1`**, to quit
 
         A filename is not specified. Creating a default file: "context_1681760275797.json".
         Enter <Label> to start recording current context or enter 1 to exit.
@@ -1126,6 +1158,9 @@ The **/home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/** directo
   - **config.ini** Optional file to configure various parameters for the analysis tool. If one doesn’t exist, AI engine generates one for you with default values.
  
         ls -R /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data
+
+    command output: 
+
         contexts logs     tables
 
         /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/contexts:
@@ -1152,15 +1187,19 @@ generate partition recommendations.
 2.  Check the options available to run the AI engine:
 
         ./mono2micro recommend -h
+    
+    command output: 
+
         Run the AI engine on collected application data to recommend partitions for the monolith
         Usage: mono2micro recommend [options] -d=<dir>
         Options:
-        -d, --data-dir=<dir>   Specify directory containing the application 
-                                data files, subdirectories, and optional config.ini
-        -h, --help             Display help information
-        -s, --status           Show the last stage that the AI engine was run 
-                                to completion for this application
-        -z, --verbose          Enable verbose mode
+        -d, --data-dir=<dir>            Specify directory containing the application data files, subdirectories, and optional config.ini
+            --exclude-utility-classes   Exclude utility classes from consideration for AI analysis and recommendation of partitions. All other
+                                            application classes will be considered for placement in recommended partitions by Mono2Micro, and the utility
+                                            classes will be placed in a special group which can be packaged as a utility jar.
+        -h, --help                      Display help information
+        -s, --status                    Show the last stage that the AI engine was run to completion for this application
+        -z, --verbose                   Enable verbose mode
 
 
 3.  Run the AI engine using the following command:
@@ -1184,20 +1223,20 @@ generate partition recommendations.
 
     - **Cardinal-Report**.html is a detailed report of all the application partitions, their member classes, outward facing classes, etc
  
-          /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-output/**Cardinal-Report.html**
+          /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-output/Cardinal-Report.html
  
     - **Oriole-Report.html** is a summary report of all the application
  partitions and their associated business use cases
  
-          /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-output/**Oriole-Report.html**
+          /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-output/Oriole-Report.html
  
     - **final_graph.json** is the full set of application partition  recommendations (natural seams and business logic) and associated  details, viewable in the Mono2Micro UI
  
-          /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-output/oriole/**final\_graph.json**
+          /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-output/oriole/final_graph.json
  
     - **cardinal/\*** is a folder that contains a complete set of input files (based on the partitioning) for the next and last stage of the Mono2Micro pipeline, running the code generator
  
-          /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-output/cardinal/\*
+          /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-output/cardinal/*
 
 5.  Continue to the next section. You will explore the generated reports later in the lab.
 
@@ -1212,6 +1251,9 @@ generated by loading the **final\_graph.json** in the workbench UI.
     workbench UI:
 
         ./mono2micro workbench -h
+    
+    command output: 
+
         Run the workbench UI to view and customize the AI recommended partitions
         Usage: mono2micro workbench [options]
         Options:
@@ -1236,7 +1278,7 @@ generated by loading the **final\_graph.json** in the workbench UI.
     a.  From the UI, click the “**Drop or Add File**” link
     
     b.  From the “**File Upload**” dialog window, navigate to the
-        following **final\_graph.json** file
+        following **`final_graph.json`** file
 
     > Home \> ibmdemo \> m2m-ws-sample \> defaultapplication \>  mono2micro-analysis \> oriole \> final\_graph.json
 
@@ -1244,7 +1286,7 @@ generated by loading the **final\_graph.json** in the workbench UI.
 
     ![](./images/media/image51.png)
 
-    d.  From the UI, click the “**Maybe Later**” button to SKIP the tour, and proceed to the results
+    d.  From the UI, click the “**`Maybe Later`**” button to SKIP the tour, and proceed to the results
 
     ![](./images/media/image52.png)
 
@@ -1275,7 +1317,7 @@ The Default Application contains two major Java components in the  application.
 
 In addition to the Java components, the application also contains  HTML, JSP, and other web resources.
  
-The goal of this lab is to split the Default Application monolith into separate microservices, such that the (Front-end) Web components run  as a microservice, and the (back-end) EJB and  data layer run as a separate microservice.
+The goal of this lab is to split the Default Application monolith into separate microservices, such that the (front-end) Web components run  as a microservice, and the (back-end) EJB and  data layer run as a separate microservice.
  
 In this exercise, we will ensure that the Web components(Servlets,
  HTML, JSP, etc) will be in the (front-end) web partition, and the (back-end) HitCount’s increment action Java / EJB components run in a separate partition.
@@ -1303,15 +1345,15 @@ In this exercise, we will ensure that the Web components(Servlets,
  
     ![](./images/media/image55.png)
 
-    Note that by using “Table” mode the classes can have labels. When the AI engine recognizes a class as a “Utility” class, it automatically displays on the Workbench UI the “Utility” label on the “Table” mode. A Utility class defines a set of methods that perform common tasks.
+    Note that by using “Table” mode the classes can have labels. When the AI engine recognizes a class as a “Utility” class, it automatically displays on the Workbench UI the “Utility” label on the “Table” mode and places it on a "Utility" group. A Utility class defines a set of methods that perform common tasks. Utility classes mostly have incoming method calls from other classes in the application. They might also have, or alternatively have, mostly static member fields and methods, and various other characteristics.
 
 2.  If you explored other views, return to the “**Business Logic”** view in “**Graph**” Mode
 
     ![Graphical user interface, diagram, application, Teams Description automatically generated](./images/media/image53_b.png)
 
-    It is important to notice that the same class labeled as “Utility” on the “Table” mode appears in “Graph” mode as diamond-shaped.
+    It is important to notice that the same class labeled as “Utility” on the “Table” mode appears in “Graph” mode as diamond-shaped inside a specific group called "Utility".
 
-3.  From the Business Logic view, notice that there are two
+3.  From the Business Logic view, notice that there are three
     **partitions** created. It could be cases where one special partition for
     “**Unobserved**” classes is created as well.
 
@@ -1324,30 +1366,29 @@ In this exercise, we will ensure that the Web components(Servlets,
     incomplete set of test cases for adequate code coverage.
 
 
-4.  Explore the Java classes in partition0 and partition1
+4.  Explore the Java classes in partition0, partition1, and Utility partition
     
     a.  **Double-click** on each of the **partition**s to display the
         number of Java classes in each partition
 
     ![Graphical user interface, application Description automatically  generated](./images/media/image56.png)
 
-    - **Partiton0** contains four classes (HitCount, IncrementAction,
-    Increment and IncrementSSB) which the classes that were identified
+    - **Partiton0** contains three classes (HitCount, IncrementAction, 
+    and IncrementSSB) which the classes that were identified
     as part of the “**hitcount”** use case from our test cases.
-    
-      - Within partition0, you can see that mono2micro observed
-        intra-partition communication, as indicated by the lines between
-        the classes**.**
 
     - **Partiton1** contains one class (SnoopServlet) which is the only
     class that was observed in the “snoop” test case
 
+    - **Utility** contains one class (Increment) which was identified by
+    Mono2Micro as a potential utility class.
+
     - As you can see, there are **no lines** between these partitions,
     indicating that there is no partition to partition
     (inter-partitioning) communication observed between the classes in
-    partition 0 and partition1.
+    partition0, partition1, and Utility partition.
     
-      - This is because the initial partition recommendations placed all the classes that communicate in the **hitcount** use case into a single partition.
+      - This is because the initial partition recommendations placed all the classes that communicate in the **hitcount** use case into a single partition. Also, by default the inter-partitioning communication to **Utility** partition is disabled.
 
 
     The initial partitioning recommendations are a starting point and generated taking into consideration based on the business logic and natural seams that were discovered during the analysis.
@@ -1372,7 +1413,7 @@ the Java servlet classes which are referred to by the html file.
 The goal of this lab is to split the Default Application monolith into
 separate microservices such that:
 
-  - The **(Front-end**) Web components run as a microservice
+  - The **(front-end**) Web components run as a microservice
 
   - The (**back-end**) EJB and data layer run as a separate microservice
 
@@ -1392,11 +1433,13 @@ generated](./images/media/image58.png)
 Tweaking the business logic recommendations is straight forward using
 the UI, and includes these basic steps, which you will do next:
 
+-  **Move Increment (Entity) class to the partition0**. All three classes in **partition0** depend on **Increment** and **SnoopServlet** does not depend on **Increment**.
+
 -  **Rename partition1 to web**. This is not required but illustrates
     the capability to create partitions with names that make sense. This
     is useful during the code generation phase.
 
--  **Move HitCount Servlet (Service Entry) class to the web partition**. All the Servlets and other front-end components should     be here.
+-  **Move HitCount Servlet (Service Entry) class to the web partition**. All the Servlets and other front-end components should be here.
 
 
 
@@ -1425,7 +1468,25 @@ the UI, and includes these basic steps, which you will do next:
 
     ![Graphical user interface, diagram Description automatically  generated](./images/media/image62.png)
 
-3.  Rename “partition1” to “web”
+3. Move the **Increment** (Entity) class to the "**partition0**" partition
+
+    a. Click on **Increment** class from **Utility** partition
+
+    ![](./images/media/image62_a.png)
+
+    Note that all three classes in **partition0** have arrows pointing to **Increment** in **Utility** partition. This means that those classes depend on **Increment**. Similarly, we can conclude that **partition1** does not depend on **Increment** because there are no arrows between them. 
+    
+    Thus, we can simplify the partitioning by moving **Increment** from **Utility** to **partition0**. However, in real-world large Java applications, multiple classes can be part of the "**Utility**" partition and other partitions could depend on them. In that case, you may package any application classes in "**Utility**" as a utility .jar file and then place it in all other partitions that depend on those utility classes.
+ 
+    b.  Drag and Drop the **Increment** class from **Utility** partition to the **partition0** partition. 
+
+    ![](./images/media/image62_b.png)
+
+    c. The **Increment** class is now located in the **partition0**.
+
+    ![](./images/media/image62_c.png)
+
+4.  Rename “partition1” to “web”
     
     a.  Click on **partition1** that includes the SnoopServlet class and
         then on the “**Details**” button
@@ -1448,7 +1509,7 @@ the UI, and includes these basic steps, which you will do next:
 
     ![Graphical user interface, text, application, chat or text message  Description automatically generated](./images/media/image68.png)
 
-4.  Move the **HitCount** (Service Entry) class to the “**web**”
+5.  Move the **HitCount** (Service Entry) class to the “**web**”
     partition
     
     a.  Drag and Drop the **HitCount** class from **partition0** to the
@@ -1460,7 +1521,7 @@ the UI, and includes these basic steps, which you will do next:
 
     ![Diagram Description automatically  generated](./images/media/image58_b.png)
 
-5.  Click on the “**Save partitions**” button to save the updated custom
+6.  Click on the “**Save partitions**” button to save the updated custom
     view. The customized **final\_graph.json** file is saved to the
     **“/home/ibmdemo/Downloads”** folder.
 
@@ -1498,7 +1559,7 @@ Lets get started\!
  
      All you will do now is copy the final_graph.json file to this folder location where it will be discovered by the AI engine.
 
-    a.  Run the following commands to copy the file, change to the target directory, and list the files and ensure the **custom_graph.json** has been copied to the desired directory
+    a.  Run the following commands to copy the file, change to the target directory, and list the files and ensure the **`custom_graph.json`** has been copied to the desired directory
 
         cp /home/ibmdemo/Downloads/final_graph.json /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/custom_graph.json
 
@@ -1508,7 +1569,7 @@ Lets get started\!
 
     ![](./images/media/image71.png)
 
-2.  From the same folder as the **custom-graph.json** file**,** modify
+2.  From the same folder as the **custom-graph.json** file, modify
     the permissions for **config.ini** so that we have write permissions
 
         sudo chmod 777 ./config.ini
@@ -1524,7 +1585,7 @@ Lets get started\!
             *** Modify the config.ini as described and illustrated below.
 
 
-    a.   Modify the value for the “***UserModifiedGraph***” property to **custom_graph.json**
+    a.   Modify the value for the “**`UserModifiedGraph`**” property to **`custom_graph.json`**
 
     b.  **Save** and **Close** the config.ini file
 
@@ -1589,14 +1650,9 @@ Lets get started\!
     The Cardinal-Report provides a deep analysis of all the  inter-partition invocations, the types of all the non-primitive  parameters passed to partitions during their invocations, and oreign class references within a partition.
  
      Classes are foreign to a partition if they are defined in another  partition.
+
+     ![](./images/media/image75-a.png)
  
-    ![](./images/media/image75.png) ![](./images/media/image76.png)
- 
-    ![](./images/media/image77.png)
- 
-    ![](./images/media/image78.png)
- 
-    ![](./images/media/image79.png)
 
 3.  Review the **partition0** Partition
     
@@ -1729,6 +1785,9 @@ referenced in the code generator command for proper execution:
         cd /home/ibmdemo/Mono2Micro-CLI
 
         ./mono2micro transform -h
+
+    command output: 
+
         Generate starter code to implement and run the partitions as microservices
         Usage: mono2micro transform [options] -p=<dir> -s=<dir>
         Options:
@@ -1782,7 +1841,7 @@ summary and details of the Java source files that were generated.
  
     In this case, the **cardinal-codegen** folder and **associated  reports** are generated here:
  
-    > /home/ibmdemo/m2m-ws-sample/defaultapplication/application-data/mono2micro/mono2micro-user-modified/cardinal
+    > /home/ibmdemo/m2m-ws-sample/defaultapplication/mono2micro-analysis-custom/cardinal/cardinal-codegen
 
     a.  Open the CardinalFileSummary.txt file using an available editor
 
@@ -2029,9 +2088,10 @@ functionality in each partition.
 
         ./moveResourcesToPartitions.sh
 
-            When prompted for a password, enter: passw0rd
 
-            Note: That is a numeric zero in passw0rd
+    a. If prompted for a password, enter: `passw0rd`
+
+        Note: That is a numeric zero in passw0rd
 
 4.  Use a graphical **File Explorer** ![](./images/media/image89.png) or
     **Terminal** window to see the non-Java files now in each of the
@@ -2130,9 +2190,10 @@ Server in separate Docker containers.
 
         ./refactorPartitions.sh
 
-            If prompted for a password, enter: passw0rd
+        
+    a. If prompted for a password, enter: `passw0rd`
 
-            Note: That is a numeric zero in passw0rd
+        Note: That is a numeric zero in passw0rd
 
     ![](./images/media/image90.png)
  
