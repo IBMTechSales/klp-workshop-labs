@@ -1062,7 +1062,7 @@ generated](./lab2-media/media/4310-alert-channel-created.png)
     a. On the Team Settings page, under **`Events & Alerts`**,
     click **`Events`**.
 
-    b. In the `search field`, enter `memory usgae high` to filter the list of events.
+    b. In the `search field`, enter `memory usage high` to filter the list of events.
 
     b. You see the custom event named `Memory Usage High` that was configured for the lab.  
 
